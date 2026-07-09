@@ -2,13 +2,13 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dpv: <http://w3id.org/dpv#> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
-@prefix mailo: <https://onto.example.org/medical-ai-legal#> .
+@prefix mailo: <https://w3id.org/mailo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://onto.example.org/medical-ai-legal> a owl:Ontology ;
+<https://w3id.org/mailo> a owl:Ontology ;
     dcterms:created "2026-03-27"^^xsd:date ;
     dcterms:description """\r
         Ontology capturing the legal landscape governing AI-driven automated\r
@@ -36,8 +36,8 @@ mailo: a owl:Ontology ;
     dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
     dcterms:title "Medical AI Legal Ontology (MAILO)" ;
     rdfs:comment "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."@en ;
-    owl:priorVersion <https://onto.example.org/medical-ai-legal/5.0> ;
-    owl:versionIRI <https://onto.example.org/medical-ai-legal/5.0.1> ;
+    owl:priorVersion <https://w3id.org/mailo/5.0> ;
+    owl:versionIRI <https://w3id.org/mailo/5.0.1> ;
     owl:versionInfo "5.0.1" .
 
 mailo:AIAct_Art13 a mailo:LegalArticle ;

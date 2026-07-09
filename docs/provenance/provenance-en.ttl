@@ -6,7 +6,7 @@
 	 dc:title "Medical AI Legal Ontology (MAILO)";
 	 prov:wasAttributedTo :agent0;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
-	 prov:wasRevisionOf <https://onto.example.org/medical-ai-legal/5.0>;
+	 prov:wasRevisionOf <https://w3id.org/mailo/5.0>;
 	 prov:wasGeneratedAt "2026-04-30";
 .
 :agent0 a prov:Agent; foaf:name "Victor Kao".

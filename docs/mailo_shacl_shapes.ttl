@@ -27,10 +27,10 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
-@prefix mailo:   <https://onto.example.org/medical-ai-legal#> .
+@prefix mailo:   <https://w3id.org/mailo#> .
 
 # Shapes graph declaration
-<https://onto.example.org/medical-ai-legal/shacl>
+<https://w3id.org/mailo/shacl>
     a owl:Ontology ;
     dcterms:title "MAILO SHACL Shapes — CJEU Runtime Constraints"@en ,
                   "MAILO SHACL 形狀圖 — 歐盟法院執行期約束"@zh-TW ;
@@ -41,13 +41,13 @@
     """@en ;
     dcterms:created "2026-04-30"^^xsd:date ;
     dcterms:modified "2026-07-09"^^xsd:date ;
-    owl:versionIRI <https://onto.example.org/medical-ai-legal/shacl/5.0.1> ;
+    owl:versionIRI <https://w3id.org/mailo/shacl/5.0.1> ;
     owl:versionInfo "5.0.1" ;
-    owl:priorVersion <https://onto.example.org/medical-ai-legal/shacl/3.0> ;
+    owl:priorVersion <https://w3id.org/mailo/shacl/3.0> ;
     rdfs:comment "Version 5.0.1 (patch): metadata corrections aligned with MAILO ontology v5.0.1."@en ;
     sh:declare [
         sh:prefix "mailo" ;
-        sh:namespace "https://onto.example.org/medical-ai-legal#"^^xsd:anyURI
+        sh:namespace "https://w3id.org/mailo#"^^xsd:anyURI
     ] .
 
 
@@ -87,9 +87,9 @@ mailo:C634_Art22ProhibitionShape
         a sh:SPARQLConstraint ;
         sh:message "C-634/21 P_634_004: This system produces significant impact but has no Art.22(2) exception documented (mailo:art22ExceptionApplied). GDPR Art.22(1) prohibition applies."@en ;
         sh:severity sh:Violation ;
-        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:prefixes <https://w3id.org/mailo/shacl> ;
         sh:select """
-            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            PREFIX mailo: <https://w3id.org/mailo#>
             SELECT $this
             WHERE {
                 $this mailo:producesSignificantImpact true .
@@ -128,9 +128,9 @@ mailo:C634_SubstantiveOversightShape
         a sh:SPARQLConstraint ;
         sh:message "C-634/21 P_634_002 (rubber-stamping): One or more HumanOversightRecord instances linked to this system have mailo:oversightIsSubstantive = false. Formal sign-off without independent judgment violates GDPR Art.22(1)."@en ;
         sh:severity sh:Violation ;
-        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:prefixes <https://w3id.org/mailo/shacl> ;
         sh:select """
-            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            PREFIX mailo: <https://w3id.org/mailo#>
             SELECT $this
             WHERE {
                 $this mailo:hasHumanOversightRecord ?rec .
@@ -164,9 +164,9 @@ mailo:C634_MultiActorChainShape
         a sh:SPARQLConstraint ;
         sh:message "C-634/21 P_634_003 (multi-actor chain): This system uses third-party automated scoring as significant input but has not documented an independent Art.22(2) exception for its own use. Responsibility cannot be delegated to the upstream provider."@en ;
         sh:severity sh:Warning ;
-        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:prefixes <https://w3id.org/mailo/shacl> ;
         sh:select """
-            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            PREFIX mailo: <https://w3id.org/mailo#>
             SELECT $this
             WHERE {
                 $this a mailo:AutomatedDecisionSystem .
@@ -228,9 +228,9 @@ mailo:C817_BlackBoxProhibitionShape
         a sh:SPARQLConstraint ;
         sh:message "C-817/19 P_817_002 (Grand Chamber): This system is classified as a BlackBoxMLSystem AND produces significant impact. Non-transparent self-learning ML is constitutionally prohibited for such decisions. System must be redesigned with predetermined, explainable criteria."@en ;
         sh:severity sh:Violation ;
-        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:prefixes <https://w3id.org/mailo/shacl> ;
         sh:select """
-            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            PREFIX mailo: <https://w3id.org/mailo#>
             SELECT $this
             WHERE {
                 $this a mailo:BlackBoxMLSystem .
