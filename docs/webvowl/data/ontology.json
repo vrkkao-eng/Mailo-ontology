@@ -1,0 +1,5602 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://w3id.org/dpv", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://data.europa.eu/eli/ontology", "https://onto.example.org/medical-ai-legal", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "en" : "Medical AI Legal Ontology (MAILO)",
+      "undefined" : "Medical AI Legal Ontology (MAILO)"
+    },
+    "iri" : "https://onto.example.org/medical-ai-legal",
+    "version" : "5.0.1",
+    "author" : [ "Victor Kao" ],
+    "description" : {
+      "en" : "\r\n        Ontology capturing the legal landscape governing AI-driven automated\r\n        decision-making in medical contexts. Covers CJEU precedents on GDPR\r\n        Art.22, UPC/EPO patent litigation in MedTech, the EU AI Act high-risk\r\n        regime, MDR 2017/745, PLD 2024/2853, EHDS 2025/327, DGA 2022/868,\r\n        and Data Act 2023/2854 — with full precedent chains, SHACL runtime\r\n        constraints, and compliance obligation mappings.\r\n        Imports: W3C DPV v2.0 (data privacy vocabulary), AIRO (AI risk ontology),\r\n        ELI (European Legislation Identifier), ECLI (European Case Law Identifier).\r\n    ",
+      "undefined" : "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations."
+    },
+    "comments" : {
+      "en" : "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/4.0/",
+        "type" : "iri"
+      } ],
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "https://onto.example.org/medical-ai-legal/5.0",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Victor Kao",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2026-03-27",
+        "type" : "label"
+      }, {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2026-04-30",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2026-05-19",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "KU Leuven, Faculty of Engineering Science",
+        "type" : "label"
+      } ],
+      "language" : [ {
+        "identifier" : "language",
+        "language" : "undefined",
+        "value" : "en",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "5.0.1",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Medical AI Legal Ontology (MAILO)",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "Medical AI Legal Ontology (MAILO)",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "67",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "71",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "83",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "85",
+    "type" : "owl:Class"
+  }, {
+    "id" : "91",
+    "type" : "owl:Class"
+  }, {
+    "id" : "94",
+    "type" : "owl:Class"
+  }, {
+    "id" : "95",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "79",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "102",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "103",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "108",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "109",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "111",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "81",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "112",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "115",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "117",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "118",
+    "type" : "owl:Class"
+  }, {
+    "id" : "119",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "120",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "121",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "84",
+    "type" : "owl:Class"
+  }, {
+    "id" : "114",
+    "type" : "owl:Class"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "72",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "137",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "125",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "101",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "54",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "183",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "138",
+    "type" : "owl:Class"
+  }, {
+    "id" : "139",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "194",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "99",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "129",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "144",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "158",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "130",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "195",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "168",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "131",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "202",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegislativeAmendment",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegislativeAmendment",
+      "undefined" : "LegislativeAmendment"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#OmnibusGDPR_Art22_Proposal_20251119",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "OmnibusGDPR_Art22_Proposal_20251119",
+        "undefined" : "Digital Omnibus Regulation — GDPR Art.22 Reframing Proposal (NOT YET ADOPTED)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone",
+        "undefined" : "Activation event: high_risk_annex_iii_omnibus"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v4_FRIA_PublicBodies",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v4_FRIA_PublicBodies",
+        "undefined" : "Activation event: fria_public_bodies"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v3b_Omnibus_AnnexI_SaMD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v3b_Omnibus_AnnexI_SaMD",
+        "undefined" : "Activation event: high_risk_annex_i_samd_omnibus"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v3_OriginalHighRisk",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v3_OriginalHighRisk",
+        "undefined" : "Activation event: high_risk_original_deadline"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#OmnibusAI_ProvisionalAgreement_20260507",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "OmnibusAI_ProvisionalAgreement_20260507",
+        "undefined" : "Digital Omnibus on AI — Provisional Agreement (Council + EP, 2026-05-07)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v2_GPAIModelObligations",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v2_GPAIModelObligations",
+        "undefined" : "Activation event: gpai_model_obligations"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amend_AIAct_v1_ProhibitedPractices",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amend_AIAct_v1_ProhibitedPractices",
+        "undefined" : "Activation event: prohibited_practices_and_general"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A legislative event that creates or modifies a regulation version"
+    },
+    "id" : "0"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#NotifiedBody",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NotifiedBody",
+      "en" : "Notified Body",
+      "undefined" : "NotifiedBody"
+    },
+    "comment" : {
+      "undefined" : "A conformity assessment body notified under MDR/AI Act"
+    },
+    "id" : "7",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#RiskScoringSystem",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RiskScoringSystem",
+      "en" : "Risk Scoring System",
+      "undefined" : "RiskScoringSystem"
+    },
+    "comment" : {
+      "undefined" : "Automated risk stratification or scoring system"
+    },
+    "id" : "12",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#NationalCourtCase",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NationalCourtCase",
+      "en" : "National Court Case",
+      "undefined" : "NationalCourtCase"
+    },
+    "comment" : {
+      "undefined" : "Proceeding before a national court"
+    },
+    "id" : "14",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ConstitutionalPrinciple",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConstitutionalPrinciple",
+      "en" : "Constitutional Principle",
+      "undefined" : "ConstitutionalPrinciple"
+    },
+    "comment" : {
+      "en" : "Principle derived from the EU Charter of Fundamental Rights.",
+      "undefined" : "Principle derived from EU Charter of Fundamental Rights"
+    },
+    "id" : "23",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#UPC_CoA",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UPC_CoA",
+      "en" : "UPC Court of Appeal"
+    },
+    "id" : "24",
+    "superClasses" : [ "25" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#NPE",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NPE",
+      "en" : "Non-Practising Entity",
+      "undefined" : "NPE"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#GXDBio",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "GXDBio",
+        "en" : "GXD-Bio Corporation (NPE)"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "Non-Practising Entity — patent assertion vehicle"
+    },
+    "id" : "28",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "http://w3id.org/dpv#DPIA",
+    "baseIri" : "http://w3id.org/dpv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DPIA"
+    },
+    "attributes" : [ "equivalent", "external" ],
+    "id" : "32"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#CrossFrameworkTension",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CrossFrameworkTension",
+      "undefined" : "CrossFrameworkTension"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_TSD_AIAct_Transparency",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "partial",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#TradeSecretConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "TSD Art.2 protects model weights, training data schemas, and architecture as trade secrets. AI Act Art.13 requires deployers to receive sufficient information about high-risk AI system capabilities and limitations. C-203/22 §§60-70 sets the mandatory floor: controller cannot invoke TSD Art.2 to deny all causal explanation of an automated decision — disputed information must be produced to the competent supervisory authority or court for balance. AI Act Art.78 ensures national authority confidentiality but does not disapply Art.13 disclosure to deployers. TSD Art.5 is the only legislative bridge but its scope in the medical AI context remains unresolved pending a CJEU reference on Art.22 and clinical AI."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_TSD_AIAct_Transparency",
+        "en" : "TSD Art.2 Trade Secret vs. AI Act Art.13 + GDPR Art.15(1)(h) — Core Transparency Tension"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_DataAct_TradeSecret_AITransparency",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "partial",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#TradeSecretConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "C-203/22 Dun & Bradstreet §§60-70 limits trade-secret defence: a controller cannot refuse all causal explanation on trade-secret grounds. The precise boundary between permitted limitation and impermissible derogation is determined case-by-case."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_DataAct_TradeSecret_AITransparency",
+        "en" : "Data Act Art.15 trade secret vs. AI Act Art.13 + GDPR Art.15(1)(h) transparency"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_MDR_AIAct_DualTrack",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "procedural_only",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#ConformityGapConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Two separate conformity assessment pathways for the same SaMD. MDCG AIB 2025-1 provides a procedural joint-assessment mechanism but does not harmonise the substantive requirement sets."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_MDR_AIAct_DualTrack",
+        "en" : "MDR Annex IX conformity vs. AI Act Art.43 conformity assessment"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_EHDS_GDPR_OptOut",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "unresolved",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#DataGovernanceConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "EHDS Art.35 grants patients an unconditional right to opt out of secondary health data use. Where opt-out rates are elevated in a clinically significant subpopulation, the resulting training dataset violates AI Act Art.10(3) representativeness. No legislative safe harbour bridges these positions."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_EHDS_GDPR_OptOut",
+        "en" : "EHDS Art.35 opt-out vs. AI Act Art.10(3) representativeness"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_PLD_AIAct_LiabilityGap",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "partial",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#LiabilityConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "PLD Art.11 defect presumption applies where it is excessively difficult for the claimant to prove defect. AI Act Art.9-compliant risk management documentation may rebut the presumption but no legislative safe harbour confirms this."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_PLD_AIAct_LiabilityGap",
+        "en" : "PLD Art.10 defect presumption vs. AI Act Art.9 risk management"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_PLD_AIAct_Liability",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "\r\n        PLD Art.4 imposes strict liability; AI Act conformity assessment is not a\r\n        defence to PLD claims. A CE-marked AI-SaMD that passes AI Act conformity\r\n        assessment may still be 'defective' under PLD if it fails in real-world\r\n        deployment. The two regimes do not create a safety harbour from each other.\r\n    "
+      },
+      "labels" : {
+        "IRI-based" : "Tension_PLD_AIAct_Liability",
+        "en" : "PLD Strict Liability vs. AI Act Conformity Defence"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_EPO_GDPR_Disclosure",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "\r\n        EPC Art.83 requires public disclosure of training data structure to maintain patent validity.\r\n        GDPR Art.15(1)(h) + C-203/22 require actionable explanations to data subjects.\r\n        The EPO disclosure may inadvertently establish a baseline that strengthens GDPR access rights,\r\n        eroding TSD Art.2 trade secret shields that might otherwise limit GDPR Art.15 responses.\r\n        TSD Art.9 judicial confidentiality measures do not apply to EPO prosecution, leaving no\r\n        mechanism to contain the disclosure baseline once it enters the public patent record.\r\n    "
+      },
+      "labels" : {
+        "IRI-based" : "Tension_EPO_GDPR_Disclosure",
+        "en" : "EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_BlackBox_PatentProtection",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "\r\n        Deep-learning medical AI is inherently opaque (black-box). Patent protection incentivises\r\n        secrecy over model weights. EU AI Act Art.13 and C-817/19 black-box prohibition\r\n        require transparency for high-risk AI systems, creating structural tension with\r\n        commercial IP protection strategies. TSD Art.2 reinforces the secrecy interest;\r\n        TSD Art.5 carve-outs are the only legislative bridge, but their scope is unresolved.\r\n    "
+      },
+      "labels" : {
+        "IRI-based" : "Tension_BlackBox_PatentProtection",
+        "en" : "Black-Box Patent Protection vs. EU AI Act Transparency Obligation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_DGA_Neutrality_DataAcquisition",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "unresolved",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#DataGovernanceConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "DGA Art.10 prohibits data-sharing intermediaries from using shared data for purposes beyond the sharing service. Integrated AI development models in which intermediary and developer are related entities require structural business model restructuring that no guidance resolves."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_DGA_Neutrality_DataAcquisition",
+        "en" : "DGA Art.10 neutrality obligation vs. AI Act Art.10 data governance"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Tension_EPO_MDR_SemanticScope",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "unresolved",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://onto.example.org/medical-ai-legal#SemanticGranularityConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "EPO patent prosecution optimises for broad technical-effect claims (wider scope = stronger IP protection); MDR Annex II requires precise intended-purpose specification (narrower scope = easier clinical evaluation); AI Act Art.9/13 requires intermediate characterisation covering intended purpose plus reasonably foreseeable misuse. The same SaMD must be described at opposing granularity levels across three institutional knowledge spaces. No EPO, MDCG, or AI Office guidance addresses this triangular scope alignment problem."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_EPO_MDR_SemanticScope",
+        "en" : "EPO G-II §3.3 broad claim scope vs. MDR Annex II §1.1 + AI Act Art.9/13 intended purpose"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A conflict or gap between two regulatory frameworks"
+    },
+    "id" : "33"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Company",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Company",
+      "en" : "Company",
+      "undefined" : "Company"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#Microsoft",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Microsoft",
+        "en" : "Microsoft Corporation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Dexcom",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Dexcom",
+        "en" : "Dexcom Inc."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Amgen",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Amgen",
+        "en" : "Amgen Inc."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Sanofi",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Sanofi",
+        "en" : "Sanofi S.A."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#MyriadGenetics",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "MyriadGenetics",
+        "en" : "Myriad Genetics Inc."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#SiemensHealthineers",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "SiemensHealthineers",
+        "en" : "Siemens Healthineers AG"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Abbott",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Abbott",
+        "en" : "Abbott Laboratories"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Hologic",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Hologic",
+        "en" : "Hologic Inc."
+      }
+    } ],
+    "subClasses" : [ "28" ],
+    "comment" : {
+      "undefined" : "A corporate entity"
+    },
+    "id" : "29",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#RegulatoryFramework",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RegulatoryFramework",
+      "en" : "Regulatory Framework",
+      "undefined" : "RegulatoryFramework"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#MDR",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2017/745/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32017R0745",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MDR",
+        "en" : "MDR 2017/745"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-12-13",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2023/2854/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32023R2854",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Data Act. Applies from 2025-09-12. Governs data sharing obligations for IoT-generated data (medical devices, wearables) and B2G/B2B data access for AI development."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct",
+        "en" : "Data Act 2023/2854"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2016-04-27",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/679/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32016R0679",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR",
+        "en" : "GDPR 2016/679"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024-08-01",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2024/1689/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32024R1689",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AIAct",
+        "en" : "EU AI Act 2024/1689"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2022-05-30",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2022/868/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32022R0868",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Data Governance Act. Applies from 2023-09-24. Creates data intermediaries, data altruism organisations, and re-use frameworks for public sector health data."
+      },
+      "labels" : {
+        "IRI-based" : "DGA",
+        "en" : "DGA 2022/868"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2025/327/EU",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "European Health Data Space. Governs primary use (MyHealthData) and secondary use of health data for research, innovation, and AI training. In force 2025-03-26."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS",
+        "en" : "EHDS Regulation 2025/327"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPCA",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-06-01",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "OJ C 175, 20.6.2013",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Agreement on a Unified Patent Court (in force 2023-06-01). Establishes the UPC as a supranational court for infringement and revocation of European patents across contracting states. Key for medtech AI: opt-out strategy, PI threshold ('more likely than not' invalidity standard from 10x v. NanoString CoA), EPO-UPC divergence risk."
+      },
+      "labels" : {
+        "IRI-based" : "UPCA",
+        "en" : "UPC Agreement (UPCA)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PNRDirective",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/681/EU",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PNRDirective",
+        "en" : "PNR Directive 2016/681"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024-11-23",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2024/2853/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32024L2853",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."
+      },
+      "labels" : {
+        "IRI-based" : "PLD",
+        "en" : "PLD 2024/2853"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPC",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "1977-10-07",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "European Patent Convention (in force 1977-10-07). Governs patentability of AI/medical-AI inventions (Art.52 exclusions), sufficiency of disclosure for ML models (Art.83), and EPO opposition/appeal proceedings. Administered by EPO; distinct from EU law but intersects via UPC."
+      },
+      "labels" : {
+        "IRI-based" : "EPC",
+        "en" : "European Patent Convention"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#TSD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2016-06-08",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/943/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32016L0943",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "EU Trade Secrets Directive. Harmonises civil-law protection of undisclosed know-how and business information. Key for medical AI: model weights, training data schemas, and proprietary algorithms qualify as trade secrets under the Art.2 three-part test. Art.5 carve-outs limit the secrecy shield when exercise of the right to information is at stake — directly engaged by GDPR Art.15(1)(h) and AI Act Art.13 transparency obligations."
+      },
+      "labels" : {
+        "IRI-based" : "TSD",
+        "en" : "Trade Secrets Directive 2016/943"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EUCharter",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "EUCharter",
+        "en" : "EU Charter of Fundamental Rights"
+      }
+    } ],
+    "comment" : {
+      "en" : "A coherent body of rules governing a specific domain.",
+      "undefined" : "A coherent body of rules governing a domain"
+    },
+    "id" : "21"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Technology",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Technology",
+      "en" : "Technology",
+      "undefined" : "Technology"
+    },
+    "subClasses" : [ "5" ],
+    "comment" : {
+      "undefined" : "A medical AI technology class"
+    },
+    "id" : "3"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#InternationalTreaty",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InternationalTreaty",
+      "en" : "International Treaty",
+      "undefined" : "InternationalTreaty"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPCA",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-06-01",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "OJ C 175, 20.6.2013",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Agreement on a Unified Patent Court (in force 2023-06-01). Establishes the UPC as a supranational court for infringement and revocation of European patents across contracting states. Key for medtech AI: opt-out strategy, PI threshold ('more likely than not' invalidity standard from 10x v. NanoString CoA), EPO-UPC divergence risk."
+      },
+      "labels" : {
+        "IRI-based" : "UPCA",
+        "en" : "UPC Agreement (UPCA)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPC",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "1977-10-07",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "European Patent Convention (in force 1977-10-07). Governs patentability of AI/medical-AI inventions (Art.52 exclusions), sufficiency of disclosure for ML models (Art.83), and EPO opposition/appeal proceedings. Administered by EPO; distinct from EU law but intersects via UPC."
+      },
+      "labels" : {
+        "IRI-based" : "EPC",
+        "en" : "European Patent Convention"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EUCharter",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "EUCharter",
+        "en" : "EU Charter of Fundamental Rights"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "International treaty or convention"
+    },
+    "id" : "45",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#RatioDecidendi",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RatioDecidendi",
+      "en" : "Ratio Decidendi",
+      "undefined" : "RatioDecidendi"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_634_003",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "The prohibition in Art.22 cannot be circumvented by splitting the automated decision across multiple actors (scoring agency + final decision maker). Both may bear responsibility."
+      },
+      "labels" : {
+        "IRI-based" : "P_634_003",
+        "en" : "P-634/21-003: Multi-Actor ADM Chain Gap-Filling"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_634_002",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "'Solely' is assessed functionally: formal human intervention that does not constitute substantive review (rubber-stamping) does not negate the 'solely' requirement. The decisive weight given to the automated output is the test."
+      },
+      "labels" : {
+        "IRI-based" : "P_634_002",
+        "en" : "P-634/21-002: Functional 'Solely' Test"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_203_001",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Art.15(1)(h) requires actionable explanations in non-technical language, identifying which inputs affected the output and the main reasoning path. Abstract mathematical formulas are insufficient."
+      },
+      "labels" : {
+        "IRI-based" : "P_203_001",
+        "en" : "P-203/22-001: Meaningful Explainability Standard"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_634_001",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "A 'decision' under Art.22 encompasses any act producing legal or similarly significant effects. Automated scoring creating probabilities relied upon by third parties constitutes a 'decision'."
+      },
+      "labels" : {
+        "IRI-based" : "P_634_001",
+        "en" : "P-634/21-001: Broad 'Decision' Concept"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_634_004",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Art.22(1) is a prohibition rule, not merely a right to object. Exceptions in Art.22(2) are exhaustive; safeguards in Art.22(3) are mandatory when an exception applies."
+      },
+      "labels" : {
+        "IRI-based" : "P_634_004",
+        "en" : "P-634/21-004: Art.22 = Prohibition Rule"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_817_002",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Non-transparent, self-learning ML risk assessment systems may not be used for decisions with significant impact. Pre-determined criteria and regular review are required."
+      },
+      "labels" : {
+        "IRI-based" : "P_817_002",
+        "en" : "P-817/19-002: Black-Box ML Prohibition"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_307_001",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Patients have an unconditional right to a complete copy of their medical records, free of charge, including all AI-generated diagnostic outputs, in a faithful and comprehensible format."
+      },
+      "labels" : {
+        "IRI-based" : "P_307_001",
+        "en" : "P-307/22-001: Unconditional Patient Record Access"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_817_001",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Any positive match from automated PNR analysis must be subject to individual non-automated review before any measure is taken. Establishes constitutional minimum for meaningful human intervention."
+      },
+      "labels" : {
+        "IRI-based" : "P_817_001",
+        "en" : "P-817/19-001: Mandatory Non-Automated Individual Review"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_Bara_001",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Data subjects must be informed of data transfers; establishes foundational transparency obligation."
+      },
+      "labels" : {
+        "IRI-based" : "P_Bara_001",
+        "en" : "Transparency Rights Foundation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_817_004",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Automated assessment criteria must not be based on health status. AI systems trained on medical history data may not use health condition as a discriminatory classification basis."
+      },
+      "labels" : {
+        "IRI-based" : "P_817_004",
+        "en" : "P-817/19-004: Non-Discrimination — Health Status Excluded"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_817_003",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Large-scale automated processing must satisfy: (a) targeted scope, (b) purpose limitation, (c) temporal limitation. Failure at any level invalidates the entire processing system."
+      },
+      "labels" : {
+        "IRI-based" : "P_817_003",
+        "en" : "P-817/19-003: Strict Necessity Tri-Level Proportionality Test"
+      }
+    } ],
+    "comment" : {
+      "en" : "The binding legal reasoning upon which the decision rests.",
+      "undefined" : "Binding legal reasoning upon which decision rests"
+    },
+    "id" : "56",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegalArticle",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalArticle",
+      "en" : "Legal Article",
+      "undefined" : "LegalArticle"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#MDR_Art15",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Manufacturers must designate a person responsible for regulatory compliance (PRRC). For AI-SaMD companies this person must have expertise in medical AI regulation."
+      },
+      "labels" : {
+        "IRI-based" : "MDR_Art15",
+        "en" : "MDR Art.15 — Person Responsible for Regulatory Compliance"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct_Art3",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Users of connected medical devices (wearables, implantables) have a right to access data generated by those devices, enforceable against manufacturers. Extends GDPR Art.20 portability."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art3",
+        "en" : "Data Act Art.3 — IoT Data Access Right"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art50",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "General-purpose AI (GPAI) providers must disclose AI-generated content (watermarking/labelling). Applies to AI-generated radiology reports, diagnostic summaries."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art50",
+        "en" : "AI Act Art.50 — Transparency for GPAI"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Charter_Art8",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Protection of personal data."
+      },
+      "labels" : {
+        "IRI-based" : "Charter_Art8",
+        "en" : "EU Charter Art.8"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art10",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Training, validation, and test datasets for high-risk AI must meet quality criteria: relevance, representativeness, freedom from errors, completeness. Direct tension with data scarcity in rare disease AI."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art10",
+        "en" : "AI Act Art.10 — Data Governance"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPC_Art83",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Disclosure of the invention — sufficiency of disclosure."
+      },
+      "labels" : {
+        "IRI-based" : "EPC_Art83",
+        "en" : "EPC Article 83"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art13",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Transparency and provision of information to deployers."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art13",
+        "en" : "AI Act Article 13"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS_Art35",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Data subjects may opt out of secondary use of their health data in databases not requiring individual consent. Creates tension with AI Act Art.10 data governance obligations."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS_Art35",
+        "en" : "EHDS Art.35 — Opt-Out Right"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art9",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "http://w3id.org/dpv#SpecialCategoryData",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Processing of special categories of personal data, including health data."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art9",
+        "en" : "GDPR Article 9"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Charter_Art7",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Respect for private and family life."
+      },
+      "labels" : {
+        "IRI-based" : "Charter_Art7",
+        "en" : "EU Charter Art.7"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA_Art31",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Advisory body for DGA implementation, including guidance on interoperability between health data repositories used for AI training."
+      },
+      "labels" : {
+        "IRI-based" : "DGA_Art31",
+        "en" : "DGA Art.31 — European Data Innovation Board"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS_Art33",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Health data access bodies must authorise secondary use of health data for AI training, research, and policy. Access by data permit only; no direct de-identified access."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS_Art33",
+        "en" : "EHDS Art.33 — Secondary Use Authorisation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#TSD_Art9",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Courts may impose confidentiality measures to protect trade secrets during litigation. Relevant to UPC discovery proceedings where a party seeks disclosure of AI model architecture or training data as part of infringement or validity analysis."
+      },
+      "labels" : {
+        "IRI-based" : "TSD_Art9",
+        "en" : "TSD Article 9 — Preservation of Confidentiality in Legal Proceedings"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art35",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Data Protection Impact Assessment (DPIA)."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art35",
+        "en" : "GDPR Article 35"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#TSD_Art2",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Three-part cumulative test: information must be (1) secret (not generally known or readily accessible), (2) have commercial value because it is secret, and (3) be subject to reasonable steps to keep it secret. All three must hold for ML model weights or training data to qualify."
+      },
+      "labels" : {
+        "IRI-based" : "TSD_Art2",
+        "en" : "TSD Article 2 — Definition of Trade Secret"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art9",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "High-risk AI providers must establish and maintain a risk management system throughout the AI system lifecycle. Iterative process; complements MDR post-market surveillance."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art9",
+        "en" : "AI Act Art.9 — Risk Management System"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art15",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Right of access by the data subject."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art15",
+        "en" : "GDPR Article 15"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#TSD_Art5",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Trade secret protection does not apply where disclosure is required for the exercise of the right to information. Directly engaged when a data subject invokes GDPR Art.15(1)(h) or AI Act Art.86 for an explanation of an automated medical decision — controller cannot use TSD Art.2 to block all causal explanation (C-203/22 §§60-70)."
+      },
+      "labels" : {
+        "IRI-based" : "TSD_Art5",
+        "en" : "TSD Article 5 — Exceptions"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct_Art5",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Data holders must share IoT-generated health data with third parties at user request. Creates AI training data supply chain implications for medical device manufacturers."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art5",
+        "en" : "Data Act Art.5 — Data Sharing with Third Parties"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS_Art50",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "HealthData@EU federated cross-border health data access infrastructure. Enables EU-wide AI training datasets without raw data transfer."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS_Art50",
+        "en" : "EHDS Art.50 — HealthData@EU Infrastructure"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct_Art23",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Medical AI providers using cloud infrastructure must enable switching between cloud providers without data lock-in. Relevant for hospital AI SaaS deployment models."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art23",
+        "en" : "Data Act Art.23 — Switching Cloud Services"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art14",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Human oversight for high-risk AI systems."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art14",
+        "en" : "AI Act Article 14"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art15_1h",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Right to meaningful information about the logic, significance and envisaged consequences of automated processing."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art15_1h",
+        "en" : "GDPR Art.15(1)(h)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art17",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "High-risk AI providers must implement a QMS covering design, development, post-market monitoring. Aligned with MDR Annex IX QMS requirements to avoid double burden."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art17",
+        "en" : "AI Act Art.17 — Quality Management System"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#MDR_Art61",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Medical device manufacturers must conduct clinical evaluation demonstrating safety and performance. For AI-SaMD, AI-specific performance validation (bias, drift, edge cases) is required."
+      },
+      "labels" : {
+        "IRI-based" : "MDR_Art61",
+        "en" : "MDR Art.61 — Clinical Evaluation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#MDR_Art83",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "PMS system must collect real-world performance data. For AI-SaMD: continuous monitoring of model drift and performance degradation in deployment populations."
+      },
+      "labels" : {
+        "IRI-based" : "MDR_Art83",
+        "en" : "MDR Art.83 — Post-Market Surveillance"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art86",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Right to explanation of individual decision-making."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art86",
+        "en" : "AI Act Article 86"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA_Art2",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Chapter II framework for re-use of protected public sector data (including health data subject to confidentiality). Applies to AI training use cases at hospitals and research institutes."
+      },
+      "labels" : {
+        "IRI-based" : "DGA_Art2",
+        "en" : "DGA Art.2 — Re-use of Public Sector Health Data"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPC_Art52",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Patentable inventions; exclusion of mathematical methods and software as such."
+      },
+      "labels" : {
+        "IRI-based" : "EPC_Art52",
+        "en" : "EPC Article 52"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS_Art68",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Governance body coordinating national health data access bodies and harmonising data access rules for AI research across Member States."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS_Art68",
+        "en" : "EHDS Art.68 — European Health Data Space Board"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD_Art10",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Rebuttable presumption of defect where: defendant fails to disclose; product does not comply with mandatory safety requirements; obvious malfunction occurs. Reduces claimant's evidential burden."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art10",
+        "en" : "PLD Art.10 — Presumption of Defectiveness"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD_Art11",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Rebuttable causation presumption where defect is established and damage is of a kind normally caused by the defect. Key for medical AI harm cases."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art11",
+        "en" : "PLD Art.11 — Causation Presumption"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct_Art17",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "In public health emergencies, governments may require medical AI companies to share health data. Applies to epidemic surveillance AI and clinical trial datasets."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art17",
+        "en" : "Data Act Art.17 — B2G Data Sharing (Public Emergency)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art22",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Prohibition on solely automated individual decision-making."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art22",
+        "en" : "GDPR Article 22"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA_Art16",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Registered data altruism organisations may collect health data voluntarily shared for AI research, subject to GDPR. Separate from commercial data intermediaries."
+      },
+      "labels" : {
+        "IRI-based" : "DGA_Art16",
+        "en" : "DGA Art.16 — Data Altruism Organisations"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD_Art4",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Manufacturers strictly liable for defective products; 'defective' includes AI systems that do not provide the safety that persons are entitled to expect."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art4",
+        "en" : "PLD Art.4 — Strict Liability for Defective Products"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art22_4",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Enhanced protection for special category data (including health data) in automated decisions."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art22_4",
+        "en" : "GDPR Art.22(4)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art22_3",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Safeguards when exceptions apply: human intervention, right to express views, contest decision."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art22_3",
+        "en" : "GDPR Art.22(3)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA_Art10",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Notification requirements for data intermediaries facilitating health data exchange between data subjects and AI developers. Must be neutral — cannot use data for own purposes."
+      },
+      "labels" : {
+        "IRI-based" : "DGA_Art10",
+        "en" : "DGA Art.10 — Data Intermediation Services"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art22_2",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Exceptions: contract necessity, explicit consent, EU/Member State law."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art22_2",
+        "en" : "GDPR Art.22(2)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct_Art15",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Data sharing obligation is limited by trade secret protection — manufacturers may refuse where disclosure would reveal protected business information. Key tension with AI transparency obligations."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art15",
+        "en" : "Data Act Art.15 — Trade Secret Protection"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_Art22_1",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Core prohibition: individuals shall not be subject to solely automated decisions producing significant effects."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_Art22_1",
+        "en" : "GDPR Art.22(1)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD_Art9",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Courts may order defendants to disclose evidence about high-risk AI systems; creates procedural discovery mechanism absent in AILD."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art9",
+        "en" : "PLD Art.9 — Disclosure Obligations (Evidence Facilitation)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_Art26",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Deployers (e.g., hospitals using third-party AI) must ensure human oversight, monitor performance, inform affected persons, maintain logs. Creates shared responsibility with providers."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art26",
+        "en" : "AI Act Art.26 — Deployer Obligations"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD_Art7",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Expressly includes software (including AI systems) in the definition of 'product'. SaMD under MDR may simultaneously be a 'product' under PLD."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art7",
+        "en" : "PLD Art.7 — AI and Software as Products"
+      }
+    } ],
+    "comment" : {
+      "en" : "A specific provision within a legal instrument.",
+      "undefined" : "A specific provision within a legal instrument"
+    },
+    "id" : "18",
+    "superClasses" : [ "57" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#PatentClassification",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PatentClassification",
+      "undefined" : "PatentClassification"
+    },
+    "comment" : {
+      "undefined" : "An IPC/CPC patent classification code"
+    },
+    "id" : "52"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#EuropeanPatent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EuropeanPatent",
+      "en" : "European Patent (EP)",
+      "undefined" : "EuropeanPatent"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#EP_3346403",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Breast cancer recurrence prediction genomic expression test."
+      },
+      "labels" : {
+        "IRI-based" : "EP_3346403",
+        "en" : "EP 3 346 403"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EP_2352431",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Hologic breast imaging AI-assisted reading technology."
+      },
+      "labels" : {
+        "IRI-based" : "EP_2352431",
+        "en" : "EP 2 352 431 B1"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EP_3435866",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Dexcom continuous glucose monitoring system."
+      },
+      "labels" : {
+        "IRI-based" : "EP_3435866",
+        "en" : "EP 3 435 866"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EP_2671173",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Suinno AI-based pedestrian navigation method."
+      },
+      "labels" : {
+        "IRI-based" : "EP_2671173",
+        "en" : "EP 2 671 173"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A European patent granted by the EPO"
+    },
+    "id" : "62",
+    "superClasses" : [ "63" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#UPC",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UPC",
+      "en" : "Unified Patent Court (UPC)"
+    },
+    "subClasses" : [ "24" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#DataSubject",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataSubject",
+      "en" : "Data Subject",
+      "undefined" : "DataSubject"
+    },
+    "comment" : {
+      "undefined" : "An individual whose personal data is processed"
+    },
+    "id" : "67",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ComplianceRisk",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://w3id.org/airo#Risk",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ComplianceRisk",
+      "en" : "Compliance Risk",
+      "undefined" : "ComplianceRisk"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_InsufficientDisclosure",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_InsufficientDisclosure",
+        "en" : "Insufficient Training Data Disclosure (EPO T0161/18)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_BlackBox",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_BlackBox",
+        "en" : "Black-Box ML System (C-817/19 Prohibition)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_AIActQMS_MDR_Overlap",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "AI-SaMD must comply with both AI Act QMS (Art.17) and MDR QMS (Annex IX). Without regulatory alignment, manufacturers face duplicative audit requirements."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_AIActQMS_MDR_Overlap",
+        "en" : "AI Act Art.17 QMS / MDR Annex IX Double Burden"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_NPE_Revocation",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_NPE_Revocation",
+        "en" : "NPE-Initiated Revocation Attack"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_PLDStrictLiability",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Medical AI systems qualifying as 'defective products' under PLD Art.4 expose manufacturers to strict liability without fault. Presumptions in Art.10 and Art.11 shift burden to defendants."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_PLDStrictLiability",
+        "en" : "PLD 2024 Strict Liability for AI-SaMD"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_EPOUPC_Divergence",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_EPOUPC_Divergence",
+        "en" : "EPO-UPC Divergent Validity Rulings (Opt-Out Strategy)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_HealthDataDoubleLayer",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_HealthDataDoubleLayer",
+        "en" : "Health Data Double Protection Layer (Art.9 + Art.22(4))"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_DataActIoT",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Medical device manufacturers must share IoT-generated health data with users/third parties. Conflicts with trade secret protection (Art.15) and competitive AI training data strategies."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_DataActIoT",
+        "en" : "Data Act Art.3/5 IoT Data Sharing Obligation"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_TradeSecretTransparencyConflict",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Medical AI operators relying on TSD Art.2 to protect model weights face: (a) mandatory AI Act Art.13 disclosure to deployers; (b) GDPR Art.15(1)(h) actionable explanation obligations to data subjects; (c) mandatory supervisory authority adjudication when TSD is claimed (C-203/22). Hybrid strategy required: patent final outputs, trade secret the AI platform, use ZKP/ZKML for auditor verification without weight disclosure."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_TradeSecretTransparencyConflict",
+        "en" : "Trade Secret Shield vs. AI Act/GDPR Transparency Mandate (TSD Art.2 Conflict)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_SolelyTest",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_SolelyTest",
+        "en" : "GDPR Art.22 'Solely' Test Failure (Rubber-Stamping)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_SEP_FRAND",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Risk_SEP_FRAND",
+        "en" : "SEP/FRAND Obligations (HL7 FHIR, DICOM AI)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Risk_EHDSOptOut",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Widespread exercise of opt-out rights under EHDS Art.35 may substantially reduce available health data for AI training, creating representativeness risk under AI Act Art.10."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_EHDSOptOut",
+        "en" : "EHDS Art.35 Opt-Out Erodes Training Dataset"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A compliance risk for medical AI developers"
+    },
+    "id" : "39"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Case",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Case",
+      "en" : "Case",
+      "undefined" : "Case"
+    },
+    "subClasses" : [ "14", "31", "51", "70" ],
+    "comment" : {
+      "en" : "Any judicial or quasi-judicial proceeding.",
+      "undefined" : "Any judicial or quasi-judicial proceeding"
+    },
+    "id" : "15"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#DisclosureObligation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://w3id.org/dpv#ProvideInformation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DisclosureObligation",
+      "en" : "Disclosure Obligation",
+      "undefined" : "DisclosureObligation"
+    },
+    "comment" : {
+      "undefined" : "Obligation to disclose information to data subjects"
+    },
+    "id" : "71",
+    "superClasses" : [ "72" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#PatientRight",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PatientRight",
+      "en" : "Patient Right",
+      "undefined" : "PatientRight"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#Right_MedicalRecordAccess",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Right_MedicalRecordAccess",
+        "en" : "Right to Access Medical Records (C-307/22)"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A patient-specific data or health right"
+    },
+    "id" : "73",
+    "superClasses" : [ "74" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#DataSubjectRight",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://w3id.org/dpv#DataSubjectRight",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DataSubjectRight",
+      "en" : "Data Subject Right",
+      "undefined" : "DataSubjectRight"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#Right_ExpressViews",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Right_ExpressViews",
+        "en" : "Right to Express Views (Art.22(3)(b))"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Right_HumanIntervention",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Right_HumanIntervention",
+        "en" : "Right to Human Intervention (Art.22(3)(a))"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Right_Explanation",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Right_Explanation",
+        "en" : "Right to Meaningful Explanation (Art.15(1)(h), C-203/22)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#Right_Contest",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "Right_Contest",
+        "en" : "Right to Contest Decision (Art.22(3)(c))"
+      }
+    } ],
+    "subClasses" : [ "73" ],
+    "comment" : {
+      "undefined" : "A right of an individual under GDPR"
+    },
+    "id" : "74",
+    "superClasses" : [ "19" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegalTest",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalTest",
+      "en" : "Legal Test",
+      "undefined" : "LegalTest"
+    },
+    "comment" : {
+      "en" : "A multi-factor test established by case law to assess a legal question.",
+      "undefined" : "Multi-factor test established by case law"
+    },
+    "id" : "76"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#HumanOversightObligation",
+    "equivalent" : [ "79" ],
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://w3id.org/airo#HumanOversight",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "HumanOversightObligation",
+      "en" : "Human Oversight Obligation",
+      "undefined" : "HumanOversightObligation"
+    },
+    "comment" : {
+      "undefined" : "Obligation to ensure substantive human review"
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "78",
+    "superClasses" : [ "72" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#HumanOversightRecord",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HumanOversightRecord",
+      "en" : "Human Oversight Record",
+      "undefined" : "HumanOversightRecord"
+    },
+    "comment" : {
+      "en" : "A documented record of substantive human review of an automated decision (C-634/21 P_634_002: rubber-stamping is insufficient).",
+      "undefined" : "Documented record of substantive human review (C-634/21 P_634_002)"
+    },
+    "id" : "41"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Explanation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Explanation",
+      "en" : "Explanation",
+      "undefined" : "Explanation"
+    },
+    "comment" : {
+      "en" : "An actionable, non-technical explanation of the logic and main input factors of an automated decision (C-203/22 P_203_001; GDPR Art.15(1)(h)).",
+      "undefined" : "Actionable non-technical explanation for data subjects (C-203/22 P_203_001)"
+    },
+    "id" : "48"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#BlackBoxMLSystem",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://w3id.org/airo#OpaqueSystem",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BlackBoxMLSystem",
+      "en" : "Black-Box ML System",
+      "undefined" : "BlackBoxMLSystem"
+    },
+    "comment" : {
+      "en" : "A non-transparent, self-learning system whose decision logic cannot be explained. Prohibited under C-817/19 for decisions with significant impact.",
+      "undefined" : "Non-transparent self-learning ML system (C-817/19 prohibition)"
+    },
+    "id" : "82",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#TimelineEvent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TimelineEvent",
+      "undefined" : "TimelineEvent"
+    },
+    "comment" : {
+      "undefined" : "A regulatory obligation activation date or deadline"
+    },
+    "id" : "83"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegalEntity",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalEntity",
+      "en" : "Legal Entity",
+      "undefined" : "LegalEntity"
+    },
+    "subClasses" : [ "67", "84", "29", "7", "35" ],
+    "comment" : {
+      "undefined" : "Any natural or legal person with legal standing"
+    },
+    "id" : "8"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Patent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Patent",
+      "en" : "Patent",
+      "undefined" : "Patent"
+    },
+    "subClasses" : [ "62" ],
+    "comment" : {
+      "undefined" : "A patent grant"
+    },
+    "id" : "63"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ExplainabilityObligation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://w3id.org/dpv#ExplainabilityObligation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ExplainabilityObligation",
+      "en" : "Explainability Obligation",
+      "undefined" : "ExplainabilityObligation"
+    },
+    "comment" : {
+      "undefined" : "Obligation to provide actionable explanations"
+    },
+    "id" : "85",
+    "superClasses" : [ "72" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#EUDirective",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EUDirective",
+      "en" : "EU Directive",
+      "undefined" : "EUDirective"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#PNRDirective",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/681/EU",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PNRDirective",
+        "en" : "PNR Directive 2016/681"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#PLD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024-11-23",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2024/2853/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32024L2853",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."
+      },
+      "labels" : {
+        "IRI-based" : "PLD",
+        "en" : "PLD 2024/2853"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#TSD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2016-06-08",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/943/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32016L0943",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "EU Trade Secrets Directive. Harmonises civil-law protection of undisclosed know-how and business information. Key for medical AI: model weights, training data schemas, and proprietary algorithms qualify as trade secrets under the Art.2 three-part test. Art.5 carve-outs limit the secrecy shield when exercise of the right to information is at stake — directly engaged by GDPR Art.15(1)(h) and AI Act Art.13 transparency obligations."
+      },
+      "labels" : {
+        "IRI-based" : "TSD",
+        "en" : "Trade Secrets Directive 2016/943"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "EU Directive (requires transposition)"
+    },
+    "id" : "91",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#SoftwareAsMedicalDevice",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://w3id.org/airo#HighRiskAISystem",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SoftwareAsMedicalDevice",
+      "en" : "Software as Medical Device (SaMD)",
+      "undefined" : "SoftwareAsMedicalDevice"
+    },
+    "comment" : {
+      "en" : "Software qualifying as a medical device under MDR 2017/745.",
+      "undefined" : "Software qualifying as medical device under MDR 2017/745"
+    },
+    "id" : "94",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#MedicalImagingAI",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MedicalImagingAI",
+      "en" : "Medical Imaging AI",
+      "undefined" : "MedicalImagingAI"
+    },
+    "comment" : {
+      "undefined" : "AI system for medical image analysis"
+    },
+    "id" : "95",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "97",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://w3id.org/dpv#HumanInvolvement",
+    "baseIri" : "http://w3id.org/dpv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HumanInvolvement"
+    },
+    "attributes" : [ "equivalent", "external" ],
+    "id" : "79"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "102",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "103",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "61",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "66",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "108",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "109",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "106",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "110",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://w3id.org/dpv#TransparencyObligation",
+    "baseIri" : "http://w3id.org/dpv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TransparencyObligation"
+    },
+    "attributes" : [ "equivalent", "external" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "81",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#DPIARecord",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DPIARecord",
+      "en" : "DPIA Record",
+      "undefined" : "DPIARecord"
+    },
+    "comment" : {
+      "en" : "A Data Protection Impact Assessment document required for high-risk automated processing (GDPR Art.35; C-817/19 P_817_005).",
+      "undefined" : "Data Protection Impact Assessment document (GDPR Art.35; C-817/19)"
+    },
+    "id" : "6"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "112",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "113",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Court",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 2,
+    "label" : {
+      "IRI-based" : "Court",
+      "en" : "Court",
+      "undefined" : "Court"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPO_BoA",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "EPO_BoA",
+        "en" : "EPO Board of Appeal"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#CJEU_GrandChamber",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Highest formation of CJEU; judgments carry maximum precedential weight."
+      },
+      "labels" : {
+        "IRI-based" : "CJEU_GrandChamber",
+        "en" : "CJEU Grand Chamber"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#CJEU_FirstChamber",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "CJEU_FirstChamber",
+        "en" : "CJEU First Chamber"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#CJEU",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "CJEU",
+        "en" : "Court of Justice of the EU (CJEU)"
+      }
+    } ],
+    "subClasses" : [ "114" ],
+    "comment" : {
+      "undefined" : "A judicial body"
+    },
+    "id" : "35",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "115",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "116",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "117",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ComplianceMatrix",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ComplianceMatrix",
+      "undefined" : "ComplianceMatrix"
+    },
+    "comment" : {
+      "undefined" : "A cross-reference mapping between frameworks"
+    },
+    "id" : "118"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "119",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "37",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ConformityRecord",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConformityRecord",
+      "en" : "Conformity Record",
+      "undefined" : "ConformityRecord"
+    },
+    "comment" : {
+      "en" : "A conformity assessment or technical documentation record under AI Act Annex IV / MDR Annex II.",
+      "undefined" : "Conformity assessment / technical documentation record"
+    },
+    "id" : "120"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "44",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "121",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#NationalAuthority",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NationalAuthority",
+      "en" : "National Authority",
+      "undefined" : "NationalAuthority"
+    },
+    "comment" : {
+      "undefined" : "A national regulatory or supervisory body"
+    },
+    "id" : "84",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#UPCDivision",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UPCDivision",
+      "en" : "UPC Division"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_CD_Paris",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "UPC_CD_Paris",
+        "en" : "UPC Central Division — Paris"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_LD_Munich",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "UPC_LD_Munich",
+        "en" : "UPC Local Division — Munich"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_LD_Paris",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "UPC_LD_Paris",
+        "en" : "UPC Local Division — Paris"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_LD_Dusseldorf",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "UPC_LD_Dusseldorf",
+        "en" : "UPC Local Division — Düsseldorf"
+      }
+    } ],
+    "id" : "114",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#EPOProceding",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EPOProceding",
+      "en" : "EPO Proceeding",
+      "undefined" : "EPOProceding"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPO_T1191_19",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2021-11-12",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "T 1191/19",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EPO_T1191_19",
+        "en" : "EPO T 1191/19 — AI Plausibility and Post-Filed Evidence"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPO_G0001_19",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2021-03-10",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "G 0001/19",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EPO_G0001_19",
+        "en" : "EPO G 0001/19 — Patentability of Computer-Implemented Simulations"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EPO_T0161_18",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2020-05-12",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "T 0161/18",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EPO_T0161_18",
+        "en" : "EPO T 0161/18 — AI Medical Device Disclosure"
+      }
+    } ],
+    "comment" : {
+      "en" : "Opposition, appeal, or examination proceeding before the EPO.",
+      "undefined" : "EPO opposition, appeal, or examination"
+    },
+    "id" : "70",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ComplianceObligation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ComplianceObligation",
+      "en" : "Compliance Obligation",
+      "undefined" : "ComplianceObligation"
+    },
+    "subClasses" : [ "130", "85", "71", "131", "78" ],
+    "comment" : {
+      "undefined" : "A concrete obligation arising from regulation"
+    },
+    "id" : "72"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#MedicalAISystem",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://w3id.org/airo#AISystem",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "MedicalAISystem",
+      "en" : "Medical AI System",
+      "undefined" : "MedicalAISystem"
+    },
+    "subClasses" : [ "138", "95", "139", "82", "13", "94" ],
+    "comment" : {
+      "en" : "An AI-based system used in clinical diagnosis, treatment recommendation, or patient risk stratification.",
+      "undefined" : "An AI-based system used in clinical contexts"
+    },
+    "id" : "5",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://data.europa.eu/eli/ontology#LegalResource",
+    "baseIri" : "http://data.europa.eu/eli/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalResource"
+    },
+    "subClasses" : [ "46" ],
+    "attributes" : [ "external" ],
+    "id" : "137"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#UPCCase",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UPCCase",
+      "en" : "UPC Case",
+      "undefined" : "UPCCase"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_Dexcom_Abbott",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "ACT_583778/2023",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UPC_Dexcom_Abbott",
+        "en" : "Dexcom v. Abbott — Continuous Glucose Monitoring"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_Sanofi_Amgen",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "UPC_CFI_505/2024",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UPC_Sanofi_Amgen",
+        "en" : "Sanofi & Regeneron v. Amgen — PCSK9 Medical Use"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_Hologic_Siemens",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "UPC_CFI_758/2024",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UPC_Hologic_Siemens",
+        "en" : "Hologic v. Siemens Healthineers — Medical Imaging AI"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_GXD_Myriad",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "UPC_CFI_437/2024",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UPC_GXD_Myriad",
+        "en" : "GXD-Bio v. Myriad Genetics — Genomic Diagnostic AI"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_Microsoft_Suinno",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "UPC_CFI_433/2024",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UPC_Microsoft_Suinno",
+        "en" : "Microsoft v. Suinno — AI Method Patent"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#UPC_10x_NanoString",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "UPC_10x_NanoString",
+        "en" : "10x Genomics v. NanoString — Spatial Biology AI"
+      }
+    } ],
+    "comment" : {
+      "en" : "Infringement, revocation, or PI proceeding before the Unified Patent Court.",
+      "undefined" : "Case before the Unified Patent Court"
+    },
+    "id" : "51",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ObiterDictum",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ObiterDictum",
+      "en" : "Obiter Dictum",
+      "undefined" : "ObiterDictum"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#P_817_005",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "comment" : {
+        "en" : "Automated processing systems must be subject to effective independent oversight including DPO access and regular algorithmic legality review."
+      },
+      "labels" : {
+        "IRI-based" : "P_817_005",
+        "en" : "P-817/19-005: Independent Oversight Obligation"
+      }
+    } ],
+    "comment" : {
+      "en" : "Persuasive (non-binding) judicial observation.",
+      "undefined" : "Persuasive (non-binding) judicial observation"
+    },
+    "id" : "125",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegalPrinciple",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalPrinciple",
+      "en" : "Legal Principle",
+      "undefined" : "LegalPrinciple"
+    },
+    "subClasses" : [ "23", "56", "125" ],
+    "comment" : {
+      "en" : "A binding or persuasive rule extracted from case law or legislation.",
+      "undefined" : "A binding or persuasive rule extracted from case law"
+    },
+    "id" : "2"
+  }, {
+    "iri" : "http://data.europa.eu/eli/ontology#LegalExpression",
+    "baseIri" : "http://data.europa.eu/eli/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalExpression"
+    },
+    "subClasses" : [ "18" ],
+    "attributes" : [ "external" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "101",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "54",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LegalInstrument",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LegalInstrument",
+      "en" : "Legal Instrument",
+      "undefined" : "LegalInstrument"
+    },
+    "subClasses" : [ "10", "45", "91" ],
+    "comment" : {
+      "en" : "Any binding or persuasive legal document (regulation, directive, treaty, standard).",
+      "undefined" : "Any binding or persuasive legal document"
+    },
+    "id" : "46",
+    "superClasses" : [ "137" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ConformityAssessment",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConformityAssessment",
+      "undefined" : "ConformityAssessment"
+    },
+    "comment" : {
+      "undefined" : "A conformity assessment path under MDR or AI Act"
+    },
+    "id" : "59"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#Right",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Right",
+      "en" : "Right",
+      "undefined" : "Right"
+    },
+    "subClasses" : [ "74" ],
+    "comment" : {
+      "undefined" : "A legal right"
+    },
+    "id" : "19"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#CJEUCase",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CJEUCase",
+      "en" : "CJEU Case",
+      "undefined" : "CJEUCase"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_817_19",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2022-06-21",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-817/19",
+          "type" : "label"
+        }, {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2022:491",
+          "type" : "label"
+        } ],
+        "notation" : [ {
+          "identifier" : "notation",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2022:491",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_817_19",
+        "en" : "C-817/19 Ligue des droits humains v. Conseil des ministres"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_203_22",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025-02-27",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2025:145",
+          "type" : "label"
+        }, {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-203/22",
+          "type" : "label"
+        } ],
+        "notation" : [ {
+          "identifier" : "notation",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2025:145",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_203_22",
+        "en" : "C-203/22 Dun & Bradstreet Austria"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_634_21",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-12-07",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-634/21",
+          "type" : "label"
+        }, {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2023:957",
+          "type" : "label"
+        } ],
+        "notation" : [ {
+          "identifier" : "notation",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2023:957",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_634_21",
+        "en" : "C-634/21 SCHUFA Holding (Scoring)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_311_18",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2020-07-16",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-311/18",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_311_18",
+        "en" : "C-311/18 Schrems II"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_201_14",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2015-10-01",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-201/14",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_201_14",
+        "en" : "C-201/14 Bara"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_307_22",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-10-26",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2023:811",
+          "type" : "label"
+        }, {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-307/22",
+          "type" : "label"
+        } ],
+        "notation" : [ {
+          "identifier" : "notation",
+          "language" : "undefined",
+          "value" : "ECLI:EU:C:2023:811",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_307_22",
+        "en" : "C-307/22 FT v DW (Medical Records Access)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#C_511_18",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2020-10-06",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "C-511/18",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "C_511_18",
+        "en" : "C-511/18 La Quadrature du Net"
+      }
+    } ],
+    "comment" : {
+      "en" : "Preliminary ruling or direct action before the Court of Justice of the EU.",
+      "undefined" : "Judgment of the Court of Justice of the EU"
+    },
+    "id" : "31",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#RegulationVersion",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RegulationVersion",
+      "undefined" : "RegulationVersion"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v3b_Omnibus_AnnexI_SaMD",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v3b_Omnibus_AnnexI_SaMD",
+        "undefined" : "Omnibus-revised Annex I deadline — SaMD under MDR 2017/745 and IVDR 2017/746 (primary compliance target for MAILO)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v4_FRIA_PublicBodies",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v4_FRIA_PublicBodies",
+        "undefined" : "FRIA obligation for public-body deployers applies (Art.27)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_v1_FullyApplicable",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "GDPR_v1_FullyApplicable",
+        "undefined" : "GDPR fully applicable — all provisions in force"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v2_GPAIModelObligations",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v2_GPAIModelObligations",
+        "undefined" : "GPAI model provider obligations apply (Title VIII, Arts.51–56)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v1_ProhibitedPractices",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v1_ProhibitedPractices",
+        "undefined" : "Prohibited AI practices (Art.5) and general provisions in force"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_v2_OmnibusProposed_Art22",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "GDPR_v2_OmnibusProposed_Art22",
+        "undefined" : "GDPR Art.22 Omnibus-proposed version — permission list framing (PROSPECTIVE, NOT ADOPTED)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v3_OriginalHighRisk",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v3_OriginalHighRisk",
+        "undefined" : "Original Annex III + Annex I deadline (superseded by Omnibus provisional agreement)"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_v3a_Omnibus_AnnexIII_Standalone",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_v3a_Omnibus_AnnexIII_Standalone",
+        "undefined" : "Omnibus-revised Annex III standalone high-risk deadline (biometrics, employment, education, law enforcement, critical infrastructure, border management)"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A versioned expression of an EU regulation at a specific applicability phase"
+    },
+    "id" : "11",
+    "superClasses" : [ "10" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#AutomatedDecisionSystem",
+    "equivalent" : [ "183" ],
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://w3id.org/dpv#DataProcessing",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AutomatedDecisionSystem",
+      "en" : "Automated Decision System",
+      "undefined" : "AutomatedDecisionSystem"
+    },
+    "subClasses" : [ "12" ],
+    "comment" : {
+      "en" : "A system that processes personal data to produce outputs affecting individuals without meaningful human review.",
+      "undefined" : "System processing personal data without meaningful human review"
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "13",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#LiteratureSource",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LiteratureSource",
+      "undefined" : "LiteratureSource"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Andrade_F_Rebelo_D_M_2024_Schufa_s_Case_C-634_21_on",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Challenges the breadth of SCHUFA holding. Informs MAILO's functional-solely rule encoding."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4882806",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Andrade_F_Rebelo_D_M_2024_Schufa_s_Case_C-634_21_on",
+        "undefined" : "Andrade, F., Rebelo, D. M. (2024). Schufa's Case C-634/21 on ADM: the 'Lenders' Quest' for GDPR-friendly Scoring has not been settled yet! SSRN 4882806."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_DAOnt_A_Formal_Ontology_for_EU_Data_Act_Compliance_2024_2",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Reuses LKIF-Core + ODRL + DPV. Single-framework analogue of MAILO's multi-framework target."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://arxiv.org/html/2604.16386",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_DAOnt_A_Formal_Ontology_for_EU_Data_Act_Compliance_2024_2",
+        "undefined" : "DAOnt: A Formal Ontology for EU Data Act Compliance. (2024/2026). arXiv:2604.16386."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_MDCG_2025-6_2025_European_Commission_Joint_Guidance_on_M",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Official EU-level mapping document. MAILO instances must align with it."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://health.ec.europa.eu/document/download/b78a17d7-e3cd-4943-851d-e02a2f22bbb4_en",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_MDCG_2025-6_2025_European_Commission_Joint_Guidance_on_M",
+        "undefined" : "MDCG 2025-6. (2025). European Commission Joint Guidance on MDR/IVDR × AI Act."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Communications_Medicine_Nature_2025_Neuro-symbolic_AI",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "LLM extracts candidate facts → symbolic verifier checks against medical rules → traceable, deterministic labels. Empirical demonstration of the harness pattern MAILO advocates, applied to clinical text."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.nature.com/articles/s43856-025-01194-x",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Communications_Medicine_Nature_2025_Neuro-symbolic_AI",
+        "undefined" : "Communications Medicine (Nature). (2025). Neuro-symbolic AI for auditable cognitive information extraction from medical reports."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "OWL ontology + SHACL shapes implementing AI Act Annex III high-risk classifier + SPARQL ASK queries; integrated into W3C DPVCG. Most direct competitor to MAILO. AIRO already does for the AI Act what MAILO proposes for the medical-AI multi-framework intersection. Differentiator: MAILO adds medical-domain specificity, MDR+PLD integration, CJEU precedent chain, UPC patent overlay."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://delaramglp.github.io/airo/",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
+        "undefined" : "Golpayegani, D., Pandit, H. J., Lewis, D. (2022, 2025). AIRO: An Ontology for Representing AI Risks Based on the Proposed EU AI Act. SEMANTiCS + arXiv:2501.10391."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Risk-sensitive domains demand transparency + regulatory compliance. Neural pattern recognition + symbolic reasoning yields verifiable explanations. Healthcare among the case studies."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://arxiv.org/html/2511.17644v1",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
+        "undefined" : "Hybrid Neuro-Symbolic Models for Ethical AI in Risk-Sensitive Domains. (2025). arXiv:2511.17644."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Robaldo_L_Bartolini_C_Palmirani_M_et_al_2020_Fo",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "LegalRuleML + reified Input/Output logic + SPINDle defeasible reasoner. The canonical precedent for formal GDPR reasoning. Limitations addressed by MAILO: GDPR-only; no medical AI integration; no CJEU case-law layer; no runtime guardrail integration."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2020",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://link.springer.com/article/10.1007/s10849-019-09309-z",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Robaldo_L_Bartolini_C_Palmirani_M_et_al_2020_Fo",
+        "undefined" : "Robaldo, L., Bartolini, C., Palmirani, M., et al. (2020). Formalizing GDPR Provisions in Reified I/O Logic: The DAPRECO Knowledge Base. Journal of Logic, Language and Information."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_MDPI_Information_2024_A_SHACL-Based_Approach_for_Enhanci",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Operationalises the validation layer that MAILO needs for runtime SHACL checks."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.mdpi.com/2078-2489/15/12/759",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_MDPI_Information_2024_A_SHACL-Based_Approach_for_Enhanci",
+        "undefined" : "MDPI Information. (2024). A SHACL-Based Approach for Enhancing Automated Compliance Checking with RDF Data, 15(12):759."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_EHJ_Digital_Health_Oxford_2025_Medicine_healthcare_an",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Explicit multi-framework gap analysis. Core citation for MAILO Chapter 2."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://academic.oup.com/ehjdh/advance-article/doi/10.1093/ehjdh/ztaf041/8118685",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_EHJ_Digital_Health_Oxford_2025_Medicine_healthcare_an",
+        "undefined" : "EHJ Digital Health (Oxford). (2025). Medicine, healthcare and the AI act: gaps, challenges and future implications."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Rebedea_T_et_al_2023_NeMo_Guardrails_A_Toolkit_for_Co",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Colang DSL + dialogue-state engine; rules user-defined and interpretable. 2025 update: NIM micro-services with ~0.5s added latency for ~50% protection lift. Establishes programmable-rail paradigm; uses ad-hoc DSL not formal ontology."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://arxiv.org/abs/2310.10501",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Rebedea_T_et_al_2023_NeMo_Guardrails_A_Toolkit_for_Co",
+        "undefined" : "Rebedea, T. et al. (2023). NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails. EMNLP Demo. arXiv:2310.10501."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Kang_M_Li_B_et_al_2025_R_-Guard_Robust_Reasoning_E",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Markov logic networks + probabilistic circuits over a safety reasoning graph. +30.2% over Llama Guard on ToxicChat; +59.5% under jailbreak attacks. Direct precedent for logic-graph-as-runtime-safety-filter pattern that MAILO advances, but for general LLM safety, not medical regulation."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://arxiv.org/abs/2407.05557",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Kang_M_Li_B_et_al_2025_R_-Guard_Robust_Reasoning_E",
+        "undefined" : "Kang, M., Li, B. et al. (2025). R²-Guard: Robust Reasoning Enabled LLM Guardrail via Knowledge-Enhanced Logical Reasoning. ICLR 2025."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Medical_Law_Review_2024_A_health-conformant_reading_of_t",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Only article addressing the exact intersection of GDPR Art.22 + medical AI. Doctrinal foundation for MAILO's medical-AI ADM rules."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://academic.oup.com/medlaw/article/32/3/373/7732100",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Medical_Law_Review_2024_A_health-conformant_reading_of_t",
+        "undefined" : "Medical Law Review. (2024). A health-conformant reading of the GDPR's right not to be subject to automated decision-making, 32(3), 373."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Addresses cross-framework normative conflict resolution that MAILO will face (e.g. GDPR Art.22 vs AI Act Art.86). Provides RDF-based conflict-tolerant deontic logic."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://academic.oup.com/logcom/article/35/8/exaf054/8320660",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
+        "undefined" : "Conflict-tolerant Deontic Traditional Scheme for the Semantic Web. (2025). Journal of Logic and Computation 35(8), Oxford."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_npj_Health_Systems_2026_Data-driven_medical_devices_and",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "ISO/IEC 27001/27010 + ISO/IEC 5338, 25059, BS 30440 are insufficient for AI medical safety/transparency — exactly the gap MAILO addresses."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2026",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.nature.com/articles/s44401-026-00075-2",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_npj_Health_Systems_2026_Data-driven_medical_devices_and",
+        "undefined" : "npj Health Systems. (2026). Data-driven medical devices and the EU MDR: mapping gaps in standards for regulatory compliance."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Pandit_H_J_et_al_2024_Data_Privacy_Vocabulary_DPV",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "RDFS/SKOS + OWL2 alt; 911 concepts; serialised in TTL/JSON-LD/RDF-XML; namespace http://w3id.org/dpv#. Foundational vocabulary the thesis should reuse. Recommendation: import DPV namespace into MAILO; align mailo:hasObligation with dpv:hasLegalBasis."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://w3c.github.io/dpv/2.1/dpv/",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Pandit_H_J_et_al_2024_Data_Privacy_Vocabulary_DPV",
+        "undefined" : "Pandit, H. J. et al. (2024). Data Privacy Vocabulary (DPV) – Version 2.0. Springer / W3C DPVCG."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Esteves_B_Rodr_guez-Doncel_V_et_al_2024_Analysis_of",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Comparative table of ontology and policy languages. Positions DPV + ODRL + LegalRuleML as Pareto-front. ODRL+LegalRuleML+DPV+GDPRtEXT can model 39 of 57 informational items."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://journals.sagepub.com/doi/10.3233/SW-223009",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Esteves_B_Rodr_guez-Doncel_V_et_al_2024_Analysis_of",
+        "undefined" : "Esteves, B., Rodríguez-Doncel, V. et al. (2024). Analysis of ontologies and policy languages to represent information flows in GDPR. Semantic Web Journal."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_JMIR_2026_The_Right_to_Understand_in_Health_Care_AI",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "Argues neither AI Act nor GDPR specifies what a meaningful clinical explanation is. Identifies the gap MAILO fills via its semantic schema."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2026",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.jmir.org/2026/1/e95090",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_JMIR_2026_The_Right_to_Understand_in_Health_Care_AI",
+        "undefined" : "JMIR. (2026). The Right to Understand in Health Care AI."
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#lit_Frontiers_Digital_Health_2025_Ontologies_as_the_semantic",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "description" : {
+        "undefined" : "OWL2 + SWRL semantic reasoning enables auditable inference consistent with domain expertise. Ontologies encode explicit rules and traceable data relationships required by AI Act. Doctrinal scaffold for MAILO."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2025.1668385/full",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Frontiers_Digital_Health_2025_Ontologies_as_the_semantic",
+        "undefined" : "Frontiers Digital Health. (2025). Ontologies as the semantic bridge between artificial intelligence and healthcare."
+      }
+    } ],
+    "comment" : {
+      "undefined" : "An academic paper, commentary, or official guidance"
+    },
+    "id" : "87"
+  }, {
+    "iri" : "http://w3id.org/dpv#AutomatedDecisionMaking",
+    "baseIri" : "http://w3id.org/dpv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AutomatedDecisionMaking"
+    },
+    "attributes" : [ "equivalent", "external" ],
+    "id" : "183"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ClinicalDecisionSupport",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ClinicalDecisionSupport",
+      "en" : "Clinical Decision Support System",
+      "undefined" : "ClinicalDecisionSupport"
+    },
+    "comment" : {
+      "undefined" : "Clinical decision support system (CDSS)"
+    },
+    "id" : "138",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#GenomicDiagnosticAI",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "GenomicDiagnosticAI",
+      "en" : "Genomic Diagnostic AI",
+      "undefined" : "GenomicDiagnosticAI"
+    },
+    "comment" : {
+      "undefined" : "AI system for genomic/genetic diagnostics"
+    },
+    "id" : "139",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#EURegulation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://data.europa.eu/eli/ontology#LegalResource",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "EURegulation",
+      "en" : "EU Regulation",
+      "undefined" : "EURegulation"
+    },
+    "individuals" : [ {
+      "iri" : "https://onto.example.org/medical-ai-legal#MDR",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2017/745/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32017R0745",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MDR",
+        "en" : "MDR 2017/745"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR_2016_679",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "GDPR_2016_679",
+        "undefined" : "GDPR 2016/679"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DataAct",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2023-12-13",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2023/2854/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32023R2854",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Data Act. Applies from 2025-09-12. Governs data sharing obligations for IoT-generated data (medical devices, wearables) and B2G/B2B data access for AI development."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct",
+        "en" : "Data Act 2023/2854"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#GDPR",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2016-04-27",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/679/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32016R0679",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR",
+        "en" : "GDPR 2016/679"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2024-08-01",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2024/1689/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32024R1689",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AIAct",
+        "en" : "EU AI Act 2024/1689"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#DGA",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2022-05-30",
+          "type" : "label"
+        } ],
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2022/868/EU",
+          "type" : "label"
+        } ],
+        "id_local" : [ {
+          "identifier" : "id_local",
+          "language" : "undefined",
+          "value" : "32022R0868",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Data Governance Act. Applies from 2023-09-24. Creates data intermediaries, data altruism organisations, and re-use frameworks for public sector health data."
+      },
+      "labels" : {
+        "IRI-based" : "DGA",
+        "en" : "DGA 2022/868"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#EHDS",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2025/327/EU",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "European Health Data Space. Governs primary use (MyHealthData) and secondary use of health data for research, innovation, and AI training. In force 2025-03-26."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS",
+        "en" : "EHDS Regulation 2025/327"
+      }
+    }, {
+      "iri" : "https://onto.example.org/medical-ai-legal#AIAct_2024_1689",
+      "baseIri" : "https://onto.example.org/medical-ai-legal",
+      "labels" : {
+        "IRI-based" : "AIAct_2024_1689",
+        "undefined" : "AI Act 2024/1689"
+      }
+    } ],
+    "subClasses" : [ "11" ],
+    "comment" : {
+      "undefined" : "EU Regulation (directly applicable)"
+    },
+    "id" : "10",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "194",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "90",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "99",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "55",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "129",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "69",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "144",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "158",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#TransparencyObligation",
+    "equivalent" : [ "111" ],
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TransparencyObligation",
+      "en" : "Transparency Obligation",
+      "undefined" : "TransparencyObligation"
+    },
+    "comment" : {
+      "undefined" : "Obligation to be transparent about AI processing"
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "130",
+    "superClasses" : [ "72" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "195",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "168",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#DPIAObligation",
+    "equivalent" : [ "32" ],
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DPIAObligation",
+      "en" : "DPIA Obligation",
+      "undefined" : "DPIAObligation"
+    },
+    "comment" : {
+      "undefined" : "Obligation to carry out a DPIA under GDPR Art.35"
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "131",
+    "superClasses" : [ "72" ]
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#PatentClaim",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PatentClaim",
+      "en" : "Patent Claim",
+      "undefined" : "PatentClaim"
+    },
+    "comment" : {
+      "undefined" : "A claim within a patent specification"
+    },
+    "id" : "202"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#RegulatoryAuthority",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RegulatoryAuthority",
+      "undefined" : "RegulatoryAuthority"
+    },
+    "comment" : {
+      "undefined" : "An EU or national regulatory or supervisory body"
+    },
+    "id" : "22"
+  } ],
+  "property" : [ {
+    "id" : "1",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "34",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "38",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "40",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "75",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "86",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "89",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "93",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "96",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "98",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "100",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "107",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "123",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "124",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "126",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "127",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "132",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "133",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "134",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "136",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "140",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "141",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "142",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "143",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "145",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "146",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "147",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "148",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "149",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "150",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "151",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "152",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "153",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "154",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "155",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "156",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "157",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "159",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "160",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "161",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "162",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "163",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "164",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "165",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "166",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "167",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "169",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "170",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "171",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "172",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "173",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "174",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "175",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "176",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "177",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "178",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "179",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "180",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "181",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "182",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "184",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "185",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "186",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "187",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "188",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "189",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "190",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "191",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "192",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "193",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "196",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "197",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "198",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "199",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "200",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "201",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "203",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "204",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "205",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://onto.example.org/medical-ai-legal#appliesTo",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "appliesTo",
+      "en" : "applies to"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Principle applies to a technology"
+    },
+    "attributes" : [ "object" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasDPIA",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "hasDPIA",
+      "en" : "has DPIA"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "Links a medical AI system to its DPIA record. Required for all high-risk automated processing (GDPR Art.35; C-817/19 P_817_005).",
+      "undefined" : "Links system to its DPIA record"
+    },
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasVersion",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "hasVersion"
+    },
+    "domain" : "10",
+    "comment" : {
+      "undefined" : "Regulation has a temporal applicability version"
+    },
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#versionOf",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "versionOf"
+    },
+    "domain" : "11",
+    "comment" : {
+      "undefined" : "Version belongs to a parent regulation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "16"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#grantsRight",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "grantsRight",
+      "en" : "grants right"
+    },
+    "domain" : "18",
+    "comment" : {
+      "undefined" : "Article grants a right"
+    },
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#enforcedBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "enforcedBy"
+    },
+    "domain" : "21",
+    "comment" : {
+      "undefined" : "Framework enforced by authority"
+    },
+    "attributes" : [ "object" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasDefinedScope",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "hasDefinedScope",
+      "en" : "has defined scope"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003.",
+      "undefined" : "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "26"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasPrinciple",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasPrinciple"
+    },
+    "domain" : "31",
+    "comment" : {
+      "undefined" : "Establishes a legal principle (alias)"
+    },
+    "attributes" : [ "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#decidedBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "decidedBy",
+      "en" : "decided by"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Case was decided by a court"
+    },
+    "attributes" : [ "object" ],
+    "id" : "34"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasPredeterminedCriteria",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "hasPredeterminedCriteria",
+      "en" : "has predetermined criteria"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "True if the system's assessment criteria are pre-determined and not modified by self-learning without human review. Required to avoid black-box prohibition (C-817/19 P_817_002).",
+      "undefined" : "True = pre-determined explainable criteria; false = self-learning black-box"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "36"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasRisk",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "hasRisk",
+      "en" : "has compliance risk"
+    },
+    "domain" : "3",
+    "comment" : {
+      "undefined" : "Technology carries a compliance risk"
+    },
+    "attributes" : [ "object" ],
+    "id" : "38"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#oversightIsSubstantive",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "42",
+    "label" : {
+      "IRI-based" : "oversightIsSubstantive",
+      "en" : "oversight is substantive"
+    },
+    "domain" : "41",
+    "comment" : {
+      "en" : "True if the human reviewer exercised independent judgment; false if the review was a mere formality (rubber-stamping). C-634/21 P_634_002 requires true.",
+      "undefined" : "True = genuine review; false = rubber-stamping (C-634/21 P_634_002)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasIndividualNonAutomatedReview",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "hasIndividualNonAutomatedReview",
+      "en" : "has individual non-automated review"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "True if every positive automated match is subject to individual non-automated human review before any measure is taken. C-817/19 P_817_001 constitutional minimum.",
+      "undefined" : "True = individual non-automated review before any measure (C-817/19 P_817_001)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "43"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasExplanation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "48",
+    "label" : {
+      "IRI-based" : "hasExplanation",
+      "en" : "has explanation"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Links an automated decision system to its actionable explanation for data subjects (C-203/22 P_203_001; GDPR Art.15(1)(h)).",
+      "undefined" : "Links system to its explanation for data subjects"
+    },
+    "attributes" : [ "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasPlaintiff",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "hasPlaintiff",
+      "en" : "has plaintiff"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Plaintiff in the case"
+    },
+    "attributes" : [ "object" ],
+    "id" : "49"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#relatedPatent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "relatedPatent"
+    },
+    "domain" : "51",
+    "comment" : {
+      "undefined" : "Involves patent class"
+    },
+    "attributes" : [ "object" ],
+    "id" : "50"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#celex",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "55",
+    "label" : {
+      "IRI-based" : "celex"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "CELEX number for EU legislation"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#requiresAssessment",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "59",
+    "label" : {
+      "IRI-based" : "requiresAssessment"
+    },
+    "domain" : "3",
+    "comment" : {
+      "undefined" : "Technology requires a conformity path"
+    },
+    "attributes" : [ "object" ],
+    "id" : "58"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#isNonTechnical",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "61",
+    "label" : {
+      "IRI-based" : "isNonTechnical",
+      "en" : "is non-technical"
+    },
+    "domain" : "48",
+    "comment" : {
+      "en" : "True if the explanation is expressed in language understandable to the data subject without specialist knowledge (C-203/22 P_203_001).",
+      "undefined" : "Explanation expressed in non-technical language"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "60"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#coversArticle",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "coversArticle",
+      "en" : "covers article"
+    },
+    "domain" : "21",
+    "comment" : {
+      "undefined" : "Framework contains an article"
+    },
+    "attributes" : [ "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#relevanceScore",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "relevanceScore"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Relevance score 1-5"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "65"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#doi",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "69",
+    "label" : {
+      "IRI-based" : "doi"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Digital Object Identifier"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "68"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#conflictsWith",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "conflictsWith",
+      "en" : "conflicts with"
+    },
+    "domain" : "18",
+    "comment" : {
+      "en" : "Two legal obligations or principles that are in tension.",
+      "undefined" : "Article conflicts with another"
+    },
+    "attributes" : [ "symmetric", "object" ],
+    "id" : "75"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#involvesTechnology",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "involvesTechnology",
+      "en" : "involves technology"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Case involves a technology class"
+    },
+    "attributes" : [ "object" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#isCurrentVersion",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "81",
+    "label" : {
+      "IRI-based" : "isCurrentVersion"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "True if this is the currently applicable version as of the query date"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "80"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#discusses",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "discusses"
+    },
+    "domain" : "87",
+    "comment" : {
+      "undefined" : "Source discusses a legal principle"
+    },
+    "attributes" : [ "object" ],
+    "id" : "86"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#cites",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "cites"
+    },
+    "domain" : "31",
+    "comment" : {
+      "undefined" : "Cites another CJEU case (alias)"
+    },
+    "attributes" : [ "object" ],
+    "id" : "88"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#art22ExceptionApplied",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "90",
+    "label" : {
+      "IRI-based" : "art22ExceptionApplied",
+      "en" : "Art.22 exception applied"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "The GDPR Art.22(2) exception relied on: 'contract_necessity' | 'explicit_consent' | 'member_state_law'. Must be stated or Art.22(1) prohibition applies (C-634/21 P_634_004).",
+      "undefined" : "contract_necessity | explicit_consent | member_state_law"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "89"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#mitigatedBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "mitigatedBy",
+      "en" : "mitigated by"
+    },
+    "domain" : "39",
+    "comment" : {
+      "undefined" : "Risk mitigated by obligation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasObligation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "hasObligation"
+    },
+    "domain" : "21",
+    "comment" : {
+      "undefined" : "Framework imposes an obligation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "93"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#involvesPatent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "involvesPatent",
+      "en" : "involves patent"
+    },
+    "domain" : "51",
+    "comment" : {
+      "undefined" : "UPC case involves a patent"
+    },
+    "attributes" : [ "object" ],
+    "id" : "96"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#caseDate",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "99",
+    "label" : {
+      "IRI-based" : "caseDate"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Date of judgment or decision"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "98"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#versionStartDate",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "101",
+    "label" : {
+      "IRI-based" : "versionStartDate"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Date from which this regulation version/expression applies"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "100"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasDefendant",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "hasDefendant",
+      "en" : "has defendant"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Defendant in the case"
+    },
+    "attributes" : [ "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ipcClass",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "106",
+    "label" : {
+      "IRI-based" : "ipcClass"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "IPC/CPC patent classification code"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "105"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#riskLevel",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "103",
+    "label" : {
+      "IRI-based" : "riskLevel",
+      "en" : "risk level"
+    },
+    "domain" : "39",
+    "comment" : {
+      "undefined" : "CRITICAL | HIGH | MEDIUM | LOW"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "107"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasConformityRecord",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "120",
+    "label" : {
+      "IRI-based" : "hasConformityRecord",
+      "en" : "has conformity record"
+    },
+    "domain" : "5",
+    "comment" : {
+      "undefined" : "Links system to its conformity record"
+    },
+    "attributes" : [ "object" ],
+    "id" : "122"
+  }, {
+    "range" : "2",
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "123"
+  }, {
+    "range" : "2",
+    "domain" : "125",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "124"
+  }, {
+    "range" : "2",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "126"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasPurposeLimitation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "119",
+    "label" : {
+      "IRI-based" : "hasPurposeLimitation",
+      "en" : "has purpose limitation"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Tri-level proportionality test (b): documented purpose limitation. C-817/19 P_817_003.",
+      "undefined" : "Tri-level proportionality (b): purpose limitation"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "127"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#chamberType",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "129",
+    "label" : {
+      "IRI-based" : "chamberType"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Grand Chamber, Chamber, etc."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "128"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#isActionable",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "109",
+    "label" : {
+      "IRI-based" : "isActionable",
+      "en" : "is actionable"
+    },
+    "domain" : "48",
+    "comment" : {
+      "en" : "True if the explanation enables effective exercise of GDPR Art.22(3) remedies (C-203/22 P_203_001). Abstract mathematical formulas are insufficient.",
+      "undefined" : "Explanation enables effective Art.22(3) remedies (C-203/22 P_203_001)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "132"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#interpretesArticle",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "interpretesArticle",
+      "en" : "interprets article"
+    },
+    "domain" : "15",
+    "attributes" : [ "object" ],
+    "id" : "133"
+  }, {
+    "range" : "5",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "134"
+  }, {
+    "range" : "5",
+    "domain" : "82",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "135"
+  }, {
+    "range" : "137",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "136"
+  }, {
+    "range" : "5",
+    "domain" : "94",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "140"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasStatus",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "113",
+    "label" : {
+      "IRI-based" : "hasStatus",
+      "en" : "status"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Procedural status of the case"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "141"
+  }, {
+    "range" : "5",
+    "domain" : "138",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "142"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#ecliIdentifier",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "144",
+    "label" : {
+      "IRI-based" : "ecliIdentifier"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "ECLI case identifier"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "143"
+  }, {
+    "range" : "3",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "145"
+  }, {
+    "range" : "5",
+    "domain" : "139",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "146"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#versionEndDate",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "97",
+    "label" : {
+      "IRI-based" : "versionEndDate"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Date until which this version applies (exclusive; absent = open-ended)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "147"
+  }, {
+    "range" : "5",
+    "domain" : "95",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "148"
+  }, {
+    "range" : "72",
+    "domain" : "78",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "149"
+  }, {
+    "range" : "72",
+    "domain" : "131",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "150"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasTemporalLimitation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "112",
+    "label" : {
+      "IRI-based" : "hasTemporalLimitation",
+      "en" : "has temporal limitation"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Tri-level proportionality test (c): temporal limitation or mandatory periodic review. C-817/19 P_817_003.",
+      "undefined" : "Tri-level proportionality (c): temporal limitation or review schedule"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "151"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#overrules",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "overrules"
+    },
+    "domain" : "31",
+    "comment" : {
+      "undefined" : "Overrules or modifies a prior principle"
+    },
+    "attributes" : [ "object" ],
+    "id" : "152"
+  }, {
+    "range" : "72",
+    "domain" : "71",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "153"
+  }, {
+    "range" : "29",
+    "domain" : "28",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "154"
+  }, {
+    "range" : "35",
+    "domain" : "114",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "155"
+  }, {
+    "range" : "72",
+    "domain" : "85",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "156"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#entryIntoForce",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "158",
+    "label" : {
+      "IRI-based" : "entryIntoForce"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Date of entry into force"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "157"
+  }, {
+    "range" : "72",
+    "domain" : "130",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "159"
+  }, {
+    "domain" : "35",
+    "range" : "24",
+    "id" : "160",
+    "label" : {
+      "IRI-based" : "32",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "35",
+    "range" : "25",
+    "id" : "161",
+    "label" : {
+      "IRI-based" : "33",
+      "undefined" : "is a"
+    }
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#identifiesInputFactors",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "115",
+    "label" : {
+      "IRI-based" : "identifiesInputFactors",
+      "en" : "identifies input factors"
+    },
+    "domain" : "48",
+    "comment" : {
+      "en" : "True if the explanation identifies which specific input data affected the automated output and the main reasoning path (C-203/22 P_203_001; GDPR Art.15(1)(h)).",
+      "undefined" : "Explanation identifies which inputs affected the output"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "162"
+  }, {
+    "range" : "63",
+    "domain" : "62",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "163"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#producesSignificantImpact",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "108",
+    "label" : {
+      "IRI-based" : "producesSignificantImpact",
+      "en" : "produces significant impact"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "True if the system's outputs have legal or similarly significant effects on individuals (C-634/21 P_634_001). Triggers full Art.22 obligation chain.",
+      "undefined" : "True if outputs have legal/similarly significant effects on individuals"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "164"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#involvesFramework",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "involvesFramework",
+      "en" : "involves framework"
+    },
+    "domain" : "33",
+    "comment" : {
+      "undefined" : "A cross-framework tension involves a regulatory framework."
+    },
+    "attributes" : [ "object" ],
+    "id" : "165"
+  }, {
+    "range" : "8",
+    "domain" : "35",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "166"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#applicablePhase",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "168",
+    "label" : {
+      "IRI-based" : "applicablePhase"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Named applicability phase label (e.g. 'high_risk_full_obligations')"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "167"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#complementedBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "complementedBy",
+      "en" : "complemented by"
+    },
+    "domain" : "18",
+    "comment" : {
+      "undefined" : "Article is complemented by another"
+    },
+    "attributes" : [ "symmetric", "object" ],
+    "id" : "169"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#interpretsArticle",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "interpretsArticle"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Case interprets a specific article"
+    },
+    "attributes" : [ "object" ],
+    "id" : "170"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasPrecedenceLevel",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "116",
+    "label" : {
+      "IRI-based" : "hasPrecedenceLevel",
+      "en" : "precedence level"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "binding_ratio | persuasive_obiter | constitutional_grand_chamber",
+      "undefined" : "binding_ratio | persuasive_obiter | constitutional_grand_chamber"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "171"
+  }, {
+    "range" : "8",
+    "domain" : "7",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "172"
+  }, {
+    "range" : "8",
+    "domain" : "29",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "173"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasTension",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "hasTension"
+    },
+    "domain" : "33",
+    "comment" : {
+      "undefined" : "Tension involves a framework"
+    },
+    "attributes" : [ "object" ],
+    "id" : "174"
+  }, {
+    "range" : "10",
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "175"
+  }, {
+    "range" : "13",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "176"
+  }, {
+    "range" : "8",
+    "domain" : "84",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "177"
+  }, {
+    "range" : "8",
+    "domain" : "67",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "178"
+  }, {
+    "range" : "15",
+    "domain" : "51",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "179"
+  }, {
+    "range" : "15",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "180"
+  }, {
+    "range" : "74",
+    "domain" : "73",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "181"
+  }, {
+    "range" : "15",
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "182"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#triggersObligation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "triggersObligation",
+      "en" : "triggers obligation"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Principle triggers a compliance obligation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "184"
+  }, {
+    "range" : "19",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "185"
+  }, {
+    "range" : "46",
+    "domain" : "91",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "186"
+  }, {
+    "range" : "15",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "187"
+  }, {
+    "range" : "25",
+    "domain" : "24",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "188"
+  }, {
+    "range" : "57",
+    "domain" : "18",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "189"
+  }, {
+    "range" : "46",
+    "domain" : "45",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "190"
+  }, {
+    "range" : "46",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "191"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasFormation",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "121",
+    "label" : {
+      "IRI-based" : "hasFormation",
+      "en" : "court formation"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype" ],
+    "id" : "192"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#applicationDate",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "194",
+    "label" : {
+      "IRI-based" : "applicationDate"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Date from which the act applies"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "193"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#amendmentDescription",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "195",
+    "label" : {
+      "IRI-based" : "amendmentDescription"
+    },
+    "domain" : "54",
+    "comment" : {
+      "undefined" : "Human-readable description of what this legislative event changes"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "196"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasHumanOversightRecord",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "hasHumanOversightRecord",
+      "en" : "has human oversight record"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Links an automated decision system to its human oversight documentation. At least one record is required (C-634/21 P_634_002).",
+      "undefined" : "Links system to its oversight documentation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "197"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#isHighRiskAIAct",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "110",
+    "label" : {
+      "IRI-based" : "isHighRiskAIAct",
+      "en" : "is high-risk under AI Act"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "True if the system falls within AI Act Annex III high-risk categories (medical device AI, biometric, critical infrastructure).",
+      "undefined" : "True if system falls under AI Act Annex III high-risk categories"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "198"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#usesHealthStatusAsCriterion",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "102",
+    "label" : {
+      "IRI-based" : "usesHealthStatusAsCriterion",
+      "en" : "uses health status as criterion"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "True if the system uses an individual's health status as an automated classification criterion. Must be false (C-817/19 P_817_004 Grand Chamber prohibition).",
+      "undefined" : "Must be false — health status excluded from automated criteria (C-817/19 P_817_004)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "199"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#triggeredBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "triggeredBy"
+    },
+    "domain" : "11",
+    "comment" : {
+      "undefined" : "Version created or activated by a legislative event"
+    },
+    "attributes" : [ "object" ],
+    "id" : "200"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#citesPrecedent",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "citesPrecedent",
+      "en" : "cites precedent"
+    },
+    "domain" : "15",
+    "comment" : {
+      "en" : "A case relies on an earlier case as precedent.",
+      "undefined" : "Case relies on earlier case as precedent"
+    },
+    "attributes" : [ "object" ],
+    "id" : "201"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#establishesPrinciple",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "establishesPrinciple",
+      "en" : "establishes principle"
+    },
+    "domain" : "15",
+    "comment" : {
+      "en" : "A case establishes a legal principle.",
+      "undefined" : "Case establishes a legal principle"
+    },
+    "attributes" : [ "object" ],
+    "id" : "203"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#hasOutcome",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "117",
+    "label" : {
+      "IRI-based" : "hasOutcome",
+      "en" : "outcome"
+    },
+    "domain" : "15",
+    "comment" : {
+      "undefined" : "Outcome or operative part of judgment"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "204"
+  }, {
+    "iri" : "https://onto.example.org/medical-ai-legal#governedBy",
+    "baseIri" : "https://onto.example.org/medical-ai-legal",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "governedBy"
+    },
+    "domain" : "3",
+    "comment" : {
+      "undefined" : "Governed by a regulatory framework"
+    },
+    "attributes" : [ "object" ],
+    "id" : "205"
+  } ]
+}

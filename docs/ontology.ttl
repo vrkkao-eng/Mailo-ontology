@@ -1,0 +1,1846 @@
+@prefix airo: <https://w3id.org/airo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dpv: <http://w3id.org/dpv#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix mailo: <https://onto.example.org/medical-ai-legal#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://onto.example.org/medical-ai-legal> a owl:Ontology ;
+    dcterms:created "2026-03-27"^^xsd:date ;
+    dcterms:description """\r
+        Ontology capturing the legal landscape governing AI-driven automated\r
+        decision-making in medical contexts. Covers CJEU precedents on GDPR\r
+        Art.22, UPC/EPO patent litigation in MedTech, the EU AI Act high-risk\r
+        regime, MDR 2017/745, PLD 2024/2853, EHDS 2025/327, DGA 2022/868,\r
+        and Data Act 2023/2854 — with full precedent chains, SHACL runtime\r
+        constraints, and compliance obligation mappings.\r
+        Imports: W3C DPV v2.0 (data privacy vocabulary), AIRO (AI risk ontology),\r
+        ELI (European Legislation Identifier), ECLI (European Case Law Identifier).\r
+    """@en ;
+    dcterms:language "en" ;
+    dcterms:modified "2026-05-19"^^xsd:date ;
+    dcterms:title "Medical AI Legal Ontology (MAILO)"@en ;
+    owl:imports <http://data.europa.eu/eli/ontology>,
+        <http://w3id.org/dpv>,
+        <https://w3id.org/airo> .
+
+mailo: a owl:Ontology ;
+    dcterms:created "2026-04-30"^^xsd:date ;
+    dcterms:creator "Victor Kao" ;
+    dcterms:description "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations." ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-05-19"^^xsd:date ;
+    dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
+    dcterms:title "Medical AI Legal Ontology (MAILO)" ;
+    rdfs:comment "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."@en ;
+    owl:priorVersion <https://onto.example.org/medical-ai-legal/5.0> ;
+    owl:versionIRI <https://onto.example.org/medical-ai-legal/5.0.1> ;
+    owl:versionInfo "5.0.1" .
+
+mailo:AIAct_Art13 a mailo:LegalArticle ;
+    rdfs:label "AI Act Article 13"@en ;
+    rdfs:comment "Transparency and provision of information to deployers."@en .
+
+mailo:AIAct_Art86 a mailo:LegalArticle ;
+    rdfs:label "AI Act Article 86"@en ;
+    rdfs:comment "Right to explanation of individual decision-making."@en ;
+    mailo:complementedBy mailo:GDPR_Art15_1h .
+
+mailo:Amgen a mailo:Company ;
+    rdfs:label "Amgen Inc."@en .
+
+mailo:CJEU a mailo:Court ;
+    rdfs:label "Court of Justice of the EU (CJEU)"@en .
+
+mailo:C_203_22 a mailo:CJEUCase ;
+    rdfs:label "C-203/22 Dun & Bradstreet Austria"@en ;
+    dcterms:date "2025-02-27"^^xsd:date ;
+    dcterms:identifier "C-203/22",
+        "ECLI:EU:C:2025:145" ;
+    skos:notation "ECLI:EU:C:2025:145" ;
+    mailo:citesPrecedent mailo:C_634_21 ;
+    mailo:decidedBy mailo:CJEU_FirstChamber ;
+    mailo:establishesPrinciple mailo:P_203_001 ;
+    mailo:hasOutcome "Actionable explanations required (not algorithm formulas); explanation must enable effective exercise of Art.22(3) remedies."^^xsd:string ;
+    mailo:hasStatus "Final — binding precedent"^^xsd:string ;
+    mailo:interpretesArticle mailo:GDPR_Art15_1h,
+        mailo:GDPR_Art22 .
+
+mailo:C_307_22 a mailo:CJEUCase ;
+    rdfs:label "C-307/22 FT v DW (Medical Records Access)"@en ;
+    dcterms:date "2023-10-26"^^xsd:date ;
+    dcterms:identifier "C-307/22",
+        "ECLI:EU:C:2023:811" ;
+    skos:notation "ECLI:EU:C:2023:811" ;
+    mailo:decidedBy mailo:CJEU_FirstChamber ;
+    mailo:establishesPrinciple mailo:P_307_001 ;
+    mailo:hasOutcome "Unconditional right to free copy of complete medical records under GDPR Art.15, including AI-generated diagnostic data."^^xsd:string ;
+    mailo:hasStatus "Final — binding precedent"^^xsd:string ;
+    mailo:interpretesArticle mailo:GDPR_Art15,
+        mailo:GDPR_Art15_1h ;
+    mailo:involvesTechnology mailo:MedicalAISystem .
+
+mailo:C_311_18 a mailo:CJEUCase ;
+    rdfs:label "C-311/18 Schrems II"@en ;
+    dcterms:date "2020-07-16"^^xsd:date ;
+    dcterms:identifier "C-311/18" ;
+    mailo:hasStatus "Final"^^xsd:string .
+
+mailo:ComplianceMatrix a owl:Class ;
+    rdfs:label "ComplianceMatrix" ;
+    rdfs:comment "A cross-reference mapping between frameworks" .
+
+mailo:ConstitutionalPrinciple a owl:Class ;
+    rdfs:label "ConstitutionalPrinciple",
+        "Constitutional Principle"@en ;
+    rdfs:comment "Principle derived from EU Charter of Fundamental Rights",
+        "Principle derived from the EU Charter of Fundamental Rights."@en ;
+    rdfs:subClassOf mailo:LegalPrinciple .
+
+mailo:DGA a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "DGA 2022/868"@en ;
+    eli:id_local "32022R0868" ;
+    dcterms:date "2022-05-30"^^xsd:date ;
+    dcterms:identifier "2022/868/EU" ;
+    rdfs:comment "Data Governance Act. Applies from 2023-09-24. Creates data intermediaries, data altruism organisations, and re-use frameworks for public sector health data."@en ;
+    mailo:coversArticle mailo:DGA_Art10,
+        mailo:DGA_Art16,
+        mailo:DGA_Art2,
+        mailo:DGA_Art31 .
+
+mailo:DataAct a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "Data Act 2023/2854"@en ;
+    eli:id_local "32023R2854" ;
+    dcterms:date "2023-12-13"^^xsd:date ;
+    dcterms:identifier "2023/2854/EU" ;
+    rdfs:comment "Data Act. Applies from 2025-09-12. Governs data sharing obligations for IoT-generated data (medical devices, wearables) and B2G/B2B data access for AI development."@en ;
+    mailo:coversArticle mailo:DataAct_Art15,
+        mailo:DataAct_Art17,
+        mailo:DataAct_Art23,
+        mailo:DataAct_Art3,
+        mailo:DataAct_Art5 .
+
+mailo:DataSubject a owl:Class ;
+    rdfs:label "DataSubject",
+        "Data Subject"@en ;
+    rdfs:comment "An individual whose personal data is processed" ;
+    rdfs:subClassOf mailo:LegalEntity .
+
+mailo:EHDS a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "EHDS Regulation 2025/327"@en ;
+    dcterms:identifier "2025/327/EU" ;
+    rdfs:comment "European Health Data Space. Governs primary use (MyHealthData) and secondary use of health data for research, innovation, and AI training. In force 2025-03-26."@en ;
+    mailo:coversArticle mailo:EHDS_Art33,
+        mailo:EHDS_Art35,
+        mailo:EHDS_Art50,
+        mailo:EHDS_Art68 .
+
+mailo:EPO_G0001_19 a mailo:EPOProceding ;
+    rdfs:label "EPO G 0001/19 — Patentability of Computer-Implemented Simulations"@en ;
+    dcterms:date "2021-03-10"^^xsd:date ;
+    dcterms:identifier "G 0001/19" ;
+    mailo:decidedBy mailo:EPO_EnlargedBoA ;
+    mailo:hasOutcome "Computer-implemented simulation of a technical process is not excluded from patentability (Art.52(2)). Technical character assessed at claim level. Foundational for AI-based clinical decision simulation systems."^^xsd:string ;
+    mailo:interpretesArticle mailo:EPC_Art52 .
+
+mailo:EPO_T1191_19 a mailo:EPOProceding ;
+    rdfs:label "EPO T 1191/19 — AI Plausibility and Post-Filed Evidence"@en ;
+    dcterms:date "2021-11-12"^^xsd:date ;
+    dcterms:identifier "T 1191/19" ;
+    mailo:decidedBy mailo:EPO_BoA ;
+    mailo:hasOutcome "Ab initio plausibility required for AI-based inventions claiming technical effect. Post-filed evidence accepted only where at least some plausibility established in application as filed. Relevant for medical AI patents claiming diagnostic performance metrics."^^xsd:string ;
+    mailo:interpretesArticle mailo:EPC_Art52,
+        mailo:EPC_Art83 .
+
+mailo:EP_3435866 a mailo:EuropeanPatent ;
+    rdfs:label "EP 3 435 866"@en ;
+    rdfs:comment "Dexcom continuous glucose monitoring system."@en .
+
+mailo:EUCharter a mailo:InternationalTreaty,
+        mailo:RegulatoryFramework ;
+    rdfs:label "EU Charter of Fundamental Rights"@en .
+
+mailo:LegalTest a owl:Class ;
+    rdfs:label "LegalTest",
+        "Legal Test"@en ;
+    rdfs:comment "Multi-factor test established by case law",
+        "A multi-factor test established by case law to assess a legal question."@en .
+
+mailo:MDR a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "MDR 2017/745"@en ;
+    eli:id_local "32017R0745" ;
+    dcterms:identifier "2017/745/EU" ;
+    mailo:coversArticle mailo:MDR_Art15,
+        mailo:MDR_Art61,
+        mailo:MDR_Art83 .
+
+mailo:NationalAuthority a owl:Class ;
+    rdfs:label "NationalAuthority",
+        "National Authority"@en ;
+    rdfs:comment "A national regulatory or supervisory body" ;
+    rdfs:subClassOf mailo:LegalEntity .
+
+mailo:NationalCourtCase a owl:Class ;
+    rdfs:label "NationalCourtCase",
+        "National Court Case"@en ;
+    rdfs:comment "Proceeding before a national court" ;
+    rdfs:subClassOf mailo:Case .
+
+mailo:NotifiedBody a owl:Class ;
+    rdfs:label "NotifiedBody",
+        "Notified Body"@en ;
+    rdfs:comment "A conformity assessment body notified under MDR/AI Act" ;
+    rdfs:subClassOf mailo:LegalEntity .
+
+mailo:PLD a mailo:EUDirective,
+        mailo:RegulatoryFramework ;
+    rdfs:label "PLD 2024/2853"@en ;
+    eli:id_local "32024L2853" ;
+    dcterms:date "2024-11-23"^^xsd:date ;
+    dcterms:identifier "2024/2853/EU" ;
+    rdfs:comment "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."@en ;
+    mailo:coversArticle mailo:PLD_Art10,
+        mailo:PLD_Art11,
+        mailo:PLD_Art4,
+        mailo:PLD_Art7,
+        mailo:PLD_Art9 .
+
+mailo:PNRDirective a mailo:EUDirective,
+        mailo:RegulatoryFramework ;
+    rdfs:label "PNR Directive 2016/681"@en ;
+    dcterms:identifier "2016/681/EU" .
+
+mailo:PatentClaim a owl:Class ;
+    rdfs:label "PatentClaim",
+        "Patent Claim"@en ;
+    rdfs:comment "A claim within a patent specification" .
+
+mailo:Risk_TradeSecretTransparencyConflict a mailo:ComplianceRisk ;
+    rdfs:label "Trade Secret Shield vs. AI Act/GDPR Transparency Mandate (TSD Art.2 Conflict)"@en ;
+    rdfs:comment "Medical AI operators relying on TSD Art.2 to protect model weights face: (a) mandatory AI Act Art.13 disclosure to deployers; (b) GDPR Art.15(1)(h) actionable explanation obligations to data subjects; (c) mandatory supervisory authority adjudication when TSD is claimed (C-203/22). Hybrid strategy required: patent final outputs, trade secret the AI platform, use ZKP/ZKML for auditor verification without weight disclosure."@en ;
+    mailo:mitigatedBy mailo:ExplainabilityObligation ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Sanofi a mailo:Company ;
+    rdfs:label "Sanofi S.A."@en .
+
+mailo:SoftwareAsMedicalDevice a owl:Class ;
+    rdfs:label "SoftwareAsMedicalDevice",
+        "Software as Medical Device (SaMD)"@en ;
+    rdfs:comment "Software qualifying as medical device under MDR 2017/745",
+        "Software qualifying as a medical device under MDR 2017/745."@en ;
+    rdfs:seeAlso airo:HighRiskAISystem ;
+    rdfs:subClassOf mailo:MedicalAISystem ;
+    mailo:hasRisk mailo:Risk_AIActQMS_MDR_Overlap,
+        mailo:Risk_SEP_FRAND .
+
+mailo:Tension_BlackBox_PatentProtection a mailo:CrossFrameworkTension ;
+    rdfs:label "Black-Box Patent Protection vs. EU AI Act Transparency Obligation"@en ;
+    rdfs:comment """\r
+        Deep-learning medical AI is inherently opaque (black-box). Patent protection incentivises\r
+        secrecy over model weights. EU AI Act Art.13 and C-817/19 black-box prohibition\r
+        require transparency for high-risk AI systems, creating structural tension with\r
+        commercial IP protection strategies. TSD Art.2 reinforces the secrecy interest;\r
+        TSD Art.5 carve-outs are the only legislative bridge, but their scope is unresolved.\r
+    """@en ;
+    mailo:conflictsWith mailo:TransparencyObligation ;
+    mailo:involvesFramework mailo:AIAct,
+        mailo:EPC,
+        mailo:TSD .
+
+mailo:Tension_DGA_Neutrality_DataAcquisition a mailo:CrossFrameworkTension ;
+    rdfs:label "DGA Art.10 neutrality obligation vs. AI Act Art.10 data governance"@en ;
+    rdfs:comment "DGA Art.10 prohibits data-sharing intermediaries from using shared data for purposes beyond the sharing service. Integrated AI development models in which intermediary and developer are related entities require structural business model restructuring that no guidance resolves."@en ;
+    mailo:conflictType mailo:DataGovernanceConflict ;
+    mailo:hasResolutionStatus "unresolved"^^xsd:string .
+
+mailo:Tension_DataAct_TradeSecret_AITransparency a mailo:CrossFrameworkTension ;
+    rdfs:label "Data Act Art.15 trade secret vs. AI Act Art.13 + GDPR Art.15(1)(h) transparency"@en ;
+    rdfs:comment "C-203/22 Dun & Bradstreet §§60-70 limits trade-secret defence: a controller cannot refuse all causal explanation on trade-secret grounds. The precise boundary between permitted limitation and impermissible derogation is determined case-by-case."@en ;
+    mailo:conflictType mailo:TradeSecretConflict ;
+    mailo:hasResolutionStatus "partial"^^xsd:string .
+
+mailo:Tension_EHDS_GDPR_OptOut a mailo:CrossFrameworkTension ;
+    rdfs:label "EHDS Art.35 opt-out vs. AI Act Art.10(3) representativeness"@en ;
+    rdfs:comment "EHDS Art.35 grants patients an unconditional right to opt out of secondary health data use. Where opt-out rates are elevated in a clinically significant subpopulation, the resulting training dataset violates AI Act Art.10(3) representativeness. No legislative safe harbour bridges these positions."@en ;
+    mailo:conflictType mailo:DataGovernanceConflict ;
+    mailo:hasResolutionStatus "unresolved"^^xsd:string .
+
+mailo:Tension_EPO_GDPR_Disclosure a mailo:CrossFrameworkTension ;
+    rdfs:label "EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy"@en ;
+    rdfs:comment """\r
+        EPC Art.83 requires public disclosure of training data structure to maintain patent validity.\r
+        GDPR Art.15(1)(h) + C-203/22 require actionable explanations to data subjects.\r
+        The EPO disclosure may inadvertently establish a baseline that strengthens GDPR access rights,\r
+        eroding TSD Art.2 trade secret shields that might otherwise limit GDPR Art.15 responses.\r
+        TSD Art.9 judicial confidentiality measures do not apply to EPO prosecution, leaving no\r
+        mechanism to contain the disclosure baseline once it enters the public patent record.\r
+    """@en ;
+    mailo:conflictsWith mailo:DisclosureObligation ;
+    mailo:involvesFramework mailo:EPC,
+        mailo:GDPR,
+        mailo:TSD .
+
+mailo:Tension_EPO_MDR_SemanticScope a mailo:CrossFrameworkTension ;
+    rdfs:label "EPO G-II §3.3 broad claim scope vs. MDR Annex II §1.1 + AI Act Art.9/13 intended purpose"@en ;
+    rdfs:comment "EPO patent prosecution optimises for broad technical-effect claims (wider scope = stronger IP protection); MDR Annex II requires precise intended-purpose specification (narrower scope = easier clinical evaluation); AI Act Art.9/13 requires intermediate characterisation covering intended purpose plus reasonably foreseeable misuse. The same SaMD must be described at opposing granularity levels across three institutional knowledge spaces. No EPO, MDCG, or AI Office guidance addresses this triangular scope alignment problem."@en ;
+    mailo:conflictType mailo:SemanticGranularityConflict ;
+    mailo:hasResolutionStatus "unresolved"^^xsd:string .
+
+mailo:Tension_MDR_AIAct_DualTrack a mailo:CrossFrameworkTension ;
+    rdfs:label "MDR Annex IX conformity vs. AI Act Art.43 conformity assessment"@en ;
+    rdfs:comment "Two separate conformity assessment pathways for the same SaMD. MDCG AIB 2025-1 provides a procedural joint-assessment mechanism but does not harmonise the substantive requirement sets."@en ;
+    mailo:conflictType mailo:ConformityGapConflict ;
+    mailo:hasResolutionStatus "procedural_only"^^xsd:string .
+
+mailo:Tension_PLD_AIAct_Liability a mailo:CrossFrameworkTension ;
+    rdfs:label "PLD Strict Liability vs. AI Act Conformity Defence"@en ;
+    rdfs:comment """\r
+        PLD Art.4 imposes strict liability; AI Act conformity assessment is not a\r
+        defence to PLD claims. A CE-marked AI-SaMD that passes AI Act conformity\r
+        assessment may still be 'defective' under PLD if it fails in real-world\r
+        deployment. The two regimes do not create a safety harbour from each other.\r
+    """@en ;
+    mailo:conflictsWith mailo:PLD_Art4 .
+
+mailo:Tension_PLD_AIAct_LiabilityGap a mailo:CrossFrameworkTension ;
+    rdfs:label "PLD Art.10 defect presumption vs. AI Act Art.9 risk management"@en ;
+    rdfs:comment "PLD Art.11 defect presumption applies where it is excessively difficult for the claimant to prove defect. AI Act Art.9-compliant risk management documentation may rebut the presumption but no legislative safe harbour confirms this."@en ;
+    mailo:conflictType mailo:LiabilityConflict ;
+    mailo:hasResolutionStatus "partial"^^xsd:string .
+
+mailo:Tension_TSD_AIAct_Transparency a mailo:CrossFrameworkTension ;
+    rdfs:label "TSD Art.2 Trade Secret vs. AI Act Art.13 + GDPR Art.15(1)(h) — Core Transparency Tension"@en ;
+    rdfs:comment "TSD Art.2 protects model weights, training data schemas, and architecture as trade secrets. AI Act Art.13 requires deployers to receive sufficient information about high-risk AI system capabilities and limitations. C-203/22 §§60-70 sets the mandatory floor: controller cannot invoke TSD Art.2 to deny all causal explanation of an automated decision — disputed information must be produced to the competent supervisory authority or court for balance. AI Act Art.78 ensures national authority confidentiality but does not disapply Art.13 disclosure to deployers. TSD Art.5 is the only legislative bridge but its scope in the medical AI context remains unresolved pending a CJEU reference on Art.22 and clinical AI."@en ;
+    mailo:conflictType mailo:TradeSecretConflict ;
+    mailo:conflictsWith mailo:ExplainabilityObligation,
+        mailo:TransparencyObligation ;
+    mailo:hasResolutionStatus "partial"^^xsd:string ;
+    mailo:involvesFramework mailo:AIAct,
+        mailo:GDPR,
+        mailo:TSD .
+
+mailo:TimelineEvent a owl:Class ;
+    rdfs:label "TimelineEvent" ;
+    rdfs:comment "A regulatory obligation activation date or deadline" .
+
+mailo:UPCA a mailo:InternationalTreaty,
+        mailo:RegulatoryFramework ;
+    rdfs:label "UPC Agreement (UPCA)"@en ;
+    dcterms:date "2023-06-01"^^xsd:date ;
+    dcterms:identifier "OJ C 175, 20.6.2013" ;
+    rdfs:comment "Agreement on a Unified Patent Court (in force 2023-06-01). Establishes the UPC as a supranational court for infringement and revocation of European patents across contracting states. Key for medtech AI: opt-out strategy, PI threshold ('more likely than not' invalidity standard from 10x v. NanoString CoA), EPO-UPC divergence risk."@en .
+
+mailo:UPC_10x_NanoString a mailo:UPCCase ;
+    rdfs:label "10x Genomics v. NanoString — Spatial Biology AI"@en ;
+    mailo:decidedBy mailo:UPC_CoA,
+        mailo:UPC_LD_Munich ;
+    mailo:hasOutcome "Munich LD granted PI; CoA first substantive ruling reversed PI on invalidity grounds ('more likely than not' standard). Case settled 2025."^^xsd:string ;
+    mailo:hasStatus "Settled 2025"^^xsd:string ;
+    mailo:involvesTechnology mailo:GenomicDiagnosticAI .
+
+mailo:UPC_Dexcom_Abbott a mailo:UPCCase ;
+    rdfs:label "Dexcom v. Abbott — Continuous Glucose Monitoring"@en ;
+    dcterms:identifier "ACT_583778/2023" ;
+    mailo:decidedBy mailo:UPC_LD_Munich,
+        mailo:UPC_LD_Paris ;
+    mailo:hasDefendant mailo:Abbott ;
+    mailo:hasOutcome "Paris LD revoked EP 3435866 and EP 3831282 (EPO had maintained validity — divergence). Case settled Dec 2024."^^xsd:string ;
+    mailo:hasPlaintiff mailo:Dexcom ;
+    mailo:hasStatus "Settled 2024-12-20"^^xsd:string ;
+    mailo:involvesTechnology mailo:RiskScoringSystem .
+
+mailo:UPC_GXD_Myriad a mailo:UPCCase ;
+    rdfs:label "GXD-Bio v. Myriad Genetics — Genomic Diagnostic AI"@en ;
+    dcterms:identifier "UPC_CFI_437/2024" ;
+    mailo:citesPrecedent mailo:EPO_T0161_18 ;
+    mailo:decidedBy mailo:UPC_LD_Munich ;
+    mailo:hasDefendant mailo:MyriadGenetics ;
+    mailo:hasOutcome "Patent fully revoked for added matter; infringement claim dismissed. First UPC biotech NPE case."^^xsd:string ;
+    mailo:hasPlaintiff mailo:GXDBio ;
+    mailo:hasStatus "Final — revoked"^^xsd:string ;
+    mailo:involvesPatent mailo:EP_3346403 ;
+    mailo:involvesTechnology mailo:GenomicDiagnosticAI .
+
+mailo:UPC_Hologic_Siemens a mailo:UPCCase ;
+    rdfs:label "Hologic v. Siemens Healthineers — Medical Imaging AI"@en ;
+    dcterms:identifier "UPC_CFI_758/2024" ;
+    mailo:decidedBy mailo:UPC_LD_Dusseldorf ;
+    mailo:hasDefendant mailo:SiemensHealthineers ;
+    mailo:hasOutcome "Decision issued 2026-03-09; details pending publication."^^xsd:string ;
+    mailo:hasPlaintiff mailo:Hologic ;
+    mailo:hasStatus "Active — post-decision stage"^^xsd:string ;
+    mailo:involvesPatent mailo:EP_2352431 ;
+    mailo:involvesTechnology mailo:MedicalImagingAI .
+
+mailo:UPC_Microsoft_Suinno a mailo:UPCCase ;
+    rdfs:label "Microsoft v. Suinno — AI Method Patent"@en ;
+    dcterms:identifier "UPC_CFI_433/2024" ;
+    mailo:citesPrecedent mailo:EPO_T0161_18 ;
+    mailo:decidedBy mailo:UPC_CD_Paris ;
+    mailo:hasDefendant mailo:Microsoft ;
+    mailo:hasOutcome "EP'173 fully revoked for added matter (2026-01-07). Appeal dismissed for lack of independent representation."^^xsd:string ;
+    mailo:hasStatus "Final — revoked"^^xsd:string ;
+    mailo:involvesPatent mailo:EP_2671173 ;
+    mailo:involvesTechnology mailo:AutomatedDecisionSystem .
+
+mailo:UPC_Sanofi_Amgen a mailo:UPCCase ;
+    rdfs:label "Sanofi & Regeneron v. Amgen — PCSK9 Medical Use"@en ;
+    dcterms:identifier "UPC_CFI_505/2024" ;
+    mailo:decidedBy mailo:UPC_LD_Dusseldorf ;
+    mailo:hasOutcome "Düsseldorf LD: patent valid, no infringement (dual-element test established). CoA: EP'797 restored after Munich CD revocation. EPO-UPC divergence on inventive step."^^xsd:string ;
+    mailo:hasStatus "Active — EPO BoA hearing scheduled 2026-04"^^xsd:string .
+
+mailo:amendmentDescription a owl:DatatypeProperty ;
+    rdfs:comment "Human-readable description of what this legislative event changes" ;
+    rdfs:range xsd:string .
+
+mailo:applicablePhase a owl:DatatypeProperty ;
+    rdfs:comment "Named applicability phase label (e.g. 'high_risk_full_obligations')" ;
+    rdfs:range xsd:string .
+
+mailo:applicationDate a owl:DatatypeProperty ;
+    rdfs:comment "Date from which the act applies" ;
+    rdfs:range xsd:date .
+
+mailo:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to"@en ;
+    rdfs:comment "Principle applies to a technology" ;
+    rdfs:domain mailo:LegalPrinciple ;
+    rdfs:range mailo:Technology .
+
+mailo:art22ExceptionApplied a owl:DatatypeProperty ;
+    rdfs:label "Art.22 exception applied"@en ;
+    rdfs:comment "contract_necessity | explicit_consent | member_state_law",
+        "The GDPR Art.22(2) exception relied on: 'contract_necessity' | 'explicit_consent' | 'member_state_law'. Must be stated or Art.22(1) prohibition applies (C-634/21 P_634_004)."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:string .
+
+mailo:caseDate a owl:DatatypeProperty ;
+    rdfs:comment "Date of judgment or decision" ;
+    rdfs:range xsd:date .
+
+mailo:celex a owl:DatatypeProperty ;
+    rdfs:comment "CELEX number for EU legislation" ;
+    rdfs:range xsd:string .
+
+mailo:chamberType a owl:DatatypeProperty ;
+    rdfs:comment "Grand Chamber, Chamber, etc." ;
+    rdfs:range xsd:string .
+
+mailo:cites a owl:ObjectProperty ;
+    rdfs:comment "Cites another CJEU case (alias)" ;
+    rdfs:domain mailo:CJEUCase ;
+    rdfs:range mailo:CJEUCase .
+
+mailo:citesPrecedent a owl:ObjectProperty ;
+    rdfs:label "cites precedent"@en ;
+    rdfs:comment "Case relies on earlier case as precedent",
+        "A case relies on an earlier case as precedent."@en ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:Case .
+
+mailo:complementedBy a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "complemented by"@en ;
+    rdfs:comment "Article is complemented by another" ;
+    rdfs:domain mailo:LegalArticle ;
+    rdfs:range mailo:LegalArticle .
+
+mailo:conflictsWith a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "conflicts with"@en ;
+    rdfs:comment "Article conflicts with another",
+        "Two legal obligations or principles that are in tension."@en ;
+    rdfs:domain mailo:LegalArticle ;
+    rdfs:range mailo:LegalArticle .
+
+mailo:coversArticle a owl:ObjectProperty ;
+    rdfs:label "covers article"@en ;
+    rdfs:comment "Framework contains an article" ;
+    rdfs:domain mailo:RegulatoryFramework ;
+    rdfs:range mailo:LegalArticle .
+
+mailo:decidedBy a owl:ObjectProperty ;
+    rdfs:label "decided by"@en ;
+    rdfs:comment "Case was decided by a court" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:Court .
+
+mailo:discusses a owl:ObjectProperty ;
+    rdfs:comment "Source discusses a legal principle" ;
+    rdfs:domain mailo:LiteratureSource ;
+    rdfs:range mailo:LegalPrinciple .
+
+mailo:doi a owl:DatatypeProperty ;
+    rdfs:comment "Digital Object Identifier" ;
+    rdfs:range xsd:string .
+
+mailo:ecliIdentifier a owl:DatatypeProperty ;
+    rdfs:comment "ECLI case identifier" ;
+    rdfs:range xsd:string .
+
+mailo:enforcedBy a owl:ObjectProperty ;
+    rdfs:comment "Framework enforced by authority" ;
+    rdfs:domain mailo:RegulatoryFramework ;
+    rdfs:range mailo:RegulatoryAuthority .
+
+mailo:entryIntoForce a owl:DatatypeProperty ;
+    rdfs:comment "Date of entry into force" ;
+    rdfs:range xsd:date .
+
+mailo:establishesPrinciple a owl:ObjectProperty ;
+    rdfs:label "establishes principle"@en ;
+    rdfs:comment "Case establishes a legal principle",
+        "A case establishes a legal principle."@en ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:LegalPrinciple .
+
+mailo:governedBy a owl:ObjectProperty ;
+    rdfs:comment "Governed by a regulatory framework" ;
+    rdfs:domain mailo:Technology ;
+    rdfs:range mailo:RegulatoryFramework .
+
+mailo:grantsRight a owl:ObjectProperty ;
+    rdfs:label "grants right"@en ;
+    rdfs:comment "Article grants a right" ;
+    rdfs:domain mailo:LegalArticle ;
+    rdfs:range mailo:Right .
+
+mailo:hasConformityRecord a owl:ObjectProperty ;
+    rdfs:label "has conformity record"@en ;
+    rdfs:comment "Links system to its conformity record" ;
+    rdfs:domain mailo:MedicalAISystem ;
+    rdfs:range mailo:ConformityRecord .
+
+mailo:hasDPIA a owl:ObjectProperty ;
+    rdfs:label "has DPIA"@en ;
+    rdfs:comment "Links system to its DPIA record",
+        "Links a medical AI system to its DPIA record. Required for all high-risk automated processing (GDPR Art.35; C-817/19 P_817_005)."@en ;
+    rdfs:domain mailo:MedicalAISystem ;
+    rdfs:range mailo:DPIARecord .
+
+mailo:hasDefendant a owl:ObjectProperty ;
+    rdfs:label "has defendant"@en ;
+    rdfs:comment "Defendant in the case" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:LegalEntity .
+
+mailo:hasDefinedScope a owl:DatatypeProperty ;
+    rdfs:label "has defined scope"@en ;
+    rdfs:comment "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)",
+        "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:hasExplanation a owl:ObjectProperty ;
+    rdfs:label "has explanation"@en ;
+    rdfs:comment "Links system to its explanation for data subjects",
+        "Links an automated decision system to its actionable explanation for data subjects (C-203/22 P_203_001; GDPR Art.15(1)(h))."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range mailo:Explanation .
+
+mailo:hasFormation a owl:DatatypeProperty ;
+    rdfs:label "court formation"@en ;
+    rdfs:domain mailo:CJEUCase ;
+    rdfs:range xsd:string .
+
+mailo:hasHumanOversightRecord a owl:ObjectProperty ;
+    rdfs:label "has human oversight record"@en ;
+    rdfs:comment "Links system to its oversight documentation",
+        "Links an automated decision system to its human oversight documentation. At least one record is required (C-634/21 P_634_002)."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range mailo:HumanOversightRecord .
+
+mailo:hasIndividualNonAutomatedReview a owl:DatatypeProperty ;
+    rdfs:label "has individual non-automated review"@en ;
+    rdfs:comment "True = individual non-automated review before any measure (C-817/19 P_817_001)",
+        "True if every positive automated match is subject to individual non-automated human review before any measure is taken. C-817/19 P_817_001 constitutional minimum."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:hasObligation a owl:ObjectProperty ;
+    rdfs:comment "Framework imposes an obligation" ;
+    rdfs:domain mailo:RegulatoryFramework ;
+    rdfs:range mailo:ComplianceObligation .
+
+mailo:hasOutcome a owl:DatatypeProperty ;
+    rdfs:label "outcome"@en ;
+    rdfs:comment "Outcome or operative part of judgment" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range xsd:string .
+
+mailo:hasPlaintiff a owl:ObjectProperty ;
+    rdfs:label "has plaintiff"@en ;
+    rdfs:comment "Plaintiff in the case" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:LegalEntity .
+
+mailo:hasPrecedenceLevel a owl:DatatypeProperty ;
+    rdfs:label "precedence level"@en ;
+    rdfs:comment "binding_ratio | persuasive_obiter | constitutional_grand_chamber",
+        "binding_ratio | persuasive_obiter | constitutional_grand_chamber"@en ;
+    rdfs:domain mailo:LegalPrinciple ;
+    rdfs:range xsd:string .
+
+mailo:hasPredeterminedCriteria a owl:DatatypeProperty ;
+    rdfs:label "has predetermined criteria"@en ;
+    rdfs:comment "True = pre-determined explainable criteria; false = self-learning black-box",
+        "True if the system's assessment criteria are pre-determined and not modified by self-learning without human review. Required to avoid black-box prohibition (C-817/19 P_817_002)."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:hasPrinciple a owl:ObjectProperty ;
+    rdfs:comment "Establishes a legal principle (alias)" ;
+    rdfs:domain mailo:CJEUCase ;
+    rdfs:range mailo:LegalPrinciple .
+
+mailo:hasPurposeLimitation a owl:DatatypeProperty ;
+    rdfs:label "has purpose limitation"@en ;
+    rdfs:comment "Tri-level proportionality (b): purpose limitation",
+        "Tri-level proportionality test (b): documented purpose limitation. C-817/19 P_817_003."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:hasRisk a owl:ObjectProperty ;
+    rdfs:label "has compliance risk"@en ;
+    rdfs:comment "Technology carries a compliance risk" ;
+    rdfs:domain mailo:Technology ;
+    rdfs:range mailo:ComplianceRisk .
+
+mailo:hasStatus a owl:DatatypeProperty ;
+    rdfs:label "status"@en ;
+    rdfs:comment "Procedural status of the case" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range xsd:string .
+
+mailo:hasTemporalLimitation a owl:DatatypeProperty ;
+    rdfs:label "has temporal limitation"@en ;
+    rdfs:comment "Tri-level proportionality (c): temporal limitation or review schedule",
+        "Tri-level proportionality test (c): temporal limitation or mandatory periodic review. C-817/19 P_817_003."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:hasTension a owl:ObjectProperty ;
+    rdfs:comment "Tension involves a framework" ;
+    rdfs:domain mailo:CrossFrameworkTension ;
+    rdfs:range mailo:RegulatoryFramework .
+
+mailo:hasVersion a owl:ObjectProperty ;
+    rdfs:comment "Regulation has a temporal applicability version" ;
+    rdfs:domain mailo:EURegulation ;
+    rdfs:range mailo:RegulationVersion .
+
+mailo:identifiesInputFactors a owl:DatatypeProperty ;
+    rdfs:label "identifies input factors"@en ;
+    rdfs:comment "Explanation identifies which inputs affected the output",
+        "True if the explanation identifies which specific input data affected the automated output and the main reasoning path (C-203/22 P_203_001; GDPR Art.15(1)(h))."@en ;
+    rdfs:domain mailo:Explanation ;
+    rdfs:range xsd:boolean .
+
+mailo:interpretesArticle a owl:ObjectProperty ;
+    rdfs:label "interprets article"@en ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:LegalArticle .
+
+mailo:interpretsArticle a owl:ObjectProperty ;
+    rdfs:comment "Case interprets a specific article" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:LegalArticle .
+
+mailo:involvesFramework a owl:ObjectProperty ;
+    rdfs:label "involves framework"@en ;
+    rdfs:comment "A cross-framework tension involves a regulatory framework." ;
+    rdfs:domain mailo:CrossFrameworkTension ;
+    rdfs:range mailo:RegulatoryFramework .
+
+mailo:involvesPatent a owl:ObjectProperty ;
+    rdfs:label "involves patent"@en ;
+    rdfs:comment "UPC case involves a patent" ;
+    rdfs:domain mailo:UPCCase ;
+    rdfs:range mailo:Patent .
+
+mailo:involvesTechnology a owl:ObjectProperty ;
+    rdfs:label "involves technology"@en ;
+    rdfs:comment "Case involves a technology class" ;
+    rdfs:domain mailo:Case ;
+    rdfs:range mailo:Technology .
+
+mailo:ipcClass a owl:DatatypeProperty ;
+    rdfs:comment "IPC/CPC patent classification code" ;
+    rdfs:range xsd:string .
+
+mailo:isActionable a owl:DatatypeProperty ;
+    rdfs:label "is actionable"@en ;
+    rdfs:comment "Explanation enables effective Art.22(3) remedies (C-203/22 P_203_001)",
+        "True if the explanation enables effective exercise of GDPR Art.22(3) remedies (C-203/22 P_203_001). Abstract mathematical formulas are insufficient."@en ;
+    rdfs:domain mailo:Explanation ;
+    rdfs:range xsd:boolean .
+
+mailo:isCurrentVersion a owl:DatatypeProperty ;
+    rdfs:comment "True if this is the currently applicable version as of the query date" ;
+    rdfs:range xsd:boolean .
+
+mailo:isHighRiskAIAct a owl:DatatypeProperty ;
+    rdfs:label "is high-risk under AI Act"@en ;
+    rdfs:comment "True if system falls under AI Act Annex III high-risk categories",
+        "True if the system falls within AI Act Annex III high-risk categories (medical device AI, biometric, critical infrastructure)."@en ;
+    rdfs:domain mailo:MedicalAISystem ;
+    rdfs:range xsd:boolean .
+
+mailo:isNonTechnical a owl:DatatypeProperty ;
+    rdfs:label "is non-technical"@en ;
+    rdfs:comment "Explanation expressed in non-technical language",
+        "True if the explanation is expressed in language understandable to the data subject without specialist knowledge (C-203/22 P_203_001)."@en ;
+    rdfs:domain mailo:Explanation ;
+    rdfs:range xsd:boolean .
+
+mailo:lit_Andrade_F_Rebelo_D_M_2024_Schufa_s_Case_C-634_21_on a mailo:LiteratureSource ;
+    rdfs:label "Andrade, F., Rebelo, D. M. (2024). Schufa's Case C-634/21 on ADM: the 'Lenders' Quest' for GDPR-friendly Scoring has not been settled yet! SSRN 4882806." ;
+    dcterms:date "2024" ;
+    dcterms:description "Challenges the breadth of SCHUFA holding. Informs MAILO's functional-solely rule encoding." ;
+    dcterms:source <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4882806> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_Communications_Medicine_Nature_2025_Neuro-symbolic_AI a mailo:LiteratureSource ;
+    rdfs:label "Communications Medicine (Nature). (2025). Neuro-symbolic AI for auditable cognitive information extraction from medical reports." ;
+    dcterms:date "2025" ;
+    dcterms:description "LLM extracts candidate facts → symbolic verifier checks against medical rules → traceable, deterministic labels. Empirical demonstration of the harness pattern MAILO advocates, applied to clinical text." ;
+    dcterms:source <https://www.nature.com/articles/s43856-025-01194-x> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti a mailo:LiteratureSource ;
+    rdfs:label "Conflict-tolerant Deontic Traditional Scheme for the Semantic Web. (2025). Journal of Logic and Computation 35(8), Oxford." ;
+    dcterms:date "2025" ;
+    dcterms:description "Addresses cross-framework normative conflict resolution that MAILO will face (e.g. GDPR Art.22 vs AI Act Art.86). Provides RDF-based conflict-tolerant deontic logic." ;
+    dcterms:source <https://academic.oup.com/logcom/article/35/8/exaf054/8320660> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_DAOnt_A_Formal_Ontology_for_EU_Data_Act_Compliance_2024_2 a mailo:LiteratureSource ;
+    rdfs:label "DAOnt: A Formal Ontology for EU Data Act Compliance. (2024/2026). arXiv:2604.16386." ;
+    dcterms:date "2024" ;
+    dcterms:description "Reuses LKIF-Core + ODRL + DPV. Single-framework analogue of MAILO's multi-framework target." ;
+    dcterms:source <https://arxiv.org/html/2604.16386> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_EHJ_Digital_Health_Oxford_2025_Medicine_healthcare_an a mailo:LiteratureSource ;
+    rdfs:label "EHJ Digital Health (Oxford). (2025). Medicine, healthcare and the AI act: gaps, challenges and future implications." ;
+    dcterms:date "2025" ;
+    dcterms:description "Explicit multi-framework gap analysis. Core citation for MAILO Chapter 2." ;
+    dcterms:source <https://academic.oup.com/ehjdh/advance-article/doi/10.1093/ehjdh/ztaf041/8118685> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Esteves_B_Rodr_guez-Doncel_V_et_al_2024_Analysis_of a mailo:LiteratureSource ;
+    rdfs:label "Esteves, B., Rodríguez-Doncel, V. et al. (2024). Analysis of ontologies and policy languages to represent information flows in GDPR. Semantic Web Journal." ;
+    dcterms:date "2024" ;
+    dcterms:description "Comparative table of ontology and policy languages. Positions DPV + ODRL + LegalRuleML as Pareto-front. ODRL+LegalRuleML+DPV+GDPRtEXT can model 39 of 57 informational items." ;
+    dcterms:source <https://journals.sagepub.com/doi/10.3233/SW-223009> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_Frontiers_Digital_Health_2025_Ontologies_as_the_semantic a mailo:LiteratureSource ;
+    rdfs:label "Frontiers Digital Health. (2025). Ontologies as the semantic bridge between artificial intelligence and healthcare." ;
+    dcterms:date "2025" ;
+    dcterms:description "OWL2 + SWRL semantic reasoning enables auditable inference consistent with domain expertise. Ontologies encode explicit rules and traceable data relationships required by AI Act. Doctrinal scaffold for MAILO." ;
+    dcterms:source <https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2025.1668385/full> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO a mailo:LiteratureSource ;
+    rdfs:label "Golpayegani, D., Pandit, H. J., Lewis, D. (2022, 2025). AIRO: An Ontology for Representing AI Risks Based on the Proposed EU AI Act. SEMANTiCS + arXiv:2501.10391." ;
+    dcterms:date "2025" ;
+    dcterms:description "OWL ontology + SHACL shapes implementing AI Act Annex III high-risk classifier + SPARQL ASK queries; integrated into W3C DPVCG. Most direct competitor to MAILO. AIRO already does for the AI Act what MAILO proposes for the medical-AI multi-framework intersection. Differentiator: MAILO adds medical-domain specificity, MDR+PLD integration, CJEU precedent chain, UPC patent overlay." ;
+    dcterms:source <https://delaramglp.github.io/airo/> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv a mailo:LiteratureSource ;
+    rdfs:label "Hybrid Neuro-Symbolic Models for Ethical AI in Risk-Sensitive Domains. (2025). arXiv:2511.17644." ;
+    dcterms:date "2025" ;
+    dcterms:description "Risk-sensitive domains demand transparency + regulatory compliance. Neural pattern recognition + symbolic reasoning yields verifiable explanations. Healthcare among the case studies." ;
+    dcterms:source <https://arxiv.org/html/2511.17644v1> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_JMIR_2026_The_Right_to_Understand_in_Health_Care_AI a mailo:LiteratureSource ;
+    rdfs:label "JMIR. (2026). The Right to Understand in Health Care AI." ;
+    dcterms:date "2026" ;
+    dcterms:description "Argues neither AI Act nor GDPR specifies what a meaningful clinical explanation is. Identifies the gap MAILO fills via its semantic schema." ;
+    dcterms:source <https://www.jmir.org/2026/1/e95090> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Kang_M_Li_B_et_al_2025_R_-Guard_Robust_Reasoning_E a mailo:LiteratureSource ;
+    rdfs:label "Kang, M., Li, B. et al. (2025). R²-Guard: Robust Reasoning Enabled LLM Guardrail via Knowledge-Enhanced Logical Reasoning. ICLR 2025." ;
+    dcterms:date "2025" ;
+    dcterms:description "Markov logic networks + probabilistic circuits over a safety reasoning graph. +30.2% over Llama Guard on ToxicChat; +59.5% under jailbreak attacks. Direct precedent for logic-graph-as-runtime-safety-filter pattern that MAILO advances, but for general LLM safety, not medical regulation." ;
+    dcterms:source <https://arxiv.org/abs/2407.05557> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_MDCG_2025-6_2025_European_Commission_Joint_Guidance_on_M a mailo:LiteratureSource ;
+    rdfs:label "MDCG 2025-6. (2025). European Commission Joint Guidance on MDR/IVDR × AI Act." ;
+    dcterms:date "2025" ;
+    dcterms:description "Official EU-level mapping document. MAILO instances must align with it." ;
+    dcterms:source <https://health.ec.europa.eu/document/download/b78a17d7-e3cd-4943-851d-e02a2f22bbb4_en> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_MDPI_Information_2024_A_SHACL-Based_Approach_for_Enhanci a mailo:LiteratureSource ;
+    rdfs:label "MDPI Information. (2024). A SHACL-Based Approach for Enhancing Automated Compliance Checking with RDF Data, 15(12):759." ;
+    dcterms:date "2024" ;
+    dcterms:description "Operationalises the validation layer that MAILO needs for runtime SHACL checks." ;
+    dcterms:source <https://www.mdpi.com/2078-2489/15/12/759> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_Medical_Law_Review_2024_A_health-conformant_reading_of_t a mailo:LiteratureSource ;
+    rdfs:label "Medical Law Review. (2024). A health-conformant reading of the GDPR's right not to be subject to automated decision-making, 32(3), 373." ;
+    dcterms:date "2024" ;
+    dcterms:description "Only article addressing the exact intersection of GDPR Art.22 + medical AI. Doctrinal foundation for MAILO's medical-AI ADM rules." ;
+    dcterms:source <https://academic.oup.com/medlaw/article/32/3/373/7732100> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Pandit_H_J_et_al_2024_Data_Privacy_Vocabulary_DPV a mailo:LiteratureSource ;
+    rdfs:label "Pandit, H. J. et al. (2024). Data Privacy Vocabulary (DPV) – Version 2.0. Springer / W3C DPVCG." ;
+    dcterms:date "2024" ;
+    dcterms:description "RDFS/SKOS + OWL2 alt; 911 concepts; serialised in TTL/JSON-LD/RDF-XML; namespace http://w3id.org/dpv#. Foundational vocabulary the thesis should reuse. Recommendation: import DPV namespace into MAILO; align mailo:hasObligation with dpv:hasLegalBasis." ;
+    dcterms:source <https://w3c.github.io/dpv/2.1/dpv/> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_Rebedea_T_et_al_2023_NeMo_Guardrails_A_Toolkit_for_Co a mailo:LiteratureSource ;
+    rdfs:label "Rebedea, T. et al. (2023). NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails. EMNLP Demo. arXiv:2310.10501." ;
+    dcterms:date "2023" ;
+    dcterms:description "Colang DSL + dialogue-state engine; rules user-defined and interpretable. 2025 update: NIM micro-services with ~0.5s added latency for ~50% protection lift. Establishes programmable-rail paradigm; uses ad-hoc DSL not formal ontology." ;
+    dcterms:source <https://arxiv.org/abs/2310.10501> ;
+    mailo:relevanceScore 4 .
+
+mailo:lit_Robaldo_L_Bartolini_C_Palmirani_M_et_al_2020_Fo a mailo:LiteratureSource ;
+    rdfs:label "Robaldo, L., Bartolini, C., Palmirani, M., et al. (2020). Formalizing GDPR Provisions in Reified I/O Logic: The DAPRECO Knowledge Base. Journal of Logic, Language and Information." ;
+    dcterms:date "2020" ;
+    dcterms:description "LegalRuleML + reified Input/Output logic + SPINDle defeasible reasoner. The canonical precedent for formal GDPR reasoning. Limitations addressed by MAILO: GDPR-only; no medical AI integration; no CJEU case-law layer; no runtime guardrail integration." ;
+    dcterms:source <https://link.springer.com/article/10.1007/s10849-019-09309-z> ;
+    mailo:relevanceScore 5 .
+
+mailo:lit_npj_Health_Systems_2026_Data-driven_medical_devices_and a mailo:LiteratureSource ;
+    rdfs:label "npj Health Systems. (2026). Data-driven medical devices and the EU MDR: mapping gaps in standards for regulatory compliance." ;
+    dcterms:date "2026" ;
+    dcterms:description "ISO/IEC 27001/27010 + ISO/IEC 5338, 25059, BS 30440 are insufficient for AI medical safety/transparency — exactly the gap MAILO addresses." ;
+    dcterms:source <https://www.nature.com/articles/s44401-026-00075-2> ;
+    mailo:relevanceScore 4 .
+
+mailo:mitigatedBy a owl:ObjectProperty ;
+    rdfs:label "mitigated by"@en ;
+    rdfs:comment "Risk mitigated by obligation" ;
+    rdfs:domain mailo:ComplianceRisk ;
+    rdfs:range mailo:ComplianceObligation .
+
+mailo:overrules a owl:ObjectProperty ;
+    rdfs:comment "Overrules or modifies a prior principle" ;
+    rdfs:domain mailo:CJEUCase ;
+    rdfs:range mailo:LegalPrinciple .
+
+mailo:oversightIsSubstantive a owl:DatatypeProperty ;
+    rdfs:label "oversight is substantive"@en ;
+    rdfs:comment "True = genuine review; false = rubber-stamping (C-634/21 P_634_002)",
+        "True if the human reviewer exercised independent judgment; false if the review was a mere formality (rubber-stamping). C-634/21 P_634_002 requires true."@en ;
+    rdfs:domain mailo:HumanOversightRecord ;
+    rdfs:range xsd:boolean .
+
+mailo:producesSignificantImpact a owl:DatatypeProperty ;
+    rdfs:label "produces significant impact"@en ;
+    rdfs:comment "True if outputs have legal/similarly significant effects on individuals",
+        "True if the system's outputs have legal or similarly significant effects on individuals (C-634/21 P_634_001). Triggers full Art.22 obligation chain."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:relatedPatent a owl:ObjectProperty ;
+    rdfs:comment "Involves patent class" ;
+    rdfs:domain mailo:UPCCase ;
+    rdfs:range mailo:PatentClassification .
+
+mailo:relevanceScore a owl:DatatypeProperty ;
+    rdfs:comment "Relevance score 1-5" ;
+    rdfs:range xsd:integer .
+
+mailo:requiresAssessment a owl:ObjectProperty ;
+    rdfs:comment "Technology requires a conformity path" ;
+    rdfs:domain mailo:Technology ;
+    rdfs:range mailo:ConformityAssessment .
+
+mailo:riskLevel a owl:DatatypeProperty ;
+    rdfs:label "risk level"@en ;
+    rdfs:comment "CRITICAL | HIGH | MEDIUM | LOW" ;
+    rdfs:domain mailo:ComplianceRisk ;
+    rdfs:range xsd:string .
+
+mailo:triggeredBy a owl:ObjectProperty ;
+    rdfs:comment "Version created or activated by a legislative event" ;
+    rdfs:domain mailo:RegulationVersion ;
+    rdfs:range mailo:LegislativeAmendment .
+
+mailo:triggersObligation a owl:ObjectProperty ;
+    rdfs:label "triggers obligation"@en ;
+    rdfs:comment "Principle triggers a compliance obligation" ;
+    rdfs:domain mailo:LegalPrinciple ;
+    rdfs:range mailo:ComplianceObligation .
+
+mailo:usesHealthStatusAsCriterion a owl:DatatypeProperty ;
+    rdfs:label "uses health status as criterion"@en ;
+    rdfs:comment "Must be false — health status excluded from automated criteria (C-817/19 P_817_004)",
+        "True if the system uses an individual's health status as an automated classification criterion. Must be false (C-817/19 P_817_004 Grand Chamber prohibition)."@en ;
+    rdfs:domain mailo:AutomatedDecisionSystem ;
+    rdfs:range xsd:boolean .
+
+mailo:versionEndDate a owl:DatatypeProperty ;
+    rdfs:comment "Date until which this version applies (exclusive; absent = open-ended)" ;
+    rdfs:range xsd:date .
+
+mailo:versionOf a owl:ObjectProperty ;
+    rdfs:comment "Version belongs to a parent regulation" ;
+    rdfs:domain mailo:RegulationVersion ;
+    rdfs:range mailo:EURegulation .
+
+mailo:versionStartDate a owl:DatatypeProperty ;
+    rdfs:comment "Date from which this regulation version/expression applies" ;
+    rdfs:range xsd:date .
+
+mailo:AIAct_Art10 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.10 — Data Governance"@en ;
+    rdfs:comment "Training, validation, and test datasets for high-risk AI must meet quality criteria: relevance, representativeness, freedom from errors, completeness. Direct tension with data scarcity in rare disease AI."@en .
+
+mailo:AIAct_Art17 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.17 — Quality Management System"@en ;
+    rdfs:comment "High-risk AI providers must implement a QMS covering design, development, post-market monitoring. Aligned with MDR Annex IX QMS requirements to avoid double burden."@en .
+
+mailo:AIAct_Art26 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.26 — Deployer Obligations"@en ;
+    rdfs:comment "Deployers (e.g., hospitals using third-party AI) must ensure human oversight, monitor performance, inform affected persons, maintain logs. Creates shared responsibility with providers."@en ;
+    mailo:complementedBy mailo:AIAct_Art14 .
+
+mailo:AIAct_Art50 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.50 — Transparency for GPAI"@en ;
+    rdfs:comment "General-purpose AI (GPAI) providers must disclose AI-generated content (watermarking/labelling). Applies to AI-generated radiology reports, diagnostic summaries."@en .
+
+mailo:AIAct_Art9 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.9 — Risk Management System"@en ;
+    rdfs:comment "High-risk AI providers must establish and maintain a risk management system throughout the AI system lifecycle. Iterative process; complements MDR post-market surveillance."@en ;
+    mailo:complementedBy mailo:AIAct_Art14 .
+
+mailo:AIAct_v1_ProhibitedPractices a mailo:RegulationVersion ;
+    rdfs:label "Prohibited AI practices (Art.5) and general provisions in force" ;
+    mailo:applicablePhase "prohibited_practices_and_general" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v1_ProhibitedPractices ;
+    mailo:versionEndDate "2025-08-01"^^xsd:date ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2024-08-01"^^xsd:date .
+
+mailo:AIAct_v2_GPAIModelObligations a mailo:RegulationVersion ;
+    rdfs:label "GPAI model provider obligations apply (Title VIII, Arts.51–56)" ;
+    mailo:applicablePhase "gpai_model_obligations" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v2_GPAIModelObligations ;
+    mailo:versionEndDate "2026-07-31"^^xsd:date ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2025-08-02"^^xsd:date .
+
+mailo:AIAct_v3_OriginalHighRisk a mailo:RegulationVersion ;
+    rdfs:label "Original Annex III + Annex I deadline (superseded by Omnibus provisional agreement)" ;
+    mailo:applicablePhase "high_risk_original_deadline" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v3_OriginalHighRisk ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2026-08-02"^^xsd:date .
+
+mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:RegulationVersion ;
+    rdfs:label "Omnibus-revised Annex III standalone high-risk deadline (biometrics, employment, education, law enforcement, critical infrastructure, border management)" ;
+    mailo:applicablePhase "high_risk_annex_iii_omnibus" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone,
+        mailo:OmnibusAI_ProvisionalAgreement_20260507 ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2027-12-02"^^xsd:date .
+
+mailo:AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:RegulationVersion ;
+    rdfs:label "Omnibus-revised Annex I deadline — SaMD under MDR 2017/745 and IVDR 2017/746 (primary compliance target for MAILO)" ;
+    mailo:applicablePhase "high_risk_annex_i_samd_omnibus" ;
+    mailo:isCurrentVersion true ;
+    mailo:triggeredBy mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD,
+        mailo:OmnibusAI_ProvisionalAgreement_20260507 ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2028-08-02"^^xsd:date .
+
+mailo:AIAct_v4_FRIA_PublicBodies a mailo:RegulationVersion ;
+    rdfs:label "FRIA obligation for public-body deployers applies (Art.27)" ;
+    mailo:applicablePhase "fria_public_bodies" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v4_FRIA_PublicBodies ;
+    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionStartDate "2027-08-02"^^xsd:date .
+
+mailo:Abbott a mailo:Company ;
+    rdfs:label "Abbott Laboratories"@en .
+
+mailo:Amend_AIAct_v1_ProhibitedPractices a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: prohibited_practices_and_general" ;
+    mailo:amendmentDescription "Entry into force — OJ L 2024/1689 published 12 July 2024" ;
+    mailo:versionStartDate "2024-08-01"^^xsd:date .
+
+mailo:Amend_AIAct_v2_GPAIModelObligations a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: gpai_model_obligations" ;
+    mailo:amendmentDescription "12-month anniversary — GPAI model chapter becomes applicable" ;
+    mailo:versionStartDate "2025-08-02"^^xsd:date .
+
+mailo:Amend_AIAct_v3_OriginalHighRisk a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: high_risk_original_deadline" ;
+    mailo:amendmentDescription "24-month anniversary — original high-risk deadline per Art.113(2); SUPERSEDED: Omnibus provisional agreement (2026-05-07) extends this deadline." ;
+    mailo:versionStartDate "2026-08-02"^^xsd:date .
+
+mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: high_risk_annex_iii_omnibus" ;
+    mailo:amendmentDescription "Omnibus VII provisional agreement — Annex III standalone systems: 2027-12-02. Conditional on harmonised standards availability (Article 6(2) revised)." ;
+    mailo:versionStartDate "2027-12-02"^^xsd:date .
+
+mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: high_risk_annex_i_samd_omnibus" ;
+    mailo:amendmentDescription "Omnibus VII provisional agreement — Annex I systems (AI embedded in regulated products including medical devices): 2028-08-02. Single joint MDR+AI Act notified body assessment pathway available. Art.9/10/13/14/43 high-risk obligations apply by this date." ;
+    mailo:versionStartDate "2028-08-02"^^xsd:date .
+
+mailo:Amend_AIAct_v4_FRIA_PublicBodies a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: fria_public_bodies" ;
+    mailo:amendmentDescription "36-month anniversary — Fundamental Rights Impact Assessment mandatory for public-body deployers of high-risk AI systems" ;
+    mailo:versionStartDate "2027-08-02"^^xsd:date .
+
+mailo:CJEU_GrandChamber a mailo:Court ;
+    rdfs:label "CJEU Grand Chamber"@en ;
+    rdfs:comment "Highest formation of CJEU; judgments carry maximum precedential weight."@en .
+
+mailo:C_201_14 a mailo:CJEUCase ;
+    rdfs:label "C-201/14 Bara"@en ;
+    dcterms:date "2015-10-01"^^xsd:date ;
+    dcterms:identifier "C-201/14" ;
+    mailo:citesPrecedent [ ] ;
+    mailo:establishesPrinciple mailo:P_Bara_001 ;
+    mailo:hasStatus "Final"^^xsd:string .
+
+mailo:C_511_18 a mailo:CJEUCase ;
+    rdfs:label "C-511/18 La Quadrature du Net"@en ;
+    dcterms:date "2020-10-06"^^xsd:date ;
+    dcterms:identifier "C-511/18" ;
+    mailo:citesPrecedent mailo:C_201_14 ;
+    mailo:hasStatus "Final"^^xsd:string .
+
+mailo:C_817_19 a mailo:CJEUCase ;
+    rdfs:label "C-817/19 Ligue des droits humains v. Conseil des ministres"@en ;
+    dcterms:date "2022-06-21"^^xsd:date ;
+    dcterms:identifier "C-817/19",
+        "ECLI:EU:C:2022:491" ;
+    skos:notation "ECLI:EU:C:2022:491" ;
+    mailo:citesPrecedent mailo:C_511_18,
+        mailo:C_634_21 ;
+    mailo:decidedBy mailo:CJEU_GrandChamber ;
+    mailo:establishesPrinciple mailo:P_817_001,
+        mailo:P_817_002,
+        mailo:P_817_003,
+        mailo:P_817_004,
+        mailo:P_817_005 ;
+    mailo:hasOutcome "PNR Directive valid only with strict necessity; black-box ML systems prohibited; mandatory non-automated individual review; health status excluded from automated criteria."^^xsd:string ;
+    mailo:hasStatus "Final — Grand Chamber binding precedent"^^xsd:string ;
+    mailo:interpretesArticle mailo:Charter_Art7,
+        mailo:Charter_Art8 ;
+    mailo:involvesTechnology mailo:AutomatedDecisionSystem,
+        mailo:BlackBoxMLSystem .
+
+mailo:Charter_Art7 a mailo:LegalArticle ;
+    rdfs:label "EU Charter Art.7"@en ;
+    rdfs:comment "Respect for private and family life."@en .
+
+mailo:Charter_Art8 a mailo:LegalArticle ;
+    rdfs:label "EU Charter Art.8"@en ;
+    rdfs:comment "Protection of personal data."@en .
+
+mailo:ConformityAssessment a owl:Class ;
+    rdfs:label "ConformityAssessment" ;
+    rdfs:comment "A conformity assessment path under MDR or AI Act" .
+
+mailo:ConformityRecord a owl:Class ;
+    rdfs:label "ConformityRecord",
+        "Conformity Record"@en ;
+    rdfs:comment "Conformity assessment / technical documentation record",
+        "A conformity assessment or technical documentation record under AI Act Annex IV / MDR Annex II."@en .
+
+mailo:DGA_Art10 a mailo:LegalArticle ;
+    rdfs:label "DGA Art.10 — Data Intermediation Services"@en ;
+    rdfs:comment "Notification requirements for data intermediaries facilitating health data exchange between data subjects and AI developers. Must be neutral — cannot use data for own purposes."@en .
+
+mailo:DGA_Art16 a mailo:LegalArticle ;
+    rdfs:label "DGA Art.16 — Data Altruism Organisations"@en ;
+    rdfs:comment "Registered data altruism organisations may collect health data voluntarily shared for AI research, subject to GDPR. Separate from commercial data intermediaries."@en .
+
+mailo:DGA_Art2 a mailo:LegalArticle ;
+    rdfs:label "DGA Art.2 — Re-use of Public Sector Health Data"@en ;
+    rdfs:comment "Chapter II framework for re-use of protected public sector data (including health data subject to confidentiality). Applies to AI training use cases at hospitals and research institutes."@en .
+
+mailo:DGA_Art31 a mailo:LegalArticle ;
+    rdfs:label "DGA Art.31 — European Data Innovation Board"@en ;
+    rdfs:comment "Advisory body for DGA implementation, including guidance on interoperability between health data repositories used for AI training."@en .
+
+mailo:DPIARecord a owl:Class ;
+    rdfs:label "DPIARecord",
+        "DPIA Record"@en ;
+    rdfs:comment "Data Protection Impact Assessment document (GDPR Art.35; C-817/19)",
+        "A Data Protection Impact Assessment document required for high-risk automated processing (GDPR Art.35; C-817/19 P_817_005)."@en .
+
+mailo:DataAct_Art15 a mailo:LegalArticle ;
+    rdfs:label "Data Act Art.15 — Trade Secret Protection"@en ;
+    rdfs:comment "Data sharing obligation is limited by trade secret protection — manufacturers may refuse where disclosure would reveal protected business information. Key tension with AI transparency obligations."@en .
+
+mailo:DataAct_Art17 a mailo:LegalArticle ;
+    rdfs:label "Data Act Art.17 — B2G Data Sharing (Public Emergency)"@en ;
+    rdfs:comment "In public health emergencies, governments may require medical AI companies to share health data. Applies to epidemic surveillance AI and clinical trial datasets."@en .
+
+mailo:DataAct_Art23 a mailo:LegalArticle ;
+    rdfs:label "Data Act Art.23 — Switching Cloud Services"@en ;
+    rdfs:comment "Medical AI providers using cloud infrastructure must enable switching between cloud providers without data lock-in. Relevant for hospital AI SaaS deployment models."@en .
+
+mailo:DataAct_Art3 a mailo:LegalArticle ;
+    rdfs:label "Data Act Art.3 — IoT Data Access Right"@en ;
+    rdfs:comment "Users of connected medical devices (wearables, implantables) have a right to access data generated by those devices, enforceable against manufacturers. Extends GDPR Art.20 portability."@en .
+
+mailo:DataAct_Art5 a mailo:LegalArticle ;
+    rdfs:label "Data Act Art.5 — Data Sharing with Third Parties"@en ;
+    rdfs:comment "Data holders must share IoT-generated health data with third parties at user request. Creates AI training data supply chain implications for medical device manufacturers."@en .
+
+mailo:Dexcom a mailo:Company ;
+    rdfs:label "Dexcom Inc."@en .
+
+mailo:EHDS_Art33 a mailo:LegalArticle ;
+    rdfs:label "EHDS Art.33 — Secondary Use Authorisation"@en ;
+    rdfs:comment "Health data access bodies must authorise secondary use of health data for AI training, research, and policy. Access by data permit only; no direct de-identified access."@en .
+
+mailo:EHDS_Art35 a mailo:LegalArticle ;
+    rdfs:label "EHDS Art.35 — Opt-Out Right"@en ;
+    rdfs:comment "Data subjects may opt out of secondary use of their health data in databases not requiring individual consent. Creates tension with AI Act Art.10 data governance obligations."@en .
+
+mailo:EHDS_Art50 a mailo:LegalArticle ;
+    rdfs:label "EHDS Art.50 — HealthData@EU Infrastructure"@en ;
+    rdfs:comment "HealthData@EU federated cross-border health data access infrastructure. Enables EU-wide AI training datasets without raw data transfer."@en .
+
+mailo:EHDS_Art68 a mailo:LegalArticle ;
+    rdfs:label "EHDS Art.68 — European Health Data Space Board"@en ;
+    rdfs:comment "Governance body coordinating national health data access bodies and harmonising data access rules for AI research across Member States."@en .
+
+mailo:EP_2352431 a mailo:EuropeanPatent ;
+    rdfs:label "EP 2 352 431 B1"@en ;
+    rdfs:comment "Hologic breast imaging AI-assisted reading technology."@en .
+
+mailo:EP_2671173 a mailo:EuropeanPatent ;
+    rdfs:label "EP 2 671 173"@en ;
+    rdfs:comment "Suinno AI-based pedestrian navigation method."@en .
+
+mailo:EP_3346403 a mailo:EuropeanPatent ;
+    rdfs:label "EP 3 346 403"@en ;
+    rdfs:comment "Breast cancer recurrence prediction genomic expression test."@en .
+
+mailo:GDPR_Art22_4 a mailo:LegalArticle ;
+    rdfs:label "GDPR Art.22(4)"@en ;
+    rdfs:comment "Enhanced protection for special category data (including health data) in automated decisions."@en .
+
+mailo:GDPR_Art35 a mailo:LegalArticle ;
+    rdfs:label "GDPR Article 35"@en ;
+    rdfs:comment "Data Protection Impact Assessment (DPIA)."@en .
+
+mailo:GDPR_Art9 a mailo:LegalArticle ;
+    rdfs:label "GDPR Article 9"@en ;
+    rdfs:comment "Processing of special categories of personal data, including health data."@en ;
+    rdfs:seeAlso dpv:SpecialCategoryData .
+
+mailo:GDPR_v1_FullyApplicable a mailo:RegulationVersion ;
+    rdfs:label "GDPR fully applicable — all provisions in force" ;
+    mailo:applicablePhase "fully_applicable" ;
+    mailo:isCurrentVersion true ;
+    mailo:versionOf mailo:GDPR_2016_679 ;
+    mailo:versionStartDate "2018-05-25"^^xsd:date .
+
+mailo:GDPR_v2_OmnibusProposed_Art22 a mailo:RegulationVersion ;
+    rdfs:label "GDPR Art.22 Omnibus-proposed version — permission list framing (PROSPECTIVE, NOT ADOPTED)" ;
+    mailo:applicablePhase "art22_omnibus_proposed_NOT_ADOPTED" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:OmnibusGDPR_Art22_Proposal_20251119 ;
+    mailo:versionOf mailo:GDPR_2016_679 .
+
+mailo:GXDBio a mailo:NPE ;
+    rdfs:label "GXD-Bio Corporation (NPE)"@en .
+
+mailo:Hologic a mailo:Company ;
+    rdfs:label "Hologic Inc."@en .
+
+mailo:MDR_Art15 a mailo:LegalArticle ;
+    rdfs:label "MDR Art.15 — Person Responsible for Regulatory Compliance"@en ;
+    rdfs:comment "Manufacturers must designate a person responsible for regulatory compliance (PRRC). For AI-SaMD companies this person must have expertise in medical AI regulation."@en .
+
+mailo:MDR_Art61 a mailo:LegalArticle ;
+    rdfs:label "MDR Art.61 — Clinical Evaluation"@en ;
+    rdfs:comment "Medical device manufacturers must conduct clinical evaluation demonstrating safety and performance. For AI-SaMD, AI-specific performance validation (bias, drift, edge cases) is required."@en .
+
+mailo:MDR_Art83 a mailo:LegalArticle ;
+    rdfs:label "MDR Art.83 — Post-Market Surveillance"@en ;
+    rdfs:comment "PMS system must collect real-world performance data. For AI-SaMD: continuous monitoring of model drift and performance degradation in deployment populations."@en .
+
+mailo:Microsoft a mailo:Company ;
+    rdfs:label "Microsoft Corporation"@en .
+
+mailo:MyriadGenetics a mailo:Company ;
+    rdfs:label "Myriad Genetics Inc."@en .
+
+mailo:NPE a owl:Class ;
+    rdfs:label "NPE",
+        "Non-Practising Entity"@en ;
+    rdfs:comment "Non-Practising Entity — patent assertion vehicle" ;
+    rdfs:subClassOf mailo:Company .
+
+mailo:ObiterDictum a owl:Class ;
+    rdfs:label "ObiterDictum",
+        "Obiter Dictum"@en ;
+    rdfs:comment "Persuasive (non-binding) judicial observation",
+        "Persuasive (non-binding) judicial observation."@en ;
+    rdfs:subClassOf mailo:LegalPrinciple .
+
+mailo:OmnibusGDPR_Art22_Proposal_20251119 a mailo:LegislativeAmendment ;
+    rdfs:label "Digital Omnibus Regulation — GDPR Art.22 Reframing Proposal (NOT YET ADOPTED)" ;
+    mailo:amendmentDescription "Commission proposal (2025-11-19) to replace GDPR Art.22(1)-(2) prohibition structure with an exhaustive positive permission list for solely automated decision-making. EDPB-EDPS Joint Opinion 2/2026 (2026-02-11) strongly opposes the reframing, citing CJEU confirmation of Art.22 as a prohibition in principle (C-634/21, C-817/19). Status: UNADOPTED — in trilogue negotiation as of 2026-05-10. MAILO SHACL shapes remain grounded in current prohibition structure. If adopted, NodeShapes C634_Art22ProhibitionShape and related shapes require reformulation to encode positive permission conditions rather than absence of exception." ;
+    mailo:versionStartDate "2025-11-19"^^xsd:date .
+
+mailo:PLD_Art10 a mailo:LegalArticle ;
+    rdfs:label "PLD Art.10 — Presumption of Defectiveness"@en ;
+    rdfs:comment "Rebuttable presumption of defect where: defendant fails to disclose; product does not comply with mandatory safety requirements; obvious malfunction occurs. Reduces claimant's evidential burden."@en .
+
+mailo:PLD_Art11 a mailo:LegalArticle ;
+    rdfs:label "PLD Art.11 — Causation Presumption"@en ;
+    rdfs:comment "Rebuttable causation presumption where defect is established and damage is of a kind normally caused by the defect. Key for medical AI harm cases."@en .
+
+mailo:PLD_Art7 a mailo:LegalArticle ;
+    rdfs:label "PLD Art.7 — AI and Software as Products"@en ;
+    rdfs:comment "Expressly includes software (including AI systems) in the definition of 'product'. SaMD under MDR may simultaneously be a 'product' under PLD."@en .
+
+mailo:PLD_Art9 a mailo:LegalArticle ;
+    rdfs:label "PLD Art.9 — Disclosure Obligations (Evidence Facilitation)"@en ;
+    rdfs:comment "Courts may order defendants to disclose evidence about high-risk AI systems; creates procedural discovery mechanism absent in AILD."@en .
+
+mailo:P_203_001 a mailo:RatioDecidendi ;
+    rdfs:label "P-203/22-001: Meaningful Explainability Standard"@en ;
+    rdfs:comment "Art.15(1)(h) requires actionable explanations in non-technical language, identifying which inputs affected the output and the main reasoning path. Abstract mathematical formulas are insufficient."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem,
+        mailo:MedicalAISystem ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string ;
+    mailo:triggersObligation mailo:ExplainabilityObligation .
+
+mailo:P_307_001 a mailo:RatioDecidendi ;
+    rdfs:label "P-307/22-001: Unconditional Patient Record Access"@en ;
+    rdfs:comment "Patients have an unconditional right to a complete copy of their medical records, free of charge, including all AI-generated diagnostic outputs, in a faithful and comprehensible format."@en ;
+    mailo:appliesTo mailo:MedicalAISystem ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string ;
+    mailo:triggersObligation mailo:DisclosureObligation,
+        mailo:TransparencyObligation .
+
+mailo:P_634_001 a mailo:RatioDecidendi ;
+    rdfs:label "P-634/21-001: Broad 'Decision' Concept"@en ;
+    rdfs:comment "A 'decision' under Art.22 encompasses any act producing legal or similarly significant effects. Automated scoring creating probabilities relied upon by third parties constitutes a 'decision'."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem,
+        mailo:ClinicalDecisionSupport,
+        mailo:RiskScoringSystem ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string .
+
+mailo:P_634_002 a mailo:RatioDecidendi ;
+    rdfs:label "P-634/21-002: Functional 'Solely' Test"@en ;
+    rdfs:comment "'Solely' is assessed functionally: formal human intervention that does not constitute substantive review (rubber-stamping) does not negate the 'solely' requirement. The decisive weight given to the automated output is the test."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem,
+        mailo:ClinicalDecisionSupport,
+        mailo:MedicalImagingAI ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string ;
+    mailo:triggersObligation mailo:HumanOversightObligation .
+
+mailo:P_634_003 a mailo:RatioDecidendi ;
+    rdfs:label "P-634/21-003: Multi-Actor ADM Chain Gap-Filling"@en ;
+    rdfs:comment "The prohibition in Art.22 cannot be circumvented by splitting the automated decision across multiple actors (scoring agency + final decision maker). Both may bear responsibility."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string .
+
+mailo:P_634_004 a mailo:RatioDecidendi ;
+    rdfs:label "P-634/21-004: Art.22 = Prohibition Rule"@en ;
+    rdfs:comment "Art.22(1) is a prohibition rule, not merely a right to object. Exceptions in Art.22(2) are exhaustive; safeguards in Art.22(3) are mandatory when an exception applies."@en ;
+    mailo:hasPrecedenceLevel "persuasive_obiter"^^xsd:string .
+
+mailo:P_817_001 a mailo:RatioDecidendi ;
+    rdfs:label "P-817/19-001: Mandatory Non-Automated Individual Review"@en ;
+    rdfs:comment "Any positive match from automated PNR analysis must be subject to individual non-automated review before any measure is taken. Establishes constitutional minimum for meaningful human intervention."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem,
+        mailo:MedicalAISystem ;
+    mailo:hasPrecedenceLevel "constitutional_grand_chamber"^^xsd:string ;
+    mailo:triggersObligation mailo:HumanOversightObligation .
+
+mailo:P_817_002 a mailo:RatioDecidendi ;
+    rdfs:label "P-817/19-002: Black-Box ML Prohibition"@en ;
+    rdfs:comment "Non-transparent, self-learning ML risk assessment systems may not be used for decisions with significant impact. Pre-determined criteria and regular review are required."@en ;
+    mailo:appliesTo mailo:BlackBoxMLSystem,
+        mailo:MedicalAISystem ;
+    mailo:hasPrecedenceLevel "constitutional_grand_chamber"^^xsd:string ;
+    mailo:triggersObligation mailo:ExplainabilityObligation,
+        mailo:TransparencyObligation .
+
+mailo:P_817_003 a mailo:RatioDecidendi ;
+    rdfs:label "P-817/19-003: Strict Necessity Tri-Level Proportionality Test"@en ;
+    rdfs:comment "Large-scale automated processing must satisfy: (a) targeted scope, (b) purpose limitation, (c) temporal limitation. Failure at any level invalidates the entire processing system."@en ;
+    mailo:appliesTo mailo:AutomatedDecisionSystem ;
+    mailo:hasPrecedenceLevel "constitutional_grand_chamber"^^xsd:string .
+
+mailo:P_817_004 a mailo:RatioDecidendi ;
+    rdfs:label "P-817/19-004: Non-Discrimination — Health Status Excluded"@en ;
+    rdfs:comment "Automated assessment criteria must not be based on health status. AI systems trained on medical history data may not use health condition as a discriminatory classification basis."@en ;
+    mailo:appliesTo mailo:GenomicDiagnosticAI,
+        mailo:MedicalAISystem ;
+    mailo:hasPrecedenceLevel "constitutional_grand_chamber"^^xsd:string .
+
+mailo:P_817_005 a mailo:ObiterDictum ;
+    rdfs:label "P-817/19-005: Independent Oversight Obligation"@en ;
+    rdfs:comment "Automated processing systems must be subject to effective independent oversight including DPO access and regular algorithmic legality review."@en ;
+    mailo:hasPrecedenceLevel "persuasive_obiter"^^xsd:string ;
+    mailo:triggersObligation mailo:DPIAObligation .
+
+mailo:P_Bara_001 a mailo:RatioDecidendi ;
+    rdfs:label "Transparency Rights Foundation"@en ;
+    rdfs:comment "Data subjects must be informed of data transfers; establishes foundational transparency obligation."@en ;
+    mailo:hasPrecedenceLevel "binding_ratio"^^xsd:string .
+
+mailo:PatentClassification a owl:Class ;
+    rdfs:label "PatentClassification" ;
+    rdfs:comment "An IPC/CPC patent classification code" .
+
+mailo:PatientRight a owl:Class ;
+    rdfs:label "PatientRight",
+        "Patient Right"@en ;
+    rdfs:comment "A patient-specific data or health right" ;
+    rdfs:subClassOf mailo:DataSubjectRight .
+
+mailo:RegulatoryAuthority a owl:Class ;
+    rdfs:label "RegulatoryAuthority" ;
+    rdfs:comment "An EU or national regulatory or supervisory body" .
+
+mailo:Right_Contest a mailo:DataSubjectRight ;
+    rdfs:label "Right to Contest Decision (Art.22(3)(c))"@en .
+
+mailo:Right_Explanation a mailo:DataSubjectRight ;
+    rdfs:label "Right to Meaningful Explanation (Art.15(1)(h), C-203/22)"@en .
+
+mailo:Right_ExpressViews a mailo:DataSubjectRight ;
+    rdfs:label "Right to Express Views (Art.22(3)(b))"@en .
+
+mailo:Right_HumanIntervention a mailo:DataSubjectRight ;
+    rdfs:label "Right to Human Intervention (Art.22(3)(a))"@en .
+
+mailo:Right_MedicalRecordAccess a mailo:PatientRight ;
+    rdfs:label "Right to Access Medical Records (C-307/22)"@en .
+
+mailo:Risk_AIActQMS_MDR_Overlap a mailo:ComplianceRisk ;
+    rdfs:label "AI Act Art.17 QMS / MDR Annex IX Double Burden"@en ;
+    rdfs:comment "AI-SaMD must comply with both AI Act QMS (Art.17) and MDR QMS (Annex IX). Without regulatory alignment, manufacturers face duplicative audit requirements."@en ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Risk_BlackBox a mailo:ComplianceRisk ;
+    rdfs:label "Black-Box ML System (C-817/19 Prohibition)"@en ;
+    mailo:mitigatedBy mailo:ExplainabilityObligation,
+        mailo:TransparencyObligation ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Risk_DataActIoT a mailo:ComplianceRisk ;
+    rdfs:label "Data Act Art.3/5 IoT Data Sharing Obligation"@en ;
+    rdfs:comment "Medical device manufacturers must share IoT-generated health data with users/third parties. Conflicts with trade secret protection (Art.15) and competitive AI training data strategies."@en ;
+    mailo:riskLevel "MEDIUM"^^xsd:string .
+
+mailo:Risk_EHDSOptOut a mailo:ComplianceRisk ;
+    rdfs:label "EHDS Art.35 Opt-Out Erodes Training Dataset"@en ;
+    rdfs:comment "Widespread exercise of opt-out rights under EHDS Art.35 may substantially reduce available health data for AI training, creating representativeness risk under AI Act Art.10."@en ;
+    mailo:riskLevel "MEDIUM"^^xsd:string .
+
+mailo:Risk_EPOUPC_Divergence a mailo:ComplianceRisk ;
+    rdfs:label "EPO-UPC Divergent Validity Rulings (Opt-Out Strategy)"@en ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Risk_HealthDataDoubleLayer a mailo:ComplianceRisk ;
+    rdfs:label "Health Data Double Protection Layer (Art.9 + Art.22(4))"@en ;
+    mailo:mitigatedBy mailo:DPIAObligation ;
+    mailo:riskLevel "CRITICAL"^^xsd:string .
+
+mailo:Risk_InsufficientDisclosure a mailo:ComplianceRisk ;
+    rdfs:label "Insufficient Training Data Disclosure (EPO T0161/18)"@en ;
+    mailo:mitigatedBy mailo:DisclosureObligation ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Risk_NPE_Revocation a mailo:ComplianceRisk ;
+    rdfs:label "NPE-Initiated Revocation Attack"@en ;
+    mailo:riskLevel "MEDIUM"^^xsd:string .
+
+mailo:Risk_PLDStrictLiability a mailo:ComplianceRisk ;
+    rdfs:label "PLD 2024 Strict Liability for AI-SaMD"@en ;
+    rdfs:comment "Medical AI systems qualifying as 'defective products' under PLD Art.4 expose manufacturers to strict liability without fault. Presumptions in Art.10 and Art.11 shift burden to defendants."@en ;
+    mailo:mitigatedBy mailo:HumanOversightObligation,
+        mailo:TransparencyObligation ;
+    mailo:riskLevel "HIGH"^^xsd:string .
+
+mailo:Risk_SEP_FRAND a mailo:ComplianceRisk ;
+    rdfs:label "SEP/FRAND Obligations (HL7 FHIR, DICOM AI)"@en ;
+    mailo:riskLevel "MEDIUM"^^xsd:string .
+
+mailo:Risk_SolelyTest a mailo:ComplianceRisk ;
+    rdfs:label "GDPR Art.22 'Solely' Test Failure (Rubber-Stamping)"@en ;
+    mailo:mitigatedBy mailo:HumanOversightObligation ;
+    mailo:riskLevel "CRITICAL"^^xsd:string .
+
+mailo:SiemensHealthineers a mailo:Company ;
+    rdfs:label "Siemens Healthineers AG"@en .
+
+mailo:TSD_Art2 a mailo:LegalArticle ;
+    rdfs:label "TSD Article 2 — Definition of Trade Secret"@en ;
+    rdfs:comment "Three-part cumulative test: information must be (1) secret (not generally known or readily accessible), (2) have commercial value because it is secret, and (3) be subject to reasonable steps to keep it secret. All three must hold for ML model weights or training data to qualify."@en .
+
+mailo:TSD_Art5 a mailo:LegalArticle ;
+    rdfs:label "TSD Article 5 — Exceptions"@en ;
+    rdfs:comment "Trade secret protection does not apply where disclosure is required for the exercise of the right to information. Directly engaged when a data subject invokes GDPR Art.15(1)(h) or AI Act Art.86 for an explanation of an automated medical decision — controller cannot use TSD Art.2 to block all causal explanation (C-203/22 §§60-70)."@en .
+
+mailo:TSD_Art9 a mailo:LegalArticle ;
+    rdfs:label "TSD Article 9 — Preservation of Confidentiality in Legal Proceedings"@en ;
+    rdfs:comment "Courts may impose confidentiality measures to protect trade secrets during litigation. Relevant to UPC discovery proceedings where a party seeks disclosure of AI model architecture or training data as part of infringement or validity analysis."@en .
+
+mailo:UPC a mailo:Court ;
+    rdfs:label "Unified Patent Court (UPC)"@en .
+
+mailo:UPC_CD_Paris a mailo:UPCDivision ;
+    rdfs:label "UPC Central Division — Paris"@en .
+
+mailo:UPC_CoA a mailo:Court ;
+    rdfs:label "UPC Court of Appeal"@en ;
+    rdfs:subClassOf mailo:UPC .
+
+mailo:UPC_LD_Paris a mailo:UPCDivision ;
+    rdfs:label "UPC Local Division — Paris"@en .
+
+mailo:AIAct a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "EU AI Act 2024/1689"@en ;
+    eli:id_local "32024R1689" ;
+    dcterms:date "2024-08-01"^^xsd:date ;
+    dcterms:identifier "2024/1689/EU" ;
+    mailo:coversArticle mailo:AIAct_Art10,
+        mailo:AIAct_Art17,
+        mailo:AIAct_Art26,
+        mailo:AIAct_Art50,
+        mailo:AIAct_Art9 .
+
+mailo:AIAct_Art14 a mailo:LegalArticle ;
+    rdfs:label "AI Act Article 14"@en ;
+    rdfs:comment "Human oversight for high-risk AI systems."@en ;
+    mailo:complementedBy mailo:GDPR_Art22_3 .
+
+mailo:BlackBoxMLSystem a owl:Class ;
+    rdfs:label "BlackBoxMLSystem",
+        "Black-Box ML System"@en ;
+    rdfs:comment "Non-transparent self-learning ML system (C-817/19 prohibition)",
+        "A non-transparent, self-learning system whose decision logic cannot be explained. Prohibited under C-817/19 for decisions with significant impact."@en ;
+    rdfs:seeAlso airo:OpaqueSystem ;
+    rdfs:subClassOf mailo:MedicalAISystem .
+
+mailo:C_634_21 a mailo:CJEUCase ;
+    rdfs:label "C-634/21 SCHUFA Holding (Scoring)"@en ;
+    dcterms:date "2023-12-07"^^xsd:date ;
+    dcterms:identifier "C-634/21",
+        "ECLI:EU:C:2023:957" ;
+    skos:notation "ECLI:EU:C:2023:957" ;
+    mailo:citesPrecedent mailo:C_817_19 ;
+    mailo:decidedBy mailo:CJEU_FirstChamber ;
+    mailo:establishesPrinciple mailo:P_634_001,
+        mailo:P_634_002,
+        mailo:P_634_003,
+        mailo:P_634_004 ;
+    mailo:hasOutcome "GDPR Art.22(1) constitutes a prohibition; automated scoring by credit agency = 'decision' triggering Art.22; 'solely' test is functional not formal."^^xsd:string ;
+    mailo:hasStatus "Final — binding precedent"^^xsd:string ;
+    mailo:interpretesArticle mailo:GDPR_Art15_1h,
+        mailo:GDPR_Art22,
+        mailo:GDPR_Art22_1,
+        mailo:GDPR_Art22_2 ;
+    mailo:involvesTechnology mailo:RiskScoringSystem .
+
+mailo:ClinicalDecisionSupport a owl:Class ;
+    rdfs:label "ClinicalDecisionSupport",
+        "Clinical Decision Support System"@en ;
+    rdfs:comment "Clinical decision support system (CDSS)" ;
+    rdfs:subClassOf mailo:MedicalAISystem .
+
+mailo:DPIAObligation a owl:Class ;
+    rdfs:label "DPIAObligation",
+        "DPIA Obligation"@en ;
+    rdfs:comment "Obligation to carry out a DPIA under GDPR Art.35" ;
+    rdfs:subClassOf mailo:ComplianceObligation ;
+    owl:equivalentClass dpv:DPIA .
+
+mailo:EPC a mailo:InternationalTreaty,
+        mailo:RegulatoryFramework ;
+    rdfs:label "European Patent Convention"@en ;
+    dcterms:date "1977-10-07"^^xsd:date ;
+    rdfs:comment "European Patent Convention (in force 1977-10-07). Governs patentability of AI/medical-AI inventions (Art.52 exclusions), sufficiency of disclosure for ML models (Art.83), and EPO opposition/appeal proceedings. Administered by EPO; distinct from EU law but intersects via UPC."@en ;
+    mailo:coversArticle mailo:EPC_Art52,
+        mailo:EPC_Art83 .
+
+mailo:EPO_BoA a mailo:Court ;
+    rdfs:label "EPO Board of Appeal"@en .
+
+mailo:EPO_T0161_18 a mailo:EPOProceding ;
+    rdfs:label "EPO T 0161/18 — AI Medical Device Disclosure"@en ;
+    dcterms:date "2020-05-12"^^xsd:date ;
+    dcterms:identifier "T 0161/18" ;
+    mailo:decidedBy mailo:EPO_BoA ;
+    mailo:hasOutcome "AI medical device patent invalid for insufficient disclosure: training data set characteristics must be disclosed. Gold standard for AI patent sufficiency in EPO and UPC."^^xsd:string ;
+    mailo:interpretesArticle mailo:EPC_Art52,
+        mailo:EPC_Art83 ;
+    mailo:involvesTechnology mailo:MedicalAISystem .
+
+mailo:GDPR_2016_679 a mailo:EURegulation ;
+    rdfs:label "GDPR 2016/679" ;
+    mailo:celex "32016R0679" ;
+    mailo:hasVersion mailo:GDPR_v1_FullyApplicable,
+        mailo:GDPR_v2_OmnibusProposed_Art22 .
+
+mailo:GDPR_Art15 a mailo:LegalArticle ;
+    rdfs:label "GDPR Article 15"@en ;
+    rdfs:comment "Right of access by the data subject."@en ;
+    mailo:grantsRight mailo:Right_MedicalRecordAccess .
+
+mailo:GDPR_Art22_1 a mailo:LegalArticle ;
+    rdfs:label "GDPR Art.22(1)"@en ;
+    rdfs:comment "Core prohibition: individuals shall not be subject to solely automated decisions producing significant effects."@en .
+
+mailo:GDPR_Art22_2 a mailo:LegalArticle ;
+    rdfs:label "GDPR Art.22(2)"@en ;
+    rdfs:comment "Exceptions: contract necessity, explicit consent, EU/Member State law."@en .
+
+mailo:GDPR_Art22_3 a mailo:LegalArticle ;
+    rdfs:label "GDPR Art.22(3)"@en ;
+    rdfs:comment "Safeguards when exceptions apply: human intervention, right to express views, contest decision."@en ;
+    mailo:grantsRight mailo:Right_Contest,
+        mailo:Right_ExpressViews,
+        mailo:Right_HumanIntervention .
+
+mailo:HumanOversightRecord a owl:Class ;
+    rdfs:label "HumanOversightRecord",
+        "Human Oversight Record"@en ;
+    rdfs:comment "Documented record of substantive human review (C-634/21 P_634_002)",
+        "A documented record of substantive human review of an automated decision (C-634/21 P_634_002: rubber-stamping is insufficient)."@en .
+
+mailo:MedicalImagingAI a owl:Class ;
+    rdfs:label "MedicalImagingAI",
+        "Medical Imaging AI"@en ;
+    rdfs:comment "AI system for medical image analysis" ;
+    rdfs:subClassOf mailo:MedicalAISystem ;
+    mailo:hasRisk mailo:Risk_DataActIoT,
+        mailo:Risk_EPOUPC_Divergence .
+
+mailo:OmnibusAI_ProvisionalAgreement_20260507 a mailo:LegislativeAmendment ;
+    rdfs:label "Digital Omnibus on AI — Provisional Agreement (Council + EP, 2026-05-07)" ;
+    mailo:amendmentDescription "Provisional political agreement on Digital Omnibus on AI (Omnibus VII package). Extends Annex III standalone high-risk deadline to 2027-12-02 and Annex I (SaMD/MDR) deadline to 2028-08-02 via conditional standards-availability mechanism. Introduces unified MDR+AI Act notified body assessment pathway. Not yet formally adopted as of 2026-05-10; formal adoption expected before 2026-08-02. Source: Consilium press release 2026-05-07." ;
+    mailo:versionStartDate "2026-05-07"^^xsd:date .
+
+mailo:PLD_Art4 a mailo:LegalArticle ;
+    rdfs:label "PLD Art.4 — Strict Liability for Defective Products"@en ;
+    rdfs:comment "Manufacturers strictly liable for defective products; 'defective' includes AI systems that do not provide the safety that persons are entitled to expect."@en .
+
+mailo:Patent a owl:Class ;
+    rdfs:label "Patent",
+        "Patent"@en ;
+    rdfs:comment "A patent grant" .
+
+mailo:Right a owl:Class ;
+    rdfs:label "Right",
+        "Right"@en ;
+    rdfs:comment "A legal right" .
+
+mailo:UPC_LD_Dusseldorf a mailo:UPCDivision ;
+    rdfs:label "UPC Local Division — Düsseldorf"@en .
+
+mailo:CJEU_FirstChamber a mailo:Court ;
+    rdfs:label "CJEU First Chamber"@en .
+
+mailo:DisclosureObligation a owl:Class ;
+    rdfs:label "DisclosureObligation",
+        "Disclosure Obligation"@en ;
+    rdfs:comment "Obligation to disclose information to data subjects" ;
+    rdfs:seeAlso dpv:ProvideInformation ;
+    rdfs:subClassOf mailo:ComplianceObligation .
+
+mailo:EPC_Art83 a mailo:LegalArticle ;
+    rdfs:label "EPC Article 83"@en ;
+    rdfs:comment "Disclosure of the invention — sufficiency of disclosure."@en .
+
+mailo:EPOProceding a owl:Class ;
+    rdfs:label "EPOProceding",
+        "EPO Proceeding"@en ;
+    rdfs:comment "EPO opposition, appeal, or examination",
+        "Opposition, appeal, or examination proceeding before the EPO."@en ;
+    rdfs:subClassOf mailo:Case .
+
+mailo:EUDirective a owl:Class ;
+    rdfs:label "EUDirective",
+        "EU Directive"@en ;
+    rdfs:comment "EU Directive (requires transposition)" ;
+    rdfs:subClassOf mailo:LegalInstrument .
+
+mailo:GDPR a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "GDPR 2016/679"@en ;
+    eli:id_local "32016R0679" ;
+    dcterms:date "2016-04-27"^^xsd:date ;
+    dcterms:identifier "2016/679/EU" ;
+    rdfs:comment "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation."@en ;
+    mailo:coversArticle mailo:GDPR_Art15,
+        mailo:GDPR_Art15_1h,
+        mailo:GDPR_Art22,
+        mailo:GDPR_Art22_1,
+        mailo:GDPR_Art22_2,
+        mailo:GDPR_Art22_3,
+        mailo:GDPR_Art22_4,
+        mailo:GDPR_Art35,
+        mailo:GDPR_Art9 .
+
+mailo:GDPR_Art22 a mailo:LegalArticle ;
+    rdfs:label "GDPR Article 22"@en ;
+    rdfs:comment "Prohibition on solely automated individual decision-making."@en ;
+    mailo:coversArticle mailo:GDPR .
+
+mailo:GenomicDiagnosticAI a owl:Class ;
+    rdfs:label "GenomicDiagnosticAI",
+        "Genomic Diagnostic AI"@en ;
+    rdfs:comment "AI system for genomic/genetic diagnostics" ;
+    rdfs:subClassOf mailo:MedicalAISystem ;
+    mailo:hasRisk mailo:Risk_EHDSOptOut,
+        mailo:Risk_NPE_Revocation .
+
+mailo:InternationalTreaty a owl:Class ;
+    rdfs:label "InternationalTreaty",
+        "International Treaty"@en ;
+    rdfs:comment "International treaty or convention" ;
+    rdfs:subClassOf mailo:LegalInstrument .
+
+mailo:LegalInstrument a owl:Class ;
+    rdfs:label "LegalInstrument",
+        "Legal Instrument"@en ;
+    rdfs:comment "Any binding or persuasive legal document",
+        "Any binding or persuasive legal document (regulation, directive, treaty, standard)."@en ;
+    rdfs:subClassOf eli:LegalResource .
+
+mailo:RiskScoringSystem a owl:Class ;
+    rdfs:label "RiskScoringSystem",
+        "Risk Scoring System"@en ;
+    rdfs:comment "Automated risk stratification or scoring system" ;
+    rdfs:subClassOf mailo:AutomatedDecisionSystem .
+
+mailo:TSD a mailo:EUDirective,
+        mailo:RegulatoryFramework ;
+    rdfs:label "Trade Secrets Directive 2016/943"@en ;
+    eli:id_local "32016L0943" ;
+    dcterms:date "2016-06-08"^^xsd:date ;
+    dcterms:identifier "2016/943/EU" ;
+    rdfs:comment "EU Trade Secrets Directive. Harmonises civil-law protection of undisclosed know-how and business information. Key for medical AI: model weights, training data schemas, and proprietary algorithms qualify as trade secrets under the Art.2 three-part test. Art.5 carve-outs limit the secrecy shield when exercise of the right to information is at stake — directly engaged by GDPR Art.15(1)(h) and AI Act Art.13 transparency obligations."@en ;
+    mailo:coversArticle mailo:TSD_Art2,
+        mailo:TSD_Art5,
+        mailo:TSD_Art9 .
+
+mailo:UPC_LD_Munich a mailo:UPCDivision ;
+    rdfs:label "UPC Local Division — Munich"@en .
+
+mailo:EPC_Art52 a mailo:LegalArticle ;
+    rdfs:label "EPC Article 52"@en ;
+    rdfs:comment "Patentable inventions; exclusion of mathematical methods and software as such."@en .
+
+mailo:EuropeanPatent a owl:Class ;
+    rdfs:label "EuropeanPatent",
+        "European Patent (EP)"@en ;
+    rdfs:comment "A European patent granted by the EPO" ;
+    rdfs:subClassOf mailo:Patent .
+
+mailo:Explanation a owl:Class ;
+    rdfs:label "Explanation",
+        "Explanation"@en ;
+    rdfs:comment "Actionable non-technical explanation for data subjects (C-203/22 P_203_001)",
+        "An actionable, non-technical explanation of the logic and main input factors of an automated decision (C-203/22 P_203_001; GDPR Art.15(1)(h))."@en .
+
+mailo:HumanOversightObligation a owl:Class ;
+    rdfs:label "HumanOversightObligation",
+        "Human Oversight Obligation"@en ;
+    rdfs:comment "Obligation to ensure substantive human review" ;
+    rdfs:seeAlso airo:HumanOversight ;
+    rdfs:subClassOf mailo:ComplianceObligation ;
+    owl:equivalentClass dpv:HumanInvolvement .
+
+mailo:UPCDivision a owl:Class ;
+    rdfs:label "UPC Division"@en ;
+    rdfs:subClassOf mailo:Court .
+
+mailo:DataSubjectRight a owl:Class ;
+    rdfs:label "DataSubjectRight",
+        "Data Subject Right"@en ;
+    rdfs:comment "A right of an individual under GDPR" ;
+    rdfs:seeAlso dpv:DataSubjectRight ;
+    rdfs:subClassOf mailo:Right .
+
+mailo:ExplainabilityObligation a owl:Class ;
+    rdfs:label "ExplainabilityObligation",
+        "Explainability Obligation"@en ;
+    rdfs:comment "Obligation to provide actionable explanations" ;
+    rdfs:seeAlso dpv:ExplainabilityObligation ;
+    rdfs:subClassOf mailo:ComplianceObligation .
+
+mailo:GDPR_Art15_1h a mailo:LegalArticle ;
+    rdfs:label "GDPR Art.15(1)(h)"@en ;
+    rdfs:comment "Right to meaningful information about the logic, significance and envisaged consequences of automated processing."@en ;
+    mailo:grantsRight mailo:Right_Explanation .
+
+mailo:AIAct_2024_1689 a mailo:EURegulation ;
+    rdfs:label "AI Act 2024/1689" ;
+    mailo:celex "32024R1689" ;
+    mailo:hasVersion mailo:AIAct_v1_ProhibitedPractices,
+        mailo:AIAct_v2_GPAIModelObligations,
+        mailo:AIAct_v3_OriginalHighRisk,
+        mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone,
+        mailo:AIAct_v3b_Omnibus_AnnexI_SaMD,
+        mailo:AIAct_v4_FRIA_PublicBodies .
+
+mailo:Technology a owl:Class ;
+    rdfs:label "Technology",
+        "Technology"@en ;
+    rdfs:comment "A medical AI technology class" .
+
+mailo:TransparencyObligation a owl:Class ;
+    rdfs:label "TransparencyObligation",
+        "Transparency Obligation"@en ;
+    rdfs:comment "Obligation to be transparent about AI processing" ;
+    rdfs:subClassOf mailo:ComplianceObligation ;
+    owl:equivalentClass dpv:TransparencyObligation .
+
+mailo:LegalEntity a owl:Class ;
+    rdfs:label "LegalEntity",
+        "Legal Entity"@en ;
+    rdfs:comment "Any natural or legal person with legal standing" .
+
+mailo:ComplianceObligation a owl:Class ;
+    rdfs:label "ComplianceObligation",
+        "Compliance Obligation"@en ;
+    rdfs:comment "A concrete obligation arising from regulation" .
+
+mailo:Court a owl:Class ;
+    rdfs:label "Court",
+        "Court"@en ;
+    rdfs:comment "A judicial body" ;
+    rdfs:subClassOf mailo:LegalEntity .
+
+mailo:UPCCase a owl:Class ;
+    rdfs:label "UPCCase",
+        "UPC Case"@en ;
+    rdfs:comment "Case before the Unified Patent Court",
+        "Infringement, revocation, or PI proceeding before the Unified Patent Court."@en ;
+    rdfs:subClassOf mailo:Case .
+
+mailo:Company a owl:Class ;
+    rdfs:label "Company",
+        "Company"@en ;
+    rdfs:comment "A corporate entity" ;
+    rdfs:subClassOf mailo:LegalEntity .
+
+mailo:LegislativeAmendment a owl:Class ;
+    rdfs:label "LegislativeAmendment" ;
+    rdfs:comment "A legislative event that creates or modifies a regulation version" .
+
+mailo:LegalPrinciple a owl:Class ;
+    rdfs:label "LegalPrinciple",
+        "Legal Principle"@en ;
+    rdfs:comment "A binding or persuasive rule extracted from case law",
+        "A binding or persuasive rule extracted from case law or legislation."@en .
+
+mailo:EURegulation a owl:Class ;
+    rdfs:label "EURegulation",
+        "EU Regulation"@en ;
+    rdfs:comment "EU Regulation (directly applicable)" ;
+    rdfs:seeAlso eli:LegalResource ;
+    rdfs:subClassOf mailo:LegalInstrument .
+
+mailo:RatioDecidendi a owl:Class ;
+    rdfs:label "RatioDecidendi",
+        "Ratio Decidendi"@en ;
+    rdfs:comment "Binding legal reasoning upon which decision rests",
+        "The binding legal reasoning upon which the decision rests."@en ;
+    rdfs:subClassOf mailo:LegalPrinciple .
+
+mailo:RegulationVersion a owl:Class ;
+    rdfs:label "RegulationVersion" ;
+    rdfs:comment "A versioned expression of an EU regulation at a specific applicability phase" ;
+    rdfs:subClassOf mailo:EURegulation .
+
+mailo:CJEUCase a owl:Class ;
+    rdfs:label "CJEUCase",
+        "CJEU Case"@en ;
+    rdfs:comment "Judgment of the Court of Justice of the EU",
+        "Preliminary ruling or direct action before the Court of Justice of the EU."@en ;
+    rdfs:subClassOf mailo:Case .
+
+mailo:CrossFrameworkTension a owl:Class ;
+    rdfs:label "CrossFrameworkTension" ;
+    rdfs:comment "A conflict or gap between two regulatory frameworks" .
+
+mailo:Case a owl:Class ;
+    rdfs:label "Case",
+        "Case"@en ;
+    rdfs:comment "Any judicial or quasi-judicial proceeding",
+        "Any judicial or quasi-judicial proceeding."@en .
+
+mailo:ComplianceRisk a owl:Class ;
+    rdfs:label "ComplianceRisk",
+        "Compliance Risk"@en ;
+    rdfs:comment "A compliance risk for medical AI developers" ;
+    rdfs:seeAlso airo:Risk .
+
+mailo:MedicalAISystem a owl:Class ;
+    rdfs:label "MedicalAISystem",
+        "Medical AI System"@en ;
+    rdfs:comment "An AI-based system used in clinical contexts",
+        "An AI-based system used in clinical diagnosis, treatment recommendation, or patient risk stratification."@en ;
+    rdfs:seeAlso airo:AISystem ;
+    rdfs:subClassOf mailo:Technology ;
+    mailo:hasRisk mailo:Risk_BlackBox,
+        mailo:Risk_HealthDataDoubleLayer,
+        mailo:Risk_InsufficientDisclosure,
+        mailo:Risk_PLDStrictLiability,
+        mailo:Risk_SolelyTest .
+
+mailo:RegulatoryFramework a owl:Class ;
+    rdfs:label "RegulatoryFramework",
+        "Regulatory Framework"@en ;
+    rdfs:comment "A coherent body of rules governing a domain",
+        "A coherent body of rules governing a specific domain."@en .
+
+mailo:AutomatedDecisionSystem a owl:Class ;
+    rdfs:label "AutomatedDecisionSystem",
+        "Automated Decision System"@en ;
+    rdfs:comment "System processing personal data without meaningful human review",
+        "A system that processes personal data to produce outputs affecting individuals without meaningful human review."@en ;
+    rdfs:seeAlso dpv:DataProcessing ;
+    rdfs:subClassOf mailo:MedicalAISystem ;
+    owl:equivalentClass dpv:AutomatedDecisionMaking .
+
+mailo:LiteratureSource a owl:Class ;
+    rdfs:label "LiteratureSource" ;
+    rdfs:comment "An academic paper, commentary, or official guidance" .
+
+mailo:LegalArticle a owl:Class ;
+    rdfs:label "LegalArticle",
+        "Legal Article"@en ;
+    rdfs:comment "A specific provision within a legal instrument",
+        "A specific provision within a legal instrument."@en ;
+    rdfs:subClassOf eli:LegalExpression .
+

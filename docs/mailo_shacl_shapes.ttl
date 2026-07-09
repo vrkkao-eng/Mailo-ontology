@@ -1,0 +1,564 @@
+# ============================================================
+# MAILO SHACL Shapes — Runtime Legal Constraint Enforcement
+# ============================================================
+#
+# Encodes three CJEU holdings as SHACL node shapes that can be
+# evaluated against any MedicalAISystem or AutomatedDecisionSystem
+# instance registered in the MAILO knowledge graph.
+#
+# Source cases:
+#   C-634/21  SCHUFA Holding — GDPR Art.22 'solely' test
+#   C-817/19  Ligue des droits humains — black-box prohibition
+#   C-203/22  Dun & Bradstreet Austria — explainability standard
+#
+# Usage:
+#   pip install pyshacl
+#   pyshacl -s mailo_shacl_shapes.ttl -d <data_graph.ttl> -f human
+#
+# Author:    VRKat (KU Leuven DH Thesis — MAILO)
+# Generated: 2026-04-30
+# Updated:   2026-05-17 (v2.0.5)
+# ============================================================
+
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix mailo:   <https://onto.example.org/medical-ai-legal#> .
+
+# Shapes graph declaration
+<https://onto.example.org/medical-ai-legal/shacl>
+    a owl:Ontology ;
+    dcterms:title "MAILO SHACL Shapes — CJEU Runtime Constraints"@en ,
+                  "MAILO SHACL 形狀圖 — 歐盟法院執行期約束"@zh-TW ;
+    dcterms:description """
+        SHACL node shapes encoding the ratio decidendi of three landmark
+        CJEU judgments (C-634/21, C-817/19, C-203/22) as machine-executable
+        runtime constraints for medical AI compliance validation.
+    """@en ;
+    dcterms:created "2026-04-30"^^xsd:date ;
+    dcterms:modified "2026-07-09"^^xsd:date ;
+    owl:versionIRI <https://onto.example.org/medical-ai-legal/shacl/5.0.1> ;
+    owl:versionInfo "5.0.1" ;
+    owl:priorVersion <https://onto.example.org/medical-ai-legal/shacl/3.0> ;
+    rdfs:comment "Version 5.0.1 (patch): metadata corrections aligned with MAILO ontology v5.0.1."@en ;
+    sh:declare [
+        sh:prefix "mailo" ;
+        sh:namespace "https://onto.example.org/medical-ai-legal#"^^xsd:anyURI
+    ] .
+
+
+# ============================================================
+# PART I — C-634/21 SCHUFA HOLDING
+# GDPR Art.22(1) prohibition; functional 'solely' test;
+# multi-actor chain gap-filling; Art.22 = prohibition rule
+# ============================================================
+
+# ------------------------------------------------------------
+# Shape 1.1  [P_634_001 + P_634_004]
+# Any AutomatedDecisionSystem that produces significant impact
+# must either (a) declare an Art.22(2) exception or
+# (b) demonstrate no significant effects on individuals.
+# ------------------------------------------------------------
+
+mailo:C634_Art22ProhibitionShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-634/21 — Art.22(1) Prohibition Rule"@en ;
+    skos:notation "P_634_001 / P_634_004" ;
+    rdfs:comment """
+        SCHUFA (C-634/21, para 55-79): GDPR Art.22(1) is a prohibition rule,
+        not a mere right to object. Any automated output relied upon by third
+        parties to produce legal or similarly significant effects constitutes
+        a 'decision'. Where such effects exist, an Art.22(2) exception must
+        be documented or the system must not be used.
+    """@en ;
+    sh:property [
+        sh:path mailo:producesSignificantImpact ;
+        sh:datatype xsd:boolean ;
+        sh:maxCount 1 ;
+        sh:message "C-634/21 P_634_001: mailo:producesSignificantImpact must be asserted (true/false) on every AutomatedDecisionSystem to determine Art.22(1) applicability."@en ;
+        sh:severity sh:Warning
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "C-634/21 P_634_004: This system produces significant impact but has no Art.22(2) exception documented (mailo:art22ExceptionApplied). GDPR Art.22(1) prohibition applies."@en ;
+        sh:severity sh:Violation ;
+        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:select """
+            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            SELECT $this
+            WHERE {
+                $this mailo:producesSignificantImpact true .
+                FILTER NOT EXISTS { $this mailo:art22ExceptionApplied ?exc }
+            }
+        """
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 1.2  [P_634_002]
+# Functional 'solely' test: human review must be substantive,
+# not a rubber-stamp formality.
+# ------------------------------------------------------------
+
+mailo:C634_SubstantiveOversightShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-634/21 — Substantive Human Oversight (Anti-Rubber-Stamping)"@en ;
+    skos:notation "P_634_002" ;
+    rdfs:comment """
+        SCHUFA (C-634/21, para 49-54): The 'solely' criterion is assessed
+        functionally. Formal human sign-off that does not constitute independent
+        substantive review — i.e., where the automated output is given decisive
+        weight without genuine evaluation — does not satisfy Art.22. The test is
+        whether the human reviewer could realistically have reached a different
+        conclusion.
+    """@en ;
+    sh:property [
+        sh:path mailo:hasHumanOversightRecord ;
+        sh:minCount 1 ;
+        sh:message "C-634/21 P_634_002: AutomatedDecisionSystem must have at least one mailo:HumanOversightRecord. Document every review cycle."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "C-634/21 P_634_002 (rubber-stamping): One or more HumanOversightRecord instances linked to this system have mailo:oversightIsSubstantive = false. Formal sign-off without independent judgment violates GDPR Art.22(1)."@en ;
+        sh:severity sh:Violation ;
+        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:select """
+            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            SELECT $this
+            WHERE {
+                $this mailo:hasHumanOversightRecord ?rec .
+                ?rec mailo:oversightIsSubstantive false .
+            }
+        """
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 1.3  [P_634_003]
+# Multi-actor ADM chain: an Art.22(2) exception cannot be
+# circumvented by distributing the decision across entities.
+# (Informational — flagged at Warning level for architecture review.)
+# ------------------------------------------------------------
+
+mailo:C634_MultiActorChainShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-634/21 — Multi-Actor ADM Chain Gap-Filling"@en ;
+    skos:notation "P_634_003" ;
+    rdfs:comment """
+        SCHUFA (C-634/21, para 73-79): The Art.22 prohibition cannot be
+        circumvented by splitting the automated decision across multiple
+        actors (e.g., scoring provider + lender). Both upstream scoring
+        and downstream decision-maker may bear joint responsibility under
+        Art.22. Deployments using third-party automated risk scores must
+        document their own exception and safeguards.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "C-634/21 P_634_003 (multi-actor chain): This system uses third-party automated scoring as significant input but has not documented an independent Art.22(2) exception for its own use. Responsibility cannot be delegated to the upstream provider."@en ;
+        sh:severity sh:Warning ;
+        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:select """
+            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            SELECT $this
+            WHERE {
+                $this a mailo:AutomatedDecisionSystem .
+                $this mailo:producesSignificantImpact true .
+                FILTER NOT EXISTS { $this mailo:art22ExceptionApplied ?exc }
+                FILTER EXISTS {
+                    ?upstream a mailo:RiskScoringSystem .
+                    $this mailo:usesOutputOf ?upstream .
+                }
+            }
+        """
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 1.4  HumanOversightRecord internal consistency
+# ------------------------------------------------------------
+
+mailo:C634_OversightRecordShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:HumanOversightRecord ;
+    sh:name "Human Oversight Record — Completeness"@en ;
+    sh:property [
+        sh:path mailo:oversightIsSubstantive ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "C-634/21 P_634_002: Every HumanOversightRecord must assert mailo:oversightIsSubstantive (true = genuine review; false = rubber-stamp, which is a violation)."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ============================================================
+# PART II — C-817/19 LIGUE DES DROITS HUMAINS (GRAND CHAMBER)
+# Black-box ML prohibition; mandatory individual review;
+# strict necessity tri-level proportionality; health status exclusion
+# ============================================================
+
+# ------------------------------------------------------------
+# Shape 2.1  [P_817_002]
+# Non-transparent self-learning ML systems are prohibited for
+# decisions with significant impact. (Grand Chamber — highest authority)
+# ------------------------------------------------------------
+
+mailo:C817_BlackBoxProhibitionShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:MedicalAISystem ;
+    sh:name "C-817/19 — Black-Box ML Prohibition (Grand Chamber)"@en ;
+    skos:notation "P_817_002" ;
+    rdfs:comment """
+        Ligue (C-817/19, Grand Chamber, para 192-200): Non-transparent,
+        self-learning ML risk-assessment systems may not be used for
+        decisions with significant impact on individuals. Pre-determined,
+        explainable criteria and regular human review of the model's
+        legality are required. Applies a fortiori to medical AI systems
+        under MDR + AI Act Annex III.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "C-817/19 P_817_002 (Grand Chamber): This system is classified as a BlackBoxMLSystem AND produces significant impact. Non-transparent self-learning ML is constitutionally prohibited for such decisions. System must be redesigned with predetermined, explainable criteria."@en ;
+        sh:severity sh:Violation ;
+        sh:prefixes <https://onto.example.org/medical-ai-legal/shacl> ;
+        sh:select """
+            PREFIX mailo: <https://onto.example.org/medical-ai-legal#>
+            SELECT $this
+            WHERE {
+                $this a mailo:BlackBoxMLSystem .
+                $this mailo:producesSignificantImpact true .
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path mailo:hasPredeterminedCriteria ;
+        sh:hasValue true ;
+        sh:message "C-817/19 P_817_002: MedicalAISystem must use pre-determined criteria (mailo:hasPredeterminedCriteria = true). Self-modifying criteria without human review breach the Grand Chamber black-box prohibition."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 2.2  [P_817_001]
+# Mandatory individual non-automated review before any measure.
+# (Grand Chamber constitutional minimum — no exception)
+# ------------------------------------------------------------
+
+mailo:C817_IndividualReviewShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-817/19 — Mandatory Individual Non-Automated Review"@en ;
+    skos:notation "P_817_001" ;
+    rdfs:comment """
+        Ligue (C-817/19, Grand Chamber, para 175-191): Any positive result
+        from automated analysis must be subject to an individual non-automated
+        human review BEFORE any measure affecting the individual is taken.
+        This is a constitutional minimum under EU Charter Art.7 and Art.8.
+        No exception is recognised; it applies to all medical AI producing
+        significant outputs (diagnosis, risk score, treatment recommendation).
+    """@en ;
+    sh:property [
+        sh:path mailo:hasIndividualNonAutomatedReview ;
+        sh:datatype xsd:boolean ;
+        sh:hasValue true ;
+        sh:message "C-817/19 P_817_001 (Grand Chamber constitutional minimum): mailo:hasIndividualNonAutomatedReview must be true. Every positive automated result must be reviewed individually by a human before any measure is taken. No exception exists."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 2.3  [P_817_004]
+# Health status must not be used as an automated classification
+# criterion. (Non-discrimination — Grand Chamber)
+# ------------------------------------------------------------
+
+mailo:C817_HealthStatusExclusionShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-817/19 — Health Status Exclusion from Automated Criteria"@en ;
+    skos:notation "P_817_004" ;
+    rdfs:comment """
+        Ligue (C-817/19, Grand Chamber, para 215-220): Automated assessment
+        criteria must not be based on a person's health status (special category
+        data under GDPR Art.9). AI systems trained on medical history must not
+        use health condition as a classification or risk-scoring basis without
+        explicit consent and a clear legal basis under Art.9(2). Applies
+        directly to genomic diagnostic AI, risk stratification tools, and
+        predictive analytics platforms.
+    """@en ;
+    sh:property [
+        sh:path mailo:usesHealthStatusAsCriterion ;
+        sh:hasValue false ;
+        sh:message "C-817/19 P_817_004 (Grand Chamber): mailo:usesHealthStatusAsCriterion must be false. Using health status as an automated classification criterion violates the non-discrimination prohibition and GDPR Art.9 without an explicit Art.9(2) legal basis."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 2.4  [P_817_003]
+# Strict necessity tri-level proportionality:
+# (a) targeted scope, (b) purpose limitation, (c) temporal limit.
+# Failure at any level invalidates the entire processing system.
+# ------------------------------------------------------------
+
+mailo:C817_ProportionalityShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-817/19 — Strict Necessity Tri-Level Proportionality"@en ;
+    skos:notation "P_817_003" ;
+    rdfs:comment """
+        Ligue (C-817/19, Grand Chamber, para 150-174): Large-scale automated
+        processing must satisfy a strict three-limb proportionality test:
+        (a) targeted, defined scope; (b) documented purpose limitation;
+        (c) temporal limitation or mandatory periodic review.
+        Non-compliance at any limb invalidates the processing system.
+    """@en ;
+    sh:property [
+        sh:path mailo:hasDefinedScope ;
+        sh:hasValue true ;
+        sh:message "C-817/19 P_817_003(a): System must have a targeted, defined scope (mailo:hasDefinedScope = true). Tri-level proportionality — limb (a) fails."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasPurposeLimitation ;
+        sh:hasValue true ;
+        sh:message "C-817/19 P_817_003(b): System must have documented purpose limitation (mailo:hasPurposeLimitation = true). Tri-level proportionality — limb (b) fails."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasTemporalLimitation ;
+        sh:hasValue true ;
+        sh:message "C-817/19 P_817_003(c): System must have a temporal limitation or mandatory periodic review schedule (mailo:hasTemporalLimitation = true). Tri-level proportionality — limb (c) fails."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 2.5  [P_817_005]
+# Independent oversight obligation: DPIA required.
+# (Persuasive obiter — elevated to Warning)
+# ------------------------------------------------------------
+
+mailo:C817_IndependentOversightShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:MedicalAISystem ;
+    sh:name "C-817/19 — Independent Oversight / DPIA Obligation"@en ;
+    skos:notation "P_817_005" ;
+    rdfs:comment """
+        Ligue (C-817/19, obiter, para 221-228): Automated processing systems
+        must be subject to effective independent oversight, including DPO
+        access and regular algorithmic legality review. For medical AI, this
+        is reinforced by GDPR Art.35 DPIA mandatory requirement for large-scale
+        processing of special category data (health data).
+    """@en ;
+    sh:property [
+        sh:path mailo:hasDPIA ;
+        sh:minCount 1 ;
+        sh:message "C-817/19 P_817_005 / GDPR Art.35: Medical AI systems processing health data must have a DPIA (mailo:hasDPIA → mailo:DPIARecord). Independent oversight is mandatory."@en ;
+        sh:severity sh:Warning
+    ] .
+
+
+# ============================================================
+# PART III — C-203/22 DUN & BRADSTREET AUSTRIA
+# Meaningful explainability standard (GDPR Art.15(1)(h))
+# ============================================================
+
+# ------------------------------------------------------------
+# Shape 3.1  [P_203_001]
+# Actionable explanation required for automated decisions.
+# Abstract mathematical formulas are insufficient.
+# ------------------------------------------------------------
+
+mailo:C203_ExplainabilityShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:name "C-203/22 — Meaningful Explainability Standard"@en ;
+    skos:notation "P_203_001" ;
+    rdfs:comment """
+        Dun & Bradstreet (C-203/22, para 55-85, 2025-02-27):
+        GDPR Art.15(1)(h) requires that data subjects receive an actionable
+        explanation in non-technical language identifying which input factors
+        significantly affected the output and the main reasoning path.
+        Abstract mathematical formulas describing the overall model are
+        insufficient — the explanation must enable effective exercise of
+        Art.22(3) remedies (human intervention, expressing views, contesting
+        the decision). Extends C-634/21 by specifying what 'meaningful
+        information' means operationally.
+    """@en ;
+    sh:property [
+        sh:path mailo:hasExplanation ;
+        sh:minCount 1 ;
+        sh:message "C-203/22 P_203_001 / GDPR Art.15(1)(h): AutomatedDecisionSystem must provide at least one Explanation (mailo:hasExplanation). Abstract formulas describing the overall model do not satisfy this requirement."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ------------------------------------------------------------
+# Shape 3.2  [P_203_001] — Explanation content quality
+# Validates the Explanation instance itself.
+# ------------------------------------------------------------
+
+mailo:C203_ExplanationQualityShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Explanation ;
+    sh:name "C-203/22 — Explanation Quality Requirements"@en ;
+    skos:notation "P_203_001" ;
+    sh:property [
+        sh:path mailo:isActionable ;
+        sh:datatype xsd:boolean ;
+        sh:hasValue true ;
+        sh:message "C-203/22 P_203_001 (actionability): Explanation must be actionable — it must enable the data subject to effectively exercise Art.22(3) remedies (human review, expressing views, contesting). Set mailo:isActionable = true only after verifying this criterion."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:isNonTechnical ;
+        sh:datatype xsd:boolean ;
+        sh:hasValue true ;
+        sh:message "C-203/22 P_203_001 (language): Explanation must be expressed in non-technical language understandable to the data subject (mailo:isNonTechnical = true). Mathematical notation or code is insufficient."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:identifiesInputFactors ;
+        sh:datatype xsd:boolean ;
+        sh:hasValue true ;
+        sh:message "C-203/22 P_203_001 (input factors): Explanation must identify which specific input data most significantly affected the output and describe the main reasoning path (mailo:identifiesInputFactors = true). A general model description does not satisfy this."@en ;
+        sh:severity sh:Violation
+    ] .
+
+
+# ============================================================
+# PART IV — COMBINED MEDICAL AI SYSTEM COMPLIANCE SHAPE
+# Aggregates cross-case obligations for any registered
+# MedicalAISystem instance.
+# ============================================================
+
+mailo:MedicalAIComplianceShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:MedicalAISystem ;
+    sh:name "MAILO Combined Medical AI Compliance Shape"@en ;
+    rdfs:comment """
+        Master compliance shape aggregating the cross-case holdings of
+        C-634/21, C-817/19, and C-203/22 for any Medical AI System.
+        This shape provides the top-level entry point for runtime KG
+        validation; individual case-specific shapes provide detailed
+        per-violation messages.
+    """@en ;
+
+    # --- From C-817/19 (Grand Chamber, constitutional floor) ---
+    sh:property [
+        sh:path mailo:hasIndividualNonAutomatedReview ;
+        sh:hasValue true ;
+        sh:message "[C-817/19 P_817_001] Individual non-automated review required before any measure."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasPredeterminedCriteria ;
+        sh:hasValue true ;
+        sh:message "[C-817/19 P_817_002] Black-box self-learning systems prohibited — pre-determined criteria required."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:usesHealthStatusAsCriterion ;
+        sh:hasValue false ;
+        sh:message "[C-817/19 P_817_004] Health status must not be used as an automated classification criterion."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasDefinedScope ;
+        sh:hasValue true ;
+        sh:message "[C-817/19 P_817_003(a)] Defined, targeted scope required."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasPurposeLimitation ;
+        sh:hasValue true ;
+        sh:message "[C-817/19 P_817_003(b)] Purpose limitation required."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path mailo:hasTemporalLimitation ;
+        sh:hasValue true ;
+        sh:message "[C-817/19 P_817_003(c)] Temporal limitation or review schedule required."@en ;
+        sh:severity sh:Violation
+    ] ;
+
+    # --- From C-634/21 (SCHUFA — Art.22 prohibition chain) ---
+    sh:property [
+        sh:path mailo:hasHumanOversightRecord ;
+        sh:minCount 1 ;
+        sh:message "[C-634/21 P_634_002] At least one substantive human oversight record required."@en ;
+        sh:severity sh:Violation
+    ] ;
+
+    # --- From C-203/22 (D&B — explainability) ---
+    sh:property [
+        sh:path mailo:hasExplanation ;
+        sh:minCount 1 ;
+        sh:message "[C-203/22 P_203_001] At least one actionable, non-technical explanation required (GDPR Art.15(1)(h))."@en ;
+        sh:severity sh:Violation
+    ] ;
+
+    # --- DPIA (C-817/19 P_817_005 / GDPR Art.35) ---
+    sh:property [
+        sh:path mailo:hasDPIA ;
+        sh:minCount 1 ;
+        sh:message "[C-817/19 P_817_005 / GDPR Art.35] DPIA required for high-risk medical AI processing health data."@en ;
+        sh:severity sh:Warning
+    ] ;
+
+    # --- AI Act high-risk classification (informational) ---
+    sh:property [
+        sh:path mailo:isHighRiskAIAct ;
+        sh:datatype xsd:boolean ;
+        sh:maxCount 1 ;
+        sh:message "[AI Act Annex III] Risk classification under EU AI Act must be asserted (true = high-risk obligations apply from 2026-08-02)."@en ;
+        sh:severity sh:Warning
+    ] .
+
+
+# ============================================================
+# PART V — EXAMPLE COMPLIANT INSTANCE (DOCUMENTATION)
+# ============================================================
+#
+# The following shows how a conformant system would be described
+# in a data graph validated against these shapes.
+# Uncomment and adapt when registering a real system in the KG.
+#
+# <https://onto.example.org/systems/ExampleClinicalDSS>
+#     a mailo:ClinicalDecisionSupport , mailo:AutomatedDecisionSystem ;
+#     rdfs:label "Example Clinical Decision Support System" ;
+#     mailo:producesSignificantImpact true ;
+#     mailo:art22ExceptionApplied "explicit_consent" ;
+#     mailo:hasIndividualNonAutomatedReview true ;
+#     mailo:hasPredeterminedCriteria true ;
+#     mailo:usesHealthStatusAsCriterion false ;
+#     mailo:hasDefinedScope true ;
+#     mailo:hasPurposeLimitation true ;
+#     mailo:hasTemporalLimitation true ;
+#     mailo:isHighRiskAIAct true ;
+#     mailo:hasHumanOversightRecord <https://onto.example.org/records/review-2026-04> ;
+#     mailo:hasExplanation <https://onto.example.org/explanations/cdss-v1-xai> ;
+#     mailo:hasDPIA <https://onto.example.org/dpia/cdss-2025> .
+#
+# <https://onto.example.org/records/review-2026-04>
+#     a mailo:HumanOversightRecord ;
+#     mailo:oversightIsSubstantive true .
+#
+# <https://onto.example.org/explanations/cdss-v1-xai>
+#     a mailo:Explanation ;
+#     mailo:isActionable true ;
+#     mailo:isNonTechnical true ;
+#     mailo:identifiesInputFactors true .
+#
+# ============================================================
+# END OF SHACL SHAPES
+# ============================================================
