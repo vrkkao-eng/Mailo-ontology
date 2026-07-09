@@ -18,16 +18,16 @@
       "en" : "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."
     },
     "other" : {
-      "license" : [ {
-        "identifier" : "license",
-        "language" : "undefined",
-        "value" : "https://creativecommons.org/licenses/by/4.0/",
-        "type" : "iri"
-      } ],
       "priorVersion" : [ {
         "identifier" : "priorVersion",
         "language" : "undefined",
         "value" : "https://w3id.org/mailo/5.0",
+        "type" : "iri"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/4.0/",
         "type" : "iri"
       } ],
       "creator" : [ {
@@ -71,6 +71,12 @@
         "value" : "5.0.1",
         "type" : "label"
       } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "en",
+        "value" : "MAILO (Medical AI Legal Ontology) is a machine-executable knowledge graph encoding EU regulatory obligations for medical artificial intelligence systems. It formalises eight EU legislative instruments -- the GDPR, MDR, AI Act, Product Liability Directive, EHDS, Data Governance Act, Data Act, and Trade Secrets Directive -- as OWL 2 classes and SHACL shape constraints, grounded in three CJEU judgments on automated decision-making (Ligue des droits humains, SCHUFA Holding, and Dun & Bradstreet Austria). MAILO functions as a deterministic, auditable compliance-verification layer: SHACL NodeShapes validate instance data describing a medical AI system against the encoded legal constraints and produce structured, traceable conformance reports.",
+        "type" : "label"
+      } ],
       "title" : [ {
         "identifier" : "title",
         "language" : "undefined",
@@ -107,7 +113,7 @@
     "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "24",
+    "id" : "23",
     "type" : "owl:Class"
   }, {
     "id" : "27",
@@ -122,7 +128,7 @@
     "id" : "32",
     "type" : "owl:equivalentClass"
   }, {
-    "id" : "23",
+    "id" : "24",
     "type" : "owl:Class"
   }, {
     "id" : "40",
@@ -233,11 +239,11 @@
     "id" : "99",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "109",
-    "type" : "owl:equivalentClass"
-  }, {
     "id" : "114",
     "type" : "owl:Class"
+  }, {
+    "id" : "109",
+    "type" : "owl:equivalentClass"
   }, {
     "id" : "115",
     "type" : "rdfs:Datatype"
@@ -266,7 +272,7 @@
     "id" : "26",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "84",
+    "id" : "83",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "107",
@@ -416,14 +422,14 @@
         "en" : "P-634/21-002: Functional 'Solely' Test"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#P_817_001",
+      "iri" : "https://w3id.org/mailo#P_634_001",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Any positive match from automated PNR analysis must be subject to individual non-automated review before any measure is taken. Establishes constitutional minimum for meaningful human intervention."
+        "en" : "A 'decision' under Art.22 encompasses any act producing legal or similarly significant effects. Automated scoring creating probabilities relied upon by third parties constitutes a 'decision'."
       },
       "labels" : {
-        "IRI-based" : "P_817_001",
-        "en" : "P-817/19-001: Mandatory Non-Automated Individual Review"
+        "IRI-based" : "P_634_001",
+        "en" : "P-634/21-001: Broad 'Decision' Concept"
       }
     }, {
       "iri" : "https://w3id.org/mailo#P_Bara_001",
@@ -436,14 +442,14 @@
         "en" : "Transparency Rights Foundation"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#P_634_001",
+      "iri" : "https://w3id.org/mailo#P_817_001",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "A 'decision' under Art.22 encompasses any act producing legal or similarly significant effects. Automated scoring creating probabilities relied upon by third parties constitutes a 'decision'."
+        "en" : "Any positive match from automated PNR analysis must be subject to individual non-automated review before any measure is taken. Establishes constitutional minimum for meaningful human intervention."
       },
       "labels" : {
-        "IRI-based" : "P_634_001",
-        "en" : "P-634/21-001: Broad 'Decision' Concept"
+        "IRI-based" : "P_817_001",
+        "en" : "P-817/19-001: Mandatory Non-Automated Individual Review"
       }
     }, {
       "iri" : "https://w3id.org/mailo#P_634_004",
@@ -732,19 +738,22 @@
         "en" : "EHDS Regulation 2025/327"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#PNRDirective",
+      "iri" : "https://w3id.org/mailo#EPC",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
-        "identifier" : [ {
-          "identifier" : "identifier",
+        "date" : [ {
+          "identifier" : "date",
           "language" : "undefined",
-          "value" : "2016/681/EU",
+          "value" : "1977-10-07",
           "type" : "label"
         } ]
       },
+      "comment" : {
+        "en" : "European Patent Convention (in force 1977-10-07). Governs patentability of AI/medical-AI inventions (Art.52 exclusions), sufficiency of disclosure for ML models (Art.83), and EPO opposition/appeal proceedings. Administered by EPO; distinct from EU law but intersects via UPC."
+      },
       "labels" : {
-        "IRI-based" : "PNRDirective",
-        "en" : "PNR Directive 2016/681"
+        "IRI-based" : "EPC",
+        "en" : "European Patent Convention"
       }
     }, {
       "iri" : "https://w3id.org/mailo#PLD",
@@ -777,22 +786,19 @@
         "en" : "PLD 2024/2853"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#EPC",
+      "iri" : "https://w3id.org/mailo#PNRDirective",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
-        "date" : [ {
-          "identifier" : "date",
+        "identifier" : [ {
+          "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "1977-10-07",
+          "value" : "2016/681/EU",
           "type" : "label"
         } ]
       },
-      "comment" : {
-        "en" : "European Patent Convention (in force 1977-10-07). Governs patentability of AI/medical-AI inventions (Art.52 exclusions), sufficiency of disclosure for ML models (Art.83), and EPO opposition/appeal proceedings. Administered by EPO; distinct from EU law but intersects via UPC."
-      },
       "labels" : {
-        "IRI-based" : "EPC",
-        "en" : "European Patent Convention"
+        "IRI-based" : "PNRDirective",
+        "en" : "PNR Directive 2016/681"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EUCharter",
@@ -860,6 +866,20 @@
     "id" : "19",
     "superClasses" : [ "17" ]
   }, {
+    "iri" : "https://w3id.org/mailo#ClinicalDecisionSupport",
+    "baseIri" : "https://w3id.org/mailo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ClinicalDecisionSupport",
+      "en" : "Clinical Decision Support System",
+      "undefined" : "ClinicalDecisionSupport"
+    },
+    "comment" : {
+      "undefined" : "Clinical decision support system (CDSS)"
+    },
+    "id" : "22",
+    "superClasses" : [ "9" ]
+  }, {
     "iri" : "https://w3id.org/mailo#Company",
     "baseIri" : "https://w3id.org/mailo",
     "instances" : 0,
@@ -876,18 +896,18 @@
         "en" : "Microsoft Corporation"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Amgen",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Amgen",
-        "en" : "Amgen Inc."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Dexcom",
       "baseIri" : "https://w3id.org/mailo",
       "labels" : {
         "IRI-based" : "Dexcom",
         "en" : "Dexcom Inc."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Amgen",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Amgen",
+        "en" : "Amgen Inc."
       }
     }, {
       "iri" : "https://w3id.org/mailo#Abbott",
@@ -897,18 +917,18 @@
         "en" : "Abbott Laboratories"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Sanofi",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Sanofi",
-        "en" : "Sanofi S.A."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#MyriadGenetics",
       "baseIri" : "https://w3id.org/mailo",
       "labels" : {
         "IRI-based" : "MyriadGenetics",
         "en" : "Myriad Genetics Inc."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Sanofi",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Sanofi",
+        "en" : "Sanofi S.A."
       }
     }, {
       "iri" : "https://w3id.org/mailo#SiemensHealthineers",
@@ -925,26 +945,12 @@
         "en" : "Hologic Inc."
       }
     } ],
-    "subClasses" : [ "23" ],
+    "subClasses" : [ "24" ],
     "comment" : {
       "undefined" : "A corporate entity"
     },
-    "id" : "22",
+    "id" : "23",
     "superClasses" : [ "18" ]
-  }, {
-    "iri" : "https://w3id.org/mailo#ClinicalDecisionSupport",
-    "baseIri" : "https://w3id.org/mailo",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ClinicalDecisionSupport",
-      "en" : "Clinical Decision Support System",
-      "undefined" : "ClinicalDecisionSupport"
-    },
-    "comment" : {
-      "undefined" : "Clinical decision support system (CDSS)"
-    },
-    "id" : "24",
-    "superClasses" : [ "9" ]
   }, {
     "iri" : "https://w3id.org/mailo#NotifiedBody",
     "baseIri" : "https://w3id.org/mailo",
@@ -1025,8 +1031,8 @@
     "comment" : {
       "undefined" : "Non-Practising Entity — patent assertion vehicle"
     },
-    "id" : "23",
-    "superClasses" : [ "22" ]
+    "id" : "24",
+    "superClasses" : [ "23" ]
   }, {
     "iri" : "https://w3id.org/mailo#DataSubject",
     "baseIri" : "https://w3id.org/mailo",
@@ -1231,30 +1237,6 @@
         "en" : "Data Act Art.15 trade secret vs. AI Act Art.13 + GDPR Art.15(1)(h) transparency"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Tension_PLD_AIAct_LiabilityGap",
-      "baseIri" : "https://w3id.org/mailo",
-      "annotations" : {
-        "hasResolutionStatus" : [ {
-          "identifier" : "hasResolutionStatus",
-          "language" : "undefined",
-          "value" : "partial",
-          "type" : "label"
-        } ],
-        "conflictType" : [ {
-          "identifier" : "conflictType",
-          "language" : "undefined",
-          "value" : "https://w3id.org/mailo#LiabilityConflict",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "PLD Art.11 defect presumption applies where it is excessively difficult for the claimant to prove defect. AI Act Art.9-compliant risk management documentation may rebut the presumption but no legislative safe harbour confirms this."
-      },
-      "labels" : {
-        "IRI-based" : "Tension_PLD_AIAct_LiabilityGap",
-        "en" : "PLD Art.10 defect presumption vs. AI Act Art.9 risk management"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Tension_EHDS_GDPR_OptOut",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
@@ -1277,6 +1259,30 @@
       "labels" : {
         "IRI-based" : "Tension_EHDS_GDPR_OptOut",
         "en" : "EHDS Art.35 opt-out vs. AI Act Art.10(3) representativeness"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Tension_PLD_AIAct_LiabilityGap",
+      "baseIri" : "https://w3id.org/mailo",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "partial",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://w3id.org/mailo#LiabilityConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "PLD Art.11 defect presumption applies where it is excessively difficult for the claimant to prove defect. AI Act Art.9-compliant risk management documentation may rebut the presumption but no legislative safe harbour confirms this."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_PLD_AIAct_LiabilityGap",
+        "en" : "PLD Art.10 defect presumption vs. AI Act Art.9 risk management"
       }
     }, {
       "iri" : "https://w3id.org/mailo#Tension_BlackBox_PatentProtection",
@@ -1333,30 +1339,6 @@
         "en" : "EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Tension_DGA_Neutrality_DataAcquisition",
-      "baseIri" : "https://w3id.org/mailo",
-      "annotations" : {
-        "hasResolutionStatus" : [ {
-          "identifier" : "hasResolutionStatus",
-          "language" : "undefined",
-          "value" : "unresolved",
-          "type" : "label"
-        } ],
-        "conflictType" : [ {
-          "identifier" : "conflictType",
-          "language" : "undefined",
-          "value" : "https://w3id.org/mailo#DataGovernanceConflict",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "DGA Art.10 prohibits data-sharing intermediaries from using shared data for purposes beyond the sharing service. Integrated AI development models in which intermediary and developer are related entities require structural business model restructuring that no guidance resolves."
-      },
-      "labels" : {
-        "IRI-based" : "Tension_DGA_Neutrality_DataAcquisition",
-        "en" : "DGA Art.10 neutrality obligation vs. AI Act Art.10 data governance"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Tension_EPO_MDR_SemanticScope",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
@@ -1379,6 +1361,30 @@
       "labels" : {
         "IRI-based" : "Tension_EPO_MDR_SemanticScope",
         "en" : "EPO G-II §3.3 broad claim scope vs. MDR Annex II §1.1 + AI Act Art.9/13 intended purpose"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Tension_DGA_Neutrality_DataAcquisition",
+      "baseIri" : "https://w3id.org/mailo",
+      "annotations" : {
+        "hasResolutionStatus" : [ {
+          "identifier" : "hasResolutionStatus",
+          "language" : "undefined",
+          "value" : "unresolved",
+          "type" : "label"
+        } ],
+        "conflictType" : [ {
+          "identifier" : "conflictType",
+          "language" : "undefined",
+          "value" : "https://w3id.org/mailo#DataGovernanceConflict",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "DGA Art.10 prohibits data-sharing intermediaries from using shared data for purposes beyond the sharing service. Integrated AI development models in which intermediary and developer are related entities require structural business model restructuring that no guidance resolves."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_DGA_Neutrality_DataAcquisition",
+        "en" : "DGA Art.10 neutrality obligation vs. AI Act Art.10 data governance"
       }
     } ],
     "comment" : {
@@ -1490,30 +1496,6 @@
         "undefined" : "Medical Law Review. (2024). A health-conformant reading of the GDPR's right not to be subject to automated decision-making, 32(3), 373."
       }
     }, {
-      "iri" : "https://w3id.org/mailo#lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
-      "baseIri" : "https://w3id.org/mailo",
-      "description" : {
-        "undefined" : "OWL ontology + SHACL shapes implementing AI Act Annex III high-risk classifier + SPARQL ASK queries; integrated into W3C DPVCG. Most direct competitor to MAILO. AIRO already does for the AI Act what MAILO proposes for the medical-AI multi-framework intersection. Differentiator: MAILO adds medical-domain specificity, MDR+PLD integration, CJEU precedent chain, UPC patent overlay."
-      },
-      "annotations" : {
-        "date" : [ {
-          "identifier" : "date",
-          "language" : "undefined",
-          "value" : "2025",
-          "type" : "label"
-        } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://delaramglp.github.io/airo/",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
-        "undefined" : "Golpayegani, D., Pandit, H. J., Lewis, D. (2022, 2025). AIRO: An Ontology for Representing AI Risks Based on the Proposed EU AI Act. SEMANTiCS + arXiv:2501.10391."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
       "baseIri" : "https://w3id.org/mailo",
       "description" : {
@@ -1536,6 +1518,30 @@
       "labels" : {
         "IRI-based" : "lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
         "undefined" : "Conflict-tolerant Deontic Traditional Scheme for the Semantic Web. (2025). Journal of Logic and Computation 35(8), Oxford."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
+      "baseIri" : "https://w3id.org/mailo",
+      "description" : {
+        "undefined" : "OWL ontology + SHACL shapes implementing AI Act Annex III high-risk classifier + SPARQL ASK queries; integrated into W3C DPVCG. Most direct competitor to MAILO. AIRO already does for the AI Act what MAILO proposes for the medical-AI multi-framework intersection. Differentiator: MAILO adds medical-domain specificity, MDR+PLD integration, CJEU precedent chain, UPC patent overlay."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://delaramglp.github.io/airo/",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
+        "undefined" : "Golpayegani, D., Pandit, H. J., Lewis, D. (2022, 2025). AIRO: An Ontology for Representing AI Risks Based on the Proposed EU AI Act. SEMANTiCS + arXiv:2501.10391."
       }
     }, {
       "iri" : "https://w3id.org/mailo#lit_Pandit_H_J_et_al_2024_Data_Privacy_Vocabulary_DPV",
@@ -1939,12 +1945,12 @@
         "identifier" : [ {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2022:491",
+          "value" : "C-817/19",
           "type" : "label"
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "C-817/19",
+          "value" : "ECLI:EU:C:2022:491",
           "type" : "label"
         } ],
         "notation" : [ {
@@ -2024,12 +2030,12 @@
         "identifier" : [ {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2025:145",
+          "value" : "C-203/22",
           "type" : "label"
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "C-203/22",
+          "value" : "ECLI:EU:C:2025:145",
           "type" : "label"
         } ],
         "notation" : [ {
@@ -2326,13 +2332,6 @@
         "en" : "MDR 2017/745"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#GDPR_2016_679",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "GDPR_2016_679",
-        "undefined" : "GDPR 2016/679"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#GDPR",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
@@ -2361,6 +2360,13 @@
       "labels" : {
         "IRI-based" : "GDPR",
         "en" : "GDPR 2016/679"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#GDPR_2016_679",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "GDPR_2016_679",
+        "undefined" : "GDPR 2016/679"
       }
     }, {
       "iri" : "https://w3id.org/mailo#DGA",
@@ -2791,15 +2797,6 @@
       "IRI-based" : "boolean"
     }
   }, {
-    "iri" : "http://w3id.org/dpv#TransparencyObligation",
-    "baseIri" : "http://w3id.org/dpv",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "TransparencyObligation"
-    },
-    "attributes" : [ "external", "equivalent" ],
-    "id" : "109"
-  }, {
     "iri" : "https://w3id.org/mailo#EPOProceding",
     "baseIri" : "https://w3id.org/mailo",
     "instances" : 0,
@@ -2879,6 +2876,15 @@
     "id" : "114",
     "superClasses" : [ "17" ]
   }, {
+    "iri" : "http://w3id.org/dpv#TransparencyObligation",
+    "baseIri" : "http://w3id.org/dpv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TransparencyObligation"
+    },
+    "attributes" : [ "external", "equivalent" ],
+    "id" : "109"
+  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "115",
@@ -2951,7 +2957,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "84",
+    "id" : "83",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -3098,7 +3104,7 @@
       "en" : "Medical AI System",
       "undefined" : "MedicalAISystem"
     },
-    "subClasses" : [ "75", "24", "29", "11", "8", "143" ],
+    "subClasses" : [ "75", "22", "29", "11", "8", "143" ],
     "comment" : {
       "en" : "An AI-based system used in clinical diagnosis, treatment recommendation, or patient risk stratification.",
       "undefined" : "An AI-based system used in clinical contexts"
@@ -3347,16 +3353,6 @@
         "en" : "AI Act Article 13"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#AIAct_Art14",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Human oversight for high-risk AI systems."
-      },
-      "labels" : {
-        "IRI-based" : "AIAct_Art14",
-        "en" : "AI Act Article 14"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#MDR_Art15",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3365,6 +3361,16 @@
       "labels" : {
         "IRI-based" : "MDR_Art15",
         "en" : "MDR Art.15 — Person Responsible for Regulatory Compliance"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#AIAct_Art14",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Human oversight for high-risk AI systems."
+      },
+      "labels" : {
+        "IRI-based" : "AIAct_Art14",
+        "en" : "AI Act Article 14"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EPC_Art52",
@@ -3447,16 +3453,6 @@
         "en" : "AI Act Art.9 — Risk Management System"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#AIAct_Art50",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "General-purpose AI (GPAI) providers must disclose AI-generated content (watermarking/labelling). Applies to AI-generated radiology reports, diagnostic summaries."
-      },
-      "labels" : {
-        "IRI-based" : "AIAct_Art50",
-        "en" : "AI Act Art.50 — Transparency for GPAI"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#DataAct_Art3",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3467,14 +3463,14 @@
         "en" : "Data Act Art.3 — IoT Data Access Right"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#DataAct_Art5",
+      "iri" : "https://w3id.org/mailo#AIAct_Art50",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Data holders must share IoT-generated health data with third parties at user request. Creates AI training data supply chain implications for medical device manufacturers."
+        "en" : "General-purpose AI (GPAI) providers must disclose AI-generated content (watermarking/labelling). Applies to AI-generated radiology reports, diagnostic summaries."
       },
       "labels" : {
-        "IRI-based" : "DataAct_Art5",
-        "en" : "Data Act Art.5 — Data Sharing with Third Parties"
+        "IRI-based" : "AIAct_Art50",
+        "en" : "AI Act Art.50 — Transparency for GPAI"
       }
     }, {
       "iri" : "https://w3id.org/mailo#TSD_Art5",
@@ -3485,6 +3481,16 @@
       "labels" : {
         "IRI-based" : "TSD_Art5",
         "en" : "TSD Article 5 — Exceptions"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#DataAct_Art5",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Data holders must share IoT-generated health data with third parties at user request. Creates AI training data supply chain implications for medical device manufacturers."
+      },
+      "labels" : {
+        "IRI-based" : "DataAct_Art5",
+        "en" : "Data Act Art.5 — Data Sharing with Third Parties"
       }
     }, {
       "iri" : "https://w3id.org/mailo#GDPR_Art22_2",
@@ -3779,13 +3785,6 @@
         "en" : "EHDS Art.35 Opt-Out Erodes Training Dataset"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Risk_HealthDataDoubleLayer",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Risk_HealthDataDoubleLayer",
-        "en" : "Health Data Double Protection Layer (Art.9 + Art.22(4))"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Risk_TradeSecretTransparencyConflict",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3794,6 +3793,13 @@
       "labels" : {
         "IRI-based" : "Risk_TradeSecretTransparencyConflict",
         "en" : "Trade Secret Shield vs. AI Act/GDPR Transparency Mandate (TSD Art.2 Conflict)"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Risk_HealthDataDoubleLayer",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Risk_HealthDataDoubleLayer",
+        "en" : "Health Data Double Protection Layer (Art.9 + Art.22(4))"
       }
     }, {
       "iri" : "https://w3id.org/mailo#Risk_DataActIoT",
@@ -3806,13 +3812,6 @@
         "en" : "Data Act Art.3/5 IoT Data Sharing Obligation"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Risk_EPOUPC_Divergence",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Risk_EPOUPC_Divergence",
-        "en" : "EPO-UPC Divergent Validity Rulings (Opt-Out Strategy)"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Risk_AIActQMS_MDR_Overlap",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3821,6 +3820,13 @@
       "labels" : {
         "IRI-based" : "Risk_AIActQMS_MDR_Overlap",
         "en" : "AI Act Art.17 QMS / MDR Annex IX Double Burden"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Risk_EPOUPC_Divergence",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Risk_EPOUPC_Divergence",
+        "en" : "EPO-UPC Divergent Validity Rulings (Opt-Out Strategy)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#Risk_InsufficientDisclosure",
@@ -3900,7 +3906,7 @@
       "en" : "Legal Entity",
       "undefined" : "LegalEntity"
     },
-    "subClasses" : [ "22", "40", "27", "58", "182" ],
+    "subClasses" : [ "23", "40", "27", "58", "182" ],
     "comment" : {
       "undefined" : "Any natural or legal person with legal standing"
     },
@@ -4015,6 +4021,21 @@
         "en" : "Trade Secrets Directive 2016/943"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#PNRDirective",
+      "baseIri" : "https://w3id.org/mailo",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/681/EU",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PNRDirective",
+        "en" : "PNR Directive 2016/681"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#PLD",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
@@ -4043,21 +4064,6 @@
       "labels" : {
         "IRI-based" : "PLD",
         "en" : "PLD 2024/2853"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#PNRDirective",
-      "baseIri" : "https://w3id.org/mailo",
-      "annotations" : {
-        "identifier" : [ {
-          "identifier" : "identifier",
-          "language" : "undefined",
-          "value" : "2016/681/EU",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "PNRDirective",
-        "en" : "PNR Directive 2016/681"
       }
     } ],
     "comment" : {
@@ -4225,10 +4231,10 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "82",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "83",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "85",
     "type" : "owl:objectProperty"
@@ -4264,13 +4270,13 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "118",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "119",
     "type" : "owl:objectProperty"
   }, {
     "id" : "120",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "121",
     "type" : "owl:datatypeProperty"
@@ -4765,7 +4771,7 @@
     "comment" : {
       "undefined" : "Article is complemented by another"
     },
-    "attributes" : [ "symmetric", "object" ],
+    "attributes" : [ "object", "symmetric" ],
     "id" : "76"
   }, {
     "iri" : "https://w3id.org/mailo#grantsRight",
@@ -4795,6 +4801,21 @@
     "attributes" : [ "object" ],
     "id" : "81"
   }, {
+    "iri" : "https://w3id.org/mailo#hasDefinedScope",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "83",
+    "label" : {
+      "IRI-based" : "hasDefinedScope",
+      "en" : "has defined scope"
+    },
+    "domain" : "11",
+    "comment" : {
+      "en" : "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003.",
+      "undefined" : "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "82"
+  }, {
     "iri" : "https://w3id.org/mailo#governedBy",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "1",
@@ -4806,22 +4827,7 @@
       "undefined" : "Governed by a regulatory framework"
     },
     "attributes" : [ "object" ],
-    "id" : "82"
-  }, {
-    "iri" : "https://w3id.org/mailo#hasDefinedScope",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "84",
-    "label" : {
-      "IRI-based" : "hasDefinedScope",
-      "en" : "has defined scope"
-    },
-    "domain" : "11",
-    "comment" : {
-      "en" : "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003.",
-      "undefined" : "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)"
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "83"
+    "id" : "84"
   }, {
     "iri" : "https://w3id.org/mailo#involvesFramework",
     "baseIri" : "https://w3id.org/mailo",
@@ -4976,19 +4982,18 @@
     "attributes" : [ "object" ],
     "id" : "117"
   }, {
-    "iri" : "https://w3id.org/mailo#conflictsWith",
+    "iri" : "https://w3id.org/mailo#riskLevel",
     "baseIri" : "https://w3id.org/mailo",
-    "range" : "52",
+    "range" : "110",
     "label" : {
-      "IRI-based" : "conflictsWith",
-      "en" : "conflicts with"
+      "IRI-based" : "riskLevel",
+      "en" : "risk level"
     },
-    "domain" : "52",
+    "domain" : "70",
     "comment" : {
-      "en" : "Two legal obligations or principles that are in tension.",
-      "undefined" : "Article conflicts with another"
+      "undefined" : "CRITICAL | HIGH | MEDIUM | LOW"
     },
-    "attributes" : [ "symmetric", "object" ],
+    "attributes" : [ "datatype" ],
     "id" : "118"
   }, {
     "iri" : "https://w3id.org/mailo#hasConformityRecord",
@@ -5005,18 +5010,19 @@
     "attributes" : [ "object" ],
     "id" : "119"
   }, {
-    "iri" : "https://w3id.org/mailo#riskLevel",
+    "iri" : "https://w3id.org/mailo#conflictsWith",
     "baseIri" : "https://w3id.org/mailo",
-    "range" : "110",
+    "range" : "52",
     "label" : {
-      "IRI-based" : "riskLevel",
-      "en" : "risk level"
+      "IRI-based" : "conflictsWith",
+      "en" : "conflicts with"
     },
-    "domain" : "70",
+    "domain" : "52",
     "comment" : {
-      "undefined" : "CRITICAL | HIGH | MEDIUM | LOW"
+      "en" : "Two legal obligations or principles that are in tension.",
+      "undefined" : "Article conflicts with another"
     },
-    "attributes" : [ "datatype" ],
+    "attributes" : [ "object", "symmetric" ],
     "id" : "120"
   }, {
     "iri" : "https://w3id.org/mailo#caseDate",
@@ -5075,17 +5081,17 @@
   }, {
     "range" : "39",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "132"
   }, {
     "range" : "39",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "133"
   }, {
     "range" : "39",
     "domain" : "63",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "134"
   }, {
     "iri" : "https://w3id.org/mailo#hasDefendant",
@@ -5119,22 +5125,22 @@
   }, {
     "range" : "9",
     "domain" : "8",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "138"
   }, {
     "range" : "9",
     "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "139"
   }, {
     "range" : "141",
     "domain" : "52",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "140"
   }, {
     "range" : "9",
     "domain" : "143",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "142"
   }, {
     "iri" : "https://w3id.org/mailo#producesSignificantImpact",
@@ -5154,22 +5160,22 @@
   }, {
     "range" : "9",
     "domain" : "75",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "145"
   }, {
     "range" : "31",
     "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "146"
   }, {
     "range" : "9",
     "domain" : "29",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "147"
   }, {
     "range" : "9",
-    "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "22",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "148"
   }, {
     "iri" : "https://w3id.org/mailo#hasStatus",
@@ -5188,7 +5194,7 @@
   }, {
     "range" : "94",
     "domain" : "54",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "150"
   }, {
     "iri" : "https://w3id.org/mailo#interpretsArticle",
@@ -5206,7 +5212,7 @@
   }, {
     "range" : "4",
     "domain" : "3",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "152"
   }, {
     "iri" : "https://w3id.org/mailo#versionEndDate",
@@ -5237,7 +5243,7 @@
   }, {
     "range" : "4",
     "domain" : "73",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "156"
   }, {
     "iri" : "https://w3id.org/mailo#requiresAssessment",
@@ -5268,22 +5274,22 @@
   }, {
     "range" : "45",
     "domain" : "44",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "160"
   }, {
     "range" : "58",
     "domain" : "107",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "161"
   }, {
     "range" : "4",
     "domain" : "131",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "162"
   }, {
-    "range" : "22",
-    "domain" : "23",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "23",
+    "domain" : "24",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "163"
   }, {
     "iri" : "https://w3id.org/mailo#chamberType",
@@ -5343,7 +5349,7 @@
   }, {
     "range" : "50",
     "domain" : "49",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "170"
   }, {
     "iri" : "https://w3id.org/mailo#oversightIsSubstantive",
@@ -5363,7 +5369,7 @@
   }, {
     "range" : "54",
     "domain" : "95",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "172"
   }, {
     "iri" : "https://w3id.org/mailo#interpretesArticle",
@@ -5394,52 +5400,52 @@
   }, {
     "range" : "54",
     "domain" : "53",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "175"
   }, {
     "range" : "54",
     "domain" : "50",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "176"
   }, {
     "range" : "17",
     "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "177"
   }, {
     "range" : "17",
     "domain" : "79",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "178"
   }, {
     "range" : "17",
     "domain" : "114",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "179"
   }, {
     "range" : "17",
     "domain" : "19",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "180"
   }, {
     "range" : "18",
     "domain" : "182",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "181"
   }, {
     "range" : "18",
     "domain" : "58",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "183"
   }, {
     "range" : "11",
     "domain" : "10",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "184"
   }, {
     "range" : "78",
     "domain" : "80",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "185"
   }, {
     "iri" : "https://w3id.org/mailo#doi",
@@ -5457,37 +5463,37 @@
   }, {
     "range" : "18",
     "domain" : "40",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "189"
   }, {
     "range" : "18",
-    "domain" : "22",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "190"
   }, {
     "range" : "18",
     "domain" : "27",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "191"
   }, {
     "range" : "39",
     "domain" : "66",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "192"
   }, {
     "range" : "39",
     "domain" : "65",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "193"
   }, {
     "range" : "80",
     "domain" : "136",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "194"
   }, {
     "range" : "13",
     "domain" : "12",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "195"
   }, {
     "iri" : "https://w3id.org/mailo#art22ExceptionApplied",
@@ -5544,6 +5550,19 @@
     "attributes" : [ "object" ],
     "id" : "200"
   }, {
+    "iri" : "https://w3id.org/mailo#hasObligation",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "hasObligation"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "Framework imposes an obligation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "201"
+  }, {
     "iri" : "https://w3id.org/mailo#mitigatedBy",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "39",
@@ -5554,19 +5573,6 @@
     "domain" : "70",
     "comment" : {
       "undefined" : "Risk mitigated by obligation"
-    },
-    "attributes" : [ "object" ],
-    "id" : "201"
-  }, {
-    "iri" : "https://w3id.org/mailo#hasObligation",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "39",
-    "label" : {
-      "IRI-based" : "hasObligation"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Framework imposes an obligation"
     },
     "attributes" : [ "object" ],
     "id" : "202"

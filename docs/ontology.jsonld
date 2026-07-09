@@ -7814,6 +7814,12 @@
     "@type": [
       "http://www.w3.org/2002/07/owl#Ontology"
     ],
+    "http://purl.org/dc/terms/abstract": [
+      {
+        "@language": "en",
+        "@value": "MAILO (Medical AI Legal Ontology) is a machine-executable knowledge graph encoding EU regulatory obligations for medical artificial intelligence systems. It formalises eight EU legislative instruments -- the GDPR, MDR, AI Act, Product Liability Directive, EHDS, Data Governance Act, Data Act, and Trade Secrets Directive -- as OWL 2 classes and SHACL shape constraints, grounded in three CJEU judgments on automated decision-making (Ligue des droits humains, SCHUFA Holding, and Dun & Bradstreet Austria). MAILO functions as a deterministic, auditable compliance-verification layer: SHACL NodeShapes validate instance data describing a medical AI system against the encoded legal constraints and produce structured, traceable conformance reports."
+      }
+    ],
     "http://purl.org/dc/terms/created": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
