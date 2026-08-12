@@ -8,7 +8,7 @@
       "undefined" : "Medical AI Legal Ontology (MAILO)"
     },
     "iri" : "https://w3id.org/mailo",
-    "version" : "5.0.1",
+    "version" : "5.0.2",
     "author" : [ "Victor Kao" ],
     "description" : {
       "en" : "\r\n        Ontology capturing the legal landscape governing AI-driven automated\r\n        decision-making in medical contexts. Covers CJEU precedents on GDPR\r\n        Art.22, UPC/EPO patent litigation in MedTech, the EU AI Act high-risk\r\n        regime, MDR 2017/745, PLD 2024/2853, EHDS 2025/327, DGA 2022/868,\r\n        and Data Act 2023/2854 — with full precedent chains, SHACL runtime\r\n        constraints, and compliance obligation mappings.\r\n        Imports: W3C DPV v2.0 (data privacy vocabulary), AIRO (AI risk ontology),\r\n        ELI (European Legislation Identifier), ECLI (European Case Law Identifier).\r\n    ",
