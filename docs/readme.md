@@ -32,3 +32,6 @@ b) Execute Chrome with the following commands :
 (UNX) /usr/bin/google-chrome --allow-file-access-from-files
 
 Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
+
+## Changelog
+- v5.0.2 (2026-08-12): corrected ECLI for C-203/22 (Dun & Bradstreet Austria) — 2025:145 → 2025:117
