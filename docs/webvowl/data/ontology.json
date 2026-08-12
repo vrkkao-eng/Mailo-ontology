@@ -2035,13 +2035,13 @@
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2025:145",
+          "value" : "ECLI:EU:C:2025:117",
           "type" : "label"
         } ],
         "notation" : [ {
           "identifier" : "notation",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2025:145",
+          "value" : "ECLI:EU:C:2025:117",
           "type" : "label"
         } ]
       },
