@@ -22,7 +22,7 @@
         ELI (European Legislation Identifier), ECLI (European Case Law Identifier).\r
     """@en ;
     dcterms:language "en" ;
-    dcterms:modified "2026-05-19"^^xsd:date ;
+    dcterms:modified "2026-08-12"^^xsd:date ;
     dcterms:title "Medical AI Legal Ontology (MAILO)"@en ;
     owl:imports <http://data.europa.eu/eli/ontology>,
         <http://w3id.org/dpv>,
@@ -33,13 +33,13 @@ mailo: a owl:Ontology ;
     dcterms:creator "Victor Kao" ;
     dcterms:description "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations." ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-05-19"^^xsd:date ;
+    dcterms:modified "2026-08-12"^^xsd:date ;
     dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
     dcterms:title "Medical AI Legal Ontology (MAILO)" ;
-    rdfs:comment "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."@en ;
-    owl:priorVersion <https://w3id.org/mailo/5.0> ;
-    owl:versionIRI <https://w3id.org/mailo/5.0.1> ;
-    owl:versionInfo "5.0.1" .
+    rdfs:comment "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."@en ;
+    owl:priorVersion <https://w3id.org/mailo/5.0.1> ;
+    owl:versionIRI <https://w3id.org/mailo/5.0.2> ;
+    owl:versionInfo "5.0.2" .
 
 mailo:AIAct_Art13 a mailo:LegalArticle ;
     rdfs:label "AI Act Article 13"@en ;
@@ -60,8 +60,8 @@ mailo:C_203_22 a mailo:CJEUCase ;
     rdfs:label "C-203/22 Dun & Bradstreet Austria"@en ;
     dcterms:date "2025-02-27"^^xsd:date ;
     dcterms:identifier "C-203/22",
-        "ECLI:EU:C:2025:145" ;
-    skos:notation "ECLI:EU:C:2025:145" ;
+        "ECLI:EU:C:2025:117" ;
+    skos:notation "ECLI:EU:C:2025:117" ;
     mailo:citesPrecedent mailo:C_634_21 ;
     mailo:decidedBy mailo:CJEU_FirstChamber ;
     mailo:establishesPrinciple mailo:P_203_001 ;

@@ -3692,7 +3692,7 @@
         "@value": "C-203/22"
       },
       {
-        "@value": "ECLI:EU:C:2025:145"
+        "@value": "ECLI:EU:C:2025:117"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -3703,7 +3703,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#notation": [
       {
-        "@value": "ECLI:EU:C:2025:145"
+        "@value": "ECLI:EU:C:2025:117"
       }
     ],
     "https://w3id.org/mailo#citesPrecedent": [
@@ -7647,7 +7647,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-05-19"
+        "@value": "2026-08-12"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
@@ -7663,22 +7663,22 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."
+        "@value": "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."
       }
     ],
     "http://www.w3.org/2002/07/owl#priorVersion": [
       {
-        "@id": "https://w3id.org/mailo/5.0"
+        "@id": "https://w3id.org/mailo/5.0.1"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionIRI": [
       {
-        "@id": "https://w3id.org/mailo/5.0.1"
+        "@id": "https://w3id.org/mailo/5.0.2"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "5.0.1"
+        "@value": "5.0.2"
       }
     ]
   },
@@ -7840,7 +7840,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-05-19"
+        "@value": "2026-08-12"
       }
     ],
     "http://purl.org/dc/terms/title": [

@@ -88,7 +88,7 @@
 <https://w3id.org/mailo#cites> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/mailo#CJEUCase> .
 <https://w3id.org/mailo#versionEndDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date until which this version applies (exclusive; absent = open-ended)" .
 <https://w3id.org/mailo#GDPR> <https://w3id.org/mailo#coversArticle> <https://w3id.org/mailo#GDPR_Art9> .
-<https://w3id.org/mailo#> <http://purl.org/dc/terms/modified> "2026-05-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/mailo#> <http://purl.org/dc/terms/modified> "2026-08-12"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/mailo#PLD_Art7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#LegalArticle> .
 <https://w3id.org/mailo#establishesPrinciple> <http://www.w3.org/2000/01/rdf-schema#comment> "A case establishes a legal principle."@en .
 <https://w3id.org/mailo#hasIndividualNonAutomatedReview> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
@@ -128,7 +128,7 @@
 <https://w3id.org/mailo#PLD_Art4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#LegalArticle> .
 <https://w3id.org/mailo#hasTension> <http://www.w3.org/2000/01/rdf-schema#comment> "Tension involves a framework" .
 <https://w3id.org/mailo#lit_DAOnt_A_Formal_Ontology_for_EU_Data_Act_Compliance_2024_2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#LiteratureSource> .
-<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/mailo/5.0.1> .
+<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/mailo/5.0.2> .
 <https://w3id.org/mailo#DisclosureObligation> <http://www.w3.org/2000/01/rdf-schema#comment> "Obligation to disclose information to data subjects" .
 <https://w3id.org/mailo#EHDS> <https://w3id.org/mailo#coversArticle> <https://w3id.org/mailo#EHDS_Art50> .
 <https://w3id.org/mailo#hasStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -556,7 +556,7 @@
 <https://w3id.org/mailo#identifiesInputFactors> <http://www.w3.org/2000/01/rdf-schema#comment> "True if the explanation identifies which specific input data affected the automated output and the main reasoning path (C-203/22 P_203_001; GDPR Art.15(1)(h))."@en .
 <https://w3id.org/mailo#lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#LiteratureSource> .
 <https://w3id.org/mailo#involvesFramework> <http://www.w3.org/2000/01/rdf-schema#label> "involves framework"@en .
-<https://w3id.org/mailo#C_203_22> <http://purl.org/dc/terms/identifier> "ECLI:EU:C:2025:145" .
+<https://w3id.org/mailo#C_203_22> <http://purl.org/dc/terms/identifier> "ECLI:EU:C:2025:117" .
 <https://w3id.org/mailo#lit_MDPI_Information_2024_A_SHACL-Based_Approach_for_Enhanci> <http://www.w3.org/2000/01/rdf-schema#label> "MDPI Information. (2024). A SHACL-Based Approach for Enhancing Automated Compliance Checking with RDF Data, 15(12):759." .
 <https://w3id.org/mailo#UPC_Microsoft_Suinno> <https://w3id.org/mailo#hasStatus> "Final — revoked"^^<http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/mailo#PatientRight> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/mailo#DataSubjectRight> .
@@ -724,7 +724,7 @@
 <https://w3id.org/mailo#DataAct> <https://w3id.org/mailo#coversArticle> <https://w3id.org/mailo#DataAct_Art15> .
 <https://w3id.org/mailo#versionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Version belongs to a parent regulation" .
 <https://w3id.org/mailo#C_307_22> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#CJEUCase> .
-<https://w3id.org/mailo#C_203_22> <http://www.w3.org/2004/02/skos/core#notation> "ECLI:EU:C:2025:145" .
+<https://w3id.org/mailo#C_203_22> <http://www.w3.org/2004/02/skos/core#notation> "ECLI:EU:C:2025:117" .
 <https://w3id.org/mailo#P_Bara_001> <http://www.w3.org/2000/01/rdf-schema#label> "Transparency Rights Foundation"@en .
 <https://w3id.org/mailo#Tension_BlackBox_PatentProtection> <https://w3id.org/mailo#involvesFramework> <https://w3id.org/mailo#TSD> .
 <https://w3id.org/mailo#applicationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date from which the act applies" .
@@ -1027,7 +1027,7 @@
 <https://w3id.org/mailo#Case> <http://www.w3.org/2000/01/rdf-schema#label> "Case"@en .
 <https://w3id.org/mailo#DataAct_Art17> <http://www.w3.org/2000/01/rdf-schema#label> "Data Act Art.17 — B2G Data Sharing (Public Emergency)"@en .
 <https://w3id.org/mailo#SoftwareAsMedicalDevice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/mailo#MedicalAISystem> .
-<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#priorVersion> <https://w3id.org/mailo/5.0> .
+<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#priorVersion> <https://w3id.org/mailo/5.0.1> .
 <https://w3id.org/mailo#MDR> <https://w3id.org/mailo#coversArticle> <https://w3id.org/mailo#MDR_Art61> .
 <https://w3id.org/mailo#EPO_T0161_18> <https://w3id.org/mailo#involvesTechnology> <https://w3id.org/mailo#MedicalAISystem> .
 <https://w3id.org/mailo#triggeredBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/mailo#LegislativeAmendment> .
@@ -1098,7 +1098,7 @@
 <https://w3id.org/mailo#ExplainabilityObligation> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://w3id.org/dpv#ExplainabilityObligation> .
 <https://w3id.org/mailo#DataSubjectRight> <http://www.w3.org/2000/01/rdf-schema#label> "DataSubjectRight" .
 <https://w3id.org/mailo#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#comment> "Outcome or operative part of judgment" .
-<https://w3id.org/mailo#> <http://www.w3.org/2000/01/rdf-schema#comment> "Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release."@en .
+<https://w3id.org/mailo#> <http://www.w3.org/2000/01/rdf-schema#comment> "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."@en .
 <https://w3id.org/mailo#EP_3346403> <http://www.w3.org/2000/01/rdf-schema#label> "EP 3 346 403"@en .
 <https://w3id.org/mailo#AutomatedDecisionSystem> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://w3id.org/dpv#DataProcessing> .
 <https://w3id.org/mailo#UPC_GXD_Myriad> <https://w3id.org/mailo#involvesPatent> <https://w3id.org/mailo#EP_3346403> .
@@ -1144,7 +1144,7 @@
 <https://w3id.org/mailo#Tension_EHDS_GDPR_OptOut> <http://www.w3.org/2000/01/rdf-schema#label> "EHDS Art.35 opt-out vs. AI Act Art.10(3) representativeness"@en .
 <https://w3id.org/mailo#Microsoft> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/mailo#Company> .
 <https://w3id.org/mailo#P_Bara_001> <http://www.w3.org/2000/01/rdf-schema#comment> "Data subjects must be informed of data transfers; establishes foundational transparency obligation."@en .
-<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#versionInfo> "5.0.1" .
+<https://w3id.org/mailo#> <http://www.w3.org/2002/07/owl#versionInfo> "5.0.2" .
 <https://w3id.org/mailo#SoftwareAsMedicalDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Software qualifying as medical device under MDR 2017/745" .
 <https://w3id.org/mailo#C_817_19> <https://w3id.org/mailo#establishesPrinciple> <https://w3id.org/mailo#P_817_002> .
 <https://w3id.org/mailo#Tension_TSD_AIAct_Transparency> <http://www.w3.org/2000/01/rdf-schema#label> "TSD Art.2 Trade Secret vs. AI Act Art.13 + GDPR Art.15(1)(h) — Core Transparency Tension"@en .
@@ -1472,7 +1472,7 @@
 <https://w3id.org/mailo#ExplainabilityObligation> <http://www.w3.org/2000/01/rdf-schema#label> "Explainability Obligation"@en .
 <https://w3id.org/mailo#GenomicDiagnosticAI> <http://www.w3.org/2000/01/rdf-schema#label> "Genomic Diagnostic AI"@en .
 <https://w3id.org/mailo#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/mailo> <http://purl.org/dc/terms/modified> "2026-05-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/mailo> <http://purl.org/dc/terms/modified> "2026-08-12"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/mailo#versionStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/mailo#AIAct_Art86> <http://www.w3.org/2000/01/rdf-schema#label> "AI Act Article 86"@en .
 <https://w3id.org/mailo#hasPredeterminedCriteria> <http://www.w3.org/2000/01/rdf-schema#comment> "True if the system's assessment criteria are pre-determined and not modified by self-learning without human review. Required to avoid black-box prohibition (C-817/19 P_817_002)."@en .

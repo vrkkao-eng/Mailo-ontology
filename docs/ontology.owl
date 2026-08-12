@@ -699,7 +699,7 @@
         ELI (European Legislation Identifier), ECLI (European Case Law Identifier).&#13;
     </dcterms:description>
     <dcterms:language>en</dcterms:language>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-19</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-12</dcterms:modified>
     <dcterms:title xml:lang="en">Medical AI Legal Ontology (MAILO)</dcterms:title>
     <owl:imports rdf:resource="http://data.europa.eu/eli/ontology"/>
     <owl:imports rdf:resource="http://w3id.org/dpv"/>
@@ -746,8 +746,8 @@
     <rdfs:label xml:lang="en">C-203/22 Dun &amp; Bradstreet Austria</rdfs:label>
     <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-02-27</dcterms:date>
     <dcterms:identifier>C-203/22</dcterms:identifier>
-    <dcterms:identifier>ECLI:EU:C:2025:145</dcterms:identifier>
-    <skos:notation>ECLI:EU:C:2025:145</skos:notation>
+    <dcterms:identifier>ECLI:EU:C:2025:117</dcterms:identifier>
+    <skos:notation>ECLI:EU:C:2025:117</skos:notation>
     <mailo:citesPrecedent rdf:resource="https://w3id.org/mailo#C_634_21"/>
     <mailo:decidedBy rdf:resource="https://w3id.org/mailo#CJEU_FirstChamber"/>
     <mailo:establishesPrinciple rdf:resource="https://w3id.org/mailo#P_203_001"/>
@@ -1173,12 +1173,12 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-30</dcterms:created>
     <dcterms:description>OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations.</dcterms:description>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-19</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-12</dcterms:modified>
     <dcterms:title>Medical AI Legal Ontology (MAILO)</dcterms:title>
-    <owl:versionIRI rdf:resource="https://w3id.org/mailo/5.0.1"/>
-    <owl:versionInfo>5.0.1</owl:versionInfo>
-    <owl:priorVersion rdf:resource="https://w3id.org/mailo/5.0"/>
-    <rdfs:comment xml:lang="en">Version 5.0.1 (patch): metadata and provenance corrections following the 5.0 release.</rdfs:comment>
+    <owl:versionIRI rdf:resource="https://w3id.org/mailo/5.0.2"/>
+    <owl:versionInfo>5.0.2</owl:versionInfo>
+    <owl:priorVersion rdf:resource="https://w3id.org/mailo/5.0.1"/>
+    <rdfs:comment xml:lang="en">Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun &amp; Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117.</rdfs:comment>
     <dcterms:creator>Victor Kao</dcterms:creator>
     <dcterms:publisher>KU Leuven, Faculty of Engineering Science</dcterms:publisher>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
