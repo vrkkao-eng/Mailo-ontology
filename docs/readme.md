@@ -34,4 +34,61 @@ b) Execute Chrome with the following commands :
 Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
 
 ## Changelog
-- v5.0.2 (2026-08-12): corrected ECLI for C-203/22 (Dun & Bradstreet Austria) — 2025:145 → 2025:117
+
+- **v5.1.0 (2026-09-05)** — corrective release, five audit rounds. 1,690 triples.
+  - **Case law.** All nine CJEU paragraph mappings across C-817/19, C-634/21 and C-203/22
+    verified against the judgment texts; two substantive mischaracterisations corrected (the
+    categorical health-status exclusion under the PNR Directive, and the treatment of the
+    strict-necessity test). `citesPrecedent` graph repaired; T 1191/19 re-dated and its holding
+    rewritten.
+  - **Legislation.** Eleven citations corrected. EHDS renumbered from the COM(2022) 197
+    proposal to Regulation (EU) 2025/327 as adopted (data permit Art.68, opt-out Art.71, secure
+    processing environment Art.73, HealthData@EU Art.75, EHDS Board Art.92). PLD causation
+    presumption moved to Art.10(4); DGA to Art.29. A systematic audit of all 48 `LegalArticle`
+    individuals then found five further errors: PLD Art.4 (Definitions) had been recorded as
+    the strict-liability provision (Art.5) and PLD Art.7 (Defectiveness) as the
+    software-as-product definition (Art.4(1)); DGA Art.2 (Definitions) as the Chapter II re-use
+    framework (Art.3); Data Act Art.15 (exceptional need) as trade-secret protection
+    (Art.4(6)-(8)); and Data Act Art.17 (request procedure) as the B2G obligation (Art.14).
+  - **Structure.** `AutomatedDecisionSystem` is now the superclass and `MedicalAISystem` its
+    subclass, correcting an inverted hierarchy. Inclusion and encoding bases made explicit, so
+    the graph distinguishes a court holding from the ontology designer's operationalisation of
+    one. `hasResolutionStatus` declared — it had been in use on tension instances without ever
+    being typed.
+  - **New.** `PendingAmendment` vocabulary records proposed but unadopted legislative change
+    without contaminating in-force numbering, carrying `statusVerifiedAsAt` so a status
+    assertion is auditable rather than silently rotting. One instance is declared: the Digital
+    Omnibus proposal on Data Act Chapter V (COM(2025) 837 final, 2025/0360(COD)), which would
+    delete Arts 14 and 15 in favour of a new Art.15a.
+  - **SHACL.** Parts IV and V added: citation chronology, citation target integrity, inclusion
+    basis, technology-claim scope, encoding basis, precedence-level coherence.
+
+- v5.0.3 (2026-08): `rdfs:comment` clarifying that `owl:versionIRI` values are stable citations,
+  not resolvable URLs.
+- v5.0.2 (2026-08-12): corrected ECLI for C-203/22 (Dun & Bradstreet Austria) — 2025:145 to
+  2025:117.
+
+## A note on validation
+
+Every correction above was made by the author. The ontology has automated SHACL conformance
+tests, and it passes them, but it has not been reviewed by independent legal experts. External
+validation is planned and has not yet happened. Please read the conformance results as evidence
+of internal consistency, not of legal correctness.
+
+None of the five citation errors found in the final audit round was detectable by any SHACL
+shape: each was a well-formed triple naming an article that genuinely exists. Detecting that
+class of error would require storing the cited article heading alongside the citation, so that
+a mismatch has something to disagree with. That is open work.
+
+## Regenerating this documentation
+
+This folder is WIDOCO output. Two cautions, both observed in practice:
+
+1. WIDOCO re-serialises the ontology and **inflates the triple count** (1,690 became 1,912).
+   After regenerating, restore the canonical `ontology.ttl`, `.owl`, `.nt` and `.jsonld` and
+   discard WIDOCO's versions.
+2. WebVOWL counts `owl:equivalentClass` axiom nodes and `rdfs:Datatype` entries as classes, so
+   `webvowl/data/ontology.json` reports 111 where the ontology declares 63. That is a rendering
+   artefact. Do not edit the ontology to make the numbers agree.
+
+Regenerating also **overwrites this file**, including the changelog above. Restore it afterwards.
