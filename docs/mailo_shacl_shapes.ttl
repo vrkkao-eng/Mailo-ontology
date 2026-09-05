@@ -70,11 +70,17 @@ mailo:C634_Art22ProhibitionShape
     sh:name "C-634/21 — Art.22(1) Prohibition Rule"@en ;
     skos:notation "P_634_001 / P_634_004" ;
     rdfs:comment """
-        SCHUFA (C-634/21, para 55-79): GDPR Art.22(1) is a prohibition rule,
-        not a mere right to object. Any automated output relied upon by third
-        parties to produce legal or similarly significant effects constitutes
-        a 'decision'. Where such effects exist, an Art.22(2) exception must
-        be documented or the system must not be used.
+        SCHUFA (C-634/21, paras 42-50, esp. 49-50; operative answer at para 73):
+        the concept of 'decision' in Art.22(1) is broad. Where a probability
+        value established by one actor plays a determining role in a decision
+        taken by another, establishing that value is itself a 'decision'
+        producing legal or similarly significant effects. Where such effects
+        exist, an Art.22(2) exception must be documented or the system must
+        not be used.
+        NOTE (P_634_004): the further characterisation of Art.22(1) as a
+        prohibition rule rather than a right to be invoked is carried by this
+        shape but has not been anchored to its own paragraphs; it should be
+        separated or re-verified before being relied on.
     """@en ;
     sh:property [
         sh:path mailo:producesSignificantImpact ;
@@ -111,12 +117,14 @@ mailo:C634_SubstantiveOversightShape
     sh:name "C-634/21 — Substantive Human Oversight (Anti-Rubber-Stamping)"@en ;
     skos:notation "P_634_002" ;
     rdfs:comment """
-        SCHUFA (C-634/21, para 49-54): The 'solely' criterion is assessed
-        functionally. Formal human sign-off that does not constitute independent
-        substantive review — i.e., where the automated output is given decisive
-        weight without genuine evaluation — does not satisfy Art.22. The test is
-        whether the human reviewer could realistically have reached a different
-        conclusion.
+        SCHUFA (C-634/21, paras 49-50): the Court's test is that the automated
+        output plays a *determining role* in the resulting decision; where it
+        does, the output is itself a decision under Art.22(1).
+        MAILO OPERATIONALISATION: the Court did not set out a rubber-stamping
+        or substantive-review standard. This shape operationalises the
+        determining-role test through a proxy — whether a human reviewer could
+        realistically have reached a different conclusion — asserted by a human,
+        not computed. The proxy is the ontology designer's, not the Court's.
     """@en ;
     sh:property [
         sh:path mailo:hasHumanOversightRecord ;
@@ -153,12 +161,13 @@ mailo:C634_MultiActorChainShape
     sh:name "C-634/21 — Multi-Actor ADM Chain Gap-Filling"@en ;
     skos:notation "P_634_003" ;
     rdfs:comment """
-        SCHUFA (C-634/21, para 73-79): The Art.22 prohibition cannot be
-        circumvented by splitting the automated decision across multiple
-        actors (e.g., scoring provider + lender). Both upstream scoring
-        and downstream decision-maker may bear joint responsibility under
-        Art.22. Deployments using third-party automated risk scores must
-        document their own exception and safeguards.
+        SCHUFA (C-634/21, para 61): a restrictive reading treating the
+        probability value as a mere preparatory act, with only the third
+        party's act counting as a 'decision', would risk circumventing
+        Art.22 and leave a lacuna in legal protection. (Operative answer
+        at para 73.) Deployments using third-party automated risk scores
+        must therefore document their own exception and safeguards rather
+        than delegating responsibility upstream.
     """@en ;
     sh:sparql [
         a sh:SPARQLConstraint ;
@@ -217,12 +226,15 @@ mailo:C817_BlackBoxProhibitionShape
     sh:name "C-817/19 — Black-Box ML Prohibition (Grand Chamber)"@en ;
     skos:notation "P_817_002" ;
     rdfs:comment """
-        Ligue (C-817/19, Grand Chamber, para 192-200): Non-transparent,
-        self-learning ML risk-assessment systems may not be used for
-        decisions with significant impact on individuals. Pre-determined,
-        explainable criteria and regular human review of the model's
-        legality are required. Applies a fortiori to medical AI systems
-        under MDR + AI Act Annex III.
+        Ligue (C-817/19, Grand Chamber, paras 194-195): self-learning systems
+        capable of modifying the assessment process and the pre-determined
+        criteria without human review are excluded (para 194); the opacity of
+        such systems deprives the person of an effective remedy under Charter
+        Art.47 (para 195). The pre-determined-criteria requirement derives from
+        PNR Directive Art.6(3)(b) by textual construction.
+        MAILO TRANSPOSITION: extending this from the PNR context to medical AI
+        is a structural analogy drawn by the ontology designer, not a holding
+        of the Court. The Court did not rule on medical AI or on the AI Act.
     """@en ;
     sh:sparql [
         a sh:SPARQLConstraint ;
@@ -258,12 +270,15 @@ mailo:C817_IndividualReviewShape
     sh:name "C-817/19 — Mandatory Individual Non-Automated Review"@en ;
     skos:notation "P_817_001" ;
     rdfs:comment """
-        Ligue (C-817/19, Grand Chamber, para 175-191): Any positive result
-        from automated analysis must be subject to an individual non-automated
-        human review BEFORE any measure affecting the individual is taken.
-        This is a constitutional minimum under EU Charter Art.7 and Art.8.
-        No exception is recognised; it applies to all medical AI producing
-        significant outputs (diagnosis, risk score, treatment recommendation).
+        Ligue (C-817/19, Grand Chamber, paras 203-208; the safeguard is also
+        listed among the Directive's guarantees at paras 179-180): any positive
+        result of automated processing must be individually reviewed by
+        non-automated means before any measure adversely affecting the person
+        is adopted, and the proper functioning of that review is a condition of
+        the processing being lawful.
+        MAILO TRANSPOSITION: the extension to medical AI outputs (diagnosis,
+        risk score, treatment recommendation) is a structural analogy drawn by
+        the ontology designer, not a holding of the Court.
     """@en ;
     sh:property [
         sh:path mailo:hasIndividualNonAutomatedReview ;
@@ -286,18 +301,25 @@ mailo:C817_HealthStatusExclusionShape
     sh:name "C-817/19 — Health Status Exclusion from Automated Criteria"@en ;
     skos:notation "P_817_004" ;
     rdfs:comment """
-        Ligue (C-817/19, Grand Chamber, para 215-220): Automated assessment
-        criteria must not be based on a person's health status (special category
-        data under GDPR Art.9). AI systems trained on medical history must not
-        use health condition as a classification or risk-scoring basis without
-        explicit consent and a clear legal basis under Art.9(2). Applies
-        directly to genomic diagnostic AI, risk stratification tools, and
-        predictive analytics platforms.
+        Ligue (C-817/19, Grand Chamber, paras 105 and 196-197, applying PNR
+        Directive Art.6(4)): pre-determined assessment criteria may 'in no
+        circumstances' be based on a person's race or ethnic origin, political
+        opinions, religion or philosophical beliefs, trade union membership,
+        health, sexual life or sexual orientation. This is a CATEGORICAL
+        prohibition. It is not a special-category-data rule subject to a
+        GDPR Art.9(2) exception: no consent or other legal basis makes such a
+        criterion permissible in this context.
+        MAILO TRANSPOSITION: applying the exclusion to medical AI is a
+        structural analogy drawn by the ontology designer. Note that in the
+        medical domain health status is frequently a legitimate clinical input;
+        the transposed constraint targets its use as a *discriminatory
+        classification or risk-scoring criterion*, which is a narrower notion
+        than any processing of health data.
     """@en ;
     sh:property [
         sh:path mailo:usesHealthStatusAsCriterion ;
         sh:hasValue false ;
-        sh:message "C-817/19 P_817_004 (Grand Chamber): mailo:usesHealthStatusAsCriterion must be false. Using health status as an automated classification criterion violates the non-discrimination prohibition and GDPR Art.9 without an explicit Art.9(2) legal basis."@en ;
+        sh:message "C-817/19 P_817_004 (Grand Chamber, paras 105, 196-197): mailo:usesHealthStatusAsCriterion must be false. Health may in no circumstances serve as a discriminatory automated assessment criterion (PNR Directive Art.6(4)); this is categorical and no Art.9(2) legal basis cures it. Transposed to medical AI by MAILO."@en ;
         sh:severity sh:Violation
     ] .
 
@@ -306,7 +328,8 @@ mailo:C817_HealthStatusExclusionShape
 # Shape 2.4  [P_817_003]
 # Strict necessity tri-level proportionality:
 # (a) targeted scope, (b) purpose limitation, (c) temporal limit.
-# Failure at any level invalidates the entire processing system.
+# Non-conformity at any limb is flagged for review; the Court's remedy was
+# Charter-conforming restrictive interpretation, not invalidity.
 # ------------------------------------------------------------
 
 mailo:C817_ProportionalityShape
@@ -315,28 +338,39 @@ mailo:C817_ProportionalityShape
     sh:name "C-817/19 — Strict Necessity Tri-Level Proportionality"@en ;
     skos:notation "P_817_003" ;
     rdfs:comment """
-        Ligue (C-817/19, Grand Chamber, para 150-174): Large-scale automated
-        processing must satisfy a strict three-limb proportionality test:
-        (a) targeted, defined scope; (b) documented purpose limitation;
-        (c) temporal limitation or mandatory periodic review.
-        Non-compliance at any limb invalidates the processing system.
+        Ligue (C-817/19, Grand Chamber). The three limbs are established in
+        different parts of the judgment, not in a single passage:
+        (a) targeted scope — paras 167-168 (application to intra-EU flights
+            requires a genuine and present or foreseeable threat), para 184
+            (databases run by intelligence agencies for other purposes are
+            excluded), para 191 (objective link to the carriage of passengers);
+        (b) purpose limitation — para 191 and the ruling against processing for
+            purposes beyond PNR Directive Art.1(2);
+        (c) temporal limitation — paras 255-256 and 262 (initial six-month
+            retention does not as a matter of principle exceed what is strictly
+            necessary; a general five-year retention applied indiscriminately
+            does).
+        REMEDY: the Court did NOT hold that failure at any limb invalidates the
+        system. It upheld the Directive and narrowed it by Charter-conforming
+        restrictive interpretation. This shape flags non-conformity for review;
+        it must not be read as asserting invalidity.
     """@en ;
     sh:property [
         sh:path mailo:hasDefinedScope ;
         sh:hasValue true ;
-        sh:message "C-817/19 P_817_003(a): System must have a targeted, defined scope (mailo:hasDefinedScope = true). Tri-level proportionality — limb (a) fails."@en ;
+        sh:message "C-817/19 P_817_003(a) (paras 167-168, 184, 191): System must have a targeted, defined scope (mailo:hasDefinedScope = true). Strict-necessity limb (a) not satisfied — flagged for review, not a finding of invalidity."@en ;
         sh:severity sh:Violation
     ] ;
     sh:property [
         sh:path mailo:hasPurposeLimitation ;
         sh:hasValue true ;
-        sh:message "C-817/19 P_817_003(b): System must have documented purpose limitation (mailo:hasPurposeLimitation = true). Tri-level proportionality — limb (b) fails."@en ;
+        sh:message "C-817/19 P_817_003(b) (para 191; PNR Dir. Art.1(2)): System must have documented purpose limitation (mailo:hasPurposeLimitation = true). Strict-necessity limb (b) not satisfied — flagged for review, not a finding of invalidity."@en ;
         sh:severity sh:Violation
     ] ;
     sh:property [
         sh:path mailo:hasTemporalLimitation ;
         sh:hasValue true ;
-        sh:message "C-817/19 P_817_003(c): System must have a temporal limitation or mandatory periodic review schedule (mailo:hasTemporalLimitation = true). Tri-level proportionality — limb (c) fails."@en ;
+        sh:message "C-817/19 P_817_003(c) (paras 255-256, 262): System must have a temporal limitation or mandatory periodic review schedule (mailo:hasTemporalLimitation = true). Strict-necessity limb (c) not satisfied — flagged for review, not a finding of invalidity."@en ;
         sh:severity sh:Violation
     ] .
 
@@ -353,11 +387,17 @@ mailo:C817_IndependentOversightShape
     sh:name "C-817/19 — Independent Oversight / DPIA Obligation"@en ;
     skos:notation "P_817_005" ;
     rdfs:comment """
-        Ligue (C-817/19, obiter, para 221-228): Automated processing systems
-        must be subject to effective independent oversight, including DPO
-        access and regular algorithmic legality review. For medical AI, this
-        is reinforced by GDPR Art.35 DPIA mandatory requirement for large-scale
-        processing of special category data (health data).
+        Ligue (C-817/19, paras 222-227, interpreting PNR Directive Art.12(3)(b)):
+        disclosure of PNR data after the initial period requires prior review by
+        a court or an independent administrative authority (paras 222-224); that
+        body must be objective, impartial and free from external influence
+        (para 226) and may not be the requesting authority or the PIU itself
+        (para 227).
+        AUTHORIAL CROSS-INSTRUMENT INTERPRETATION: the Court said nothing about
+        GDPR Art.35 or DPIAs. The link from independent prior review to a DPIA
+        obligation for medical AI is drawn by the ontology designer, bridging
+        C-817/19 and GDPR Art.35. It is NOT a holding — not ratio and not obiter —
+        and the DPIA requirement below stands on GDPR Art.35 alone.
     """@en ;
     sh:property [
         sh:path mailo:hasDPIA ;
@@ -384,15 +424,22 @@ mailo:C203_ExplainabilityShape
     sh:name "C-203/22 — Meaningful Explainability Standard"@en ;
     skos:notation "P_203_001" ;
     rdfs:comment """
-        Dun & Bradstreet (C-203/22, para 55-85, 2025-02-27):
-        GDPR Art.15(1)(h) requires that data subjects receive an actionable
-        explanation in non-technical language identifying which input factors
-        significantly affected the output and the main reasoning path.
-        Abstract mathematical formulas describing the overall model are
-        insufficient — the explanation must enable effective exercise of
-        Art.22(3) remedies (human intervention, expressing views, contesting
-        the decision). Extends C-634/21 by specifying what 'meaningful
-        information' means operationally.
+        Dun & Bradstreet (C-203/22, paras 59-62, judgment of 2025-02-27):
+        'meaningful information about the logic involved' under GDPR
+        Art.15(1)(h) must describe the procedure and principles actually
+        applied, in such a way that the data subject can understand which of
+        his or her personal data have been used and IN WHAT WAY (para 61).
+        Communicating an algorithm or a detailed step-by-step description is
+        not a sufficiently concise and intelligible explanation (para 59);
+        there is no duty to disclose the full algorithm (para 60). For
+        profiling, it may suffice to inform the data subject of the extent to
+        which a variation in the personal data taken into account would have
+        led to a different result (para 62 — a counterfactual explanation).
+        The explanation must enable effective exercise of Art.22(3) remedies.
+        MAILO OPERATIONALISATION: the property identifiesInputFactors is a
+        proxy for the para 61 'which data, used in what way' standard. The
+        earlier wording 'most significantly affected' imported a
+        feature-importance standard the Court did not set and has been removed.
     """@en ;
     sh:property [
         sh:path mailo:hasExplanation ;
@@ -430,7 +477,7 @@ mailo:C203_ExplanationQualityShape
         sh:path mailo:identifiesInputFactors ;
         sh:datatype xsd:boolean ;
         sh:hasValue true ;
-        sh:message "C-203/22 P_203_001 (input factors): Explanation must identify which specific input data most significantly affected the output and describe the main reasoning path (mailo:identifiesInputFactors = true). A general model description does not satisfy this."@en ;
+        sh:message "C-203/22 P_203_001 (para 61): Explanation must describe the procedure and principles actually applied, so the data subject understands which of their personal data were used and in what way (mailo:identifiesInputFactors = true). A general model description does not satisfy this; nor does disclosing the algorithm (para 59)."@en ;
         sh:severity sh:Violation
     ] .
 
@@ -559,6 +606,204 @@ mailo:MedicalAIComplianceShape
 #     mailo:isNonTechnical true ;
 #     mailo:identifiesInputFactors true .
 #
+# ============================================================
+# PART IV — Ontology self-consistency constraints
+# ============================================================
+#
+# These shapes validate the knowledge graph against itself rather
+# than validating a MedicalAISystem against the law. They exist
+# because v5.1.0 corrected a citesPrecedent assertion that was
+# temporally impossible (C-817/19, decided 21 June 2022, was
+# recorded as citing C-634/21, decided 7 December 2023). That
+# error was found by manual inspection; it should not have needed
+# to be. A constraint the graph enforces on itself is cheaper and
+# more reliable than a reader noticing.
+# ============================================================
+
+mailo:CitationChronologyShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Case ;
+    sh:name "Citation chronology — a case cannot cite a later decision"@en ;
+    rdfs:comment """
+        A citing decision must postdate the decision it cites. This is a
+        property of legal citation itself, not of any particular judgment,
+        and it holds across CJEU, EPO and UPC instances alike.
+
+        Violations indicate a data error in the graph, not a compliance
+        failure of any system being assessed. Both dates must be present
+        for the check to apply; see CitationDateCompletenessShape below.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Citation chronology violation: this case cites a decision dated later than itself. A judgment cannot rely on a precedent that did not yet exist."@en ;
+        sh:severity sh:Violation ;
+        sh:select """
+            PREFIX mailo: <https://w3id.org/mailo#>
+            PREFIX dcterms: <http://purl.org/dc/terms/>
+            SELECT $this ?cited ?thisDate ?citedDate WHERE {
+                $this mailo:citesPrecedent ?cited .
+                $this dcterms:date ?thisDate .
+                ?cited dcterms:date ?citedDate .
+                FILTER (?citedDate > ?thisDate)
+            }"""
+    ] .
+
+mailo:CitationDateCompletenessShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Case ;
+    sh:name "Citation date completeness — chronology must be checkable"@en ;
+    rdfs:comment """
+        The chronology constraint above can only fire where both dates are
+        recorded. A case that cites a precedent while either date is missing
+        is silently exempt from the check, which is the failure mode this
+        shape closes. Warning rather than Violation: the citation may well
+        be sound, but it is unverifiable as recorded.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Citation chronology cannot be checked: this case asserts citesPrecedent but either it or the cited decision has no dcterms:date. Record both dates so the chronology constraint applies."@en ;
+        sh:severity sh:Warning ;
+        sh:select """
+            PREFIX mailo: <https://w3id.org/mailo#>
+            PREFIX dcterms: <http://purl.org/dc/terms/>
+            SELECT $this ?cited WHERE {
+                $this mailo:citesPrecedent ?cited .
+                OPTIONAL { $this dcterms:date ?thisDate }
+                OPTIONAL { ?cited dcterms:date ?citedDate }
+                FILTER (!BOUND(?thisDate) || !BOUND(?citedDate))
+            }"""
+    ] .
+
+mailo:CitationTargetShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Case ;
+    sh:name "Citation target — precedent links must name a decision"@en ;
+    rdfs:comment """
+        v5.1.0 also removed an empty blank node (mailo:C_201_14
+        mailo:citesPrecedent [ ]), which asserted a citation to no one.
+        This shape rejects that shape of error: every citesPrecedent value
+        must be an IRI, not a blank node or literal.
+    """@en ;
+    sh:property [
+        sh:path mailo:citesPrecedent ;
+        sh:nodeKind sh:IRI ;
+        sh:message "citesPrecedent must point to a named decision (an IRI). A blank node asserts a citation to an unidentified case, which carries no information."@en ;
+        sh:severity sh:Violation
+    ] .
+
+# ============================================================
+# PART V — Boundary constraints
+# ============================================================
+#
+# Part IV checks the graph's internal consistency. Part V checks
+# that its boundaries are declared rather than implicit.
+#
+# The audit that produced v5.1.0 found two cases carrying
+# medical-AI technology tags they did not warrant: a mammography
+# X-ray tube and a walking-and-browsing patent. Neither was
+# caught by any structural check, because nothing was structurally
+# wrong. The defect was that twenty inclusion judgements had been
+# made and none had been written down.
+#
+# These shapes convert that class of error from a matter of
+# judgement into a matter of declaration. They cannot decide
+# whether a case belongs in MAILO. They can require that someone
+# has said why, and that the technology asserted is consistent
+# with the reason given.
+# ============================================================
+
+mailo:InclusionBasisShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Case ;
+    sh:name "Every case must declare why it is in the graph"@en ;
+    sh:property [
+        sh:path mailo:hasInclusionBasis ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class mailo:InclusionBasis ;
+        sh:message "Case has no declared inclusion basis. State whether it is here for its direct subject matter, for a principle MAILO transposes, as procedural precedent, or as domain context."@en ;
+        sh:severity sh:Violation
+    ] .
+
+mailo:TechnologyClaimShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:Case ;
+    sh:name "Medical technology claims must match the declared inclusion basis"@en ;
+    rdfs:comment """
+        involvesTechnology asserts what a case is actually about, and a
+        non-medical case may legitimately carry a non-medical value: C-634/21
+        really is about a risk-scoring system, C-817/19 really does concern a
+        black-box ML system. Those tags are correct, and the transposition to
+        medicine happens in the shapes rather than in the tag.
+
+        What must not happen is a case asserting a MEDICAL AI technology when
+        it is not included for its direct subject matter. That is the Hologic
+        error: mammography X-ray tube hardware tagged MedicalImagingAI. The
+        constraint is therefore scoped to the MedicalAISystem branch, not to
+        involvesTechnology in general.
+
+        An earlier draft of this shape flagged C-634/21 and C-817/19. That was
+        a defect in the constraint, not the data, and chasing it surfaced a
+        real defect in the class hierarchy: AutomatedDecisionSystem had been
+        declared a subclass of MedicalAISystem, which entailed that every
+        automated decision system is medical. Both are corrected in v5.1.0.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This case asserts a medical AI technology but is not included for its direct subject matter. Either the technology claim is wrong or the inclusion basis is: a case included for a transposed principle, as procedural precedent or as context is not itself a medical AI dispute."@en ;
+        sh:severity sh:Violation ;
+        sh:select """
+            PREFIX mailo: <https://w3id.org/mailo#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT $this ?tech ?basis WHERE {
+                $this mailo:involvesTechnology ?tech .
+                $this mailo:hasInclusionBasis ?basis .
+                ?tech rdfs:subClassOf* mailo:MedicalAISystem .
+                FILTER (?basis != mailo:DirectSubjectMatter)
+            }"""
+    ] .
+
+mailo:EncodingBasisShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:LegalPrinciple ;
+    sh:name "Every principle must declare whether it is a holding"@en ;
+    sh:property [
+        sh:path mailo:hasEncodingBasis ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class mailo:EncodingBasis ;
+        sh:message "Principle does not declare its encoding basis. State whether it records a court holding, an operationalisation of one, or a transposition made by the ontology designer."@en ;
+        sh:severity sh:Violation
+    ] .
+
+mailo:PrecedenceCoherenceShape
+    a sh:NodeShape ;
+    sh:targetClass mailo:LegalPrinciple ;
+    sh:name "Precedence weight applies to holdings, not to designer constructs"@en ;
+    rdfs:comment """
+        hasPrecedenceLevel records how much interpretive weight a holding
+        claims. A designer transposition is not a holding and cannot claim
+        judicial weight; conversely a court holding should not be marked
+        authorial_transposition. Keeping the two dimensions coherent stops
+        designer inference from acquiring the authority of case law by
+        sitting in the same field as it.
+    """@en ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Encoding basis and precedence level disagree: a designer transposition is asserting judicial precedence weight, or a court holding is marked as a transposition."@en ;
+        sh:severity sh:Violation ;
+        sh:select """
+            PREFIX mailo: <https://w3id.org/mailo#>
+            SELECT $this ?basis ?level WHERE {
+                $this mailo:hasEncodingBasis ?basis .
+                $this mailo:hasPrecedenceLevel ?level .
+                FILTER (
+                  (?basis = mailo:DesignerTransposition && ?level != "authorial_transposition") ||
+                  (?basis = mailo:CourtHolding && ?level = "authorial_transposition")
+                )
+            }"""
+    ] .
+
 # ============================================================
 # END OF SHACL SHAPES
 # ============================================================
