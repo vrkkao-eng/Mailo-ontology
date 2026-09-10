@@ -266,7 +266,7 @@ mailo:C817_BlackBoxProhibitionShape
 
 mailo:C817_IndividualReviewShape
     a sh:NodeShape ;
-    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:targetClass mailo:MedicalAISystem ;
     sh:name "C-817/19 — Mandatory Individual Non-Automated Review"@en ;
     skos:notation "P_817_001" ;
     rdfs:comment """
@@ -297,7 +297,7 @@ mailo:C817_IndividualReviewShape
 
 mailo:C817_HealthStatusExclusionShape
     a sh:NodeShape ;
-    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:targetClass mailo:MedicalAISystem ;
     sh:name "C-817/19 — Health Status Exclusion from Automated Criteria"@en ;
     skos:notation "P_817_004" ;
     rdfs:comment """
@@ -334,7 +334,7 @@ mailo:C817_HealthStatusExclusionShape
 
 mailo:C817_ProportionalityShape
     a sh:NodeShape ;
-    sh:targetClass mailo:AutomatedDecisionSystem ;
+    sh:targetClass mailo:MedicalAISystem ;
     sh:name "C-817/19 — Strict Necessity Tri-Level Proportionality"@en ;
     skos:notation "P_817_003" ;
     rdfs:comment """
@@ -454,6 +454,24 @@ mailo:C203_ExplainabilityShape
 # Validates the Explanation instance itself.
 # ------------------------------------------------------------
 
+# ------------------------------------------------------------
+# SCOPE NOTE (v5.1.0) on the Art.22(3) references below.
+# Art.22(3) attaches only to points (a) and (c) of Art.22(2) —
+# contract necessity and explicit consent. Where a system runs on
+# point (b), a Union or Member State legal basis, that law must
+# itself lay down suitable measures and the Art.22(3) triad cannot
+# be assumed. This matters for medical AI deployed on a national
+# legal basis. The shapes below test whether an explanation would
+# support the exercise of those remedies; they do not establish
+# that the remedies are available, which depends on which limb of
+# Art.22(2) the system relies on.
+# Note also Art.22(4): decisions under Art.22(2) may not be based
+# on Art.9(1) special category data — health data included —
+# unless Art.9(2)(a) or (g) applies with suitable measures. Any
+# medical AI making Art.22 decisions on health data must clear
+# that gateway before these explanation shapes become relevant.
+# ------------------------------------------------------------
+
 mailo:C203_ExplanationQualityShape
     a sh:NodeShape ;
     sh:targetClass mailo:Explanation ;
@@ -488,6 +506,33 @@ mailo:C203_ExplanationQualityShape
 # MedicalAISystem instance.
 # ============================================================
 
+# ------------------------------------------------------------
+# TARGETING NOTE (v5.1.0).
+# Correcting the class hierarchy — AutomatedDecisionSystem was
+# declared a subclass of MedicalAISystem, which had the entailment
+# backwards — inverted what these target classes mean. Under the
+# old hierarchy, targeting AutomatedDecisionSystem was NARROWER
+# than targeting MedicalAISystem; under the corrected one it is
+# BROADER, reaching every automated decision system whether
+# medical or not.
+#
+# Three C-817/19 shapes had drifted to AutomatedDecisionSystem
+# while two targeted MedicalAISystem, an inconsistency within one
+# case. All five now target MedicalAISystem, which matches what
+# the instances say: these holdings come from a PNR case and are
+# applied to medical AI by MAILO's own transposition, so they
+# should not silently bind every automated decision system.
+#
+# The C-634/21 and C-203/22 shapes keep AutomatedDecisionSystem.
+# That is deliberate: GDPR Arts.22 and 15(1)(h) apply to automated
+# decision-making generally, so their scope is not a transposition
+# and the broader target is correct.
+#
+# Recorded because it is an instance of a general hazard: fixing a
+# subsumption axiom silently rescopes every shape targeting either
+# class, and nothing in SHACL surfaces that.
+# ------------------------------------------------------------
+
 mailo:MedicalAIComplianceShape
     a sh:NodeShape ;
     sh:targetClass mailo:MedicalAISystem ;
@@ -498,6 +543,29 @@ mailo:MedicalAIComplianceShape
         This shape provides the top-level entry point for runtime KG
         validation; individual case-specific shapes provide detailed
         per-violation messages.
+
+        AUDIT NOTE (v5.1.0). Two qualifications a user of this shape
+        needs, neither previously recorded.
+
+        First, the constraints drawn from C-817/19 are TRANSPOSED, not
+        held. That case concerns passenger name records under the PNR
+        Directive. Applying its safeguards to medical AI is MAILO's
+        structural analogy; no court has decided that EU law requires
+        pre-determined criteria of a diagnostic system. A failure here
+        is a flag for review against a designer's model, not a finding
+        of illegality. The individual principle instances record this
+        through hasEncodingBasis.
+
+        Second, this shape asserts conjunctive satisfaction: every
+        property must hold for an instance to conform. That is a
+        modelling choice rather than a legal one. GDPR Art.22(3)
+        safeguards attach only to Art.22(2)(a) and (c), so a system
+        operating on a Member State legal basis under point (b) is not
+        subject to the same triad; and the C-817/19 necessity limbs did
+        not, in the judgment itself, operate as an all-or-nothing test —
+        the Court upheld the Directive by restrictive interpretation.
+        Conformance with this shape is therefore evidence of alignment
+        with MAILO's model, not a compliance certificate.
     """@en ;
 
     # --- From C-817/19 (Grand Chamber, constitutional floor) ---
