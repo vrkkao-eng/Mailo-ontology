@@ -114,6 +114,9 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
+      <a href="#HighRiskRoute" title="https://w3id.org/mailo#HighRiskRoute">HighRiskRoute</a>
+   </li>
+   <li>
       <a href="#http://w3id.org/dpv#HumanInvolvement" title="http://w3id.org/dpv#HumanInvolvement">
          <span>Human Involvement</span>
       </a>
@@ -252,6 +255,9 @@ This ontology has the following classes and properties.</span>
       <a href="#appliesTo" title="https://w3id.org/mailo#appliesTo">applies to</a>
    </li>
    <li>
+      <a href="#appliesToRoute" title="https://w3id.org/mailo#appliesToRoute">applies to route</a>
+   </li>
+   <li>
       <a href="#cites" title="https://w3id.org/mailo#cites">
          <span>cites</span>
       </a>
@@ -314,6 +320,9 @@ This ontology has the following classes and properties.</span>
       <a href="#hasExplanation" title="https://w3id.org/mailo#hasExplanation">has explanation</a>
    </li>
    <li>
+      <a href="#hasHighRiskRoute" title="https://w3id.org/mailo#hasHighRiskRoute">has high-risk route</a>
+   </li>
+   <li>
       <a href="#hasHumanOversightRecord" title="https://w3id.org/mailo#hasHumanOversightRecord">has human oversight record</a>
    </li>
    <li>
@@ -354,6 +363,9 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
+      <a href="#involvesArticle" title="https://w3id.org/mailo#involvesArticle">involves article</a>
+   </li>
+   <li>
       <a href="#involvesFramework" title="https://w3id.org/mailo#involvesFramework">involves framework</a>
    </li>
    <li>
@@ -384,6 +396,9 @@ This ontology has the following classes and properties.</span>
       <a href="#triggeredBy" title="https://w3id.org/mailo#triggeredBy">
          <span>triggered By</span>
       </a>
+   </li>
+   <li>
+      <a href="#triggersRoute" title="https://w3id.org/mailo#triggersRoute">triggers high-risk route</a>
    </li>
    <li>
       <a href="#triggersObligation" title="https://w3id.org/mailo#triggersObligation">triggers obligation</a>
@@ -544,6 +559,79 @@ This ontology has the following classes and properties.</span>
          <span>version Start Date</span>
       </a>
    </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract">
+         <span>abstract</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created">
+         <span>created</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/date" title="http://purl.org/dc/terms/date">
+         <span>date</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://data.europa.eu/eli/ontology#id_local" title="http://data.europa.eu/eli/ontology#id_local">
+         <span>id local</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/identifier" title="http://purl.org/dc/terms/identifier">
+         <span>identifier</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/language" title="http://purl.org/dc/terms/language">
+         <span>language</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+         <span>modified</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#notation" title="http://www.w3.org/2004/02/skos/core#notation">
+         <span>notation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher">
+         <span>publisher</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/source" title="http://purl.org/dc/terms/source">
+         <span>source</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
 </ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
@@ -581,7 +669,13 @@ This ontology has the following classes and properties.</span>
       <a href="#AIAct_2024_1689" title="https://w3id.org/mailo#AIAct_2024_1689">AI Act 2024/1689</a>
    </li>
    <li>
-      <a href="#AIAct_Art10" title="https://w3id.org/mailo#AIAct_Art10">AI Act Art.10 — Data Governance</a>
+      <a href="#AIAct_Art10" title="https://w3id.org/mailo#AIAct_Art10">AI Act Art.10 — Data and data governance</a>
+   </li>
+   <li>
+      <a href="#AIAct_Art13" title="https://w3id.org/mailo#AIAct_Art13">AI Act Art.13 — Transparency and provision of information TO DEPLOYERS</a>
+   </li>
+   <li>
+      <a href="#AIAct_Art14" title="https://w3id.org/mailo#AIAct_Art14">AI Act Art.14 — Human oversight</a>
    </li>
    <li>
       <a href="#Risk_AIActQMS_MDR_Overlap"
@@ -591,22 +685,16 @@ This ontology has the following classes and properties.</span>
       <a href="#AIAct_Art17" title="https://w3id.org/mailo#AIAct_Art17">AI Act Art.17 — Quality Management System</a>
    </li>
    <li>
-      <a href="#AIAct_Art26" title="https://w3id.org/mailo#AIAct_Art26">AI Act Art.26 — Deployer Obligations</a>
+      <a href="#AIAct_Art26" title="https://w3id.org/mailo#AIAct_Art26">AI Act Art.26 — Obligations of deployers of high-risk AI systems</a>
    </li>
    <li>
       <a href="#AIAct_Art50" title="https://w3id.org/mailo#AIAct_Art50">AI Act Art.50 — Transparency obligations for certain AI systems</a>
    </li>
    <li>
-      <a href="#AIAct_Art9" title="https://w3id.org/mailo#AIAct_Art9">AI Act Art.9 — Risk Management System</a>
+      <a href="#AIAct_Art86" title="https://w3id.org/mailo#AIAct_Art86">AI Act Art.86 — Right to explanation of individual decision-making (Annex III only)</a>
    </li>
    <li>
-      <a href="#AIAct_Art13" title="https://w3id.org/mailo#AIAct_Art13">AI Act Article 13</a>
-   </li>
-   <li>
-      <a href="#AIAct_Art14" title="https://w3id.org/mailo#AIAct_Art14">AI Act Article 14</a>
-   </li>
-   <li>
-      <a href="#AIAct_Art86" title="https://w3id.org/mailo#AIAct_Art86">AI Act Article 86</a>
+      <a href="#AIAct_Art9" title="https://w3id.org/mailo#AIAct_Art9">AI Act Art.9 — Risk management system</a>
    </li>
    <li>
       <a href="#Amgen" title="https://w3id.org/mailo#Amgen">Amgen Inc.</a>
@@ -614,6 +702,12 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#lit_Andrade_F_Rebelo_D_M_2024_Schufa_s_Case_C-634_21_on"
          title="https://w3id.org/mailo#lit_Andrade_F_Rebelo_D_M_2024_Schufa_s_Case_C-634_21_on">Andrade, F., Rebelo, D. M. (2024). Schufa's Case C-634/21 on ADM: the 'Lenders' Quest' for GDPR-friendly Scoring has not been settled yet! SSRN 4882806.</a>
+   </li>
+   <li>
+      <a href="#AnnexIRoute" title="https://w3id.org/mailo#AnnexIRoute">Annex I route (Art.6(1)) — product or safety component</a>
+   </li>
+   <li>
+      <a href="#AnnexIIIRoute" title="https://w3id.org/mailo#AnnexIIIRoute">Annex III route (Art.6(2)) — listed standalone use case</a>
    </li>
    <li>
       <a href="#Risk_BlackBox" title="https://w3id.org/mailo#Risk_BlackBox">Black-Box ML System (C-817/19 Prohibition)</a>
@@ -674,26 +768,35 @@ This ontology has the following classes and properties.</span>
       <a href="#DataAct" title="https://w3id.org/mailo#DataAct">Data Act 2023/2854</a>
    </li>
    <li>
-      <a href="#DataAct_Art14" title="https://w3id.org/mailo#DataAct_Art14">Data Act Art.14 — Obligation to make data available on the basis of an exceptional need (B2G)</a>
+      <a href="#DataAct_Art14" title="https://w3id.org/mailo#DataAct_Art14">Data Act Art.14 — Obligation to make data available on the basis of exceptional need</a>
    </li>
    <li>
-      <a href="#Tension_DataAct_TradeSecret_AITransparency"
-         title="https://w3id.org/mailo#Tension_DataAct_TradeSecret_AITransparency">Data Act Art.15 trade secret vs. AI Act Art.13 + GDPR Art.15(1)(h) transparency</a>
+      <a href="#DataAct_Art15" title="https://w3id.org/mailo#DataAct_Art15">Data Act Art.15 — Exceptional need to use data (B2G)</a>
+   </li>
+   <li>
+      <a href="#DataAct_Art17" title="https://w3id.org/mailo#DataAct_Art17">Data Act Art.17 — Requests by public sector bodies for data to be made available</a>
+   </li>
+   <li>
+      <a href="#DataAct_Art21" title="https://w3id.org/mailo#DataAct_Art21">Data Act Art.21 — Sharing of data obtained on exceptional need with research organisations</a>
    </li>
    <li>
       <a href="#DataAct_Art23" title="https://w3id.org/mailo#DataAct_Art23">Data Act Art.23 — Switching Cloud Services</a>
    </li>
    <li>
-      <a href="#DataAct_Art3" title="https://w3id.org/mailo#DataAct_Art3">Data Act Art.3 — IoT Data Access Right</a>
+      <a href="#DataAct_Art3" title="https://w3id.org/mailo#DataAct_Art3">Data Act Art.3 — Obligation to make product data accessible BY DESIGN</a>
    </li>
    <li>
       <a href="#Risk_DataActIoT" title="https://w3id.org/mailo#Risk_DataActIoT">Data Act Art.3/5 IoT Data Sharing Obligation</a>
    </li>
    <li>
-      <a href="#DataAct_Art4" title="https://w3id.org/mailo#DataAct_Art4">Data Act Art.4 — User access to product data, subject to trade secret protection</a>
+      <a href="#DataAct_Art4" title="https://w3id.org/mailo#DataAct_Art4">Data Act Art.4 — Rights and obligations of users and data holders regarding access and use</a>
    </li>
    <li>
       <a href="#DataAct_Art5" title="https://w3id.org/mailo#DataAct_Art5">Data Act Art.5 — Data Sharing with Third Parties</a>
+   </li>
+   <li>
+      <a href="#Tension_DataAct_TradeSecret_AITransparency"
+         title="https://w3id.org/mailo#Tension_DataAct_TradeSecret_AITransparency">Data Act Arts.4(6)-(8) / 5(9)-(11) trade secret vs. AI Act Art.13 + GDPR Art.15(1)(h) transparency</a>
    </li>
    <li>
       <a href="#DataGovernanceConflict" title="https://w3id.org/mailo#DataGovernanceConflict">Data governance conflict</a>
@@ -715,14 +818,20 @@ This ontology has the following classes and properties.</span>
       <a href="#DGA" title="https://w3id.org/mailo#DGA">DGA 2022/868</a>
    </li>
    <li>
-      <a href="#Tension_DGA_Neutrality_DataAcquisition"
-         title="https://w3id.org/mailo#Tension_DGA_Neutrality_DataAcquisition">DGA Art.10 neutrality obligation vs. AI Act Art.10 data governance</a>
+      <a href="#DGA_Art10" title="https://w3id.org/mailo#DGA_Art10">DGA Art.10 — Data intermediation services (scope)</a>
    </li>
    <li>
-      <a href="#DGA_Art10" title="https://w3id.org/mailo#DGA_Art10">DGA Art.10 — Data Intermediation Services</a>
+      <a href="#DGA_Art12" title="https://w3id.org/mailo#DGA_Art12">DGA Art.12 — Conditions for providing data intermediation services (neutrality)</a>
+   </li>
+   <li>
+      <a href="#Tension_DGA_Neutrality_DataAcquisition"
+         title="https://w3id.org/mailo#Tension_DGA_Neutrality_DataAcquisition">DGA Art.12(1)(a) neutrality obligation vs. AI Act Art.10 data governance</a>
    </li>
    <li>
       <a href="#DGA_Art16" title="https://w3id.org/mailo#DGA_Art16">DGA Art.16 — National arrangements for data altruism</a>
+   </li>
+   <li>
+      <a href="#DGA_Art2" title="https://w3id.org/mailo#DGA_Art2">DGA Art.2 — Definitions</a>
    </li>
    <li>
       <a href="#DGA_Art29" title="https://w3id.org/mailo#DGA_Art29">DGA Art.29 — European Data Innovation Board</a>
@@ -749,13 +858,34 @@ This ontology has the following classes and properties.</span>
       <a href="#DomainContext" title="https://w3id.org/mailo#DomainContext">Domain context</a>
    </li>
    <li>
+      <a href="#EHDS_Art23" title="https://w3id.org/mailo#EHDS_Art23">EHDS Art.23 — MyHealth@EU (cross-border infrastructure for PRIMARY use)</a>
+   </li>
+   <li>
       <a href="#Risk_EHDSOptOut" title="https://w3id.org/mailo#Risk_EHDSOptOut">EHDS Art.35 Opt-Out Erodes Training Dataset</a>
    </li>
    <li>
-      <a href="#Tension_EHDS_GDPR_OptOut" title="https://w3id.org/mailo#Tension_EHDS_GDPR_OptOut">EHDS Art.35 opt-out vs. AI Act Art.10(3) representativeness</a>
+      <a href="#EHDS_Art51" title="https://w3id.org/mailo#EHDS_Art51">EHDS Art.51 — Minimum categories of electronic health data for secondary use</a>
+   </li>
+   <li>
+      <a href="#EHDS_Art52" title="https://w3id.org/mailo#EHDS_Art52">EHDS Art.52 — IP rights, trade secrets and regulatory data protection in secondary use</a>
+   </li>
+   <li>
+      <a href="#EHDS_Art53" title="https://w3id.org/mailo#EHDS_Art53">EHDS Art.53 — Permitted purposes for secondary use</a>
+   </li>
+   <li>
+      <a href="#EHDS_Art54" title="https://w3id.org/mailo#EHDS_Art54">EHDS Art.54 — Prohibited secondary use</a>
+   </li>
+   <li>
+      <a href="#EHDS_Art57" title="https://w3id.org/mailo#EHDS_Art57">EHDS Art.57 — Tasks of health data access bodies</a>
    </li>
    <li>
       <a href="#EHDS_Art68" title="https://w3id.org/mailo#EHDS_Art68">EHDS Art.68 — Data permit (secondary use authorisation)</a>
+   </li>
+   <li>
+      <a href="#EHDS_Art69" title="https://w3id.org/mailo#EHDS_Art69">EHDS Art.69 — Health data request (anonymised statistical answer)</a>
+   </li>
+   <li>
+      <a href="#Tension_EHDS_GDPR_OptOut" title="https://w3id.org/mailo#Tension_EHDS_GDPR_OptOut">EHDS Art.71 opt-out vs. AI Act Art.10(3) representativeness</a>
    </li>
    <li>
       <a href="#EHDS_Art71" title="https://w3id.org/mailo#EHDS_Art71">EHDS Art.71 — Right to opt out of secondary use</a>
@@ -789,11 +919,11 @@ This ontology has the following classes and properties.</span>
       <a href="#EP_3435866" title="https://w3id.org/mailo#EP_3435866">EP 3 435 866</a>
    </li>
    <li>
-      <a href="#Tension_EPO_GDPR_Disclosure"
-         title="https://w3id.org/mailo#Tension_EPO_GDPR_Disclosure">EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy</a>
+      <a href="#EPC_Art52" title="https://w3id.org/mailo#EPC_Art52">EPC Art.52 — Patentable inventions</a>
    </li>
    <li>
-      <a href="#EPC_Art52" title="https://w3id.org/mailo#EPC_Art52">EPC Article 52</a>
+      <a href="#Tension_EPO_GDPR_Disclosure"
+         title="https://w3id.org/mailo#Tension_EPO_GDPR_Disclosure">EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy</a>
    </li>
    <li>
       <a href="#EPC_Art56" title="https://w3id.org/mailo#EPC_Art56">EPC Article 56</a>
@@ -834,10 +964,10 @@ This ontology has the following classes and properties.</span>
       <a href="#AIAct" title="https://w3id.org/mailo#AIAct">EU AI Act 2024/1689</a>
    </li>
    <li>
-      <a href="#Charter_Art7" title="https://w3id.org/mailo#Charter_Art7">EU Charter Art.7</a>
+      <a href="#Charter_Art7" title="https://w3id.org/mailo#Charter_Art7">EU Charter Art.7 — Respect for private and family life</a>
    </li>
    <li>
-      <a href="#Charter_Art8" title="https://w3id.org/mailo#Charter_Art8">EU Charter Art.8</a>
+      <a href="#Charter_Art8" title="https://w3id.org/mailo#Charter_Art8">EU Charter Art.8 — Protection of personal data</a>
    </li>
    <li>
       <a href="#EUCharter" title="https://w3id.org/mailo#EUCharter">EU Charter of Fundamental Rights</a>
@@ -860,7 +990,13 @@ This ontology has the following classes and properties.</span>
       <a href="#GDPR_2016_679" title="https://w3id.org/mailo#GDPR_2016_679">GDPR 2016/679</a>
    </li>
    <li>
-      <a href="#GDPR_Art15_1h" title="https://w3id.org/mailo#GDPR_Art15_1h">GDPR Art.15(1)(h)</a>
+      <a href="#GDPR_Art12_5" title="https://w3id.org/mailo#GDPR_Art12_5">GDPR Art.12(5) — Exercise of data subject rights free of charge</a>
+   </li>
+   <li>
+      <a href="#GDPR_Art15_1h" title="https://w3id.org/mailo#GDPR_Art15_1h">GDPR Art.15(1)(h) — Automated decision-making: existence, logic, significance and consequences</a>
+   </li>
+   <li>
+      <a href="#GDPR_Art15_3" title="https://w3id.org/mailo#GDPR_Art15_3">GDPR Art.15(3) — Right to a copy</a>
    </li>
    <li>
       <a href="#Risk_SolelyTest" title="https://w3id.org/mailo#Risk_SolelyTest">GDPR Art.22 'Solely' Test Failure (Rubber-Stamping)</a>
@@ -870,16 +1006,22 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/mailo#GDPR_v2_OmnibusProposed_Art22">GDPR Art.22 Omnibus-proposed version — permission list framing (PROSPECTIVE, NOT ADOPTED)</a>
    </li>
    <li>
-      <a href="#GDPR_Art22_1" title="https://w3id.org/mailo#GDPR_Art22_1">GDPR Art.22(1)</a>
+      <a href="#GDPR_Art22_1" title="https://w3id.org/mailo#GDPR_Art22_1">GDPR Art.22(1) — Right not to be subject to a solely automated decision</a>
    </li>
    <li>
-      <a href="#GDPR_Art22_2" title="https://w3id.org/mailo#GDPR_Art22_2">GDPR Art.22(2)</a>
+      <a href="#GDPR_Art22_2" title="https://w3id.org/mailo#GDPR_Art22_2">GDPR Art.22(2) — Derogations</a>
    </li>
    <li>
-      <a href="#GDPR_Art22_3" title="https://w3id.org/mailo#GDPR_Art22_3">GDPR Art.22(3)</a>
+      <a href="#GDPR_Art22_3" title="https://w3id.org/mailo#GDPR_Art22_3">GDPR Art.22(3) — Safeguards, applying only to points (a) and (c) of Art.22(2)</a>
    </li>
    <li>
-      <a href="#GDPR_Art22_4" title="https://w3id.org/mailo#GDPR_Art22_4">GDPR Art.22(4)</a>
+      <a href="#GDPR_Art22_4" title="https://w3id.org/mailo#GDPR_Art22_4">GDPR Art.22(4) — Prohibition on basing such decisions on special category data</a>
+   </li>
+   <li>
+      <a href="#GDPR_Art23" title="https://w3id.org/mailo#GDPR_Art23">GDPR Art.23 — Restrictions</a>
+   </li>
+   <li>
+      <a href="#GDPR_Art9" title="https://w3id.org/mailo#GDPR_Art9">GDPR Art.9 — Processing of special categories of personal data</a>
    </li>
    <li>
       <a href="#GDPR_Art15" title="https://w3id.org/mailo#GDPR_Art15">GDPR Article 15</a>
@@ -889,9 +1031,6 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#GDPR_Art35" title="https://w3id.org/mailo#GDPR_Art35">GDPR Article 35</a>
-   </li>
-   <li>
-      <a href="#GDPR_Art9" title="https://w3id.org/mailo#GDPR_Art9">GDPR Article 9</a>
    </li>
    <li>
       <a href="#GDPR_v1_FullyApplicable" title="https://w3id.org/mailo#GDPR_v1_FullyApplicable">GDPR fully applicable — all provisions in force</a>
@@ -956,8 +1095,20 @@ This ontology has the following classes and properties.</span>
       <a href="#MDR" title="https://w3id.org/mailo#MDR">MDR 2017/745</a>
    </li>
    <li>
+      <a href="#MDR_AnnexI" title="https://w3id.org/mailo#MDR_AnnexI">MDR Annex I — General safety and performance requirements</a>
+   </li>
+   <li>
+      <a href="#MDR_AnnexII" title="https://w3id.org/mailo#MDR_AnnexII">MDR Annex II — Technical documentation</a>
+   </li>
+   <li>
       <a href="#Tension_MDR_AIAct_DualTrack"
          title="https://w3id.org/mailo#Tension_MDR_AIAct_DualTrack">MDR Annex IX conformity vs. AI Act Art.43 conformity assessment</a>
+   </li>
+   <li>
+      <a href="#MDR_AnnexIX" title="https://w3id.org/mailo#MDR_AnnexIX">MDR Annex IX — Conformity assessment based on a QMS and technical documentation</a>
+   </li>
+   <li>
+      <a href="#MDR_AnnexVIII_Rule11" title="https://w3id.org/mailo#MDR_AnnexVIII_Rule11">MDR Annex VIII Rule 11 — Classification of software</a>
    </li>
    <li>
       <a href="#MDR_Art15" title="https://w3id.org/mailo#MDR_Art15">MDR Art.15 — Person Responsible for Regulatory Compliance</a>
@@ -1014,7 +1165,7 @@ This ontology has the following classes and properties.</span>
       <a href="#P_203_001" title="https://w3id.org/mailo#P_203_001">P-203/22-001: Meaningful Explainability Standard</a>
    </li>
    <li>
-      <a href="#P_307_001" title="https://w3id.org/mailo#P_307_001">P-307/22-001: Unconditional Patient Record Access</a>
+      <a href="#P_307_001" title="https://w3id.org/mailo#P_307_001">P-307/22-001: Free first copy of medical records under GDPR Art.15(3)</a>
    </li>
    <li>
       <a href="#P_634_001" title="https://w3id.org/mailo#P_634_001">P-634/21-001: Broad 'Decision' Concept</a>
@@ -1054,20 +1205,26 @@ This ontology has the following classes and properties.</span>
       <a href="#PLD" title="https://w3id.org/mailo#PLD">PLD 2024/2853</a>
    </li>
    <li>
-      <a href="#Tension_PLD_AIAct_LiabilityGap"
-         title="https://w3id.org/mailo#Tension_PLD_AIAct_LiabilityGap">PLD Art.10 defect presumption vs. AI Act Art.9 risk management</a>
+      <a href="#PLD_Art10" title="https://w3id.org/mailo#PLD_Art10">PLD Art.10 — Burden of proof (presumptions of defectiveness AND of causal link)</a>
    </li>
    <li>
-      <a href="#PLD_Art10" title="https://w3id.org/mailo#PLD_Art10">PLD Art.10 — Burden of proof (presumptions of defectiveness AND of causal link)</a>
+      <a href="#Tension_PLD_AIAct_LiabilityGap"
+         title="https://w3id.org/mailo#Tension_PLD_AIAct_LiabilityGap">PLD Art.10(4) defect and causation presumption vs. AI Act Art.9 risk management</a>
    </li>
    <li>
       <a href="#PLD_Art11" title="https://w3id.org/mailo#PLD_Art11">PLD Art.11 — Exemption from liability</a>
    </li>
    <li>
-      <a href="#PLD_Art4" title="https://w3id.org/mailo#PLD_Art4">PLD Art.4 — Definitions (software and AI systems as 'products')</a>
+      <a href="#PLD_Art4" title="https://w3id.org/mailo#PLD_Art4">PLD Art.4 — Definitions ('product' includes software and AI systems)</a>
    </li>
    <li>
-      <a href="#PLD_Art5" title="https://w3id.org/mailo#PLD_Art5">PLD Art.5 — Right to compensation (strict liability)</a>
+      <a href="#PLD_Art5" title="https://w3id.org/mailo#PLD_Art5">PLD Art.5 — Right to compensation</a>
+   </li>
+   <li>
+      <a href="#PLD_Art6" title="https://w3id.org/mailo#PLD_Art6">PLD Art.6 — Damage</a>
+   </li>
+   <li>
+      <a href="#PLD_Art7" title="https://w3id.org/mailo#PLD_Art7">PLD Art.7 — Defectiveness</a>
    </li>
    <li>
       <a href="#PLD_Art9" title="https://w3id.org/mailo#PLD_Art9">PLD Art.9 — Disclosure Obligations (Evidence Facilitation)</a>
@@ -1148,14 +1305,20 @@ This ontology has the following classes and properties.</span>
       <a href="#TransposedPrinciple" title="https://w3id.org/mailo#TransposedPrinciple">Transposed principle</a>
    </li>
    <li>
+      <a href="#TSD_Art1_2" title="https://w3id.org/mailo#TSD_Art1_2">TSD Art.1(2) — Matters the Directive does not affect</a>
+   </li>
+   <li>
       <a href="#Tension_TSD_AIAct_Transparency"
          title="https://w3id.org/mailo#Tension_TSD_AIAct_Transparency">TSD Art.2 Trade Secret vs. AI Act Art.13 + GDPR Art.15(1)(h) — Core Transparency Tension</a>
    </li>
    <li>
-      <a href="#TSD_Art2" title="https://w3id.org/mailo#TSD_Art2">TSD Article 2 — Definition of Trade Secret</a>
+      <a href="#TSD_Art3" title="https://w3id.org/mailo#TSD_Art3">TSD Art.3 — Lawful acquisition, use and disclosure</a>
    </li>
    <li>
-      <a href="#TSD_Art5" title="https://w3id.org/mailo#TSD_Art5">TSD Article 5 — Exceptions</a>
+      <a href="#TSD_Art5" title="https://w3id.org/mailo#TSD_Art5">TSD Art.5 — Exceptions (freedom of expression, whistleblowing, workers' representatives, legitimate interest)</a>
+   </li>
+   <li>
+      <a href="#TSD_Art2" title="https://w3id.org/mailo#TSD_Art2">TSD Article 2 — Definition of Trade Secret</a>
    </li>
    <li>
       <a href="#TSD_Art9" title="https://w3id.org/mailo#TSD_Art9">TSD Article 9 — Preservation of Confidentiality in Legal Proceedings</a>
