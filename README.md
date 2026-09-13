@@ -3,7 +3,7 @@
 An OWL 2 knowledge graph of EU regulatory obligations bearing on medical AI systems, with SHACL
 constraints that make a subset of those obligations machine-checkable.
 
-**Current release: v5.2.0** · 1,859 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
+**Current release: v5.2.1** · 1,904 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
 · documentation: [`index-en.html`](https://vrkkao-eng.github.io/Mailo-ontology/index-en.html)
 
 ---
@@ -12,7 +12,7 @@ constraints that make a subset of those obligations machine-checkable.
 
 | | |
 |---|---|
-| Triples | 1,859 |
+| Triples | 1,904 |
 | OWL classes | 64 |
 | Object / datatype properties | 43 / 39 |
 | Legal articles | 71 |
@@ -108,11 +108,56 @@ article referenced but never declared — all surfaced from queries, and Parts I
 SHACL shapes now enforce them permanently. Each of those shapes was tested against the specific
 defect that motivated it, not merely written.
 
+## Release history
+
+`https://w3id.org/mailo#` always dereferences the current release. Where a stable reference is
+needed, cite the tag: each row below is an immutable snapshot.
+
+| Version | Tag | Triples | SHACL node shapes |
+|---|---|---|---|
+| v5.2.1 | [`v5.2.1`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.1) | 1,904 | 19 |
+| v5.2.0 | [`5.2.0`](https://github.com/vrkkao-eng/Mailo-ontology/tree/5.2.0) | 1,859 | 19 |
+| v5.1.0 | commit [`cc74e45`](https://github.com/vrkkao-eng/Mailo-ontology/tree/cc74e45477dfe541c5c0a849d9174122af053839) | 1,690 | 19 |
+
+### v5.2.1 — factual consistency repair
+
+A corrective release confined to instance-level facts. No class, property or SHACL shape was
+added or altered, and no CJEU assertion was touched.
+
+Two defects motivated it. The first was a representational split: the AI Act's article-level
+assertions were attached to `mailo:AIAct` while its temporal versions were attached to
+`mailo:AIAct_2024_1689`, with no relation between the two identifiers, so no query could reach
+an applicable regulation version from an article. The same split was then found in the GDPR
+representation. Both are now canonicalised, with the second identifier deprecated rather than
+removed.
+
+The second was a contradiction the graph held against itself. One part already recorded that
+the AI limb of the Digital Omnibus had been adopted as Regulation (EU) 2026/1744, while the AI
+Act timeline was still triggered by the provisional agreement of 7 May 2026 and still described
+a conditional standards-availability mechanism that the adopted text does not contain. The
+operative triggers now point to the adopted Regulation; the provisional agreement is retained
+as legislative history and triggers nothing.
+
+Four further corrections follow from the adopted text or from the original Regulation:
+a version beginning 2 August 2028 had been flagged as the current one, and the current version
+is now the post-Omnibus text in force from 27 July 2026, which records which text is in force
+rather than asserting that the high-risk obligations apply; the Article 27 FRIA date moves from
+2 August 2027 to 2 December 2027, scoped to Article 6(2) deployers; Chapters I and II are dated
+to their application date of 2 February 2025 rather than to entry into force, leaving 1 August
+2024 to 1 February 2025 deliberately uncovered because no provision applied in that interval;
+and the original Annex III and Annex I high-risk dates, conflated in one version, are separated
+to 2 August 2026 and 2 August 2027. `dcterms:date` was corrected on the AI Act and the PLD and
+added to the MDR so that every EU instrument records the date of the act.
+
+**This release does not implement temporal reasoning.** Application dates are regulation-version
+metadata and are not evaluated at validation time. Modelling of the Omnibus's Annex I Section A
+and Section B split, Articles 27 and 43, and the notified-body transitional period is deferred.
+
 ## Licence and citation
 
 Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.0. https://w3id.org/mailo#
+> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.1. https://w3id.org/mailo#
 
 Developed at KU Leuven, Faculty of Engineering Science. Documentation generated with
 [WIDOCO](https://github.com/dgarijo/Widoco); see [`docs/readme.md`](docs/readme.md) for

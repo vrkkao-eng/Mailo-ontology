@@ -40,11 +40,11 @@
         runtime constraints for medical AI compliance validation.
     """@en ;
     dcterms:created "2026-04-30"^^xsd:date ;
-    dcterms:modified "2026-07-09"^^xsd:date ;
-    owl:versionIRI <https://w3id.org/mailo/shacl/5.0.1> ;
-    owl:versionInfo "5.0.1" ;
-    owl:priorVersion <https://w3id.org/mailo/shacl/3.0> ;
-    rdfs:comment "Version 5.0.1 (patch): metadata corrections aligned with MAILO ontology v5.0.1."@en ;
+    dcterms:modified "2026-09-10"^^xsd:date ;
+    owl:versionIRI <https://w3id.org/mailo/shacl/5.2.0> ;
+    owl:versionInfo "5.2.0" ;
+    owl:priorVersion <https://w3id.org/mailo/shacl/5.1.0> ;
+    rdfs:comment "Version 5.2.0 (patch): metadata corrections aligned with MAILO ontology v5.2.0."@en ;
     sh:declare [
         sh:prefix "mailo" ;
         sh:namespace "https://w3id.org/mailo#"^^xsd:anyURI

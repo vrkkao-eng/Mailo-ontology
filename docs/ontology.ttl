@@ -33,7 +33,7 @@ mailo: a owl:Ontology ;
     dcterms:creator "Victor Kao" ;
     dcterms:description "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations." ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-09-10"^^xsd:date ;
+    dcterms:modified "2026-09-13"^^xsd:date ;
     dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
     dcterms:title "Medical AI Legal Ontology (MAILO)" ;
     rdfs:comment "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."@en,
@@ -52,10 +52,11 @@ OTHER INSTRUMENTS. TSD Art.5 had been read as disapplying secrecy where informat
 
 CASES AND SHAPES. G 1/19 is a COMVIK inventive-step ruling, and the Enlarged Board held that whether the simulated system is technical is NOT decisive; all three EPO instances were attributed to EPC Art.52 and are re-anchored to Arts.56, 83 and 84. C-307/22 (FT v DW) involves no AI. Four cases are rescoped, leaving two of sixteen with a verified medical-AI technology claim. Correcting the class hierarchy in v5.1.0 inverted what shape target classes mean, since targeting AutomatedDecisionSystem was narrower than MedicalAISystem before and is broader after; three C-817/19 shapes had drifted and all five now target MedicalAISystem. MedicalAIComplianceShape records that its C-817/19 constraints are transposed rather than held, and that its conjunctive structure is a modelling choice: conformance evidences alignment with MAILO's model, not compliance with law.
 
-NOT VERIFIED. Three CJEU cases lack ECLIs, deliberately not supplied from memory. Three UPC instances retain unverified substantive assertions, flagged on the instances. No finding in either corrective release has been reviewed by a second EU data-protection specialist."""@en ;
-    owl:priorVersion <https://w3id.org/mailo/5.1.0> ;
-    owl:versionIRI <https://w3id.org/mailo/5.2.0> ;
-    owl:versionInfo "5.2.0" .
+NOT VERIFIED. Three CJEU cases lack ECLIs, deliberately not supplied from memory. Three UPC instances retain unverified substantive assertions, flagged on the instances. No finding in either corrective release has been reviewed by a second EU data-protection specialist."""@en,
+        "Version 5.2.1 (patch): factual consistency repair, no schema change. (1) The AI Act had been represented by two unconnected identifiers, mailo:AIAct carrying the article-level assertions and mailo:AIAct_2024_1689 carrying the temporal versions, so no query could reach a regulation version from an article; all assertions were migrated to mailo:AIAct and the second identifier was deprecated. (2) The AI Act timeline was still triggered by the provisional agreement of 7 May 2026 and described a conditional standards-availability mechanism, while another part of the graph already recorded the adopted Regulation (EU) 2026/1744; the operative triggers now point to the adopted Regulation and the provisional agreement is retained as history alone. (3) A version starting 2 August 2028 was flagged as the current version; the current version is now the post-Omnibus text in force from 27 July 2026, which records the amended text rather than the applicability of the high-risk obligations. (4) The Article 27 FRIA date was corrected from 2 August 2027 to 2 December 2027 and its scope limited to Article 6(2) deployers. (5) Chapters I and II were dated to their application date of 2 February 2025 rather than the entry into force of 1 August 2024. (6) The original Annex III and Annex I high-risk dates, conflated in a single version, were separated to 2 August 2026 and 2 August 2027. (7) dcterms:date was corrected on the AI Act and the PLD and added to the MDR, so that every EU instrument records the date of the act. (8) The same identifier split was found in the GDPR representation and repaired the same way. No SHACL shape, no CJEU assertion and no class or property definition was changed."@en ;
+    owl:priorVersion <https://w3id.org/mailo/5.2.0> ;
+    owl:versionIRI <https://w3id.org/mailo/5.2.1> ;
+    owl:versionInfo "5.2.1" .
 
 mailo:Amgen a mailo:Company ;
     rdfs:label "Amgen Inc."@en .
@@ -1037,13 +1038,14 @@ mailo:AIAct_Art9 a mailo:LegalArticle ;
     mailo:complementedBy mailo:AIAct_Art14 .
 
 mailo:AIAct_v1_ProhibitedPractices a mailo:RegulationVersion ;
-    rdfs:label "Prohibited AI practices (Art.5) and general provisions in force" ;
+    rdfs:label "Chapters I and II apply (general provisions, AI literacy, prohibited practices)" ;
+    rdfs:comment "Article 113(a) of Regulation (EU) 2024/1689 makes Chapters I and II applicable from 2 February 2025. The Regulation entered into force on 1 August 2024; no provision applied between 1 August 2024 and 1 February 2025, so no RegulationVersion covers that interval."@en ;
     mailo:applicablePhase "prohibited_practices_and_general" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v1_ProhibitedPractices ;
     mailo:versionEndDate "2025-08-01"^^xsd:date ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
-    mailo:versionStartDate "2024-08-01"^^xsd:date .
+    mailo:versionOf mailo:AIAct ;
+    mailo:versionStartDate "2025-02-02"^^xsd:date .
 
 mailo:AIAct_v2_GPAIModelObligations a mailo:RegulationVersion ;
     rdfs:label "GPAI model provider obligations apply (Title VIII, Arts.51–56)" ;
@@ -1051,15 +1053,25 @@ mailo:AIAct_v2_GPAIModelObligations a mailo:RegulationVersion ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v2_GPAIModelObligations ;
     mailo:versionEndDate "2026-07-31"^^xsd:date ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2025-08-02"^^xsd:date .
 
+mailo:AIAct_v2b_PostOmnibusTransitional a mailo:RegulationVersion ;
+    rdfs:label "AI Act as amended by Regulation (EU) 2026/1744 — current legal text" ;
+    rdfs:comment "The applicable phase from 27 July 2026, when Regulation (EU) 2026/1744 entered into force and its amendments became part of the AI Act. This version records that the amended text is the one in force. It does not assert that the Chapter III Sections 1 to 3 obligations for high-risk systems apply; those apply from 2 December 2027 and 2 August 2028 by route."@en ;
+    mailo:applicablePhase "post_omnibus_transitional" ;
+    mailo:isCurrentVersion true ;
+    mailo:triggeredBy mailo:Amend_AIAct_v2b_PostOmnibusTransitional ;
+    mailo:versionOf mailo:AIAct ;
+    mailo:versionStartDate "2026-07-27"^^xsd:date .
+
 mailo:AIAct_v3_OriginalHighRisk a mailo:RegulationVersion ;
-    rdfs:label "Original Annex III + Annex I deadline (superseded by Omnibus provisional agreement)" ;
-    mailo:applicablePhase "high_risk_original_deadline" ;
+    rdfs:label "Original Article 6(2) / Annex III high-risk application date (superseded)" ;
+    rdfs:comment "Original Article 113 set 2 August 2026 for Article 6(2) Annex III systems and 2 August 2027 for Article 6(1) Annex I systems; the two were distinct from the outset and are represented separately from v5.2.1. This phase never became applicable: Regulation (EU) 2026/1744 entered into force on 27 July 2026, six days before this date."@en ;
+    mailo:applicablePhase "high_risk_annex_iii_original" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v3_OriginalHighRisk ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
+    mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2026-08-02"^^xsd:date .
 
 mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:RegulationVersion ;
@@ -1067,59 +1079,79 @@ mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:RegulationVersion ;
     mailo:applicablePhase "high_risk_annex_iii_omnibus" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone,
-        mailo:OmnibusAI_ProvisionalAgreement_20260507 ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
+        mailo:OmnibusAI_RegEU2026_1744 ;
+    mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2027-12-02"^^xsd:date .
 
 mailo:AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:RegulationVersion ;
     rdfs:label "Omnibus-revised Annex I deadline — SaMD under MDR 2017/745 and IVDR 2017/746 (primary compliance target for MAILO)" ;
     mailo:applicablePhase "high_risk_annex_i_samd_omnibus" ;
-    mailo:isCurrentVersion true ;
+    mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD,
-        mailo:OmnibusAI_ProvisionalAgreement_20260507 ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
+        mailo:OmnibusAI_RegEU2026_1744 ;
+    mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2028-08-02"^^xsd:date .
 
+mailo:AIAct_v3c_OriginalAnnexIHighRisk a mailo:RegulationVersion ;
+    rdfs:label "Original Article 6(1) / Annex I high-risk application date (superseded)" ;
+    rdfs:comment "Original Article 113 set 2 August 2027 for Article 6(1) Annex I high-risk systems, a year later than the Annex III date. Superseded by Regulation (EU) 2026/1744, which moved it to 2 August 2028."@en ;
+    mailo:applicablePhase "high_risk_annex_i_original" ;
+    mailo:isCurrentVersion false ;
+    mailo:triggeredBy mailo:Amend_AIAct_v3c_OriginalAnnexIHighRisk ;
+    mailo:versionOf mailo:AIAct ;
+    mailo:versionStartDate "2027-08-02"^^xsd:date .
+
 mailo:AIAct_v4_FRIA_PublicBodies a mailo:RegulationVersion ;
-    rdfs:label "FRIA obligation for public-body deployers applies (Art.27)" ;
+    rdfs:label "FRIA obligation applies (Art.27)" ;
+    rdfs:comment "Article 27 forms part of Chapter III Section 3 and binds deployers of high-risk AI systems referred to in Article 6(2). Under amended Article 113(c)(i) that Section applies from 2 December 2027. Article 27 does not reach Article 6(1) / Annex I systems, so it does not apply to SaMD taking the Annex I route."@en ;
     mailo:applicablePhase "fria_public_bodies" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v4_FRIA_PublicBodies ;
-    mailo:versionOf mailo:AIAct_2024_1689 ;
-    mailo:versionStartDate "2027-08-02"^^xsd:date .
+    mailo:versionOf mailo:AIAct ;
+    mailo:versionStartDate "2027-12-02"^^xsd:date .
 
 mailo:Abbott a mailo:Company ;
     rdfs:label "Abbott Laboratories"@en .
 
 mailo:Amend_AIAct_v1_ProhibitedPractices a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: prohibited_practices_and_general" ;
-    mailo:amendmentDescription "Entry into force — OJ L 2024/1689 published 12 July 2024" ;
-    mailo:versionStartDate "2024-08-01"^^xsd:date .
+    mailo:amendmentDescription "Article 113(a) — Chapters I and II of Regulation (EU) 2024/1689 apply from 2 February 2025." ;
+    mailo:versionStartDate "2025-02-02"^^xsd:date .
 
 mailo:Amend_AIAct_v2_GPAIModelObligations a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: gpai_model_obligations" ;
     mailo:amendmentDescription "12-month anniversary — GPAI model chapter becomes applicable" ;
     mailo:versionStartDate "2025-08-02"^^xsd:date .
 
+mailo:Amend_AIAct_v2b_PostOmnibusTransitional a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: post_omnibus_transitional" ;
+    mailo:amendmentDescription "Regulation (EU) 2026/1744 entered into force on 27 July 2026 and its amendments became part of Regulation (EU) 2024/1689. Articles 102 to 110 are expressly applicable from that date under the new point (d) of the third paragraph of Article 113." ;
+    mailo:versionStartDate "2026-07-27"^^xsd:date .
+
+mailo:Amend_AIAct_v3c_OriginalAnnexIHighRisk a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: high_risk_annex_i_original" ;
+    mailo:amendmentDescription "Original Article 113 date for Article 6(1) / Annex I high-risk systems. Superseded by Regulation (EU) 2026/1744." ;
+    mailo:versionStartDate "2027-08-02"^^xsd:date .
+
 mailo:Amend_AIAct_v3_OriginalHighRisk a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: high_risk_original_deadline" ;
-    mailo:amendmentDescription "24-month anniversary — original high-risk deadline per Art.113(2); SUPERSEDED: Omnibus provisional agreement (2026-05-07) extends this deadline." ;
+    mailo:amendmentDescription "Original Article 113 date for Article 6(2) / Annex III high-risk systems. Superseded by Regulation (EU) 2026/1744 before it took effect." ;
     mailo:versionStartDate "2026-08-02"^^xsd:date .
 
 mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: high_risk_annex_iii_omnibus" ;
-    mailo:amendmentDescription "Omnibus VII provisional agreement — Annex III standalone systems: 2027-12-02. Conditional on harmonised standards availability (Article 6(2) revised)." ;
+    mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113(c)(i) — Chapter III Sections 1 to 3 apply to Article 6(2) / Annex III high-risk systems from 2 December 2027." ;
     mailo:versionStartDate "2027-12-02"^^xsd:date .
 
 mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: high_risk_annex_i_samd_omnibus" ;
-    mailo:amendmentDescription "Omnibus VII provisional agreement — Annex I systems (AI embedded in regulated products including medical devices): 2028-08-02. Single joint MDR+AI Act notified body assessment pathway available. Art.9/10/13/14/43 high-risk obligations apply by this date." ;
+    mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113 — Chapter III Sections 1 to 3 apply to Article 6(1) / Annex I high-risk systems, including SaMD under MDR 2017/745 and IVDR 2017/746, from 2 August 2028." ;
     mailo:versionStartDate "2028-08-02"^^xsd:date .
 
 mailo:Amend_AIAct_v4_FRIA_PublicBodies a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: fria_public_bodies" ;
-    mailo:amendmentDescription "36-month anniversary — Fundamental Rights Impact Assessment mandatory for public-body deployers of high-risk AI systems" ;
-    mailo:versionStartDate "2027-08-02"^^xsd:date .
+    mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113(c)(i) — Article 27 fundamental rights impact assessment applies to deployers of Article 6(2) / Annex III high-risk systems from 2 December 2027." ;
+    mailo:versionStartDate "2027-12-02"^^xsd:date .
 
 mailo:AnnexIIIRoute a mailo:HighRiskRoute ;
     rdfs:label "Annex III route (Art.6(2)) — listed standalone use case"@en ;
@@ -1450,7 +1482,7 @@ mailo:GDPR_v1_FullyApplicable a mailo:RegulationVersion ;
     rdfs:label "GDPR fully applicable — all provisions in force" ;
     mailo:applicablePhase "fully_applicable" ;
     mailo:isCurrentVersion true ;
-    mailo:versionOf mailo:GDPR_2016_679 ;
+    mailo:versionOf mailo:GDPR ;
     mailo:versionStartDate "2018-05-25"^^xsd:date .
 
 mailo:GDPR_v2_OmnibusProposed_Art22 a mailo:RegulationVersion ;
@@ -1458,7 +1490,7 @@ mailo:GDPR_v2_OmnibusProposed_Art22 a mailo:RegulationVersion ;
     mailo:applicablePhase "art22_omnibus_proposed_NOT_ADOPTED" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:OmnibusGDPR_Art22_Proposal_20251119 ;
-    mailo:versionOf mailo:GDPR_2016_679 .
+    mailo:versionOf mailo:GDPR .
 
 mailo:GXDBio a mailo:NPE ;
     rdfs:label "GXD-Bio Corporation (NPE)"@en .
@@ -1819,10 +1851,10 @@ mailo:EPO_BoA a mailo:Court ;
     rdfs:label "EPO Board of Appeal"@en .
 
 mailo:GDPR_2016_679 a mailo:EURegulation ;
-    rdfs:label "GDPR 2016/679" ;
-    mailo:celex "32016R0679" ;
-    mailo:hasVersion mailo:GDPR_v1_FullyApplicable,
-        mailo:GDPR_v2_OmnibusProposed_Art22 .
+    rdfs:label "GDPR 2016/679 (deprecated identifier)"@en ;
+    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2016/679, retained for backward compatibility with v5.2.0 and earlier. The same representational split corrected for the AI Act in v5.2.1 affected the GDPR: article-level assertions were attached to mailo:GDPR and temporal versions to this identifier. All assertions were migrated to mailo:GDPR. Use mailo:GDPR."@en ;
+    owl:deprecated true ;
+    owl:sameAs mailo:GDPR .
 
 mailo:GDPR_Art12_5 a mailo:LegalArticle ;
     rdfs:label "GDPR Art.12(5) — Exercise of data subject rights free of charge"@en ;
@@ -1878,6 +1910,7 @@ mailo:MDR a mailo:EURegulation,
         mailo:RegulatoryFramework ;
     rdfs:label "MDR 2017/745"@en ;
     eli:id_local "32017R0745" ;
+    dcterms:date "2017-04-05"^^xsd:date ;
     dcterms:identifier "2017/745/EU" ;
     mailo:coversArticle mailo:MDR_AnnexI,
         mailo:MDR_AnnexII,
@@ -1896,15 +1929,25 @@ mailo:MDR_AnnexIX a mailo:LegalArticle ;
     rdfs:comment "The conformity assessment route involving notified-body assessment of the manufacturer's quality management system and of the technical documentation. Referenced by Tension_MDR_AIAct_DualTrack, which sets it against AI Act Art.43. Added in v5.1.0: the tension cited this annex while the ontology did not encode it."@en .
 
 mailo:OmnibusAI_ProvisionalAgreement_20260507 a mailo:LegislativeAmendment ;
-    rdfs:label "Digital Omnibus on AI — Provisional Agreement (Council + EP, 2026-05-07)" ;
-    mailo:amendmentDescription "Provisional political agreement on Digital Omnibus on AI (Omnibus VII package). Extends Annex III standalone high-risk deadline to 2027-12-02 and Annex I (SaMD/MDR) deadline to 2028-08-02 via conditional standards-availability mechanism. Introduces unified MDR+AI Act notified body assessment pathway. Not yet formally adopted as of 2026-05-10; formal adoption expected before 2026-08-02. Source: Consilium press release 2026-05-07." ;
+    rdfs:label "Digital Omnibus on AI — provisional agreement of 7 May 2026 (superseded)"@en ;
+    rdfs:comment "Retained as legislative history. This node no longer triggers any operative regulation version; the operative basis is mailo:OmnibusAI_RegEU2026_1744."@en ;
+    mailo:amendmentDescription "Provisional political agreement of 7 May 2026 on the Digital Omnibus on AI, reached before formal adoption. Its conditional standards-availability mechanism is not the adopted rule and has no operative effect. Superseded by Regulation (EU) 2026/1744." ;
     mailo:versionStartDate "2026-05-07"^^xsd:date .
+
+mailo:OmnibusAI_RegEU2026_1744 a mailo:LegislativeAmendment ;
+    rdfs:label "Digital Omnibus on AI — Regulation (EU) 2026/1744"@en ;
+    eli:id_local "32026R1744" ;
+    dcterms:date "2026-07-08"^^xsd:date ;
+    dcterms:replaces mailo:OmnibusAI_ProvisionalAgreement_20260507 ;
+    dcterms:source <http://data.europa.eu/eli/reg/2026/1744/oj> ;
+    mailo:amendmentDescription "Regulation (EU) 2026/1744 of the European Parliament and of the Council of 8 July 2026 amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230 as regards the simplification of the implementation of harmonised rules on artificial intelligence (Digital Omnibus on AI). Published in the Official Journal on 24 July 2026 and in force from 27 July 2026. Chapter III Sections 1 to 3 apply from 2 December 2027 for Article 6(2) / Annex III systems and from 2 August 2028 for Article 6(1) / Annex I systems." ;
+    mailo:versionStartDate "2026-07-27"^^xsd:date .
 
 mailo:PLD a mailo:EUDirective,
         mailo:RegulatoryFramework ;
     rdfs:label "PLD 2024/2853"@en ;
     eli:id_local "32024L2853" ;
-    dcterms:date "2024-11-23"^^xsd:date ;
+    dcterms:date "2024-10-23"^^xsd:date ;
     dcterms:identifier "2024/2853/EU" ;
     rdfs:comment "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."@en ;
     mailo:coversArticle mailo:PLD_Art10,
@@ -2061,7 +2104,9 @@ mailo:GDPR a mailo:EURegulation,
     eli:id_local "32016R0679" ;
     dcterms:date "2016-04-27"^^xsd:date ;
     dcterms:identifier "2016/679/EU" ;
-    rdfs:comment "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation."@en ;
+    rdfs:comment "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation. Canonical identifier for the GDPR; mailo:GDPR_2016_679 is a deprecated alias."@en ;
+    mailo:hasVersion mailo:GDPR_v1_FullyApplicable,
+        mailo:GDPR_v2_OmnibusProposed_Art22 ;
     mailo:coversArticle mailo:GDPR_Art12_5,
         mailo:GDPR_Art15,
         mailo:GDPR_Art15_1h,
@@ -2139,14 +2184,10 @@ mailo:InclusionBasis a owl:Class ;
         matter."""@en .
 
 mailo:AIAct_2024_1689 a mailo:EURegulation ;
-    rdfs:label "AI Act 2024/1689" ;
-    mailo:celex "32024R1689" ;
-    mailo:hasVersion mailo:AIAct_v1_ProhibitedPractices,
-        mailo:AIAct_v2_GPAIModelObligations,
-        mailo:AIAct_v3_OriginalHighRisk,
-        mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone,
-        mailo:AIAct_v3b_Omnibus_AnnexI_SaMD,
-        mailo:AIAct_v4_FRIA_PublicBodies .
+    rdfs:label "AI Act 2024/1689 (deprecated identifier)"@en ;
+    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2024/1689, retained for backward compatibility with v5.2.0 and earlier. Up to v5.2.0 the AI Act's article-level assertions were attached to mailo:AIAct while its temporal versions were attached to this identifier, and the two carried no relation, so no query could traverse from an article to the applicable regulation version. All assertions were migrated to mailo:AIAct in v5.2.1. Use mailo:AIAct."@en ;
+    owl:deprecated true ;
+    owl:sameAs mailo:AIAct .
 
 mailo:ConflictType a owl:Class ;
     rdfs:label "ConflictType"@en ;
@@ -2197,8 +2238,17 @@ mailo:AIAct a mailo:EURegulation,
         mailo:RegulatoryFramework ;
     rdfs:label "EU AI Act 2024/1689"@en ;
     eli:id_local "32024R1689" ;
-    dcterms:date "2024-08-01"^^xsd:date ;
+    dcterms:date "2024-06-13"^^xsd:date ;
     dcterms:identifier "2024/1689/EU" ;
+    rdfs:comment "Regulation (EU) 2024/1689 of 13 June 2024, published in the Official Journal on 12 July 2024 and in force from 1 August 2024. dcterms:date records the date of the act, following the convention used for the other EU instruments in MAILO. Canonical identifier for the AI Act; mailo:AIAct_2024_1689 is a deprecated alias."@en ;
+    mailo:hasVersion mailo:AIAct_v1_ProhibitedPractices,
+        mailo:AIAct_v2_GPAIModelObligations,
+        mailo:AIAct_v2b_PostOmnibusTransitional,
+        mailo:AIAct_v3_OriginalHighRisk,
+        mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone,
+        mailo:AIAct_v3b_Omnibus_AnnexI_SaMD,
+        mailo:AIAct_v3c_OriginalAnnexIHighRisk,
+        mailo:AIAct_v4_FRIA_PublicBodies ;
     mailo:coversArticle mailo:AIAct_Art10,
         mailo:AIAct_Art13,
         mailo:AIAct_Art14,

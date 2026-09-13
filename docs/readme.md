@@ -35,6 +35,38 @@ Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
 
 ## Changelog
 
+### v5.2.1 (2026-09-13) — factual consistency repair
+Instance-level corrections only. No class, property or SHACL shape added or altered; no CJEU
+assertion touched. 1,859 → 1,904 triples.
+
+- **Identifier split repaired.** The AI Act's article-level assertions were attached to
+  `mailo:AIAct` and its temporal versions to `mailo:AIAct_2024_1689`, with no relation between
+  the two, so no query could reach an applicable regulation version from an article. The same
+  split was then found in the GDPR representation. Both canonicalised; the second identifier in
+  each pair is now `owl:deprecated` with `owl:sameAs`, retained for backward compatibility.
+- **Digital Omnibus contradiction removed.** The graph recorded in one place that the AI limb had
+  been adopted as Regulation (EU) 2026/1744, while the AI Act timeline was still triggered by the
+  provisional agreement of 7 May 2026 and still described a conditional standards-availability
+  mechanism absent from the adopted text. `mailo:OmnibusAI_RegEU2026_1744` added as the operative
+  trigger; the provisional agreement is retained as history and triggers nothing.
+- **Current version corrected.** A version beginning 2 August 2028 carried
+  `isCurrentVersion true`. The current version is now `AIAct_v2b_PostOmnibusTransitional`, in
+  force from 27 July 2026, which records which text is in force rather than asserting that the
+  Chapter III Sections 1–3 obligations apply.
+- **FRIA.** Article 27 moved from 2 August 2027 to 2 December 2027 and scoped to deployers of
+  Article 6(2) / Annex III systems; it does not reach Annex I SaMD.
+- **Chapters I–II.** Dated to their application date of 2 February 2025 rather than to entry into
+  force of 1 August 2024. The interval 1 August 2024 to 1 February 2025 is deliberately uncovered:
+  no provision applied.
+- **Original high-risk dates separated.** One version had conflated Annex III and Annex I. Now
+  2 August 2026 (Article 6(2)) and 2 August 2027 (Article 6(1)) as distinct superseded versions.
+- **`dcterms:date`.** Corrected on the AI Act (2024-08-01 → 2024-06-13) and the PLD
+  (2024-11-23 → 2024-10-23), added to the MDR (2017-04-05), so that every EU instrument records
+  the date of the act.
+
+Not in scope: temporal reasoning; Annex I Section A/B modelling; Articles 27 and 43 as
+`LegalArticle` nodes; the notified-body transitional period; the tension-model coverage gaps.
+
 ### v5.2.0 (2026-09-10) — second corrective release
 Completes the audit begun in v5.1.0, covering everything that release did not reach: the
 ten cross-framework tensions, the principles and cases outside the trilogy, and the GDPR,
