@@ -3,7 +3,7 @@
 An OWL 2 knowledge graph of EU regulatory obligations bearing on medical AI systems, with SHACL
 constraints that make a subset of those obligations machine-checkable.
 
-**Current release: v5.2.1** · 1,904 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
+**Current release: v5.2.2** · 1,945 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
 · documentation: [`index-en.html`](https://vrkkao-eng.github.io/Mailo-ontology/index-en.html)
 
 ---
@@ -12,10 +12,10 @@ constraints that make a subset of those obligations machine-checkable.
 
 | | |
 |---|---|
-| Triples | 1,904 |
-| OWL classes | 64 |
+| Triples | 1,945 |
+| OWL classes | 65 |
 | Object / datatype properties | 43 / 39 |
-| Legal articles | 71 |
+| Legal articles | 76 |
 | Regulatory frameworks | 12 |
 | Cases | 16 (7 CJEU, 6 UPC, 3 EPO) |
 | Encoded principles | 12 (11 *ratio*, 1 *obiter*) |
@@ -115,9 +115,59 @@ needed, cite the tag: each row below is an immutable snapshot.
 
 | Version | Tag | Triples | SHACL node shapes |
 |---|---|---|---|
+| v5.2.2 | [`v5.2.2`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.2) | 1,945 | 19 |
 | v5.2.1 | [`v5.2.1`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.1) | 1,904 | 19 |
 | v5.2.0 | [`5.2.0`](https://github.com/vrkkao-eng/Mailo-ontology/tree/5.2.0) | 1,859 | 19 |
 | v5.1.0 | commit [`cc74e45`](https://github.com/vrkkao-eng/Mailo-ontology/tree/cc74e45477dfe541c5c0a849d9174122af053839) | 1,690 | 19 |
+
+### v5.2.2 — post-Omnibus correction and deferred modelling
+
+Unlike v5.2.1, **this release does add a class and new individuals.** One class,
+`mailo:EPOProceeding`; two `HighRiskRoute` individuals for the Annex I Section A and Section B
+split; and five AI Act article individuals — Arts. 4a, 27, 43, 53 and 55. No object property and
+no datatype property was added; those counts stand unchanged at 43 and 39.
+
+**The headline is a legal change the graph had missed.** Article 1(9) of Regulation (EU)
+2026/1744 deleted AI Act Art. 10(5); Article 1(6) inserted a new Art. 4a. This is not a
+relocation. The legal basis for processing special categories of personal data for bias
+detection and correction was lifted out of the high-risk training-data article into Chapter I,
+and its personal scope was widened from providers of high-risk systems to deployers of
+high-risk systems and to providers and deployers of other AI systems and models — on five
+cumulative conditions, and creating no obligation to perform bias detection. Art. 4a is now an
+article node and Art. 10 records the deletion, so a constraint still anchored to Art. 10(5) is
+visibly without a source.
+
+**The items v5.2.1 deferred are closed.** Annex I is no longer one set: `AnnexISectionARoute`
+and `AnnexISectionBRoute` are declared, the MDR and IVDR are recorded as Section A legislation,
+and MDR Annex VIII Rule 11 triggers the Section A route. Two things are worth keeping apart.
+Applicability is set for the Art. 6(1)/Annex I branch as a whole: Art. 113 brings Chapter III
+Sections 1–3 to it on 2 August 2028, a one-year deferral rather than the two years Annex III
+received, and the provision does not key that date to Section A. What Section A status separately
+determines is the conformity-assessment architecture, since it is the Section A legislation that
+requires third-party assessment and that requirement is what Art. 43 addresses. Art. 43 carries the notified-body transition, where the second
+subparagraph of Art. 43(3) sets 28 January 2028 while recital 18 describes eighteen months from
+27 July 2026, which would fall on 27 January; the Article's date governs and both are recorded,
+because a reader checking one against the other would otherwise suspect a transcription error.
+Art. 27 is encoded as a provision, its FRIA date having been carried without it since v5.2.1.
+Arts. 53 and 55 are added for temporal completeness; no constraint depends on the GPAI regime.
+
+**Metadata and provenance.** The ECLIs for C-201/14, C-311/18 and C-511/18 were withheld in
+v5.2.0 rather than supplied from memory — asserting an identifier from recall is the error class
+that produced the original C-203/22 defect — and are now added, each checked against InfoCuria or
+EUR-Lex and an independent secondary source, passing the citation-chronology constraint. The
+misspelled `mailo:EPOProceding` is deprecated in favour of `mailo:EPOProceeding` and declared
+equivalent, with instances typed against both; renaming a published IRI would break every
+reference to it. `P_634_004` is marked unanchored, and the `art22ExceptionApplied` comment that
+had presented that reading as a holding of C-634/21 is reworded. Two `triggeredBy` edges left
+doubled by the v5.2.1 simplification are removed along with their orphaned amendment nodes, and
+three dangling nodes are connected: Sanofi and Amgen as parties to `UPC_Sanofi_Amgen`, and
+EP 3 435 866 to `UPC_Dexcom_Abbott`.
+
+**Still open.** The unverified assertions on `UPC_10x_NanoString`, `UPC_Dexcom_Abbott` and
+`UPC_Sanofi_Amgen`; the holding recorded for `P_Bara_001`; the conceptual confusion flagged on
+`Tension_BlackBox_PatentProtection`, which treats patent protection as an incentive to secrecy
+where a patent in fact requires disclosure; and independent expert review, which no finding in
+any of the three corrective releases has received.
 
 ### v5.2.1 — factual consistency repair
 
@@ -151,13 +201,14 @@ added to the MDR so that every EU instrument records the date of the act.
 
 **This release does not implement temporal reasoning.** Application dates are regulation-version
 metadata and are not evaluated at validation time. Modelling of the Omnibus's Annex I Section A
-and Section B split, Articles 27 and 43, and the notified-body transitional period is deferred.
+and Section B split, Articles 27 and 43, and the notified-body transitional period is deferred
+to v5.2.2, which closes all four.
 
 ## Licence and citation
 
 Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.1. https://w3id.org/mailo#
+> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.2. https://w3id.org/mailo#
 
 Developed at KU Leuven, Faculty of Engineering Science. Documentation generated with
 [WIDOCO](https://github.com/dgarijo/Widoco); see [`docs/readme.md`](docs/readme.md) for
