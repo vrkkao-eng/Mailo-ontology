@@ -33,7 +33,7 @@ mailo: a owl:Ontology ;
     dcterms:creator "Victor Kao" ;
     dcterms:description "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations." ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-09-13"^^xsd:date ;
+    dcterms:modified "2026-09-14"^^xsd:date ;
     dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
     dcterms:title "Medical AI Legal Ontology (MAILO)" ;
     rdfs:comment "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."@en,
@@ -53,13 +53,29 @@ OTHER INSTRUMENTS. TSD Art.5 had been read as disapplying secrecy where informat
 CASES AND SHAPES. G 1/19 is a COMVIK inventive-step ruling, and the Enlarged Board held that whether the simulated system is technical is NOT decisive; all three EPO instances were attributed to EPC Art.52 and are re-anchored to Arts.56, 83 and 84. C-307/22 (FT v DW) involves no AI. Four cases are rescoped, leaving two of sixteen with a verified medical-AI technology claim. Correcting the class hierarchy in v5.1.0 inverted what shape target classes mean, since targeting AutomatedDecisionSystem was narrower than MedicalAISystem before and is broader after; three C-817/19 shapes had drifted and all five now target MedicalAISystem. MedicalAIComplianceShape records that its C-817/19 constraints are transposed rather than held, and that its conjunctive structure is a modelling choice: conformance evidences alignment with MAILO's model, not compliance with law.
 
 NOT VERIFIED. Three CJEU cases lack ECLIs, deliberately not supplied from memory. Three UPC instances retain unverified substantive assertions, flagged on the instances. No finding in either corrective release has been reviewed by a second EU data-protection specialist."""@en,
-        "Version 5.2.1 (patch): factual consistency repair, no schema change. (1) The AI Act had been represented by two unconnected identifiers, mailo:AIAct carrying the article-level assertions and mailo:AIAct_2024_1689 carrying the temporal versions, so no query could reach a regulation version from an article; all assertions were migrated to mailo:AIAct and the second identifier was deprecated. (2) The AI Act timeline was still triggered by the provisional agreement of 7 May 2026 and described a conditional standards-availability mechanism, while another part of the graph already recorded the adopted Regulation (EU) 2026/1744; the operative triggers now point to the adopted Regulation and the provisional agreement is retained as history alone. (3) A version starting 2 August 2028 was flagged as the current version; the current version is now the post-Omnibus text in force from 27 July 2026, which records the amended text rather than the applicability of the high-risk obligations. (4) The Article 27 FRIA date was corrected from 2 August 2027 to 2 December 2027 and its scope limited to Article 6(2) deployers. (5) Chapters I and II were dated to their application date of 2 February 2025 rather than the entry into force of 1 August 2024. (6) The original Annex III and Annex I high-risk dates, conflated in a single version, were separated to 2 August 2026 and 2 August 2027. (7) dcterms:date was corrected on the AI Act and the PLD and added to the MDR, so that every EU instrument records the date of the act. (8) The same identifier split was found in the GDPR representation and repaired the same way. No SHACL shape, no CJEU assertion and no class or property definition was changed."@en ;
-    owl:priorVersion <https://w3id.org/mailo/5.2.0> ;
-    owl:versionIRI <https://w3id.org/mailo/5.2.1> ;
-    owl:versionInfo "5.2.1" .
+        "Version 5.2.1 (patch): factual consistency repair, no schema change. (1) The AI Act had been represented by two unconnected identifiers, mailo:AIAct carrying the article-level assertions and mailo:AIAct_2024_1689 carrying the temporal versions, so no query could reach a regulation version from an article; all assertions were migrated to mailo:AIAct and the second identifier was deprecated. (2) The AI Act timeline was still triggered by the provisional agreement of 7 May 2026 and described a conditional standards-availability mechanism, while another part of the graph already recorded the adopted Regulation (EU) 2026/1744; the operative triggers now point to the adopted Regulation and the provisional agreement is retained as history alone. (3) A version starting 2 August 2028 was flagged as the current version; the current version is now the post-Omnibus text in force from 27 July 2026, which records the amended text rather than the applicability of the high-risk obligations. (4) The Article 27 FRIA date was corrected from 2 August 2027 to 2 December 2027 and its scope limited to Article 6(2) deployers. (5) Chapters I and II were dated to their application date of 2 February 2025 rather than the entry into force of 1 August 2024. (6) The original Annex III and Annex I high-risk dates, conflated in a single version, were separated to 2 August 2026 and 2 August 2027. (7) dcterms:date was corrected on the AI Act and the PLD and added to the MDR, so that every EU instrument records the date of the act. (8) The same identifier split was found in the GDPR representation and repaired the same way. No SHACL shape, no CJEU assertion and no class or property definition was changed."@en,
+        """Version 5.2.2 (patch): one substantive post-Omnibus correction, the modelling items v5.2.1 deferred, and a set of provenance and metadata repairs. UNLIKE v5.2.1, THIS RELEASE DOES ADD A CLASS AND NEW INDIVIDUALS: one class, mailo:EPOProceeding; two HighRiskRoute individuals for the Annex I Section A and Section B split; and five AI Act article individuals (Arts.4a, 27, 43, 53, 55). No object property and no datatype property was added: the counts stand at 43 and 39, unchanged from v5.2.1.
 
-mailo:Amgen a mailo:Company ;
-    rdfs:label "Amgen Inc."@en .
+HEADLINE. Article 1(9) of Regulation (EU) 2026/1744 deleted AI Act Art.10(5) and Article 1(6) inserted a new Art.4a. This is not a relocation: the legal basis for processing special categories of personal data for bias detection and correction was extracted from the high-risk training-data article into Chapter I, and its personal scope was broadened from providers of high-risk systems to deployers of high-risk systems and to providers and deployers of other AI systems and AI models, on five cumulative conditions and with no obligation to perform bias detection. Art.4a is encoded as an article node and Art.10 records the deletion, so any constraint anchored to Art.10(5) is visibly without a source. As an insertion effective 27 July 2026 it cannot operate retroactively.
+
+DEFERRED ITEMS NOW CLOSED. (a) Annex I is no longer treated as a single set: AnnexISectionARoute and AnnexISectionBRoute are declared, the MDR and IVDR are recorded as Section A legislation, and MDR Annex VIII Rule 11 now triggers the Section A route. The distinction is load-bearing for timing, since Chapter III Sections 1-3 apply to Section A from 2 August 2028, a one-year deferral rather than the two years granted to Annex III. (b) Art.43 is encoded with the notified-body transitional period: the second subparagraph of Art.43(3) sets 28 January 2028, while recital 18 describes eighteen months from 27 July 2026, which would be 27 January 2028; the operative date is the Article's and both are recorded because the divergence is in the published text. (c) Art.27 is encoded as a provision, the graph having previously carried its FRIA date without the article itself. (d) Arts.53 and 55 are added for temporal completeness; no MAILO constraint depends on the GPAI regime.
+
+METADATA AND PROVENANCE. The ECLIs for C-201/14, C-311/18 and C-511/18 were withheld in v5.2.0 rather than supplied from memory, since asserting an identifier from recall is the error class that produced the original C-203/22 defect; they are now added, each verified against InfoCuria or EUR-Lex and an independent secondary source, and they pass the citation-chronology constraint. The misspelled class mailo:EPOProceding is deprecated in favour of mailo:EPOProceeding, declared equivalent, with instances typed against both; renaming a published IRI would break every reference to it. P_634_004 is marked unanchored, and the art22ExceptionApplied comment, which had presented that reading as a holding of C-634/21, is reworded. Two triggeredBy edges left doubled by the v5.2.1 simplification were removed with their orphaned amendment nodes, and three dangling nodes were connected: Sanofi and Amgen as parties to UPC_Sanofi_Amgen, and EP 3 435 866 to UPC_Dexcom_Abbott.
+
+STILL OPEN. The unverified substantive assertions on UPC_10x_NanoString, UPC_Dexcom_Abbott and UPC_Sanofi_Amgen; the holding recorded for P_Bara_001; the conceptual confusion flagged on Tension_BlackBox_PatentProtection, which treats patent protection as an incentive to secrecy where a patent in fact requires disclosure; and independent expert review, which no finding in this or either preceding corrective release has received."""@en ;
+    owl:priorVersion <https://w3id.org/mailo/5.2.1> ;
+    owl:versionIRI <https://w3id.org/mailo/5.2.2> ;
+    owl:versionInfo "5.2.2" .
+
+mailo:AIAct_2024_1689 a mailo:EURegulation ;
+    rdfs:label "AI Act 2024/1689 (deprecated identifier)"@en ;
+    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2024/1689, retained for backward compatibility with v5.2.0 and earlier. Up to v5.2.0 the AI Act's article-level assertions were attached to mailo:AIAct while its temporal versions were attached to this identifier, and the two carried no relation, so no query could traverse from an article to the applicable regulation version. All assertions were migrated to mailo:AIAct in v5.2.1. Use mailo:AIAct."@en ;
+    owl:deprecated true ;
+    owl:sameAs mailo:AIAct .
+
+mailo:AnnexISectionBRoute a mailo:HighRiskRoute ;
+    rdfs:label "Annex I Section B route — harmonisation legislation without third-party conformity assessment"@en ;
+    rdfs:comment "The Art.6(1) route for products under the Annex I SECTION B legislation (civil aviation security, two- and three-wheel vehicles, agricultural vehicles, marine equipment, rail, motor vehicles), which does not carry the Section A third-party assessment requirement and is therefore not a medical-device route. Recorded to keep Section A identifiable rather than because MAILO models Section B products. Added in v5.2.2."@en .
 
 mailo:CJEU a mailo:Court ;
     rdfs:label "Court of Justice of the EU (CJEU)"@en .
@@ -101,9 +117,11 @@ mailo:C_307_22 a mailo:CJEUCase ;
 mailo:C_311_18 a mailo:CJEUCase ;
     rdfs:label "C-311/18 Schrems II"@en ;
     dcterms:date "2020-07-16"^^xsd:date ;
-    dcterms:identifier "C-311/18" ;
-    rdfs:comment "Inclusion basis (DomainContext): Schrems II. Background for cross-border health data transfer under EHDS."@en,
-        "MISSING METADATA (v5.1.0): no ECLI recorded. Not supplied here because it was not verified against a primary source in this pass, and asserting an identifier from memory is the error class that produced the original C-203/22 defect. Add after checking EUR-Lex."@en ;
+    dcterms:identifier "C-311/18",
+        "ECLI:EU:C:2020:559" ;
+    rdfs:comment "ECLI added in v5.2.2, verified against InfoCuria or EUR-Lex plus an independent secondary source rather than supplied from memory."@en,
+        "Inclusion basis (DomainContext): Schrems II. Background for cross-border health data transfer under EHDS."@en ;
+    skos:notation "ECLI:EU:C:2020:559" ;
     mailo:hasInclusionBasis mailo:DomainContext ;
     mailo:hasStatus "Final"^^xsd:string .
 
@@ -124,7 +142,8 @@ mailo:DataSubject a owl:Class ;
     rdfs:comment "An individual whose personal data is processed" ;
     rdfs:subClassOf mailo:LegalEntity .
 
-mailo:EPO_G0001_19 a mailo:EPOProceding ;
+mailo:EPO_G0001_19 a mailo:EPOProceding,
+        mailo:EPOProceeding ;
     rdfs:label "EPO G 0001/19 — Patentability of Computer-Implemented Simulations"@en ;
     dcterms:date "2021-03-10"^^xsd:date ;
     dcterms:identifier "G 0001/19" ;
@@ -135,7 +154,8 @@ mailo:EPO_G0001_19 a mailo:EPOProceding ;
     mailo:hasOutcome "Enlarged Board of Appeal, 10 March 2021 (application EP03793825.5, simulation of pedestrian crowd movement through a building). The COMVIK approach of T 641/00 applies to computer-implemented simulations, which are assessed by the same criteria as any other computer-implemented invention. A technical effect going beyond the normal electrical interactions within the computer — a further technical effect — is required to contribute to inventive step, and any further technical use of the simulation output must be at least implied by the claim. Question 2B was answered in the negative: it is NEITHER SUFFICIENT NOR NECESSARY that the simulation is based on technical principles underlying the simulated system." ;
     mailo:interpretesArticle mailo:EPC_Art56 .
 
-mailo:EPO_T1191_19 a mailo:EPOProceding ;
+mailo:EPO_T1191_19 a mailo:EPOProceding,
+        mailo:EPOProceeding ;
     rdfs:label "EPO T 1191/19 — Neuronal plasticity/INSTITUT GUTTMANN: meta-learning, inventive step and training-data sufficiency"@en ;
     dcterms:date "2022-04-01"^^xsd:date ;
     dcterms:identifier "T 1191/19" ;
@@ -148,13 +168,15 @@ mailo:EPO_T1191_19 a mailo:EPOProceding ;
         mailo:EPC_Art83,
         mailo:EPC_Art84 .
 
-mailo:EP_3435866 a mailo:EuropeanPatent ;
-    rdfs:label "EP 3 435 866"@en ;
-    rdfs:comment "Dexcom continuous glucose monitoring system."@en .
-
 mailo:EUCharter a mailo:InternationalTreaty,
         mailo:RegulatoryFramework ;
     rdfs:label "EU Charter of Fundamental Rights"@en .
+
+mailo:GDPR_2016_679 a mailo:EURegulation ;
+    rdfs:label "GDPR 2016/679 (deprecated identifier)"@en ;
+    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2016/679, retained for backward compatibility with v5.2.0 and earlier. The same representational split corrected for the AI Act in v5.2.1 affected the GDPR: article-level assertions were attached to mailo:GDPR and temporal versions to this identifier. All assertions were migrated to mailo:GDPR. Use mailo:GDPR."@en ;
+    owl:deprecated true ;
+    owl:sameAs mailo:GDPR .
 
 mailo:LegalTest a owl:Class ;
     rdfs:label "LegalTest",
@@ -195,9 +217,6 @@ mailo:Risk_TradeSecretTransparencyConflict a mailo:ComplianceRisk ;
     rdfs:comment "Medical AI operators relying on TSD Art.2 to protect model weights face: (a) mandatory AI Act Art.13 disclosure to deployers; (b) GDPR Art.15(1)(h) actionable explanation obligations to data subjects; (c) mandatory supervisory authority adjudication when TSD is claimed (C-203/22). Hybrid strategy required: patent final outputs, trade secret the AI platform, use ZKP/ZKML for auditor verification without weight disclosure."@en ;
     mailo:mitigatedBy mailo:ExplainabilityObligation ;
     mailo:riskLevel "HIGH"^^xsd:string .
-
-mailo:Sanofi a mailo:Company ;
-    rdfs:label "Sanofi S.A."@en .
 
 mailo:SoftwareAsMedicalDevice a owl:Class ;
     rdfs:label "SoftwareAsMedicalDevice",
@@ -367,7 +386,8 @@ mailo:UPC_Dexcom_Abbott a mailo:UPCCase ;
     mailo:hasInclusionBasis mailo:DirectSubjectMatter ;
     mailo:hasOutcome "Paris Local Division, 3 July 2024: on Dexcom's infringement action and Abbott's revocation counterclaim, EP 3 435 866 (remote monitoring of blood glucose) was revoked in its entirety for lack of inventive step, with effect across all UPC states. The patent had previously been maintained by the EPO in opposition on substantially the same grounds and prior art, making this a documented EPO-UPC divergence. The parties settled all patent disputes worldwide on 23 December 2024." ;
     mailo:hasPlaintiff mailo:Dexcom ;
-    mailo:hasStatus "Settled globally 23 December 2024; all pending cases dismissed (verified 2026-09-10)" .
+    mailo:hasStatus "Settled globally 23 December 2024; all pending cases dismissed (verified 2026-09-10)" ;
+    mailo:involvesPatent mailo:EP_3435866 .
 
 mailo:UPC_GXD_Myriad a mailo:UPCCase ;
     rdfs:label "GXD-Bio v. Myriad Genetics — Genomic Diagnostic AI"@en ;
@@ -413,8 +433,10 @@ mailo:UPC_Sanofi_Amgen a mailo:UPCCase ;
     rdfs:comment "Inclusion basis (DirectSubjectMatter): Antibody claims; biologic rather than AI, retained for claim-scope reasoning."@en,
         "SCOPE CORRECTION and UNVERIFIED (v5.1.0). The instance was declared DirectSubjectMatter while its own note concedes the case is 'biologic rather than AI' — an internal contradiction. PCSK9 antibody claims involve no AI, so the basis is moved to DomainContext. The substantive assertions — a Dusseldorf LD finding of validity without infringement, a 'dual-element test', Court of Appeal restoration of EP'797 after Munich CD revocation, and an EPO Board hearing in April 2026 — are separately checkable and none has been verified. The status date has now passed. This is also the only UPC instance recording neither plaintiff nor defendant. Do not cite until checked."@en ;
     mailo:decidedBy mailo:UPC_LD_Dusseldorf ;
+    mailo:hasDefendant mailo:Amgen ;
     mailo:hasInclusionBasis mailo:DomainContext ;
     mailo:hasOutcome "Düsseldorf LD: patent valid, no infringement (dual-element test established). CoA: EP'797 restored after Munich CD revocation. EPO-UPC divergence on inventive step."^^xsd:string ;
+    mailo:hasPlaintiff mailo:Sanofi ;
     mailo:hasStatus "Active — EPO BoA hearing scheduled 2026-04"^^xsd:string .
 
 mailo:amendmentDescription a owl:DatatypeProperty ;
@@ -454,7 +476,7 @@ mailo:appliesToRoute a owl:ObjectProperty ;
 mailo:art22ExceptionApplied a owl:DatatypeProperty ;
     rdfs:label "Art.22 exception applied"@en ;
     rdfs:comment "contract_necessity | explicit_consent | member_state_law",
-        "The GDPR Art.22(2) exception relied on: 'contract_necessity' | 'explicit_consent' | 'member_state_law'. Must be stated or Art.22(1) prohibition applies (C-634/21 P_634_004)."@en ;
+        "The GDPR Art.22(2) exception relied on: 'contract_necessity' | 'explicit_consent' | 'member_state_law'. Must be stated. Whether Art.22(1) then operates as a prohibition of its own force, absent a stated exception, is MAILO's reading (P_634_004) and not a holding of C-634/21; see the note on that principle. Reworded in v5.2.2."@en ;
     rdfs:domain mailo:AutomatedDecisionSystem ;
     rdfs:range xsd:string .
 
@@ -1009,7 +1031,8 @@ mailo:versionStartDate a owl:DatatypeProperty ;
 
 mailo:AIAct_Art10 a mailo:LegalArticle ;
     rdfs:label "AI Act Art.10 — Data and data governance"@en ;
-    rdfs:comment "Art.10(3): training, validation and testing data sets shall be relevant, sufficiently representative, and, TO THE BEST EXTENT POSSIBLE, free of errors and complete in view of the intended purpose. CORRECTED in v5.1.0: the earlier comment listed 'freedom from errors, completeness' as flat criteria, dropping the qualifier the final text added precisely because absolute error-freedom is unattainable. The distinction matters for any claim that a dataset defect breaches Art.10(3) — including Tension_EHDS_GDPR_OptOut, which asserts that elevated opt-out rates in a clinically significant subpopulation put a dataset in violation. Under the qualified standard that conclusion requires showing the shortfall was avoidable, not merely that it exists."@en .
+    rdfs:comment "AMENDED (v5.2.2): Art.1(9) of Regulation (EU) 2026/1744 DELETED Art.10(5), which had carried the legal basis for processing special categories for bias detection by providers of high-risk systems. That basis is now Art.4a, with a wider addressee set. Any constraint or argument anchored to Art.10(5) is without a source in the text in force and must be re-anchored to Art.4a or retired."@en,
+        "Art.10(3): training, validation and testing data sets shall be relevant, sufficiently representative, and, TO THE BEST EXTENT POSSIBLE, free of errors and complete in view of the intended purpose. CORRECTED in v5.1.0: the earlier comment listed 'freedom from errors, completeness' as flat criteria, dropping the qualifier the final text added precisely because absolute error-freedom is unattainable. The distinction matters for any claim that a dataset defect breaches Art.10(3) — including Tension_EHDS_GDPR_OptOut, which asserts that elevated opt-out rates in a clinically significant subpopulation put a dataset in violation. Under the qualified standard that conclusion requires showing the shortfall was avoidable, not merely that it exists."@en .
 
 mailo:AIAct_Art17 a mailo:LegalArticle ;
     rdfs:label "AI Act Art.17 — Quality Management System"@en ;
@@ -1020,9 +1043,31 @@ mailo:AIAct_Art26 a mailo:LegalArticle ;
     rdfs:comment "Deployers, for example a hospital using a third-party system, must take appropriate technical and organisational measures to ensure use in accordance with the instructions (26(1)); assign human oversight to natural persons with the necessary competence, training and authority (26(2)); ensure input data is relevant and sufficiently representative for the intended purpose so far as they control it (26(4)); monitor operation and inform the provider of risks or serious incidents (26(5)); keep automatically generated logs for at least six months (26(6)); inform workers before putting a system into use in the workplace (26(7)); and, where a decision concerning a natural person is taken on the basis of an Annex III system's output, inform the affected person that they are subject to it (26(11)). Note that 26(11), like Art.86, is scoped to Annex III."@en ;
     mailo:complementedBy mailo:AIAct_Art14 .
 
+mailo:AIAct_Art27 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.27 — Fundamental rights impact assessment"@en ;
+    rdfs:comment "Deployers that are bodies governed by public law, private entities providing public services, or deployers of systems under Annex III points 5(b) and (c) must perform a FRIA before first use. Scoped to Art.6(2) deployers, with application from 2 December 2027 following Regulation (EU) 2026/1744. The date was corrected in v5.2.1; this entry adds the provision itself, which the graph referenced temporally without encoding. Added in v5.2.2."@en .
+
+mailo:AIAct_Art43 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.43 — Conformity assessment (notified-body transitional period as amended)"@en ;
+    rdfs:comment "As amended by Regulation (EU) 2026/1744. The second subparagraph of Art.43(3) sets 28 JANUARY 2028 as the deadline within which notified bodies already designated under the Annex I Section A legislation may continue to act for AI systems falling under that legislation. Recital 18 characterises the same period as eighteen months from 27 July 2026, which would fall on 27 January 2028; the operative date is the one in the Article. Both are recorded because the divergence is in the published text and a reader checking the recital against the Article will otherwise think one of them is a transcription error. Added in v5.2.2."@en .
+
+mailo:AIAct_Art4a a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.4a — Processing of special categories of personal data for bias detection and correction"@en ;
+    rdfs:comment """Inserted into Chapter I by Art.1(6) of Regulation (EU) 2026/1744, in force 27 July 2026. Art.4a(1) permits, exceptionally, processing of GDPR Art.9(1) special categories to detect and correct bias, on five cumulative conditions: it cannot effectively be achieved with other data including synthetic or anonymised data; technical limits on re-use plus state-of-the-art security and privacy-preserving measures including pseudonymisation; strict access controls, documentation and confidentiality; no transmission, transfer or access by other parties; and deletion once bias is corrected or the retention period ends, whichever is first. Art.4a(2) extends the basis beyond providers of high-risk systems to deployers of high-risk systems and to providers and deployers of other AI systems and AI models, and states expressly that it creates NO obligation to perform bias detection.
+
+This is not a relocation of the deleted Art.10(5). The basis was extracted from the high-risk training-data article into Chapter I with a broadened personal scope, so the addressee set changes. Art.4a sits in Chapter I, covered by Art.113 third subparagraph point (a) (2 February 2025), but as an insertion effective 27 July 2026 it cannot operate retroactively; processing before that date is assessed on its own footing. Added in v5.2.2."""@en .
+
 mailo:AIAct_Art50 a mailo:LegalArticle ;
     rdfs:label "AI Act Art.50 — Transparency obligations for certain AI systems"@en ;
     rdfs:comment "Transparency duties on providers and deployers of AI systems that interact with natural persons or generate synthetic audio, image, video or text, including machine-readable marking and disclosure of artificially generated content. Applies to AI-generated radiology reports and diagnostic summaries. Relabelled in v5.1.0: this is NOT the GPAI regime, which is Chapter V (Arts.51-56) and addresses providers of general-purpose AI models."@en .
+
+mailo:AIAct_Art53 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.53 — Obligations for providers of general-purpose AI models"@en ;
+    rdfs:comment "Technical documentation, information for downstream providers, copyright policy and a training-content summary. Applicable from 2 August 2025; models placed on the market before that date have until 2 August 2027 under Art.111(3). Recorded for temporal completeness: GPAI obligations are not a medical-device route and no MAILO constraint depends on them. Added in v5.2.2."@en .
+
+mailo:AIAct_Art55 a mailo:LegalArticle ;
+    rdfs:label "AI Act Art.55 — Obligations for providers of GPAI models with systemic risk"@en ;
+    rdfs:comment "Model evaluation, adversarial testing, systemic-risk assessment and mitigation, serious-incident reporting and cybersecurity protection, in addition to Art.53. Same application dates as Art.53. Recorded for temporal completeness. Added in v5.2.2."@en .
 
 mailo:AIAct_Art86 a mailo:LegalArticle ;
     rdfs:label "AI Act Art.86 — Right to explanation of individual decision-making (Annex III only)"@en ;
@@ -1078,8 +1123,7 @@ mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:RegulationVersion ;
     rdfs:label "Omnibus-revised Annex III standalone high-risk deadline (biometrics, employment, education, law enforcement, critical infrastructure, border management)" ;
     mailo:applicablePhase "high_risk_annex_iii_omnibus" ;
     mailo:isCurrentVersion false ;
-    mailo:triggeredBy mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone,
-        mailo:OmnibusAI_RegEU2026_1744 ;
+    mailo:triggeredBy mailo:OmnibusAI_RegEU2026_1744 ;
     mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2027-12-02"^^xsd:date .
 
@@ -1087,8 +1131,7 @@ mailo:AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:RegulationVersion ;
     rdfs:label "Omnibus-revised Annex I deadline — SaMD under MDR 2017/745 and IVDR 2017/746 (primary compliance target for MAILO)" ;
     mailo:applicablePhase "high_risk_annex_i_samd_omnibus" ;
     mailo:isCurrentVersion false ;
-    mailo:triggeredBy mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD,
-        mailo:OmnibusAI_RegEU2026_1744 ;
+    mailo:triggeredBy mailo:OmnibusAI_RegEU2026_1744 ;
     mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2028-08-02"^^xsd:date .
 
@@ -1128,30 +1171,23 @@ mailo:Amend_AIAct_v2b_PostOmnibusTransitional a mailo:LegislativeAmendment ;
     mailo:amendmentDescription "Regulation (EU) 2026/1744 entered into force on 27 July 2026 and its amendments became part of Regulation (EU) 2024/1689. Articles 102 to 110 are expressly applicable from that date under the new point (d) of the third paragraph of Article 113." ;
     mailo:versionStartDate "2026-07-27"^^xsd:date .
 
-mailo:Amend_AIAct_v3c_OriginalAnnexIHighRisk a mailo:LegislativeAmendment ;
-    rdfs:label "Activation event: high_risk_annex_i_original" ;
-    mailo:amendmentDescription "Original Article 113 date for Article 6(1) / Annex I high-risk systems. Superseded by Regulation (EU) 2026/1744." ;
-    mailo:versionStartDate "2027-08-02"^^xsd:date .
-
 mailo:Amend_AIAct_v3_OriginalHighRisk a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: high_risk_original_deadline" ;
     mailo:amendmentDescription "Original Article 113 date for Article 6(2) / Annex III high-risk systems. Superseded by Regulation (EU) 2026/1744 before it took effect." ;
     mailo:versionStartDate "2026-08-02"^^xsd:date .
 
-mailo:Amend_AIAct_v3a_Omnibus_AnnexIII_Standalone a mailo:LegislativeAmendment ;
-    rdfs:label "Activation event: high_risk_annex_iii_omnibus" ;
-    mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113(c)(i) — Chapter III Sections 1 to 3 apply to Article 6(2) / Annex III high-risk systems from 2 December 2027." ;
-    mailo:versionStartDate "2027-12-02"^^xsd:date .
-
-mailo:Amend_AIAct_v3b_Omnibus_AnnexI_SaMD a mailo:LegislativeAmendment ;
-    rdfs:label "Activation event: high_risk_annex_i_samd_omnibus" ;
-    mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113 — Chapter III Sections 1 to 3 apply to Article 6(1) / Annex I high-risk systems, including SaMD under MDR 2017/745 and IVDR 2017/746, from 2 August 2028." ;
-    mailo:versionStartDate "2028-08-02"^^xsd:date .
+mailo:Amend_AIAct_v3c_OriginalAnnexIHighRisk a mailo:LegislativeAmendment ;
+    rdfs:label "Activation event: high_risk_annex_i_original" ;
+    mailo:amendmentDescription "Original Article 113 date for Article 6(1) / Annex I high-risk systems. Superseded by Regulation (EU) 2026/1744." ;
+    mailo:versionStartDate "2027-08-02"^^xsd:date .
 
 mailo:Amend_AIAct_v4_FRIA_PublicBodies a mailo:LegislativeAmendment ;
     rdfs:label "Activation event: fria_public_bodies" ;
     mailo:amendmentDescription "Regulation (EU) 2026/1744, amended Article 113(c)(i) — Article 27 fundamental rights impact assessment applies to deployers of Article 6(2) / Annex III high-risk systems from 2 December 2027." ;
     mailo:versionStartDate "2027-12-02"^^xsd:date .
+
+mailo:Amgen a mailo:Company ;
+    rdfs:label "Amgen Inc."@en .
 
 mailo:AnnexIIIRoute a mailo:HighRiskRoute ;
     rdfs:label "Annex III route (Art.6(2)) — listed standalone use case"@en ;
@@ -1159,7 +1195,12 @@ mailo:AnnexIIIRoute a mailo:HighRiskRoute ;
 
 mailo:AnnexIRoute a mailo:HighRiskRoute ;
     rdfs:label "Annex I route (Art.6(1)) — product or safety component"@en ;
-    rdfs:comment "The system is a product, or a safety component of a product, covered by Union harmonisation legislation listed in Annex I and required to undergo third-party conformity assessment. MDR and IVDR are in Annex I Section A, so Class IIa, IIb and III medical devices incorporating AI take this route automatically. Art.86 and Art.26(11), both scoped to Annex III, DO NOT APPLY. Obligations for this route apply from 2 August 2028."@en .
+    rdfs:comment "SUPERSEDED IN PART (v5.2.2): retained for continuity, but Annex I is not a single set for timing or conformity purposes. Use AnnexISectionARoute for products requiring third-party conformity assessment, which is the branch the MDR and IVDR sit in and the one every medical-device instance in this graph takes."@en,
+        "The system is a product, or a safety component of a product, covered by Union harmonisation legislation listed in Annex I and required to undergo third-party conformity assessment. MDR and IVDR are in Annex I Section A, so Class IIa, IIb and III medical devices incorporating AI take this route automatically. Art.86 and Art.26(11), both scoped to Annex III, DO NOT APPLY. Obligations for this route apply from 2 August 2028."@en .
+
+mailo:AnnexISectionARoute a mailo:HighRiskRoute ;
+    rdfs:label "Annex I Section A route — harmonisation legislation requiring third-party conformity assessment"@en ;
+    rdfs:comment "The Art.6(1) route taken by products covered by the Union harmonisation legislation listed in Annex I SECTION A, which requires third-party conformity assessment. The MDR and the IVDR are in Section A, so AI-based medical devices at Class IIa or above under MDR Annex VIII Rule 11 take this route. Two things must be kept apart here. Applicability is set for the Art.6(1)/Annex I branch AS A WHOLE: Art.113 third subparagraph point (c) as amended by Regulation (EU) 2026/1744 brings Chapter III Sections 1-3 to AI systems classified as high-risk under Art.6(1) and Annex I from 2 AUGUST 2028, a one-year deferral from the original 2 August 2027 rather than the two years granted to Annex III; the provision does not key that date to Section A. What Section A status separately determines is the CONFORMITY-ASSESSMENT ARCHITECTURE, since it is the Section A legislation that requires third-party assessment and it is that requirement which Art.43 and its notified-body transition address. Art.86 and Art.26(11), confined to Annex III, do not reach systems on this route. Added in v5.2.2: the previous AnnexIRoute treated Annex I as a single set, which the Omnibus timeline makes untenable."@en .
 
 mailo:CJEU_GrandChamber a mailo:Court ;
     rdfs:label "CJEU Grand Chamber"@en ;
@@ -1168,9 +1209,11 @@ mailo:CJEU_GrandChamber a mailo:Court ;
 mailo:C_201_14 a mailo:CJEUCase ;
     rdfs:label "C-201/14 Bara"@en ;
     dcterms:date "2015-10-01"^^xsd:date ;
-    dcterms:identifier "C-201/14" ;
-    rdfs:comment "Inclusion basis (TransposedPrinciple): Health data transferred between public bodies without information; earliest link in the retained chain."@en,
-        "MISSING METADATA (v5.1.0): no ECLI recorded. Not supplied here because it was not verified against a primary source in this pass, and asserting an identifier from memory is the error class that produced the original C-203/22 defect. Add after checking EUR-Lex."@en ;
+    dcterms:identifier "C-201/14",
+        "ECLI:EU:C:2015:638" ;
+    rdfs:comment "ECLI added in v5.2.2, verified against InfoCuria or EUR-Lex plus an independent secondary source rather than supplied from memory."@en,
+        "Inclusion basis (TransposedPrinciple): Health data transferred between public bodies without information; earliest link in the retained chain."@en ;
+    skos:notation "ECLI:EU:C:2015:638" ;
     mailo:establishesPrinciple mailo:P_Bara_001 ;
     mailo:hasInclusionBasis mailo:TransposedPrinciple ;
     mailo:hasStatus "Final"^^xsd:string .
@@ -1178,9 +1221,11 @@ mailo:C_201_14 a mailo:CJEUCase ;
 mailo:C_511_18 a mailo:CJEUCase ;
     rdfs:label "C-511/18 La Quadrature du Net"@en ;
     dcterms:date "2020-10-06"^^xsd:date ;
-    dcterms:identifier "C-511/18" ;
-    rdfs:comment "Inclusion basis (TransposedPrinciple): Bulk data retention. Retained for the proportionality line feeding C-817/19."@en,
-        "MISSING METADATA (v5.1.0): no ECLI recorded. Not supplied here because it was not verified against a primary source in this pass, and asserting an identifier from memory is the error class that produced the original C-203/22 defect. Add after checking EUR-Lex."@en ;
+    dcterms:identifier "C-511/18",
+        "ECLI:EU:C:2020:791" ;
+    rdfs:comment "ECLI added in v5.2.2, verified against InfoCuria or EUR-Lex plus an independent secondary source rather than supplied from memory."@en,
+        "Inclusion basis (TransposedPrinciple): Bulk data retention. Retained for the proportionality line feeding C-817/19."@en ;
+    skos:notation "ECLI:EU:C:2020:791" ;
     mailo:citesPrecedent mailo:C_201_14 ;
     mailo:hasInclusionBasis mailo:TransposedPrinciple ;
     mailo:hasStatus "Final"^^xsd:string .
@@ -1441,7 +1486,8 @@ mailo:EPO_EnlargedBoA a mailo:Court ;
     rdfs:label "EPO Enlarged Board of Appeal"@en ;
     rdfs:comment "Ensures uniform application of the EPC and decides points of law referred to it. Declared in v5.1.0: it was already in use as the decidedBy value of G 1/19 but had never been typed."@en .
 
-mailo:EPO_T0161_18 a mailo:EPOProceding ;
+mailo:EPO_T0161_18 a mailo:EPOProceding,
+        mailo:EPOProceeding ;
     rdfs:label "EPO T 0161/18 — AI Medical Device Disclosure"@en ;
     dcterms:date "2020-05-12"^^xsd:date ;
     dcterms:identifier "T 0161/18" ;
@@ -1464,6 +1510,10 @@ mailo:EP_2671173 a mailo:EuropeanPatent ;
 mailo:EP_3346403 a mailo:EuropeanPatent ;
     rdfs:label "EP 3 346 403"@en ;
     rdfs:comment "Breast cancer recurrence prediction genomic expression test."@en .
+
+mailo:EP_3435866 a mailo:EuropeanPatent ;
+    rdfs:label "EP 3 435 866"@en ;
+    rdfs:comment "Dexcom continuous glucose monitoring system."@en .
 
 mailo:GDPR_Art22_4 a mailo:LegalArticle ;
     rdfs:label "GDPR Art.22(4) — Prohibition on basing such decisions on special category data"@en ;
@@ -1507,7 +1557,8 @@ mailo:MDR_AnnexVIII_Rule11 a mailo:LegalArticle ;
     rdfs:comment """Software intended to provide information used to take decisions with diagnosis or therapeutic purposes is Class IIa, rising to Class III where such decisions may cause death or an irreversible deterioration of health, and to Class IIb where they may cause a serious deterioration or surgical intervention. Software intended to monitor physiological processes is Class IIa, or IIb where monitoring vital parameters whose variation could result in immediate danger. All other software is Class I.
 
 This is the linchpin connecting MDR to the AI Act and was absent from MAILO. Rule 11 places most diagnostic and decision-support software at Class IIa or above, which requires notified-body conformity assessment, which in turn makes the system high-risk under AI Act Art.6(1) by the ANNEX I route — and therefore outside the Art.86 right to explanation. The dual-track burden and the Art.86 exclusion both follow from this classification rule. Added in v5.1.0."""@en ;
-    mailo:triggersRoute mailo:AnnexIRoute .
+    mailo:triggersRoute mailo:AnnexIRoute,
+        mailo:AnnexISectionARoute .
 
 mailo:MDR_Art15 a mailo:LegalArticle ;
     rdfs:label "MDR Art.15 — Person Responsible for Regulatory Compliance"@en ;
@@ -1550,6 +1601,12 @@ mailo:ObiterDictum a owl:Class ;
     rdfs:comment "Persuasive (non-binding) judicial observation",
         "Persuasive (non-binding) judicial observation."@en ;
     rdfs:subClassOf mailo:LegalPrinciple .
+
+mailo:OmnibusAI_ProvisionalAgreement_20260507 a mailo:LegislativeAmendment ;
+    rdfs:label "Digital Omnibus on AI — provisional agreement of 7 May 2026 (superseded)"@en ;
+    rdfs:comment "Retained as legislative history. This node no longer triggers any operative regulation version; the operative basis is mailo:OmnibusAI_RegEU2026_1744."@en ;
+    mailo:amendmentDescription "Provisional political agreement of 7 May 2026 on the Digital Omnibus on AI, reached before formal adoption. Its conditional standards-availability mechanism is not the adopted rule and has no operative effect. Superseded by Regulation (EU) 2026/1744." ;
+    mailo:versionStartDate "2026-05-07"^^xsd:date .
 
 mailo:OmnibusGDPR_Art22_Proposal_20251119 a mailo:LegislativeAmendment ;
     rdfs:label "Digital Omnibus Regulation — GDPR Art.22 Reframing Proposal (NOT YET ADOPTED)" ;
@@ -1627,7 +1684,8 @@ mailo:P_634_003 a mailo:RatioDecidendi ;
 mailo:P_634_004 a mailo:RatioDecidendi ;
     rdfs:label "P-634/21-004: Art.22 = Prohibition Rule"@en ;
     rdfs:comment "Art.22(1) is a prohibition rule, not merely a right to object. Exceptions in Art.22(2) are exhaustive; safeguards in Art.22(3) are mandatory when an exception applies."@en,
-        "Encoding basis (DesignerOperationalisation): The characterisation of Art.22(1) as a prohibition rather than a right to be invoked is not anchored to its own paragraphs and remains contested in the literature. Recorded as the designer's reading pending verification."@en ;
+        "Encoding basis (DesignerOperationalisation): The characterisation of Art.22(1) as a prohibition rather than a right to be invoked is not anchored to its own paragraphs and remains contested in the literature. Recorded as the designer's reading pending verification."@en,
+        "UNANCHORED (v5.2.2): the characterisation of GDPR Art.22(1) as a prohibition operating of its own force, rather than a right the data subject must invoke, is not tied to identified paragraphs of C-634/21 and was not settled by that judgment; the reading remains contested. Recorded as the ontology designer's position, not as a holding."@en ;
     mailo:hasEncodingBasis mailo:DesignerOperationalisation ;
     mailo:hasPrecedenceLevel "persuasive_obiter"^^xsd:string .
 
@@ -1767,6 +1825,9 @@ mailo:Risk_SolelyTest a mailo:ComplianceRisk ;
     mailo:mitigatedBy mailo:HumanOversightObligation ;
     mailo:riskLevel "CRITICAL"^^xsd:string .
 
+mailo:Sanofi a mailo:Company ;
+    rdfs:label "Sanofi S.A."@en .
+
 mailo:SemanticGranularityConflict a mailo:ConflictType ;
     rdfs:label "Semantic granularity conflict"@en ;
     rdfs:comment "Frameworks describe the same artefact at incompatible levels of specificity, so a statement that satisfies one reads as over- or under-inclusive under another (e.g. broad EPO claim scope against narrow MDR intended purpose against intermediate AI Act foreseeable use)."@en .
@@ -1850,12 +1911,6 @@ mailo:DataGovernanceConflict a mailo:ConflictType ;
 mailo:EPO_BoA a mailo:Court ;
     rdfs:label "EPO Board of Appeal"@en .
 
-mailo:GDPR_2016_679 a mailo:EURegulation ;
-    rdfs:label "GDPR 2016/679 (deprecated identifier)"@en ;
-    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2016/679, retained for backward compatibility with v5.2.0 and earlier. The same representational split corrected for the AI Act in v5.2.1 affected the GDPR: article-level assertions were attached to mailo:GDPR and temporal versions to this identifier. All assertions were migrated to mailo:GDPR. Use mailo:GDPR."@en ;
-    owl:deprecated true ;
-    owl:sameAs mailo:GDPR .
-
 mailo:GDPR_Art12_5 a mailo:LegalArticle ;
     rdfs:label "GDPR Art.12(5) — Exercise of data subject rights free of charge"@en ;
     rdfs:comment "Information and action under Arts.15-22 are provided free of charge; a reasonable fee or refusal is possible only for manifestly unfounded or excessive requests, and the controller bears the burden of showing this. Basis, with Art.15(3), for the first-copy holding in C-307/22. Added in v5.1.0."@en .
@@ -1912,6 +1967,7 @@ mailo:MDR a mailo:EURegulation,
     eli:id_local "32017R0745" ;
     dcterms:date "2017-04-05"^^xsd:date ;
     dcterms:identifier "2017/745/EU" ;
+    rdfs:comment "Listed in AI Act Annex I Section A, which is why a Rule 11 Class IIa-or-above device is high-risk under Art.6(1) by the Section A route. Recorded in v5.2.2."@en ;
     mailo:coversArticle mailo:MDR_AnnexI,
         mailo:MDR_AnnexII,
         mailo:MDR_AnnexIX,
@@ -1927,12 +1983,6 @@ mailo:MDR_AnnexII a mailo:LegalArticle ;
 mailo:MDR_AnnexIX a mailo:LegalArticle ;
     rdfs:label "MDR Annex IX — Conformity assessment based on a QMS and technical documentation"@en ;
     rdfs:comment "The conformity assessment route involving notified-body assessment of the manufacturer's quality management system and of the technical documentation. Referenced by Tension_MDR_AIAct_DualTrack, which sets it against AI Act Art.43. Added in v5.1.0: the tension cited this annex while the ontology did not encode it."@en .
-
-mailo:OmnibusAI_ProvisionalAgreement_20260507 a mailo:LegislativeAmendment ;
-    rdfs:label "Digital Omnibus on AI — provisional agreement of 7 May 2026 (superseded)"@en ;
-    rdfs:comment "Retained as legislative history. This node no longer triggers any operative regulation version; the operative basis is mailo:OmnibusAI_RegEU2026_1744."@en ;
-    mailo:amendmentDescription "Provisional political agreement of 7 May 2026 on the Digital Omnibus on AI, reached before formal adoption. Its conditional standards-availability mechanism is not the adopted rule and has no operative effect. Superseded by Regulation (EU) 2026/1744." ;
-    mailo:versionStartDate "2026-05-07"^^xsd:date .
 
 mailo:OmnibusAI_RegEU2026_1744 a mailo:LegislativeAmendment ;
     rdfs:label "Digital Omnibus on AI — Regulation (EU) 2026/1744"@en ;
@@ -2029,8 +2079,11 @@ mailo:EPOProceding a owl:Class ;
     rdfs:label "EPOProceding",
         "EPO Proceeding"@en ;
     rdfs:comment "EPO opposition, appeal, or examination",
+        "DEPRECATED in v5.2.2: misspelling, one 'e' missing. Use mailo:EPOProceeding."@en,
         "Opposition, appeal, or examination proceeding before the EPO."@en ;
-    rdfs:subClassOf mailo:Case .
+    rdfs:subClassOf mailo:Case ;
+    owl:deprecated true ;
+    owl:equivalentClass mailo:EPOProceeding .
 
 mailo:EUDirective a owl:Class ;
     rdfs:label "EUDirective",
@@ -2041,10 +2094,6 @@ mailo:EUDirective a owl:Class ;
 mailo:GDPR_Art22 a mailo:LegalArticle ;
     rdfs:label "GDPR Article 22"@en ;
     rdfs:comment "Prohibition on solely automated individual decision-making."@en .
-
-mailo:HighRiskRoute a owl:Class ;
-    rdfs:label "HighRiskRoute"@en ;
-    rdfs:comment "The route by which an AI system becomes high-risk under the AI Act. Encoded in v5.1.0 because the distinction determines whether Art.86 and Art.26(11) apply at all, and MAILO had recorded it nowhere."@en .
 
 mailo:InternationalTreaty a owl:Class ;
     rdfs:label "InternationalTreaty",
@@ -2076,6 +2125,11 @@ mailo:DirectSubjectMatter a mailo:InclusionBasis ;
     rdfs:label "Direct subject matter"@en ;
     rdfs:comment "The case is itself about a medical AI or medical software system. Only such cases may carry a medical-AI value for mailo:involvesTechnology."@en .
 
+mailo:EPOProceeding a owl:Class ;
+    rdfs:label "EPOProceeding"@en ;
+    rdfs:comment "Correctly spelled replacement for mailo:EPOProceding, added in v5.2.2. The misspelled class is deprecated rather than renamed, because renaming a published IRI breaks every reference to it; instances are typed against both during the transition."@en ;
+    rdfs:subClassOf mailo:Case .
+
 mailo:EncodingBasis a owl:Class ;
     rdfs:label "EncodingBasis"@en ;
     rdfs:comment """Whether an encoded principle states what a court held, or a
@@ -2097,28 +2151,6 @@ mailo:Explanation a owl:Class ;
         "Explanation"@en ;
     rdfs:comment "Actionable non-technical explanation for data subjects (C-203/22 P_203_001)",
         "An actionable, non-technical explanation of the logic and main input factors of an automated decision (C-203/22 P_203_001; GDPR Art.15(1)(h))."@en .
-
-mailo:GDPR a mailo:EURegulation,
-        mailo:RegulatoryFramework ;
-    rdfs:label "GDPR 2016/679"@en ;
-    eli:id_local "32016R0679" ;
-    dcterms:date "2016-04-27"^^xsd:date ;
-    dcterms:identifier "2016/679/EU" ;
-    rdfs:comment "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation. Canonical identifier for the GDPR; mailo:GDPR_2016_679 is a deprecated alias."@en ;
-    mailo:hasVersion mailo:GDPR_v1_FullyApplicable,
-        mailo:GDPR_v2_OmnibusProposed_Art22 ;
-    mailo:coversArticle mailo:GDPR_Art12_5,
-        mailo:GDPR_Art15,
-        mailo:GDPR_Art15_1h,
-        mailo:GDPR_Art15_3,
-        mailo:GDPR_Art22,
-        mailo:GDPR_Art22_1,
-        mailo:GDPR_Art22_2,
-        mailo:GDPR_Art22_3,
-        mailo:GDPR_Art22_4,
-        mailo:GDPR_Art23,
-        mailo:GDPR_Art35,
-        mailo:GDPR_Art9 .
 
 mailo:HumanOversightObligation a owl:Class ;
     rdfs:label "HumanOversightObligation",
@@ -2165,6 +2197,10 @@ mailo:GDPR_Art15_1h a mailo:LegalArticle ;
     rdfs:comment "The data subject has the right to be informed of THE EXISTENCE of automated decision-making, including profiling, REFERRED TO IN ART.22(1) AND (4) and, at least in those cases, meaningful information about the logic involved as well as the significance and the envisaged consequences of such processing. Interpreted in C-203/22 paras 59-62. CORRECTED in v5.1.0: the earlier text omitted both the existence limb and the cross-reference scoping this right to Art.22(1) and (4) cases, which is what ties the explanation duty to the automated-decision regime rather than to processing at large."@en ;
     mailo:grantsRight mailo:Right_Explanation .
 
+mailo:HighRiskRoute a owl:Class ;
+    rdfs:label "HighRiskRoute"@en ;
+    rdfs:comment "The route by which an AI system becomes high-risk under the AI Act. Encoded in v5.1.0 because the distinction determines whether Art.86 and Art.26(11) apply at all, and MAILO had recorded it nowhere."@en .
+
 mailo:InclusionBasis a owl:Class ;
     rdfs:label "InclusionBasis"@en ;
     rdfs:comment """Why a case is present in MAILO at all.
@@ -2183,12 +2219,6 @@ mailo:InclusionBasis a owl:Class ;
         the BASIS for relevance rather than demanding a single subject
         matter."""@en .
 
-mailo:AIAct_2024_1689 a mailo:EURegulation ;
-    rdfs:label "AI Act 2024/1689 (deprecated identifier)"@en ;
-    rdfs:comment "Deprecated duplicate identifier for Regulation (EU) 2024/1689, retained for backward compatibility with v5.2.0 and earlier. Up to v5.2.0 the AI Act's article-level assertions were attached to mailo:AIAct while its temporal versions were attached to this identifier, and the two carried no relation, so no query could traverse from an article to the applicable regulation version. All assertions were migrated to mailo:AIAct in v5.2.1. Use mailo:AIAct."@en ;
-    owl:deprecated true ;
-    owl:sameAs mailo:AIAct .
-
 mailo:ConflictType a owl:Class ;
     rdfs:label "ConflictType"@en ;
     rdfs:comment "Classification of the kind of friction a CrossFrameworkTension represents. Declared in v5.1.0: the five instances below were in use as values of mailo:conflictType but had never been typed."@en .
@@ -2203,6 +2233,28 @@ mailo:TransparencyObligation a owl:Class ;
 mailo:TransposedPrinciple a mailo:InclusionBasis ;
     rdfs:label "Transposed principle"@en ;
     rdfs:comment "The case establishes a principle in another domain that MAILO applies to medical AI by structural analogy. The transposition is the ontology designer's step, not the court's, and the affected shapes say so."@en .
+
+mailo:GDPR a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "GDPR 2016/679"@en ;
+    eli:id_local "32016R0679" ;
+    dcterms:date "2016-04-27"^^xsd:date ;
+    dcterms:identifier "2016/679/EU" ;
+    rdfs:comment "General Data Protection Regulation. Core data protection framework; Art.22 governs solely automated decision-making, Art.15/15(1)(h) the right of access and meaningful information, Art.9 special category health data, Art.35 DPIA obligation. Canonical identifier for the GDPR; mailo:GDPR_2016_679 is a deprecated alias."@en ;
+    mailo:coversArticle mailo:GDPR_Art12_5,
+        mailo:GDPR_Art15,
+        mailo:GDPR_Art15_1h,
+        mailo:GDPR_Art15_3,
+        mailo:GDPR_Art22,
+        mailo:GDPR_Art22_1,
+        mailo:GDPR_Art22_2,
+        mailo:GDPR_Art22_3,
+        mailo:GDPR_Art22_4,
+        mailo:GDPR_Art23,
+        mailo:GDPR_Art35,
+        mailo:GDPR_Art9 ;
+    mailo:hasVersion mailo:GDPR_v1_FullyApplicable,
+        mailo:GDPR_v2_OmnibusProposed_Art22 .
 
 mailo:LegalEntity a owl:Class ;
     rdfs:label "LegalEntity",
@@ -2233,30 +2285,6 @@ mailo:UPCCase a owl:Class ;
     rdfs:comment "Case before the Unified Patent Court",
         "Infringement, revocation, or PI proceeding before the Unified Patent Court."@en ;
     rdfs:subClassOf mailo:Case .
-
-mailo:AIAct a mailo:EURegulation,
-        mailo:RegulatoryFramework ;
-    rdfs:label "EU AI Act 2024/1689"@en ;
-    eli:id_local "32024R1689" ;
-    dcterms:date "2024-06-13"^^xsd:date ;
-    dcterms:identifier "2024/1689/EU" ;
-    rdfs:comment "Regulation (EU) 2024/1689 of 13 June 2024, published in the Official Journal on 12 July 2024 and in force from 1 August 2024. dcterms:date records the date of the act, following the convention used for the other EU instruments in MAILO. Canonical identifier for the AI Act; mailo:AIAct_2024_1689 is a deprecated alias."@en ;
-    mailo:hasVersion mailo:AIAct_v1_ProhibitedPractices,
-        mailo:AIAct_v2_GPAIModelObligations,
-        mailo:AIAct_v2b_PostOmnibusTransitional,
-        mailo:AIAct_v3_OriginalHighRisk,
-        mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone,
-        mailo:AIAct_v3b_Omnibus_AnnexI_SaMD,
-        mailo:AIAct_v3c_OriginalAnnexIHighRisk,
-        mailo:AIAct_v4_FRIA_PublicBodies ;
-    mailo:coversArticle mailo:AIAct_Art10,
-        mailo:AIAct_Art13,
-        mailo:AIAct_Art14,
-        mailo:AIAct_Art17,
-        mailo:AIAct_Art26,
-        mailo:AIAct_Art50,
-        mailo:AIAct_Art86,
-        mailo:AIAct_Art9 .
 
 mailo:Company a owl:Class ;
     rdfs:label "Company",
@@ -2294,11 +2322,6 @@ mailo:RatioDecidendi a owl:Class ;
         "The binding legal reasoning upon which the decision rests."@en ;
     rdfs:subClassOf mailo:LegalPrinciple .
 
-mailo:RegulationVersion a owl:Class ;
-    rdfs:label "RegulationVersion" ;
-    rdfs:comment "A versioned expression of an EU regulation at a specific applicability phase" ;
-    rdfs:subClassOf mailo:EURegulation .
-
 mailo:CJEUCase a owl:Class ;
     rdfs:label "CJEUCase",
         "CJEU Case"@en ;
@@ -2320,6 +2343,11 @@ mailo:MedicalAISystem a owl:Class ;
         mailo:Risk_PLDStrictLiability,
         mailo:Risk_SolelyTest .
 
+mailo:RegulationVersion a owl:Class ;
+    rdfs:label "RegulationVersion" ;
+    rdfs:comment "A versioned expression of an EU regulation at a specific applicability phase" ;
+    rdfs:subClassOf mailo:EURegulation .
+
 mailo:CrossFrameworkTension a owl:Class ;
     rdfs:label "CrossFrameworkTension" ;
     rdfs:comment "A conflict or gap between two regulatory frameworks" .
@@ -2335,6 +2363,35 @@ mailo:Case a owl:Class ;
         "Case"@en ;
     rdfs:comment "Any judicial or quasi-judicial proceeding",
         "Any judicial or quasi-judicial proceeding."@en .
+
+mailo:AIAct a mailo:EURegulation,
+        mailo:RegulatoryFramework ;
+    rdfs:label "EU AI Act 2024/1689"@en ;
+    eli:id_local "32024R1689" ;
+    dcterms:date "2024-06-13"^^xsd:date ;
+    dcterms:identifier "2024/1689/EU" ;
+    rdfs:comment "Regulation (EU) 2024/1689 of 13 June 2024, published in the Official Journal on 12 July 2024 and in force from 1 August 2024. dcterms:date records the date of the act, following the convention used for the other EU instruments in MAILO. Canonical identifier for the AI Act; mailo:AIAct_2024_1689 is a deprecated alias."@en ;
+    mailo:coversArticle mailo:AIAct_Art10,
+        mailo:AIAct_Art13,
+        mailo:AIAct_Art14,
+        mailo:AIAct_Art17,
+        mailo:AIAct_Art26,
+        mailo:AIAct_Art27,
+        mailo:AIAct_Art43,
+        mailo:AIAct_Art4a,
+        mailo:AIAct_Art50,
+        mailo:AIAct_Art53,
+        mailo:AIAct_Art55,
+        mailo:AIAct_Art86,
+        mailo:AIAct_Art9 ;
+    mailo:hasVersion mailo:AIAct_v1_ProhibitedPractices,
+        mailo:AIAct_v2_GPAIModelObligations,
+        mailo:AIAct_v2b_PostOmnibusTransitional,
+        mailo:AIAct_v3_OriginalHighRisk,
+        mailo:AIAct_v3a_Omnibus_AnnexIII_Standalone,
+        mailo:AIAct_v3b_Omnibus_AnnexI_SaMD,
+        mailo:AIAct_v3c_OriginalAnnexIHighRisk,
+        mailo:AIAct_v4_FRIA_PublicBodies .
 
 mailo:RegulatoryFramework a owl:Class ;
     rdfs:label "RegulatoryFramework",

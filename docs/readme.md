@@ -35,6 +35,30 @@ Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
 
 ## Changelog
 
+### v5.2.2 (2026-09-14) — post-Omnibus correction and deferred modelling
+**Adds a class and new individuals**, unlike v5.2.1: one class `mailo:EPOProceeding`, two
+`HighRiskRoute` individuals for the Annex I Section A/B split, and five AI Act article individuals
+(Arts. 4a, 27, 43, 53, 55). No property was added. 1,904 → 1,945 triples; 71 → 76 articles;
+64 → 65 classes.
+
+- **Art. 4a / Art. 10(5)**: Regulation (EU) 2026/1744 Art. 1(9) deleted AI Act Art. 10(5) and
+  Art. 1(6) inserted Art. 4a, moving the bias-detection legal basis into Chapter I and widening
+  its addressees beyond providers of high-risk systems. Not a relocation.
+- **Annex I Section A / Section B** declared as separate high-risk routes; MDR and IVDR recorded
+  as Section A; MDR Annex VIII Rule 11 triggers the Section A route. Art. 113 sets 2 August 2028 for
+  the Art. 6(1)/Annex I branch as a whole, not for Section A specifically; Section A status instead
+  determines the Art. 43 conformity-assessment architecture.
+- **Art. 43(3)** notified-body transition encoded: the Article sets 28 January 2028, recital 18
+  describes eighteen months from 27 July 2026; both recorded, the Article governs.
+- **Arts. 27, 53, 55** encoded as provisions.
+- **ECLIs** for C-201/14, C-311/18 and C-511/18 added, source-verified rather than recalled.
+- **`EPOProceding`** deprecated in favour of `EPOProceeding`, declared equivalent.
+- **`P_634_004`** marked unanchored; the `art22ExceptionApplied` comment reworded so it no longer
+  reads as a holding of C-634/21.
+- **Orphans repaired**: two doubled `triggeredBy` edges and their amendment nodes removed; Sanofi,
+  Amgen and EP 3 435 866 connected to their cases.
+
+
 ### v5.2.1 (2026-09-13) — factual consistency repair
 Instance-level corrections only. No class, property or SHACL shape added or altered; no CJEU
 assertion touched. 1,859 → 1,904 triples.
@@ -163,8 +187,6 @@ This folder is WIDOCO output. Two cautions, both observed in practice:
    artefact. Do not edit the ontology to make the numbers agree.
 
 Regenerating also **overwrites this file**, including the changelog above. Restore it afterwards.
-
-## Changelog
 
 ### v5.2.0 (2026-09-10) — second corrective release
 Completes the audit begun in v5.1.0: the ten cross-framework tensions, the principles and
