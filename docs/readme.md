@@ -35,6 +35,23 @@ Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
 
 ## Changelog
 
+### v5.2.3 (2026-09-17) — canonical serialisation and residual consistency repair
+Literal and metadata corrections only. No class, property, individual or SHACL constraint was
+added, removed or altered. 1,945 → 1,946 triples (the release note itself).
+
+- **AI Act intervals** corrected to the exclusive-end convention `[start, end)` used elsewhere
+  in the graph. `AIAct_v1_ProhibitedPractices` ends 2025-08-02 (was 2025-08-01);
+  `AIAct_v2_GPAIModelObligations` ends 2026-07-27 (was 2026-07-31). The three intervals now abut
+  exactly: `[2025-02-02, 2025-08-02)`, `[2025-08-02, 2026-07-27)`, `[2026-07-27, …)`. The end
+  values had been recorded as inclusive last-days, leaving a one-day and a four-day gap.
+- **AILD withdrawal date.** The graph recorded 2025-02-10. February 2025 is when the Commission
+  Work Programme listed the intended withdrawal; formal withdrawal followed on **6 October 2025**,
+  which is the operative date and is now recorded as such.
+- **Serialisations** regenerated from canonical Turtle and synchronised to `docs/`; all four
+  graphs verified isomorphic.
+
+`mailo_shacl_shapes.ttl` is unchanged and keeps its own version lineage (`shacl/5.2.0`).
+
 ### v5.2.2 (2026-09-14) — post-Omnibus correction and deferred modelling
 **Adds a class and new individuals**, unlike v5.2.1: one class `mailo:EPOProceeding`, two
 `HighRiskRoute` individuals for the Annex I Section A/B split, and five AI Act article individuals
@@ -250,28 +267,3 @@ corrective release has been reviewed by a second EU data-protection specialist.
   not resolvable URLs.
 - v5.0.2 (2026-08-12): corrected ECLI for C-203/22 (Dun & Bradstreet Austria) — 2025:145 to
   2025:117.
-
-## A note on validation
-
-Every correction above was made by the author. The ontology has automated SHACL conformance
-tests, and it passes them, but it has not been reviewed by independent legal experts. External
-validation is planned and has not yet happened. Please read the conformance results as evidence
-of internal consistency, not of legal correctness.
-
-None of the five citation errors found in the final audit round was detectable by any SHACL
-shape: each was a well-formed triple naming an article that genuinely exists. Detecting that
-class of error would require storing the cited article heading alongside the citation, so that
-a mismatch has something to disagree with. That is open work.
-
-## Regenerating this documentation
-
-This folder is WIDOCO output. Two cautions, both observed in practice:
-
-1. WIDOCO re-serialises the ontology and **inflates the triple count** (1,690 became 1,912).
-   After regenerating, restore the canonical `ontology.ttl`, `.owl`, `.nt` and `.jsonld` and
-   discard WIDOCO's versions.
-2. WebVOWL counts `owl:equivalentClass` axiom nodes and `rdfs:Datatype` entries as classes, so
-   `webvowl/data/ontology.json` reports 111 where the ontology declares 63. That is a rendering
-   artefact. Do not edit the ontology to make the numbers agree.
-
-Regenerating also **overwrites this file**, including the changelog above. Restore it afterwards.
