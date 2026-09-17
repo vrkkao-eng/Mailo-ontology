@@ -8,14 +8,14 @@
       "undefined" : "Medical AI Legal Ontology (MAILO)"
     },
     "iri" : "https://w3id.org/mailo",
-    "version" : "5.2.2",
+    "version" : "5.2.3",
     "author" : [ "Victor Kao" ],
     "description" : {
       "en" : "\r\n        Ontology capturing the legal landscape governing AI-driven automated\r\n        decision-making in medical contexts. Covers CJEU precedents on GDPR\r\n        Art.22, UPC/EPO patent litigation in MedTech, the EU AI Act high-risk\r\n        regime, MDR 2017/745, PLD 2024/2853, EHDS 2025/327, DGA 2022/868,\r\n        and Data Act 2023/2854 — with full precedent chains, SHACL runtime\r\n        constraints, and compliance obligation mappings.\r\n        Imports: W3C DPV v2.0 (data privacy vocabulary), AIRO (AI risk ontology),\r\n        ELI (European Legislation Identifier), ECLI (European Case Law Identifier).\r\n    ",
       "undefined" : "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations."
     },
     "comments" : {
-      "en" : "Version 5.2.2 (patch): one substantive post-Omnibus correction, the modelling items v5.2.1 deferred, and a set of provenance and metadata repairs. UNLIKE v5.2.1, THIS RELEASE DOES ADD A CLASS AND PROPERTIES: mailo:EPOProceeding, two HighRiskRoute instances for the Annex I Section A and Section B split, and four AI Act article nodes.\n\nHEADLINE. Article 1(9) of Regulation (EU) 2026/1744 deleted AI Act Art.10(5) and Article 1(6) inserted a new Art.4a. This is not a relocation: the legal basis for processing special categories of personal data for bias detection and correction was extracted from the high-risk training-data article into Chapter I, and its personal scope was broadened from providers of high-risk systems to deployers of high-risk systems and to providers and deployers of other AI systems and AI models, on five cumulative conditions and with no obligation to perform bias detection. Art.4a is encoded as an article node and Art.10 records the deletion, so any constraint anchored to Art.10(5) is visibly without a source. As an insertion effective 27 July 2026 it cannot operate retroactively.\n\nDEFERRED ITEMS NOW CLOSED. (a) Annex I is no longer treated as a single set: AnnexISectionARoute and AnnexISectionBRoute are declared, the MDR and IVDR are recorded as Section A legislation, and MDR Annex VIII Rule 11 now triggers the Section A route. The distinction is load-bearing for timing, since Chapter III Sections 1-3 apply to Section A from 2 August 2028, a one-year deferral rather than the two years granted to Annex III. (b) Art.43 is encoded with the notified-body transitional period: the second subparagraph of Art.43(3) sets 28 January 2028, while recital 18 describes eighteen months from 27 July 2026, which would be 27 January 2028; the operative date is the Article's and both are recorded because the divergence is in the published text. (c) Art.27 is encoded as a provision, the graph having previously carried its FRIA date without the article itself. (d) Arts.53 and 55 are added for temporal completeness; no MAILO constraint depends on the GPAI regime.\n\nMETADATA AND PROVENANCE. The ECLIs for C-201/14, C-311/18 and C-511/18 were withheld in v5.2.0 rather than supplied from memory, since asserting an identifier from recall is the error class that produced the original C-203/22 defect; they are now added, each verified against InfoCuria or EUR-Lex and an independent secondary source, and they pass the citation-chronology constraint. The misspelled class mailo:EPOProceding is deprecated in favour of mailo:EPOProceeding, declared equivalent, with instances typed against both; renaming a published IRI would break every reference to it. P_634_004 is marked unanchored, and the art22ExceptionApplied comment, which had presented that reading as a holding of C-634/21, is reworded. Two triggeredBy edges left doubled by the v5.2.1 simplification were removed with their orphaned amendment nodes, and three dangling nodes were connected: Sanofi and Amgen as parties to UPC_Sanofi_Amgen, and EP 3 435 866 to UPC_Dexcom_Abbott.\n\nSTILL OPEN. The unverified substantive assertions on UPC_10x_NanoString, UPC_Dexcom_Abbott and UPC_Sanofi_Amgen; the holding recorded for P_Bara_001; the conceptual confusion flagged on Tension_BlackBox_PatentProtection, which treats patent protection as an incentive to secrecy where a patent in fact requires disclosure; and independent expert review, which no finding in this or either preceding corrective release has received."
+      "en" : "Version 5.2.0 — second corrective release, 10 September 2026. Continues the audit begun in v5.1.0, which covered the CJEU paragraph citations, the patent and EPO instances, an initial set of legislative citations, and the inclusion and encoding boundaries. This release audits everything that remained: the cross-framework tensions, the principles and cases outside the trilogy, the GDPR, AI Act, MDR, Data Act and Trade Secrets Directive provisions, and the SHACL shapes. Coverage rises from 48 to 71 articles.\n\nThe recurring defect is not miscitation but misattribution of normative character. Two provisions had their effect inverted and two pairs were transposed.\n\nCROSS-FRAMEWORK TENSIONS. None of the ten was sound. Four cited the wrong provision: DGA neutrality is Art.12(1)(a) not Art.10; Data Act trade-secret safeguards are Arts.4(6)-(8) and 5(9)-(11) not Art.15; the EHDS opt-out tension still carried proposal numbering; and the PLD tension attributed the defect presumption to Art.11 rather than Art.10(4). Two cited C-203/22 at paras 60-70 instead of 59-62. Seven instances used conflictType with hasResolutionStatus while three used conflictsWith with involvesFramework, so any cross-tension query silently omitted a third of the set; the model is harmonised. Tension_BlackBox_PatentProtection carries a warning that it conflates patent protection with secrecy — a patent requires disclosure, as T 161/18 and T 1191/19 both demonstrate.\n\nGDPR. Art.22(1) had been recorded as a flat prohibition, pre-committing to one side of a contested question C-634/21 did not settle, and omitting profiling. Art.22(3) had been described as applying whenever a derogation applies; it attaches only to points (a) and (c) of Art.22(2), which matters for medical AI running on a national legal basis. Art.22(4) had been called 'enhanced protection' for special category data when it is a prohibition admitting only Art.9(2)(a) or (g) — consequential because health data sits squarely in Art.9(1). Art.15(1)(h) had omitted the existence limb and the cross-reference scoping it to Art.22(1) and (4).\n\nAI ACT. Art.86's right to explanation is confined to Annex III systems. Medical devices reach high-risk status by the Annex I route under Art.6(1), so Art.86 does not apply to a diagnostic or imaging AI device, and neither does the Art.26(11) duty to inform affected persons; for that population GDPR Arts.15(1)(h) and 22 carry the explanation duty alone. A HighRiskRoute vocabulary encodes the distinction, and MDR Annex VIII Rule 11 — the classification rule that produces it, previously absent — is linked through triggersRoute. Art.13 addresses DEPLOYERS, not affected persons, which is the pivot of the trade-secret argument. Art.10(3) had dropped the qualifier 'to the best extent possible'.\n\nOTHER INSTRUMENTS. TSD Art.5 had been read as disapplying secrecy where information rights are exercised; Art.5(a) is the freedom of expression of Charter Art.11, and the provision that preserves regulatory disclosure duties is Art.1(2)(b), now added along with Art.3 on reverse engineering. PLD Arts.4 and 7 were transposed and Art.5, the strict-liability rule itself, was missing. Data Act Art.3 is a design duty and Art.4 the access right, with different application dates; Art.17 is the request procedure, not public-emergency sharing. Six EHDS provisions were added, of which Art.53(1)(e)(ii) matters most: it expressly permits secondary use for training, testing and evaluating algorithms in medical devices and AI systems, the legal pathway on which medical-AI training under the EHDS rests. EHDS Art.52, governing IP and trade secrets in secondary use, was also absent.\n\nCASES AND SHAPES. G 1/19 is a COMVIK inventive-step ruling, and the Enlarged Board held that whether the simulated system is technical is NOT decisive; all three EPO instances were attributed to EPC Art.52 and are re-anchored to Arts.56, 83 and 84. C-307/22 (FT v DW) involves no AI. Four cases are rescoped, leaving two of sixteen with a verified medical-AI technology claim. Correcting the class hierarchy in v5.1.0 inverted what shape target classes mean, since targeting AutomatedDecisionSystem was narrower than MedicalAISystem before and is broader after; three C-817/19 shapes had drifted and all five now target MedicalAISystem. MedicalAIComplianceShape records that its C-817/19 constraints are transposed rather than held, and that its conjunctive structure is a modelling choice: conformance evidences alignment with MAILO's model, not compliance with law.\n\nNOT VERIFIED. Three CJEU cases lack ECLIs, deliberately not supplied from memory. Three UPC instances retain unverified substantive assertions, flagged on the instances. No finding in either corrective release has been reviewed by a second EU data-protection specialist."
     },
     "other" : {
       "license" : [ {
@@ -27,7 +27,7 @@
       "priorVersion" : [ {
         "identifier" : "priorVersion",
         "language" : "undefined",
-        "value" : "https://w3id.org/mailo/5.2.1",
+        "value" : "https://w3id.org/mailo/5.2.2",
         "type" : "iri"
       } ],
       "creator" : [ {
@@ -39,12 +39,12 @@
       "created" : [ {
         "identifier" : "created",
         "language" : "undefined",
-        "value" : "2026-04-30",
+        "value" : "2026-03-27",
         "type" : "label"
       }, {
         "identifier" : "created",
         "language" : "undefined",
-        "value" : "2026-03-27",
+        "value" : "2026-04-30",
         "type" : "label"
       } ],
       "publisher" : [ {
@@ -56,12 +56,12 @@
       "modified" : [ {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2026-09-14",
+        "value" : "2026-08-12",
         "type" : "label"
       }, {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2026-08-12",
+        "value" : "2026-09-17",
         "type" : "label"
       } ],
       "language" : [ {
@@ -79,17 +79,17 @@
       "versionInfo" : [ {
         "identifier" : "versionInfo",
         "language" : "undefined",
-        "value" : "5.2.2",
+        "value" : "5.2.3",
         "type" : "label"
       } ],
       "title" : [ {
         "identifier" : "title",
-        "language" : "en",
+        "language" : "undefined",
         "value" : "Medical AI Legal Ontology (MAILO)",
         "type" : "label"
       }, {
         "identifier" : "title",
-        "language" : "undefined",
+        "language" : "en",
         "value" : "Medical AI Legal Ontology (MAILO)",
         "type" : "label"
       } ]
@@ -118,10 +118,10 @@
     "id" : "20",
     "type" : "owl:Class"
   }, {
-    "id" : "23",
+    "id" : "21",
     "type" : "owl:Class"
   }, {
-    "id" : "24",
+    "id" : "23",
     "type" : "owl:Class"
   }, {
     "id" : "28",
@@ -136,7 +136,7 @@
     "id" : "33",
     "type" : "owl:equivalentClass"
   }, {
-    "id" : "25",
+    "id" : "22",
     "type" : "owl:Class"
   }, {
     "id" : "41",
@@ -184,7 +184,7 @@
     "id" : "3",
     "type" : "owl:Class"
   }, {
-    "id" : "22",
+    "id" : "25",
     "type" : "owl:Class"
   }, {
     "id" : "12",
@@ -202,7 +202,7 @@
     "id" : "54",
     "type" : "owl:Class"
   }, {
-    "id" : "111",
+    "id" : "113",
     "type" : "owl:Class"
   }, {
     "id" : "68",
@@ -241,7 +241,7 @@
     "id" : "8",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "113",
+    "id" : "112",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "78",
@@ -295,7 +295,7 @@
     "id" : "120",
     "type" : "owl:Class"
   }, {
-    "id" : "94",
+    "id" : "93",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "51",
@@ -328,7 +328,7 @@
     "id" : "38",
     "type" : "owl:Class"
   }, {
-    "id" : "151",
+    "id" : "150",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "147",
@@ -340,10 +340,10 @@
     "id" : "44",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "179",
+    "id" : "178",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "137",
+    "id" : "135",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "61",
@@ -458,7 +458,7 @@
       "iri" : "https://w3id.org/mailo#AnnexISectionARoute",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "The Art.6(1) route taken by products covered by the Union harmonisation legislation listed in Annex I SECTION A, which requires third-party conformity assessment. The MDR and the IVDR are in Section A, so AI-based medical devices at Class IIa or above under MDR Annex VIII Rule 11 take this route. Chapter III Sections 1-3 apply to it from 2 AUGUST 2028 under Art.113 third subparagraph point (c) as amended by Regulation (EU) 2026/1744 — a one-year deferral from the original 2 August 2027, not the two-year deferral granted to Annex III. Art.86 and Art.26(11), confined to Annex III, do not reach systems on this route. Added in v5.2.2: the previous AnnexIRoute treated Annex I as a single set, which the Omnibus timeline makes untenable."
+        "en" : "The Art.6(1) route taken by products covered by the Union harmonisation legislation listed in Annex I SECTION A, which requires third-party conformity assessment. The MDR and the IVDR are in Section A, so AI-based medical devices at Class IIa or above under MDR Annex VIII Rule 11 take this route. Two things must be kept apart here. Applicability is set for the Art.6(1)/Annex I branch AS A WHOLE: Art.113 third subparagraph point (c) as amended by Regulation (EU) 2026/1744 brings Chapter III Sections 1-3 to AI systems classified as high-risk under Art.6(1) and Annex I from 2 AUGUST 2028, a one-year deferral from the original 2 August 2027 rather than the two years granted to Annex III; the provision does not key that date to Section A. What Section A status separately determines is the CONFORMITY-ASSESSMENT ARCHITECTURE, since it is the Section A legislation that requires third-party assessment and it is that requirement which Art.43 and its notified-body transition address. Art.86 and Art.26(11), confined to Annex III, do not reach systems on this route. Added in v5.2.2: the previous AnnexIRoute treated Annex I as a single set, which the Omnibus timeline makes untenable."
       },
       "labels" : {
         "IRI-based" : "AnnexISectionARoute",
@@ -468,7 +468,7 @@
       "iri" : "https://w3id.org/mailo#AnnexIRoute",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "The system is a product, or a safety component of a product, covered by Union harmonisation legislation listed in Annex I and required to undergo third-party conformity assessment. MDR and IVDR are in Annex I Section A, so Class IIa, IIb and III medical devices incorporating AI take this route automatically. Art.86 and Art.26(11), both scoped to Annex III, DO NOT APPLY. Obligations for this route apply from 2 August 2028."
+        "en" : "SUPERSEDED IN PART (v5.2.2): retained for continuity, but Annex I is not a single set for timing or conformity purposes. Use AnnexISectionARoute for products requiring third-party conformity assessment, which is the branch the MDR and IVDR sit in and the one every medical-device instance in this graph takes."
       },
       "labels" : {
         "IRI-based" : "AnnexIRoute",
@@ -502,7 +502,7 @@
       "iri" : "https://w3id.org/mailo#P_203_001",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Art.15(1)(h) requires actionable explanations in non-technical language, identifying which inputs affected the output and the main reasoning path. Abstract mathematical formulas are insufficient."
+        "en" : "Encoding basis (DesignerOperationalisation): Para 61 requires the data subject to understand which personal data were used and in what way. identifiesInputFactors is MAILO's predicate for that standard."
       },
       "labels" : {
         "IRI-based" : "P_203_001",
@@ -512,21 +512,11 @@
       "iri" : "https://w3id.org/mailo#P_634_002",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Encoding basis (DesignerOperationalisation): Paras 49-50 state a determining-role test. The substantive-oversight predicate is MAILO's proxy for it; the Court set no rubber-stamping standard."
+        "en" : "C-634/21 paras 49-50: where an automated output plays a determining role in the resulting decision, establishing that output is itself a decision under Art.22(1). The Court did not set out a rubber-stamping or substantive-review standard; MAILO operationalises the determining-role test through a human-asserted substantive-oversight proxy, which is the ontology designer's construction."
       },
       "labels" : {
         "IRI-based" : "P_634_002",
         "en" : "P-634/21-002: Functional 'Solely' Test"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#P_Bara_001",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "C-201/14 Bara: personal data transferred between public administrative bodies and further processed require that data subjects be informed of the transfer and of the categories of data concerned. UNVERIFIED (v5.1.0): no paragraph anchor and no ECLI are recorded, and the holding has not been checked against the judgment text. Do not cite until verified."
-      },
-      "labels" : {
-        "IRI-based" : "P_Bara_001",
-        "en" : "Transparency Rights Foundation"
       }
     }, {
       "iri" : "https://w3id.org/mailo#P_634_001",
@@ -549,10 +539,20 @@
         "en" : "P-817/19-001: Mandatory Non-Automated Individual Review"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#P_Bara_001",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "C-201/14 Bara: personal data transferred between public administrative bodies and further processed require that data subjects be informed of the transfer and of the categories of data concerned. UNVERIFIED (v5.1.0): no paragraph anchor and no ECLI are recorded, and the holding has not been checked against the judgment text. Do not cite until verified."
+      },
+      "labels" : {
+        "IRI-based" : "P_Bara_001",
+        "en" : "Transparency Rights Foundation"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#P_634_004",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "UNANCHORED (v5.2.2): the characterisation of GDPR Art.22(1) as a prohibition operating of its own force, rather than a right the data subject must invoke, is not tied to identified paragraphs of C-634/21 and was not settled by that judgment; the reading remains contested. Recorded as the ontology designer's position, not as a holding."
+        "en" : "Encoding basis (DesignerOperationalisation): The characterisation of Art.22(1) as a prohibition rather than a right to be invoked is not anchored to its own paragraphs and remains contested in the literature. Recorded as the designer's reading pending verification."
       },
       "labels" : {
         "IRI-based" : "P_634_004",
@@ -882,26 +882,11 @@
         } ]
       },
       "comment" : {
-        "en" : "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."
+        "en" : "Revised Product Liability Directive. The AI Liability Directive proposal was listed for intended withdrawal in the Commission Work Programme of February 2025 and formally withdrawn on 6 October 2025; the operative withdrawal date is 2025-10-06. PLD 2024 is therefore the EU strict-liability instrument for AI systems as 'products'."
       },
       "labels" : {
         "IRI-based" : "PLD",
         "en" : "PLD 2024/2853"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#PNRDirective",
-      "baseIri" : "https://w3id.org/mailo",
-      "annotations" : {
-        "identifier" : [ {
-          "identifier" : "identifier",
-          "language" : "undefined",
-          "value" : "2016/681/EU",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "PNRDirective",
-        "en" : "PNR Directive 2016/681"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EPC",
@@ -920,6 +905,21 @@
       "labels" : {
         "IRI-based" : "EPC",
         "en" : "European Patent Convention"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#PNRDirective",
+      "baseIri" : "https://w3id.org/mailo",
+      "annotations" : {
+        "identifier" : [ {
+          "identifier" : "identifier",
+          "language" : "undefined",
+          "value" : "2016/681/EU",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PNRDirective",
+        "en" : "PNR Directive 2016/681"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EUCharter",
@@ -987,20 +987,6 @@
     "id" : "20",
     "superClasses" : [ "18" ]
   }, {
-    "iri" : "https://w3id.org/mailo#ClinicalDecisionSupport",
-    "baseIri" : "https://w3id.org/mailo",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ClinicalDecisionSupport",
-      "en" : "Clinical Decision Support System",
-      "undefined" : "ClinicalDecisionSupport"
-    },
-    "comment" : {
-      "undefined" : "Clinical decision support system (CDSS)"
-    },
-    "id" : "23",
-    "superClasses" : [ "10" ]
-  }, {
     "iri" : "https://w3id.org/mailo#Company",
     "baseIri" : "https://w3id.org/mailo",
     "instances" : 0,
@@ -1017,18 +1003,18 @@
         "en" : "Microsoft Corporation"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Dexcom",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Dexcom",
-        "en" : "Dexcom Inc."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#Amgen",
       "baseIri" : "https://w3id.org/mailo",
       "labels" : {
         "IRI-based" : "Amgen",
         "en" : "Amgen Inc."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Dexcom",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Dexcom",
+        "en" : "Dexcom Inc."
       }
     }, {
       "iri" : "https://w3id.org/mailo#Abbott",
@@ -1038,18 +1024,18 @@
         "en" : "Abbott Laboratories"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#Sanofi",
-      "baseIri" : "https://w3id.org/mailo",
-      "labels" : {
-        "IRI-based" : "Sanofi",
-        "en" : "Sanofi S.A."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#MyriadGenetics",
       "baseIri" : "https://w3id.org/mailo",
       "labels" : {
         "IRI-based" : "MyriadGenetics",
         "en" : "Myriad Genetics Inc."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Sanofi",
+      "baseIri" : "https://w3id.org/mailo",
+      "labels" : {
+        "IRI-based" : "Sanofi",
+        "en" : "Sanofi S.A."
       }
     }, {
       "iri" : "https://w3id.org/mailo#SiemensHealthineers",
@@ -1066,12 +1052,26 @@
         "en" : "Hologic Inc."
       }
     } ],
-    "subClasses" : [ "25" ],
+    "subClasses" : [ "22" ],
     "comment" : {
       "undefined" : "A corporate entity"
     },
-    "id" : "24",
+    "id" : "21",
     "superClasses" : [ "19" ]
+  }, {
+    "iri" : "https://w3id.org/mailo#ClinicalDecisionSupport",
+    "baseIri" : "https://w3id.org/mailo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ClinicalDecisionSupport",
+      "en" : "Clinical Decision Support System",
+      "undefined" : "ClinicalDecisionSupport"
+    },
+    "comment" : {
+      "undefined" : "Clinical decision support system (CDSS)"
+    },
+    "id" : "23",
+    "superClasses" : [ "10" ]
   }, {
     "iri" : "https://w3id.org/mailo#NotifiedBody",
     "baseIri" : "https://w3id.org/mailo",
@@ -1118,7 +1118,7 @@
       "undefined" : "BlackBoxMLSystem"
     },
     "comment" : {
-      "en" : "Corrected in v5.1.0: previously declared a subclass of MedicalAISystem. Opacity is a property of a system's decision logic, not of its clinical application; the PNR system in C-817/19 was not medical.",
+      "en" : "A non-transparent, self-learning system whose decision logic cannot be explained. Prohibited under C-817/19 for decisions with significant impact.",
       "undefined" : "Non-transparent self-learning ML system (C-817/19 prohibition)"
     },
     "id" : "30",
@@ -1130,7 +1130,7 @@
     "label" : {
       "IRI-based" : "DPIA"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "33"
   }, {
     "iri" : "https://w3id.org/mailo#NPE",
@@ -1152,8 +1152,8 @@
     "comment" : {
       "undefined" : "Non-Practising Entity — patent assertion vehicle"
     },
-    "id" : "25",
-    "superClasses" : [ "24" ]
+    "id" : "22",
+    "superClasses" : [ "21" ]
   }, {
     "iri" : "https://w3id.org/mailo#DataSubject",
     "baseIri" : "https://w3id.org/mailo",
@@ -1313,7 +1313,7 @@
       "iri" : "https://w3id.org/mailo#Tension_TSD_AIAct_Transparency",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "TSD Art.2 protects model weights, training data schemas, and architecture as trade secrets. AI Act Art.13 requires deployers to receive sufficient information about high-risk AI system capabilities and limitations. C-203/22 §§59-62 sets the mandatory floor: controller cannot invoke TSD Art.2 to deny all causal explanation of an automated decision — disputed information must be produced to the competent supervisory authority or court for balance. AI Act Art.78 ensures national authority confidentiality but does not disapply Art.13 disclosure to deployers. TSD Art.5 is the only legislative bridge but its scope in the medical AI context remains unresolved pending a CJEU reference on Art.22 and clinical AI."
+        "en" : "Re-anchored in v5.1.0 to TSD Art.1(2)(b), which preserves rules requiring disclosure of trade secrets to administrative or judicial authorities. The Art.5 exceptions previously relied on concern freedom of expression and whistleblowing, not data-subject or regulatory disclosure."
       },
       "labels" : {
         "IRI-based" : "Tension_TSD_AIAct_Transparency",
@@ -1323,7 +1323,7 @@
       "iri" : "https://w3id.org/mailo#Tension_DataAct_TradeSecret_AITransparency",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Article links added in v5.1.0: DataAct Art.4(6)-(8) and Art.5(9)-(11) for the trade-secret limb, AI Act Art.13 and GDPR Art.15(1)(h) for the transparency limb. Note the asymmetry now visible in the graph: Art.13's addressee is the deployer, not the affected person, and Art.86's right to explanation does not reach medical devices on the Annex I route, so on the transparency side only GDPR Art.15(1)(h) actually runs to the individual."
+        "en" : "Re-anchored in v5.1.0 to TSD Art.1(2)(b), which preserves rules requiring disclosure of trade secrets to administrative or judicial authorities. The Art.5 exceptions previously relied on concern freedom of expression and whistleblowing, not data-subject or regulatory disclosure."
       },
       "labels" : {
         "IRI-based" : "Tension_DataAct_TradeSecret_AITransparency",
@@ -1363,7 +1363,7 @@
       "iri" : "https://w3id.org/mailo#Tension_PLD_AIAct_Liability",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "\r\n        PLD Art.4 imposes strict liability; AI Act conformity assessment is not a\r\n        defence to PLD claims. A CE-marked AI-SaMD that passes AI Act conformity\r\n        assessment may still be 'defective' under PLD if it fails in real-world\r\n        deployment. The two regimes do not create a safety harbour from each other.\r\n    "
+        "en" : "OVERLAP NOTE added in v5.1.0: this tension and Tension_PLD_AIAct_LiabilityGap both concern PLD against AI Act conformity. They are arguably distinct — this one is that conformity assessment is no defence to strict liability (Art.4), the other that risk-management documentation may rebut the Art.10(4) presumption — but the labels do not make the distinction legible and the pair should be merged or renamed before the count of tensions is cited as a contribution."
       },
       "labels" : {
         "IRI-based" : "Tension_PLD_AIAct_Liability",
@@ -1383,21 +1383,11 @@
       "iri" : "https://w3id.org/mailo#Tension_EPO_GDPR_Disclosure",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Re-anchored in v5.1.0 to TSD Art.1(2)(b), which preserves rules requiring disclosure of trade secrets to administrative or judicial authorities. The Art.5 exceptions previously relied on concern freedom of expression and whistleblowing, not data-subject or regulatory disclosure."
+        "en" : "\r\n        EPC Art.83 requires public disclosure of training data structure to maintain patent validity.\r\n        GDPR Art.15(1)(h) + C-203/22 require actionable explanations to data subjects.\r\n        The EPO disclosure may inadvertently establish a baseline that strengthens GDPR access rights,\r\n        eroding TSD Art.2 trade secret shields that might otherwise limit GDPR Art.15 responses.\r\n        TSD Art.9 judicial confidentiality measures do not apply to EPO prosecution, leaving no\r\n        mechanism to contain the disclosure baseline once it enters the public patent record.\r\n    "
       },
       "labels" : {
         "IRI-based" : "Tension_EPO_GDPR_Disclosure",
         "en" : "EPC Art.83 Sufficiency Disclosure vs. GDPR Art.15(1)(h) + TSD Art.2 Secrecy"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#Tension_EPO_MDR_SemanticScope",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "EPO patent prosecution optimises for broad technical-effect claims (wider scope = stronger IP protection); MDR Annex II requires precise intended-purpose specification (narrower scope = easier clinical evaluation); AI Act Art.9/13 requires intermediate characterisation covering intended purpose plus reasonably foreseeable misuse. The same SaMD must be described at opposing granularity levels across three institutional knowledge spaces. No EPO, MDCG, or AI Office guidance addresses this triangular scope alignment problem."
-      },
-      "labels" : {
-        "IRI-based" : "Tension_EPO_MDR_SemanticScope",
-        "en" : "EPO G-II §3.3 broad claim scope vs. MDR Annex II §1.1 + AI Act Art.9/13 intended purpose"
       }
     }, {
       "iri" : "https://w3id.org/mailo#Tension_DGA_Neutrality_DataAcquisition",
@@ -1408,6 +1398,16 @@
       "labels" : {
         "IRI-based" : "Tension_DGA_Neutrality_DataAcquisition",
         "en" : "DGA Art.12(1)(a) neutrality obligation vs. AI Act Art.10 data governance"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#Tension_EPO_MDR_SemanticScope",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "EPO patent prosecution optimises for broad technical-effect claims (wider scope = stronger IP protection); MDR Annex II requires precise intended-purpose specification (narrower scope = easier clinical evaluation); AI Act Art.9/13 requires intermediate characterisation covering intended purpose plus reasonably foreseeable misuse. The same SaMD must be described at opposing granularity levels across three institutional knowledge spaces. No EPO, MDCG, or AI Office guidance addresses this triangular scope alignment problem."
+      },
+      "labels" : {
+        "IRI-based" : "Tension_EPO_MDR_SemanticScope",
+        "en" : "EPO G-II §3.3 broad claim scope vs. MDR Annex II §1.1 + AI Act Art.9/13 intended purpose"
       }
     } ],
     "comment" : {
@@ -1519,30 +1519,6 @@
         "undefined" : "Medical Law Review. (2024). A health-conformant reading of the GDPR's right not to be subject to automated decision-making, 32(3), 373."
       }
     }, {
-      "iri" : "https://w3id.org/mailo#lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
-      "baseIri" : "https://w3id.org/mailo",
-      "description" : {
-        "undefined" : "Addresses cross-framework normative conflict resolution that MAILO will face (e.g. GDPR Art.22 vs AI Act Art.86). Provides RDF-based conflict-tolerant deontic logic."
-      },
-      "annotations" : {
-        "date" : [ {
-          "identifier" : "date",
-          "language" : "undefined",
-          "value" : "2025",
-          "type" : "label"
-        } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://academic.oup.com/logcom/article/35/8/exaf054/8320660",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
-        "undefined" : "Conflict-tolerant Deontic Traditional Scheme for the Semantic Web. (2025). Journal of Logic and Computation 35(8), Oxford."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
       "baseIri" : "https://w3id.org/mailo",
       "description" : {
@@ -1565,6 +1541,30 @@
       "labels" : {
         "IRI-based" : "lit_Golpayegani_D_Pandit_H_J_Lewis_D_2022_2025_AIRO",
         "undefined" : "Golpayegani, D., Pandit, H. J., Lewis, D. (2022, 2025). AIRO: An Ontology for Representing AI Risks Based on the Proposed EU AI Act. SEMANTiCS + arXiv:2501.10391."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
+      "baseIri" : "https://w3id.org/mailo",
+      "description" : {
+        "undefined" : "Addresses cross-framework normative conflict resolution that MAILO will face (e.g. GDPR Art.22 vs AI Act Art.86). Provides RDF-based conflict-tolerant deontic logic."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://academic.oup.com/logcom/article/35/8/exaf054/8320660",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Conflict-tolerant_Deontic_Traditional_Scheme_for_the_Semanti",
+        "undefined" : "Conflict-tolerant Deontic Traditional Scheme for the Semantic Web. (2025). Journal of Logic and Computation 35(8), Oxford."
       }
     }, {
       "iri" : "https://w3id.org/mailo#lit_Pandit_H_J_et_al_2024_Data_Privacy_Vocabulary_DPV",
@@ -1735,30 +1735,6 @@
         "undefined" : "Andrade, F., Rebelo, D. M. (2024). Schufa's Case C-634/21 on ADM: the 'Lenders' Quest' for GDPR-friendly Scoring has not been settled yet! SSRN 4882806."
       }
     }, {
-      "iri" : "https://w3id.org/mailo#lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
-      "baseIri" : "https://w3id.org/mailo",
-      "description" : {
-        "undefined" : "Risk-sensitive domains demand transparency + regulatory compliance. Neural pattern recognition + symbolic reasoning yields verifiable explanations. Healthcare among the case studies."
-      },
-      "annotations" : {
-        "date" : [ {
-          "identifier" : "date",
-          "language" : "undefined",
-          "value" : "2025",
-          "type" : "label"
-        } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://arxiv.org/html/2511.17644v1",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
-        "undefined" : "Hybrid Neuro-Symbolic Models for Ethical AI in Risk-Sensitive Domains. (2025). arXiv:2511.17644."
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#lit_npj_Health_Systems_2026_Data-driven_medical_devices_and",
       "baseIri" : "https://w3id.org/mailo",
       "description" : {
@@ -1781,6 +1757,30 @@
       "labels" : {
         "IRI-based" : "lit_npj_Health_Systems_2026_Data-driven_medical_devices_and",
         "undefined" : "npj Health Systems. (2026). Data-driven medical devices and the EU MDR: mapping gaps in standards for regulatory compliance."
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
+      "baseIri" : "https://w3id.org/mailo",
+      "description" : {
+        "undefined" : "Risk-sensitive domains demand transparency + regulatory compliance. Neural pattern recognition + symbolic reasoning yields verifiable explanations. Healthcare among the case studies."
+      },
+      "annotations" : {
+        "date" : [ {
+          "identifier" : "date",
+          "language" : "undefined",
+          "value" : "2025",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://arxiv.org/html/2511.17644v1",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lit_Hybrid_Neuro-Symbolic_Models_for_Ethical_AI_in_Risk-Sensitiv",
+        "undefined" : "Hybrid Neuro-Symbolic Models for Ethical AI in Risk-Sensitive Domains. (2025). arXiv:2511.17644."
       }
     }, {
       "iri" : "https://w3id.org/mailo#lit_Robaldo_L_Bartolini_C_Palmirani_M_et_al_2020_Fo",
@@ -1907,16 +1907,6 @@
         "en" : "Liability gap"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#DataGovernanceConflict",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Frameworks impose incompatible conditions on the acquisition, sharing or reuse of data (e.g. an EHDS opt-out reducing dataset representativeness against AI Act Art.10 data-quality duties)."
-      },
-      "labels" : {
-        "IRI-based" : "DataGovernanceConflict",
-        "en" : "Data governance conflict"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#ConformityGapConflict",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -1925,6 +1915,16 @@
       "labels" : {
         "IRI-based" : "ConformityGapConflict",
         "en" : "Conformity gap"
+      }
+    }, {
+      "iri" : "https://w3id.org/mailo#DataGovernanceConflict",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Frameworks impose incompatible conditions on the acquisition, sharing or reuse of data (e.g. an EHDS opt-out reducing dataset representativeness against AI Act Art.10 data-quality duties)."
+      },
+      "labels" : {
+        "IRI-based" : "DataGovernanceConflict",
+        "en" : "Data governance conflict"
       }
     }, {
       "iri" : "https://w3id.org/mailo#SemanticGranularityConflict",
@@ -1999,12 +1999,12 @@
         "identifier" : [ {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2023:811",
+          "value" : "C-307/22",
           "type" : "label"
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "C-307/22",
+          "value" : "ECLI:EU:C:2023:811",
           "type" : "label"
         } ],
         "notation" : [ {
@@ -2069,12 +2069,12 @@
         "identifier" : [ {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2020:559",
+          "value" : "C-311/18",
           "type" : "label"
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "C-311/18",
+          "value" : "ECLI:EU:C:2020:559",
           "type" : "label"
         } ],
         "notation" : [ {
@@ -2085,7 +2085,7 @@
         } ]
       },
       "comment" : {
-        "en" : "ECLI added in v5.2.2, verified against InfoCuria or EUR-Lex plus an independent secondary source rather than supplied from memory."
+        "en" : "Inclusion basis (DomainContext): Schrems II. Background for cross-border health data transfer under EHDS."
       },
       "labels" : {
         "IRI-based" : "C_311_18",
@@ -2104,12 +2104,12 @@
         "identifier" : [ {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "ECLI:EU:C:2023:957",
+          "value" : "C-634/21",
           "type" : "label"
         }, {
           "identifier" : "identifier",
           "language" : "undefined",
-          "value" : "C-634/21",
+          "value" : "ECLI:EU:C:2023:957",
           "type" : "label"
         } ],
         "notation" : [ {
@@ -2376,7 +2376,7 @@
       "en" : "A Data Protection Impact Assessment document required for high-risk automated processing (GDPR Art.35; C-817/19 P_817_005).",
       "undefined" : "Data Protection Impact Assessment document (GDPR Art.35; C-817/19)"
     },
-    "id" : "22"
+    "id" : "25"
   }, {
     "iri" : "https://w3id.org/mailo#AutomatedDecisionSystem",
     "equivalent" : [ "96" ],
@@ -2397,7 +2397,7 @@
     },
     "subClasses" : [ "11", "30", "10" ],
     "comment" : {
-      "en" : "A system that processes personal data to produce outputs affecting individuals without meaningful human review.",
+      "en" : "Corrected in v5.1.0: this class was declared rdfs:subClassOf mailo:MedicalAISystem, which entailed that every automated decision system is a medical AI system. The credit-scoring systems in C-634/21 and C-203/22 are counter-examples in MAILO's own graph. The relation runs the other way: a medical AI system producing decisions about individuals IS an automated decision system, which is why MedicalAISystem is now the subclass.",
       "undefined" : "System processing personal data without meaningful human review"
     },
     "attributes" : [ "equivalent" ],
@@ -2563,6 +2563,16 @@
         "en" : "MDR 2017/745"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#GDPR_2016_679",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Deprecated duplicate identifier for Regulation (EU) 2016/679, retained for backward compatibility with v5.2.0 and earlier. The same representational split corrected for the AI Act in v5.2.1 affected the GDPR: article-level assertions were attached to mailo:GDPR and temporal versions to this identifier. All assertions were migrated to mailo:GDPR. Use mailo:GDPR."
+      },
+      "labels" : {
+        "IRI-based" : "GDPR_2016_679",
+        "en" : "GDPR 2016/679 (deprecated identifier)"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#GDPR",
       "baseIri" : "https://w3id.org/mailo",
       "annotations" : {
@@ -2591,16 +2601,6 @@
       "labels" : {
         "IRI-based" : "GDPR",
         "en" : "GDPR 2016/679"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#GDPR_2016_679",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Deprecated duplicate identifier for Regulation (EU) 2016/679, retained for backward compatibility with v5.2.0 and earlier. The same representational split corrected for the AI Act in v5.2.1 affected the GDPR: article-level assertions were attached to mailo:GDPR and temporal versions to this identifier. All assertions were migrated to mailo:GDPR. Use mailo:GDPR."
-      },
-      "labels" : {
-        "IRI-based" : "GDPR_2016_679",
-        "en" : "GDPR 2016/679 (deprecated identifier)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#DGA",
@@ -2813,7 +2813,7 @@
     "comment" : {
       "undefined" : "A legislative event that creates or modifies a regulation version"
     },
-    "id" : "111"
+    "id" : "113"
   }, {
     "iri" : "https://w3id.org/mailo#DPIAObligation",
     "equivalent" : [ "33" ],
@@ -2901,7 +2901,7 @@
     "label" : {
       "IRI-based" : "HumanInvolvement"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "122"
   }, {
     "iri" : "https://w3id.org/mailo#PendingAmendment",
@@ -2999,7 +2999,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Inclusion basis (DirectSubjectMatter): Continuous glucose monitoring with algorithmic estimation."
+        "en" : "CORRECTED in v5.1.0. (1) The earlier record said the Paris LD revoked both EP 3 435 866 and EP 3 831 282. Only EP 866 was revoked in this decision; EP 282 was the subject of separate actions. (2) The recorded identifier ACT_583778/2023 is a different Paris action and does not correspond to the decision described; the correct reference is UPC_CFI_230/2023 (ACT_546446/2023). (3) decidedBy Munich LD is removed: Munich heard separate Dexcom actions, not this one. (4) involvesTechnology RiskScoringSystem is removed — a continuous glucose monitor is a sensing and measurement device, not a risk-scoring system. Whether any AI element is claimed has not been established, so no replacement technology is asserted."
       },
       "labels" : {
         "IRI-based" : "UPC_Dexcom_Abbott",
@@ -3035,7 +3035,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Inclusion basis (ProceduralPrecedent): EP 2 671 173 is a walking-and-browsing patent, neither medical nor AI. Retained for UPC practice only: Rule 30 RoP auxiliary requests and the representation requirement. Originally captured because the party name contains 'AI'."
+        "en" : "SCOPE WARNING: EP 2 671 173 is a 'method and means for browsing by walking' - discovering web search results by physical proximity while walking. It is neither a medical nor an AI patent. The party name (Suinno Mobile & AI Technologies Licensing Oy) contains 'AI', which is the likely reason this case was captured. It should not be counted as a medical-AI patent case."
       },
       "labels" : {
         "IRI-based" : "UPC_Microsoft_Suinno",
@@ -3053,7 +3053,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Inclusion basis (DomainContext): Mammography X-ray tube hardware, with no AI element in the asserted claim. Retained only for the EPO/MDR semantic-scope tension, where the point is precisely that patent claim scope and MDR intended purpose describe the same device at different granularities."
+        "en" : "SCOPE WARNING: this is medical imaging HARDWARE (X-ray tube focal spot control), not medical imaging AI. The asserted claim contains no AI or machine-learning element. Retained for the EPO/MDR/AI Act semantic-scope tension analysis, but it should not be counted as a medical-AI patent case."
       },
       "labels" : {
         "IRI-based" : "UPC_Hologic_Siemens",
@@ -3093,7 +3093,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "113",
+    "id" : "112",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -3216,10 +3216,10 @@
       }
     } ],
     "comment" : {
-      "en" : "DEPRECATED in v5.2.2: misspelling, one 'e' missing. Use mailo:EPOProceeding.",
+      "en" : "Opposition, appeal, or examination proceeding before the EPO.",
       "undefined" : "EPO opposition, appeal, or examination"
     },
-    "attributes" : [ "deprecated", "equivalent" ],
+    "attributes" : [ "equivalent", "deprecated" ],
     "id" : "129",
     "superClasses" : [ "18" ]
   }, {
@@ -3229,7 +3229,7 @@
     "label" : {
       "IRI-based" : "TransparencyObligation"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "123"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
@@ -3350,7 +3350,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "94",
+    "id" : "93",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -3497,7 +3497,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#date",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "151",
+    "id" : "150",
     "label" : {
       "IRI-based" : "date"
     }
@@ -3525,14 +3525,14 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "179",
+    "id" : "178",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "137",
+    "id" : "135",
     "label" : {
       "IRI-based" : "string"
     }
@@ -3652,7 +3652,7 @@
       "iri" : "https://w3id.org/mailo#MDR_Art61",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "MAILO OPERATIONALISATION: the requirement of AI-specific performance validation covering bias, drift and edge cases is the ontology designer's reading of what clinical evaluation entails for AI-SaMD, not language found in Art.61. Recorded as such in v5.1.0."
+        "en" : "Medical device manufacturers must conduct clinical evaluation demonstrating safety and performance. For AI-SaMD, AI-specific performance validation (bias, drift, edge cases) is required."
       },
       "labels" : {
         "IRI-based" : "MDR_Art61",
@@ -3879,6 +3879,16 @@
         "en" : "PLD Art.5 — Right to compensation"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#PLD_Art4",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Defines 'product' as all movables, even if integrated into or interconnected with another movable or immovable, including electricity, digital manufacturing files, raw materials and SOFTWARE. The provision that brings standalone software and AI systems within the strict-liability regime, and the basis on which SaMD under the MDR is simultaneously a product under the PLD. Free and open-source software developed or supplied outside a commercial activity is excluded.\n\nCORRECTED in v5.1.0: this individual previously carried the label 'Strict Liability for Defective Products' and the defectiveness test. Strict liability and the right to compensation are Art.5; the test that a product is defective where it does not provide the safety a person is entitled to expect is Art.7. The software-as-product content previously recorded under Art.7 belongs here. The two entries were in effect transposed."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art4",
+        "en" : "PLD Art.4 — Definitions ('product' includes software and AI systems)"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#AIAct_Art4a",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3897,16 +3907,6 @@
       "labels" : {
         "IRI-based" : "DGA_Art16",
         "en" : "DGA Art.16 — National arrangements for data altruism"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#PLD_Art4",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Defines 'product' as all movables, even if integrated into or interconnected with another movable or immovable, including electricity, digital manufacturing files, raw materials and SOFTWARE. The provision that brings standalone software and AI systems within the strict-liability regime, and the basis on which SaMD under the MDR is simultaneously a product under the PLD. Free and open-source software developed or supplied outside a commercial activity is excluded.\n\nCORRECTED in v5.1.0: this individual previously carried the label 'Strict Liability for Defective Products' and the defectiveness test. Strict liability and the right to compensation are Art.5; the test that a product is defective where it does not provide the safety a person is entitled to expect is Art.7. The software-as-product content previously recorded under Art.7 belongs here. The two entries were in effect transposed."
-      },
-      "labels" : {
-        "IRI-based" : "PLD_Art4",
-        "en" : "PLD Art.4 — Definitions ('product' includes software and AI systems)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#DataAct_Art14",
@@ -3939,14 +3939,14 @@
         "en" : "EHDS Art.68 — Data permit (secondary use authorisation)"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#DataAct_Art15",
+      "iri" : "https://w3id.org/mailo#DGA_Art12",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Defines when a public sector body has an exceptional need justifying a request for data under Chapter V. CORRECTED in v5.1.0: this individual was labelled 'Trade Secret Protection'. The Data Act's trade-secret safeguards are in Art.4(6)-(8) (data holder to user) and Art.5(9)-(11) (user to third party), not Art.15."
+        "en" : "Art.12(1)(a): the provider shall not use the data for which it provides intermediation services for purposes other than putting them at the disposal of data users, and shall provide the service through a separate legal person. Art.12(1)(c) restricts use of activity metadata to service development. Added in v5.1.0 to carry the neutrality obligation previously misattributed to Art.10."
       },
       "labels" : {
-        "IRI-based" : "DataAct_Art15",
-        "en" : "Data Act Art.15 — Exceptional need to use data (B2G)"
+        "IRI-based" : "DGA_Art12",
+        "en" : "DGA Art.12 — Conditions for providing data intermediation services (neutrality)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EHDS_Art69",
@@ -3959,14 +3959,14 @@
         "en" : "EHDS Art.69 — Health data request (anonymised statistical answer)"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#DGA_Art12",
+      "iri" : "https://w3id.org/mailo#DataAct_Art15",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Art.12(1)(a): the provider shall not use the data for which it provides intermediation services for purposes other than putting them at the disposal of data users, and shall provide the service through a separate legal person. Art.12(1)(c) restricts use of activity metadata to service development. Added in v5.1.0 to carry the neutrality obligation previously misattributed to Art.10."
+        "en" : "Defines when a public sector body has an exceptional need justifying a request for data under Chapter V. CORRECTED in v5.1.0: this individual was labelled 'Trade Secret Protection'. The Data Act's trade-secret safeguards are in Art.4(6)-(8) (data holder to user) and Art.5(9)-(11) (user to third party), not Art.15."
       },
       "labels" : {
-        "IRI-based" : "DGA_Art12",
-        "en" : "DGA Art.12 — Conditions for providing data intermediation services (neutrality)"
+        "IRI-based" : "DataAct_Art15",
+        "en" : "Data Act Art.15 — Exceptional need to use data (B2G)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#AIAct_Art17",
@@ -3979,16 +3979,6 @@
         "en" : "AI Act Art.17 — Quality Management System"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#PLD_Art7",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "A product is defective where it does not provide the safety that a person is entitled to expect or that is required under Union or national law. The assessment takes account of all circumstances, including presentation and instructions, reasonably foreseeable use and misuse, the effect of the ability to continue to learn or of software updates after placing on the market, the moment in time at which the product was placed on the market or remained within the manufacturer's control, and relevant product safety requirements including cybersecurity.\n\nCORRECTED in v5.1.0: previously labelled 'AI and Software as Products' and describing the product definition, which is Art.4. The continued-learning limb recorded here is the provision on which MAILO's model-drift arguments actually rest."
-      },
-      "labels" : {
-        "IRI-based" : "PLD_Art7",
-        "en" : "PLD Art.7 — Defectiveness"
-      }
-    }, {
       "iri" : "https://w3id.org/mailo#GDPR_Art12_5",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -3999,10 +3989,20 @@
         "en" : "GDPR Art.12(5) — Exercise of data subject rights free of charge"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#PLD_Art7",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "A product is defective where it does not provide the safety that a person is entitled to expect or that is required under Union or national law. The assessment takes account of all circumstances, including presentation and instructions, reasonably foreseeable use and misuse, the effect of the ability to continue to learn or of software updates after placing on the market, the moment in time at which the product was placed on the market or remained within the manufacturer's control, and relevant product safety requirements including cybersecurity.\n\nCORRECTED in v5.1.0: previously labelled 'AI and Software as Products' and describing the product definition, which is Art.4. The continued-learning limb recorded here is the provision on which MAILO's model-drift arguments actually rest."
+      },
+      "labels" : {
+        "IRI-based" : "PLD_Art7",
+        "en" : "PLD Art.7 — Defectiveness"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#MDR_Art83",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "PMS system must collect real-world performance data. For AI-SaMD: continuous monitoring of model drift and performance degradation in deployment populations."
+        "en" : "MAILO OPERATIONALISATION: continuous monitoring of model drift and performance degradation in deployment populations is the designer's reading of what PMS entails for AI-SaMD. Art.83 requires a post-market surveillance system proportionate to risk class and device type; it does not name drift. Recorded as such in v5.1.0."
       },
       "labels" : {
         "IRI-based" : "MDR_Art83",
@@ -4042,7 +4042,7 @@
       "iri" : "https://w3id.org/mailo#AIAct_Art10",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "Art.10(3): training, validation and testing data sets shall be relevant, sufficiently representative, and, TO THE BEST EXTENT POSSIBLE, free of errors and complete in view of the intended purpose. CORRECTED in v5.1.0: the earlier comment listed 'freedom from errors, completeness' as flat criteria, dropping the qualifier the final text added precisely because absolute error-freedom is unattainable. The distinction matters for any claim that a dataset defect breaches Art.10(3) — including Tension_EHDS_GDPR_OptOut, which asserts that elevated opt-out rates in a clinically significant subpopulation put a dataset in violation. Under the qualified standard that conclusion requires showing the shortfall was avoidable, not merely that it exists."
+        "en" : "AMENDED (v5.2.2): Art.1(9) of Regulation (EU) 2026/1744 DELETED Art.10(5), which had carried the legal basis for processing special categories for bias detection by providers of high-risk systems. That basis is now Art.4a, with a wider addressee set. Any constraint or argument anchored to Art.10(5) is without a source in the text in force and must be re-anchored to Art.4a or retired."
       },
       "labels" : {
         "IRI-based" : "AIAct_Art10",
@@ -4179,6 +4179,16 @@
         "en" : "Data Act Art.4 — Rights and obligations of users and data holders regarding access and use"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#TSD_Art5",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "An application for the measures, procedures and remedies is dismissed where the acquisition, use or disclosure was carried out (a) for exercising the right to freedom of expression and information as set out in the Charter, including respect for the freedom and pluralism of the media; (b) for revealing misconduct, wrongdoing or illegal activity in order to protect the general public interest; (c) by workers to their representatives in the legitimate exercise of representative functions; or (d) for the purpose of protecting a legitimate interest recognised by Union or national law.\n\nCORRECTED in v5.1.0, and this was a substantive error rather than a citation slip. The earlier entry read that trade secret protection does not apply 'where disclosure is required for the exercise of the right to information', and treated Art.5 as the provision engaged when a data subject invokes GDPR Art.15(1)(h). Art.5(a) is the freedom of expression and information of Charter Art.11 — media freedom, investigative journalism, protection of journalistic sources per recital 19. A patient seeking an explanation of an automated medical decision is not exercising that right. Art.5(d) might be argued to cover data-protection rights as a legitimate interest recognised by Union law, but that is an argument to be made rather than a plain reading, and the CJEU did not take that route in C-203/22: the Court resolved the trade-secret defence within the GDPR itself, requiring disclosure to the supervisory authority or court for balancing. The provision that actually preserves regulatory disclosure duties is Art.1(2)(b), now encoded separately."
+      },
+      "labels" : {
+        "IRI-based" : "TSD_Art5",
+        "en" : "TSD Art.5 — Exceptions (freedom of expression, whistleblowing, workers' representatives, legitimate interest)"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#DataAct_Art5",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -4189,14 +4199,14 @@
         "en" : "Data Act Art.5 — Data Sharing with Third Parties"
       }
     }, {
-      "iri" : "https://w3id.org/mailo#TSD_Art5",
+      "iri" : "https://w3id.org/mailo#GDPR_Art22_2",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
-        "en" : "An application for the measures, procedures and remedies is dismissed where the acquisition, use or disclosure was carried out (a) for exercising the right to freedom of expression and information as set out in the Charter, including respect for the freedom and pluralism of the media; (b) for revealing misconduct, wrongdoing or illegal activity in order to protect the general public interest; (c) by workers to their representatives in the legitimate exercise of representative functions; or (d) for the purpose of protecting a legitimate interest recognised by Union or national law.\n\nCORRECTED in v5.1.0, and this was a substantive error rather than a citation slip. The earlier entry read that trade secret protection does not apply 'where disclosure is required for the exercise of the right to information', and treated Art.5 as the provision engaged when a data subject invokes GDPR Art.15(1)(h). Art.5(a) is the freedom of expression and information of Charter Art.11 — media freedom, investigative journalism, protection of journalistic sources per recital 19. A patient seeking an explanation of an automated medical decision is not exercising that right. Art.5(d) might be argued to cover data-protection rights as a legitimate interest recognised by Union law, but that is an argument to be made rather than a plain reading, and the CJEU did not take that route in C-203/22: the Court resolved the trade-secret defence within the GDPR itself, requiring disclosure to the supervisory authority or court for balancing. The provision that actually preserves regulatory disclosure duties is Art.1(2)(b), now encoded separately."
+        "en" : "Art.22(1) does not apply where the decision is (a) necessary for entering into or performance of a contract between data subject and controller, (b) authorised by Union or Member State law to which the controller is subject and which lays down suitable measures to safeguard rights, freedoms and legitimate interests, or (c) based on the data subject's explicit consent."
       },
       "labels" : {
-        "IRI-based" : "TSD_Art5",
-        "en" : "TSD Art.5 — Exceptions (freedom of expression, whistleblowing, workers' representatives, legitimate interest)"
+        "IRI-based" : "GDPR_Art22_2",
+        "en" : "GDPR Art.22(2) — Derogations"
       }
     }, {
       "iri" : "https://w3id.org/mailo#DataAct_Art21",
@@ -4217,16 +4227,6 @@
       "labels" : {
         "IRI-based" : "EHDS_Art51",
         "en" : "EHDS Art.51 — Minimum categories of electronic health data for secondary use"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#GDPR_Art22_2",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Art.22(1) does not apply where the decision is (a) necessary for entering into or performance of a contract between data subject and controller, (b) authorised by Union or Member State law to which the controller is subject and which lays down suitable measures to safeguard rights, freedoms and legitimate interests, or (c) based on the data subject's explicit consent."
-      },
-      "labels" : {
-        "IRI-based" : "GDPR_Art22_2",
-        "en" : "GDPR Art.22(2) — Derogations"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EHDS_Art52",
@@ -4259,6 +4259,16 @@
         "en" : "DGA Art.29 — European Data Innovation Board"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#EHDS_Art53",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Health data access bodies may grant access to Art.51 data only where processing is necessary for one of the listed purposes: public interest in public and occupational health; policy-making and regulatory activities; official statistics; education and training in the health or care sector; and scientific research related to health or care that contributes to public health or health technology assessment or ensures high quality and safety of healthcare, medicinal products or medical devices.\n\nArt.53(1)(e)(ii) is of first-order importance to MAILO and was previously absent: it expressly names 'training, testing and evaluation of algorithms, INCLUDING IN MEDICAL DEVICES, IN VITRO DIAGNOSTIC MEDICAL DEVICES, AI SYSTEMS AND DIGITAL HEALTH APPLICATIONS' as a permitted secondary-use purpose. This is the express legal pathway for training medical AI on EHDS data, and the point at which the AI Act Art.10 data-governance duties and the EHDS access regime meet. Added in v5.1.0."
+      },
+      "labels" : {
+        "IRI-based" : "EHDS_Art53",
+        "en" : "EHDS Art.53 — Permitted purposes for secondary use"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#DataAct_Art23",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -4277,16 +4287,6 @@
       "labels" : {
         "IRI-based" : "GDPR_Art22_4",
         "en" : "GDPR Art.22(4) — Prohibition on basing such decisions on special category data"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#EHDS_Art53",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Health data access bodies may grant access to Art.51 data only where processing is necessary for one of the listed purposes: public interest in public and occupational health; policy-making and regulatory activities; official statistics; education and training in the health or care sector; and scientific research related to health or care that contributes to public health or health technology assessment or ensures high quality and safety of healthcare, medicinal products or medical devices.\n\nArt.53(1)(e)(ii) is of first-order importance to MAILO and was previously absent: it expressly names 'training, testing and evaluation of algorithms, INCLUDING IN MEDICAL DEVICES, IN VITRO DIAGNOSTIC MEDICAL DEVICES, AI SYSTEMS AND DIGITAL HEALTH APPLICATIONS' as a permitted secondary-use purpose. This is the express legal pathway for training medical AI on EHDS data, and the point at which the AI Act Art.10 data-governance duties and the EHDS access regime meet. Added in v5.1.0."
-      },
-      "labels" : {
-        "IRI-based" : "EHDS_Art53",
-        "en" : "EHDS Art.53 — Permitted purposes for secondary use"
       }
     }, {
       "iri" : "https://w3id.org/mailo#EHDS_Art54",
@@ -4534,6 +4534,16 @@
         "en" : "EHDS Art.35 Opt-Out Erodes Training Dataset"
       }
     }, {
+      "iri" : "https://w3id.org/mailo#Risk_TradeSecretTransparencyConflict",
+      "baseIri" : "https://w3id.org/mailo",
+      "comment" : {
+        "en" : "Medical AI operators relying on TSD Art.2 to protect model weights face: (a) mandatory AI Act Art.13 disclosure to deployers; (b) GDPR Art.15(1)(h) actionable explanation obligations to data subjects; (c) mandatory supervisory authority adjudication when TSD is claimed (C-203/22). Hybrid strategy required: patent final outputs, trade secret the AI platform, use ZKP/ZKML for auditor verification without weight disclosure."
+      },
+      "labels" : {
+        "IRI-based" : "Risk_TradeSecretTransparencyConflict",
+        "en" : "Trade Secret Shield vs. AI Act/GDPR Transparency Mandate (TSD Art.2 Conflict)"
+      }
+    }, {
       "iri" : "https://w3id.org/mailo#Risk_DataActIoT",
       "baseIri" : "https://w3id.org/mailo",
       "comment" : {
@@ -4549,16 +4559,6 @@
       "labels" : {
         "IRI-based" : "Risk_HealthDataDoubleLayer",
         "en" : "Health Data Double Protection Layer (Art.9 + Art.22(4))"
-      }
-    }, {
-      "iri" : "https://w3id.org/mailo#Risk_TradeSecretTransparencyConflict",
-      "baseIri" : "https://w3id.org/mailo",
-      "comment" : {
-        "en" : "Medical AI operators relying on TSD Art.2 to protect model weights face: (a) mandatory AI Act Art.13 disclosure to deployers; (b) GDPR Art.15(1)(h) actionable explanation obligations to data subjects; (c) mandatory supervisory authority adjudication when TSD is claimed (C-203/22). Hybrid strategy required: patent final outputs, trade secret the AI platform, use ZKP/ZKML for auditor verification without weight disclosure."
-      },
-      "labels" : {
-        "IRI-based" : "Risk_TradeSecretTransparencyConflict",
-        "en" : "Trade Secret Shield vs. AI Act/GDPR Transparency Mandate (TSD Art.2 Conflict)"
       }
     }, {
       "iri" : "https://w3id.org/mailo#Risk_AIActQMS_MDR_Overlap",
@@ -4732,7 +4732,7 @@
     "label" : {
       "IRI-based" : "AutomatedDecisionMaking"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "96"
   }, {
     "iri" : "https://w3id.org/mailo#LegalEntity",
@@ -4743,7 +4743,7 @@
       "en" : "Legal Entity",
       "undefined" : "LegalEntity"
     },
-    "subClasses" : [ "24", "41", "28", "63", "209" ],
+    "subClasses" : [ "21", "41", "28", "63", "209" ],
     "comment" : {
       "undefined" : "Any natural or legal person with legal standing"
     },
@@ -4881,7 +4881,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."
+        "en" : "Revised Product Liability Directive. The AI Liability Directive proposal was listed for intended withdrawal in the Commission Work Programme of February 2025 and formally withdrawn on 6 October 2025; the operative withdrawal date is 2025-10-06. PLD 2024 is therefore the EU strict-liability instrument for AI systems as 'products'."
       },
       "labels" : {
         "IRI-based" : "PLD",
@@ -5010,7 +5010,7 @@
     "id" : "17",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "21",
+    "id" : "24",
     "type" : "owl:objectProperty"
   }, {
     "id" : "26",
@@ -5083,10 +5083,10 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "92",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "93",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "94",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "95",
     "type" : "owl:objectProperty"
@@ -5112,7 +5112,7 @@
     "id" : "109",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "112",
+    "id" : "111",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "114",
@@ -5131,13 +5131,13 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "134",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "135",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "136",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "137",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "138",
     "type" : "owl:datatypeProperty"
@@ -5154,7 +5154,7 @@
     "id" : "149",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "150",
+    "id" : "151",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "153",
@@ -5220,7 +5220,7 @@
     "id" : "177",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "178",
+    "id" : "179",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "181",
@@ -5427,7 +5427,7 @@
   }, {
     "iri" : "https://w3id.org/mailo#hasDPIA",
     "baseIri" : "https://w3id.org/mailo",
-    "range" : "22",
+    "range" : "25",
     "label" : {
       "IRI-based" : "hasDPIA",
       "en" : "has DPIA"
@@ -5438,7 +5438,7 @@
       "undefined" : "Links system to its DPIA record"
     },
     "attributes" : [ "object" ],
-    "id" : "21"
+    "id" : "24"
   }, {
     "iri" : "https://w3id.org/mailo#hasPredeterminedCriteria",
     "baseIri" : "https://w3id.org/mailo",
@@ -5732,19 +5732,6 @@
     "attributes" : [ "object" ],
     "id" : "86"
   }, {
-    "iri" : "https://w3id.org/mailo#hasTension",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "2",
-    "label" : {
-      "IRI-based" : "hasTension"
-    },
-    "domain" : "65",
-    "comment" : {
-      "undefined" : "Tension involves a framework"
-    },
-    "attributes" : [ "object" ],
-    "id" : "90"
-  }, {
     "iri" : "https://w3id.org/mailo#hasPendingAmendment",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "43",
@@ -5757,7 +5744,35 @@
       "en" : "Links a LegalArticle whose numbering or content is currently in force to a proposed amendment that has not been adopted. Asserting this property makes no claim that the amendment will pass."
     },
     "attributes" : [ "object" ],
+    "id" : "90"
+  }, {
+    "iri" : "https://w3id.org/mailo#hasTension",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasTension"
+    },
+    "domain" : "65",
+    "comment" : {
+      "undefined" : "Tension involves a framework"
+    },
+    "attributes" : [ "object" ],
     "id" : "91"
+  }, {
+    "iri" : "https://w3id.org/mailo#hasDefinedScope",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "93",
+    "label" : {
+      "IRI-based" : "hasDefinedScope",
+      "en" : "has defined scope"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003.",
+      "undefined" : "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "92"
   }, {
     "iri" : "https://w3id.org/mailo#governedBy",
     "baseIri" : "https://w3id.org/mailo",
@@ -5770,22 +5785,7 @@
       "undefined" : "Governed by a regulatory framework"
     },
     "attributes" : [ "object" ],
-    "id" : "92"
-  }, {
-    "iri" : "https://w3id.org/mailo#hasDefinedScope",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "94",
-    "label" : {
-      "IRI-based" : "hasDefinedScope",
-      "en" : "has defined scope"
-    },
-    "domain" : "12",
-    "comment" : {
-      "en" : "Tri-level proportionality test (a): targeted scope. C-817/19 P_817_003.",
-      "undefined" : "Tri-level proportionality (a): targeted scope (C-817/19 P_817_003)"
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "93"
+    "id" : "94"
   }, {
     "iri" : "https://w3id.org/mailo#involvesFramework",
     "baseIri" : "https://w3id.org/mailo",
@@ -5899,7 +5899,7 @@
   }, {
     "iri" : "https://w3id.org/mailo#isHighRiskAIAct",
     "baseIri" : "https://w3id.org/mailo",
-    "range" : "113",
+    "range" : "112",
     "label" : {
       "IRI-based" : "isHighRiskAIAct",
       "en" : "is high-risk under AI Act"
@@ -5910,11 +5910,11 @@
       "undefined" : "True if system falls under AI Act Annex III high-risk categories"
     },
     "attributes" : [ "datatype" ],
-    "id" : "112"
+    "id" : "111"
   }, {
     "iri" : "https://w3id.org/mailo#triggeredBy",
     "baseIri" : "https://w3id.org/mailo",
-    "range" : "111",
+    "range" : "113",
     "label" : {
       "IRI-based" : "triggeredBy"
     },
@@ -5982,6 +5982,20 @@
     "attributes" : [ "object" ],
     "id" : "133"
   }, {
+    "iri" : "https://w3id.org/mailo#riskLevel",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "135",
+    "label" : {
+      "IRI-based" : "riskLevel",
+      "en" : "risk level"
+    },
+    "domain" : "76",
+    "comment" : {
+      "undefined" : "CRITICAL | HIGH | MEDIUM | LOW"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "134"
+  }, {
     "iri" : "https://w3id.org/mailo#conflictsWith",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "56",
@@ -5995,7 +6009,7 @@
       "undefined" : "Article conflicts with another"
     },
     "attributes" : [ "symmetric", "object" ],
-    "id" : "134"
+    "id" : "136"
   }, {
     "iri" : "https://w3id.org/mailo#hasConformityRecord",
     "baseIri" : "https://w3id.org/mailo",
@@ -6009,21 +6023,7 @@
       "undefined" : "Links system to its conformity record"
     },
     "attributes" : [ "object" ],
-    "id" : "135"
-  }, {
-    "iri" : "https://w3id.org/mailo#riskLevel",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "137",
-    "label" : {
-      "IRI-based" : "riskLevel",
-      "en" : "risk level"
-    },
-    "domain" : "76",
-    "comment" : {
-      "undefined" : "CRITICAL | HIGH | MEDIUM | LOW"
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "136"
+    "id" : "137"
   }, {
     "iri" : "https://w3id.org/mailo#caseDate",
     "baseIri" : "https://w3id.org/mailo",
@@ -6078,6 +6078,20 @@
     "attributes" : [ "datatype" ],
     "id" : "146"
   }, {
+    "iri" : "https://w3id.org/mailo#statusVerifiedAsAt",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "150",
+    "label" : {
+      "IRI-based" : "statusVerifiedAsAt",
+      "en" : "status verified as at"
+    },
+    "domain" : "43",
+    "comment" : {
+      "en" : "The date on which the legislative status recorded here was checked against a source. A status assertion without this date is not auditable and should not be relied on."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "149"
+  }, {
     "iri" : "https://w3id.org/mailo#hasPurposeLimitation",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "140",
@@ -6091,21 +6105,7 @@
       "undefined" : "Tri-level proportionality (b): purpose limitation"
     },
     "attributes" : [ "datatype" ],
-    "id" : "149"
-  }, {
-    "iri" : "https://w3id.org/mailo#statusVerifiedAsAt",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "151",
-    "label" : {
-      "IRI-based" : "statusVerifiedAsAt",
-      "en" : "status verified as at"
-    },
-    "domain" : "43",
-    "comment" : {
-      "en" : "The date on which the legislative status recorded here was checked against a source. A status assertion without this date is not auditable and should not be relied on."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "150"
+    "id" : "151"
   }, {
     "range" : "87",
     "domain" : "89",
@@ -6205,8 +6205,8 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "165"
   }, {
-    "range" : "24",
-    "domain" : "25",
+    "range" : "21",
+    "domain" : "22",
     "attributes" : [ "anonymous", "object" ],
     "id" : "166"
   }, {
@@ -6248,7 +6248,7 @@
     "id" : "170"
   }, {
     "domain" : "63",
-    "range" : "14",
+    "range" : "13",
     "id" : "171",
     "label" : {
       "IRI-based" : "40",
@@ -6282,6 +6282,20 @@
     "attributes" : [ "datatype" ],
     "id" : "175"
   }, {
+    "iri" : "https://w3id.org/mailo#proposedEffect",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "178",
+    "label" : {
+      "IRI-based" : "proposedEffect",
+      "en" : "proposed effect"
+    },
+    "domain" : "43",
+    "comment" : {
+      "en" : "What the proposal would do to the provision, in the drafter's own terms."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "177"
+  }, {
     "iri" : "https://w3id.org/mailo#ecliIdentifier",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "148",
@@ -6293,24 +6307,10 @@
       "undefined" : "ECLI case identifier"
     },
     "attributes" : [ "datatype" ],
-    "id" : "177"
-  }, {
-    "iri" : "https://w3id.org/mailo#proposedEffect",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "179",
-    "label" : {
-      "IRI-based" : "proposedEffect",
-      "en" : "proposed effect"
-    },
-    "domain" : "43",
-    "comment" : {
-      "en" : "What the proposal would do to the provision, in the drafter's own terms."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "178"
+    "id" : "179"
   }, {
     "domain" : "63",
-    "range" : "13",
+    "range" : "14",
     "id" : "181",
     "label" : {
       "IRI-based" : "39",
@@ -6388,7 +6388,7 @@
     "id" : "189"
   }, {
     "range" : "19",
-    "domain" : "24",
+    "domain" : "21",
     "attributes" : [ "anonymous", "object" ],
     "id" : "190"
   }, {
@@ -6628,19 +6628,6 @@
     "attributes" : [ "object" ],
     "id" : "224"
   }, {
-    "iri" : "https://w3id.org/mailo#hasObligation",
-    "baseIri" : "https://w3id.org/mailo",
-    "range" : "40",
-    "label" : {
-      "IRI-based" : "hasObligation"
-    },
-    "domain" : "2",
-    "comment" : {
-      "undefined" : "Framework imposes an obligation"
-    },
-    "attributes" : [ "object" ],
-    "id" : "225"
-  }, {
     "iri" : "https://w3id.org/mailo#mitigatedBy",
     "baseIri" : "https://w3id.org/mailo",
     "range" : "40",
@@ -6651,6 +6638,19 @@
     "domain" : "76",
     "comment" : {
       "undefined" : "Risk mitigated by obligation"
+    },
+    "attributes" : [ "object" ],
+    "id" : "225"
+  }, {
+    "iri" : "https://w3id.org/mailo#hasObligation",
+    "baseIri" : "https://w3id.org/mailo",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "hasObligation"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Framework imposes an obligation"
     },
     "attributes" : [ "object" ],
     "id" : "226"
