@@ -33,7 +33,7 @@ mailo: a owl:Ontology ;
     dcterms:creator "Victor Kao" ;
     dcterms:description "OWL ontology mapping EU regulatory frameworks (GDPR, AI Act, MDR, PLD, EHDS, DGA, Data Act) to medical AI automated decision-making, CJEU case law, UPC patent litigation, and compliance obligations." ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-09-14"^^xsd:date ;
+    dcterms:modified "2026-09-17"^^xsd:date ;
     dcterms:publisher "KU Leuven, Faculty of Engineering Science" ;
     dcterms:title "Medical AI Legal Ontology (MAILO)" ;
     rdfs:comment "Version 5.0.2 (patch): corrected the ECLI recorded for C-203/22 (Dun & Bradstreet Austria) from the erroneous ECLI:EU:C:2025:145 to the correct ECLI:EU:C:2025:117."@en,
@@ -62,10 +62,11 @@ DEFERRED ITEMS NOW CLOSED. (a) Annex I is no longer treated as a single set: Ann
 
 METADATA AND PROVENANCE. The ECLIs for C-201/14, C-311/18 and C-511/18 were withheld in v5.2.0 rather than supplied from memory, since asserting an identifier from recall is the error class that produced the original C-203/22 defect; they are now added, each verified against InfoCuria or EUR-Lex and an independent secondary source, and they pass the citation-chronology constraint. The misspelled class mailo:EPOProceding is deprecated in favour of mailo:EPOProceeding, declared equivalent, with instances typed against both; renaming a published IRI would break every reference to it. P_634_004 is marked unanchored, and the art22ExceptionApplied comment, which had presented that reading as a holding of C-634/21, is reworded. Two triggeredBy edges left doubled by the v5.2.1 simplification were removed with their orphaned amendment nodes, and three dangling nodes were connected: Sanofi and Amgen as parties to UPC_Sanofi_Amgen, and EP 3 435 866 to UPC_Dexcom_Abbott.
 
-STILL OPEN. The unverified substantive assertions on UPC_10x_NanoString, UPC_Dexcom_Abbott and UPC_Sanofi_Amgen; the holding recorded for P_Bara_001; the conceptual confusion flagged on Tension_BlackBox_PatentProtection, which treats patent protection as an incentive to secrecy where a patent in fact requires disclosure; and independent expert review, which no finding in this or either preceding corrective release has received."""@en ;
-    owl:priorVersion <https://w3id.org/mailo/5.2.1> ;
-    owl:versionIRI <https://w3id.org/mailo/5.2.2> ;
-    owl:versionInfo "5.2.2" .
+STILL OPEN. The unverified substantive assertions on UPC_10x_NanoString, UPC_Dexcom_Abbott and UPC_Sanofi_Amgen; the holding recorded for P_Bara_001; the conceptual confusion flagged on Tension_BlackBox_PatentProtection, which treats patent protection as an incentive to secrecy where a patent in fact requires disclosure; and independent expert review, which no finding in this or either preceding corrective release has received."""@en,
+        "Version 5.2.3 (patch): canonical serialisation and residual consistency repair. AI Act RegulationVersion intervals were corrected to the exclusive-end convention [start, end) used elsewhere in the graph: AIAct_v1_ProhibitedPractices now ends 2025-08-02 rather than 2025-08-01, and AIAct_v2_GPAIModelObligations now ends 2026-07-27 rather than 2026-07-31, so the three AI Act intervals abut exactly at [2025-02-02, 2025-08-02), [2025-08-02, 2026-07-27) and [2026-07-27, ...). The end values had been recorded as inclusive last-days, which left a one-day and a four-day gap against the following start dates. The withdrawal of the AI Liability Directive proposal was recorded as 2025-02-10; February 2025 is when the Commission Work Programme listed the intended withdrawal, while formal withdrawal followed on 6 OCTOBER 2025, which is the operative date and is now recorded as such. The four root serialisations were regenerated from the canonical Turtle and synchronised to their docs/ copies. No class, property, individual or SHACL constraint was added, removed or altered, and mailo_shacl_shapes.ttl keeps its own version lineage."@en ;
+    owl:priorVersion <https://w3id.org/mailo/5.2.2> ;
+    owl:versionIRI <https://w3id.org/mailo/5.2.3> ;
+    owl:versionInfo "5.2.3" .
 
 mailo:AIAct_2024_1689 a mailo:EURegulation ;
     rdfs:label "AI Act 2024/1689 (deprecated identifier)"@en ;
@@ -1088,7 +1089,7 @@ mailo:AIAct_v1_ProhibitedPractices a mailo:RegulationVersion ;
     mailo:applicablePhase "prohibited_practices_and_general" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v1_ProhibitedPractices ;
-    mailo:versionEndDate "2025-08-01"^^xsd:date ;
+    mailo:versionEndDate "2025-08-02"^^xsd:date ;
     mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2025-02-02"^^xsd:date .
 
@@ -1097,7 +1098,7 @@ mailo:AIAct_v2_GPAIModelObligations a mailo:RegulationVersion ;
     mailo:applicablePhase "gpai_model_obligations" ;
     mailo:isCurrentVersion false ;
     mailo:triggeredBy mailo:Amend_AIAct_v2_GPAIModelObligations ;
-    mailo:versionEndDate "2026-07-31"^^xsd:date ;
+    mailo:versionEndDate "2026-07-27"^^xsd:date ;
     mailo:versionOf mailo:AIAct ;
     mailo:versionStartDate "2025-08-02"^^xsd:date .
 
@@ -1999,7 +2000,7 @@ mailo:PLD a mailo:EUDirective,
     eli:id_local "32024L2853" ;
     dcterms:date "2024-10-23"^^xsd:date ;
     dcterms:identifier "2024/2853/EU" ;
-    rdfs:comment "Revised Product Liability Directive. AILD was withdrawn 2025-02-10; PLD 2024 is the operative EU strict-liability instrument for AI systems as 'products'."@en ;
+    rdfs:comment "Revised Product Liability Directive. The AI Liability Directive proposal was listed for intended withdrawal in the Commission Work Programme of February 2025 and formally withdrawn on 6 October 2025; the operative withdrawal date is 2025-10-06. PLD 2024 is therefore the EU strict-liability instrument for AI systems as 'products'."@en ;
     mailo:coversArticle mailo:PLD_Art10,
         mailo:PLD_Art11,
         mailo:PLD_Art4,

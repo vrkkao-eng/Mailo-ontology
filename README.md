@@ -3,7 +3,7 @@
 An OWL 2 knowledge graph of EU regulatory obligations bearing on medical AI systems, with SHACL
 constraints that make a subset of those obligations machine-checkable.
 
-**Current release: v5.2.2** · 1,945 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
+**Current release: v5.2.3** · 1,946 triples · [`https://w3id.org/mailo#`](https://w3id.org/mailo)
 · documentation: [`index-en.html`](https://vrkkao-eng.github.io/Mailo-ontology/index-en.html)
 
 ---
@@ -12,7 +12,7 @@ constraints that make a subset of those obligations machine-checkable.
 
 | | |
 |---|---|
-| Triples | 1,945 |
+| Triples | 1,946 |
 | OWL classes | 65 |
 | Object / datatype properties | 43 / 39 |
 | Legal articles | 76 |
@@ -115,10 +115,31 @@ needed, cite the tag: each row below is an immutable snapshot.
 
 | Version | Tag | Triples | SHACL node shapes |
 |---|---|---|---|
+| v5.2.3 | [`v5.2.3`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.3) | 1,946 | 19 |
 | v5.2.2 | [`v5.2.2`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.2) | 1,945 | 19 |
 | v5.2.1 | [`v5.2.1`](https://github.com/vrkkao-eng/Mailo-ontology/tree/v5.2.1) | 1,904 | 19 |
 | v5.2.0 | [`5.2.0`](https://github.com/vrkkao-eng/Mailo-ontology/tree/5.2.0) | 1,859 | 19 |
 | v5.1.0 | commit [`cc74e45`](https://github.com/vrkkao-eng/Mailo-ontology/tree/cc74e45477dfe541c5c0a849d9174122af053839) | 1,690 | 19 |
+
+### v5.2.3 — canonical serialisation and residual consistency repair
+
+Literal and metadata corrections only. No class, property, individual or SHACL constraint was
+added, removed or altered.
+
+**AI Act intervals** now follow the exclusive-end convention `[start, end)` used elsewhere in the
+graph. `AIAct_v1_ProhibitedPractices` ends 2025-08-02 (was 2025-08-01) and
+`AIAct_v2_GPAIModelObligations` ends 2026-07-27 (was 2026-07-31), so the three intervals abut
+exactly: `[2025-02-02, 2025-08-02)`, `[2025-08-02, 2026-07-27)`, `[2026-07-27, …)`. The end values
+had been written as inclusive last-days, which left a one-day and a four-day gap against the
+following start dates — harmless to read, wrong to query.
+
+**AILD withdrawal date.** The graph recorded 2025-02-10. That is when the Commission Work
+Programme listed the intended withdrawal; the formal withdrawal followed on **6 October 2025**,
+which is the operative date and is now recorded as such.
+
+**Serialisations** regenerated from canonical Turtle and synchronised to `docs/`; all four graphs
+verified isomorphic at 1,946 triples. `mailo_shacl_shapes.ttl` is untouched and keeps its own
+version lineage.
 
 ### v5.2.2 — post-Omnibus correction and deferred modelling
 
@@ -208,7 +229,7 @@ to v5.2.2, which closes all four.
 
 Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.2. https://w3id.org/mailo#
+> Kao, C.-H. *MAILO — Medical AI Legal Ontology*, v5.2.3. https://w3id.org/mailo#
 
 Developed at KU Leuven, Faculty of Engineering Science. Documentation generated with
 [WIDOCO](https://github.com/dgarijo/Widoco); see [`docs/readme.md`](docs/readme.md) for
